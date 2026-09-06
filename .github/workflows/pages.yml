@@ -20,12 +20,11 @@ jobs:
       - name: One-time import of verified PUBLIC compiled artifact only
         if: hashFiles('site/release.json') == ''
         env:
-          COMPILED_ARTIFACT_URL: 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-9258-81f4-aac7-09519e9ac2b9/raw?se=2026-09-06T21%3A04%3A03Z&sp=r&sv=2026-02-06&sr=b&scid=7676ff08-7606-5bbf-b897-61aa388b9e13&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-06T05%3A48%3A34Z&ske=2026-09-07T05%3A48%3A34Z&sks=b&skv=2026-02-06&sig=7FetJ9CB5dV1nZoOtKuFNPJqCshynUf9JMXzdrhf8bc%3D'
+          COMPILED_ARTIFACT_URL: 'https://productionresultssa17.blob.core.windows.net/actions-results/c270ca0f-8407-4d09-92f7-9566655a21b1/workflow-job-run-8cdbe999-2559-5c7d-83e9-741b9b086eae/artifacts/b313c4ffc6d786318ece71854714d7fffa7fb69a15832844a5be0a7a7630c30f.zip?rscd=attachment%3B+filename%3D%22public-site.zip%22&rsct=application%2Fzip&se=2026-09-06T21%3A11%3A40Z&sig=17q3uEDVkFgnZUu9VreXdrg9qOVdKu1ISWk2DRVtpa8%3D&ske=2026-09-06T23%3A48%3A54Z&skoid=ca7593d4-ee42-46cd-af88-8b886a2f84eb&sks=b&skt=2026-09-06T19%3A48%3A54Z&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skv=2025-11-05&sp=r&spr=https&sr=b&st=2026-09-06T21%3A01%3A35Z&sv=2025-11-05'
         run: |
           python3 - <<'PY'
           import hashlib, io, json, os, pathlib, re, stat, urllib.request, zipfile
-          # This short-lived URL contains ONLY the approved public-site artifact.
-          # It contains no source archives, tests, project documents or credentials.
+          # Approved public-site artifact only; never private source or evidence.
           with urllib.request.urlopen(os.environ['COMPILED_ARTIFACT_URL'], timeout=30) as r:
               data = r.read(2000001)
           assert len(data) <= 2000000
