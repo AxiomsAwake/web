@@ -13,41 +13,67 @@ jobs:
   package:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          persist-credentials: false
-      - name: Verify compiled files only
+      - name: Import approved compiled hotfix only; retain previous asset generation
+        env:
+          COMPILED_URL: 'https://productionresultssa4.blob.core.windows.net/actions-results/e1a30c57-8d4a-4888-bf3b-170213171df7/workflow-job-run-66263dd4-33e0-5fa8-9ca3-25ac0c23701c/artifacts/b313c4ffc6d786318ece71854714d7fffa7fb69a15832844a5be0a7a7630c30f.zip?rscd=attachment%3B+filename%3D%22public-site.zip%22&rsct=application%2Fzip&se=2026-09-07T04%3A38%3A06Z&sig=BUDKOm%2BRddMc2hvfHCrpBqXCJtKAi5AGp5qBOrgsSYU%3D&ske=2026-09-07T05%3A53%3A36Z&skoid=ca7593d4-ee42-46cd-af88-8b886a2f84eb&sks=b&skt=2026-09-07T01%3A53%3A36Z&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skv=2025-11-05&sp=r&spr=https&sr=b&st=2026-09-07T04%3A28%3A01Z&sv=2025-11-05'
         run: |
           python3 - <<'PY'
-          import hashlib, json, pathlib, re
-          root = pathlib.Path('site')
-          assert not root.is_symlink()
-          manifest = root / 'release.json'
-          assert not manifest.is_symlink() and manifest.stat().st_size < 256000
-          m = json.loads(manifest.read_text())
-          assert m['schema'] == 1 and m['application'] == 'little-lines'
-          assert re.fullmatch('[a-f0-9]{20}', m['releaseId'])
-          rows = m['files'] + m.get('retainedFiles', [])
-          assert 1 <= len(rows) <= 256
-          expected = {'release.json'}; total = 0
-          for row in rows:
-              name = row['path']
-              assert name not in expected
-              assert name in ('index.html', 'NOTICE.txt') or re.fullmatch(r'assets/[a-z0-9_-]+\.[a-f0-9]{20}\.(js|css|svg|png|webp|avif|woff2)', name)
-              p = root / name
-              assert p.is_file() and not p.is_symlink()
-              total += p.stat().st_size
-              assert total <= 20 * 1024 * 1024 and p.stat().st_size == row['bytes']
-              assert hashlib.sha256(p.read_bytes()).hexdigest() == row['sha256']
-              expected.add(name)
-          actual = set()
-          for p in root.rglob('*'):
-              assert not p.is_symlink()
-              if p.is_file(): actual.add(p.relative_to(root).as_posix())
-          assert expected == actual and 'index.html' in expected
-          print('Verified compiled release', m['releaseId'], ':', total, 'bytes')
+          import hashlib,io,json,os,pathlib,re,shutil,stat,tempfile,urllib.request,zipfile
+          asset=re.compile(r'assets/[a-z0-9_-]+\.[a-f0-9]{20}\.(js|css|svg|png|webp|avif|woff2)$')
+          def verify(root):
+              assert not root.is_symlink()
+              p=root/'release.json';assert p.is_file() and not p.is_symlink() and p.stat().st_size<256000
+              m=json.loads(p.read_text());assert m['schema']==1 and m['application']=='little-lines'
+              assert re.fullmatch('[a-f0-9]{40}',m['sourceRevision']) and re.fullmatch('[a-f0-9]{20}',m['releaseId'])
+              rows=m['files']+m.get('retainedFiles',[]);assert 1<=len(rows)<=256
+              expected={'release.json'};total=0
+              for row in rows:
+                  name=row['path'];assert name not in expected
+                  assert name in ('index.html','NOTICE.txt') or asset.fullmatch(name)
+                  f=root/name;assert f.is_file() and not f.is_symlink() and f.resolve().is_relative_to(root.resolve())
+                  total+=f.stat().st_size;assert total<=20*1024*1024 and f.stat().st_size==row['bytes']
+                  digest=hashlib.sha256(f.read_bytes()).hexdigest();assert digest==row['sha256']
+                  if name.startswith('assets/'):assert digest[:20]==name.split('.')[-2]
+                  expected.add(name)
+              assert all(not f.is_symlink() for f in root.rglob('*'))
+              assert expected=={f.relative_to(root).as_posix() for f in root.rglob('*') if f.is_file()}
+              assert 'index.html' in expected
+              return m
+          root=pathlib.Path('site');old=verify(root)
+          if old['releaseId']!='c1cb8593c6eed9b018cf':
+              assert old['releaseId']=='c93798adc8b9c6e4a39f','Public release moved; do not overwrite concurrent work'
+              with urllib.request.urlopen(os.environ['COMPILED_URL'],timeout=30) as r:raw=r.read(2000001)
+              assert len(raw)<=2000000 and hashlib.sha256(raw).hexdigest()=='8bc51971602b7d39ec668b63edc3a672e3fa663646ab3355b9d1590a3279df7e'
+              archive=zipfile.ZipFile(io.BytesIO(raw));items=archive.infolist()
+              assert 1<=len(items)<=256 and sum(x.file_size for x in items)<=20*1024*1024
+              assert len({x.filename for x in items})==len(items)
+              with tempfile.TemporaryDirectory() as tmp:
+                  stage=pathlib.Path(tmp)
+                  for item in items:
+                      assert not item.is_dir() and not stat.S_ISLNK(item.external_attr>>16)
+                      assert item.filename in ('index.html','NOTICE.txt','release.json') or asset.fullmatch(item.filename)
+                      f=stage/item.filename;f.parent.mkdir(parents=True,exist_ok=True);f.write_bytes(archive.read(item))
+                  m=verify(stage)
+                  assert m['sourceRevision']=='b9643f74e6ffdfd207b8e3e683ff53fa0b2e9001' and m['releaseId']=='c1cb8593c6eed9b018cf'
+                  current={x['path'] for x in m['files']};m['retainedFiles']=[]
+                  for row in old['files']:
+                      name=row['path']
+                      if name.startswith('assets/') and name not in current:
+                          shutil.copy2(root/name,stage/name);m['retainedFiles'].append(row)
+                  (stage/'release.json').write_text(json.dumps(m)+'\n');verify(stage)
+                  shutil.rmtree(root);shutil.copytree(stage,root)
+          verify(root)
+          print('Verified GPS release c1cb8593c6eed9b018cf; no private source files imported')
           PY
+          git add -- site
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'release: c1cb8593c6eed9b018cf verified GPS provider-lag hotfix'
+            git push origin HEAD:main
+          fi
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
         with:
           path: site
@@ -73,7 +99,7 @@ jobs:
     timeout-minutes: 5
     permissions: {}
     steps:
-      - name: Check public game with real CDN and no private credentials
+      - name: Check public game and new GPS controls with real CDN
         env:
           PAGES_URL: ${{ needs.deploy.outputs.page_url }}
         run: |
@@ -84,7 +110,7 @@ jobs:
           node - <<'JS'
           const {chromium}=require('playwright');
           (async()=>{
-            const url=new URL(process.env.PAGES_URL);
+            const url=new URL(process.env.PAGES_URL);url.searchParams.set('check',process.env.GITHUB_SHA);
             if(url.protocol!=='https:')throw Error('Public game must use HTTPS');
             const browser=await chromium.launch({args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
             try {
@@ -93,8 +119,9 @@ jobs:
               await page.goto(url.href,{waitUntil:'domcontentloaded'});
               await page.waitForFunction(()=>window.LittleLines?.modes && document.querySelector('#loading').style.display==='none',null,{timeout:90000});
               const stats=await page.evaluate(()=>LittleLines.modes.stats());
-              if(errors.length||stats.mode!=='simulation'||stats.buses!==19)throw Error(JSON.stringify({errors,stats}));
-              console.log(JSON.stringify({publicURL:url.href,browser:browser.version(),mode:stats.mode,buses:stats.buses,errors}));
+              const delayed=await page.evaluate(()=>!!document.querySelector('#gps-delayed') && LittleLines.gps.health.allowDelayed===false);
+              if(errors.length||stats.mode!=='simulation'||stats.buses!==19||!delayed)throw Error(JSON.stringify({errors,stats,delayed}));
+              console.log(JSON.stringify({publicURL:url.href,browser:browser.version(),mode:stats.mode,buses:stats.buses,delayedGPSControl:delayed,errors}));
             } finally {await browser.close();}
           })().catch(e=>{console.error(e);process.exitCode=1;});
           JS
