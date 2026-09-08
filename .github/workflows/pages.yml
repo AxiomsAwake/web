@@ -93,7 +93,7 @@ jobs:
               await page.goto(url.href,{waitUntil:'domcontentloaded'});
               await page.waitForFunction(()=>window.LittleLines?.modes && document.querySelector('#loading').style.display==='none',null,{timeout:90000});
               const stats=await page.evaluate(()=>LittleLines.modes.stats());
-              const delayed=await page.evaluate(()=>!!document.querySelector('#gps-delayed') && LittleLines.gps.health.allowDelayed===false);
+              const delayed=await page.evaluate(()=>!!document.querySelector('#gps-delayed') && LittleLines.gps.health.allowDelayed===true);
               if(errors.length||stats.mode!=='simulation'||stats.buses!==19||!delayed)throw Error(JSON.stringify({errors,stats,delayed}));
               console.log(JSON.stringify({publicURL:url.href,browser:browser.version(),mode:stats.mode,buses:stats.buses,delayedGPSControl:delayed,errors}));
             } finally {await browser.close();}
