@@ -88,7 +88,7 @@ runs:
       run: |
         set -euo pipefail
         python3 -m venv "$WORK/venv"
-        "$WORK/venv/bin/python" -m pip install --disable-pip-version-check --no-input playwright==1.55.1
+        "$WORK/venv/bin/python" -m pip install --disable-pip-version-check --no-input playwright==1.57.0
         if [[ "$RUNNER_ENVIRONMENT" == github-hosted ]]; then
           "$WORK/venv/bin/python" -m playwright install --with-deps chromium
         else

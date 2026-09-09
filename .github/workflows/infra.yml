@@ -35,7 +35,7 @@ jobs:
       - name: Prepare browser runner
         run: |
           python3 -m venv "$RUNNER_TEMP/infra-python"
-          "$RUNNER_TEMP/infra-python/bin/python" -m pip install playwright==1.55.1
+          "$RUNNER_TEMP/infra-python/bin/python" -m pip install playwright==1.57.0
           "$RUNNER_TEMP/infra-python/bin/python" -m playwright install --with-deps chromium
       - name: Verify desktop and touch-sized subpath interaction and reload
         run: '"$RUNNER_TEMP/infra-python/bin/python" tools/smoke.py --site alpha --payload fixture --candidate fixture-candidate.json --output evidence'
