@@ -1,0 +1,48 @@
+name: Publishing infrastructure
+on:
+  push:
+    branches: [main]
+    paths: ['tools/**', 'tests/**', 'catalog/**', '.github/actions/**', '.github/workflows/infra.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publishing-infrastructure
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Test independent and racing publications with real Git repositories
+        run: python3 -m unittest discover -s tests -v
+      - name: Create an isolated browser fixture
+        run: |
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path[:0] = ['tools', 'tests']
+          from test_publishing import payload, candidate
+          from contract import write_json
+          p = payload(Path('fixture'))
+          c = candidate(p)
+          c['smoke'] = {'ready_selector': '#play', 'steps': [{'click': '#play'}], 'assert_selector': 'body[data-played="yes"]', 'touch': True}
+          write_json(Path('fixture-candidate.json'), c)
+          PY
+      - name: Prepare browser runner
+        run: |
+          python3 -m venv "$RUNNER_TEMP/infra-python"
+          "$RUNNER_TEMP/infra-python/bin/python" -m pip install playwright==1.55.1
+          "$RUNNER_TEMP/infra-python/bin/python" -m playwright install --with-deps chromium
+      - name: Verify desktop and touch-sized subpath interaction and reload
+        run: '"$RUNNER_TEMP/infra-python/bin/python" tools/smoke.py --site alpha --payload fixture --candidate fixture-candidate.json --output evidence'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: publishing-infrastructure-evidence
+          path: evidence/
+          if-no-files-found: ignore
+          retention-days: 7
