@@ -1,138 +1,48 @@
-name: Deploy compiled Little Lines
+name: Deploy all public sub-sites
 on:
   push:
     branches: [main]
-    paths: ['site/**', '.github/workflows/pages.yml']
+    paths: ['site/**', 'releases/**', 'catalog/**', 'tools/**', 'tests/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: github-pages
-  cancel-in-progress: true
-defaults:
-  run:
-    shell: bash
+  group: axioms-web-pages
+  cancel-in-progress: false
 jobs:
-  package:
-    runs-on: self-hosted
-    timeout-minutes: 5
-    steps:
-      - name: Require an ordinary-user runner
-        run: |
-          if [ "$(id -u)" -eq 0 ]; then
-            echo "Refusing root execution. Use an ordinary-user runner." >&2
-            exit 1
-          fi
-          : "${RUNNER_TOOL_CACHE:?Runner-local tool cache is required}"
-          printf 'npm_config_cache=%s\n' "$RUNNER_TOOL_CACHE/little-lines-public/npm" >> "$GITHUB_ENV"
-          printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "$RUNNER_TOOL_CACHE/little-lines-public/playwright" >> "$GITHUB_ENV"
-          printf 'npm_config_userconfig=/dev/null\n' >> "$GITHUB_ENV"
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          persist-credentials: false
-      - name: Verify compiled files only
-        run: |
-          python3 - <<'PY'
-          import hashlib, json, pathlib, re
-          root = pathlib.Path('site')
-          assert not root.is_symlink()
-          manifest = root / 'release.json'
-          assert not manifest.is_symlink() and manifest.stat().st_size < 256000
-          m = json.loads(manifest.read_text())
-          assert m['schema'] == 1 and m['application'] == 'little-lines'
-          assert re.fullmatch('[a-f0-9]{20}', m['releaseId'])
-          rows = m['files'] + m.get('retainedFiles', [])
-          assert 1 <= len(rows) <= 256
-          expected = {'release.json'}; total = 0
-          for row in rows:
-              name = row['path']
-              assert name not in expected
-              assert name in ('index.html', 'NOTICE.txt') or re.fullmatch(r'assets/[a-z0-9_-]+\.[a-f0-9]{20}\.(js|css|svg|png|webp|avif|woff2)', name)
-              p = root / name
-              assert p.is_file() and not p.is_symlink()
-              total += p.stat().st_size
-              assert total <= 20 * 1024 * 1024 and p.stat().st_size == row['bytes']
-              assert hashlib.sha256(p.read_bytes()).hexdigest() == row['sha256']
-              expected.add(name)
-          actual = set()
-          for p in root.rglob('*'):
-              assert not p.is_symlink()
-              if p.is_file(): actual.add(p.relative_to(root).as_posix())
-          assert expected == actual and 'index.html' in expected
-          print('Verified compiled release', m['releaseId'], ':', total, 'bytes')
-          PY
-      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
-        with:
-          path: site
   deploy:
-    outputs:
-      page_url: ${{ steps.deployment.outputs.page_url }}
-    needs: package
-    runs-on: self-hosted
-    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Require an ordinary-user runner
-        run: |
-          if [ "$(id -u)" -eq 0 ]; then
-            echo "Refusing root execution. Use an ordinary-user runner." >&2
-            exit 1
-          fi
-          : "${RUNNER_TOOL_CACHE:?Runner-local tool cache is required}"
-          printf 'npm_config_cache=%s\n' "$RUNNER_TOOL_CACHE/little-lines-public/npm" >> "$GITHUB_ENV"
-          printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "$RUNNER_TOOL_CACHE/little-lines-public/playwright" >> "$GITHUB_ENV"
-          printf 'npm_config_userconfig=/dev/null\n' >> "$GITHUB_ENV"
-      - name: Deploy exact compiled artifact
+      - name: Resolve current main after acquiring the deployment slot
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Verify publication contract and collision regressions
+        run: python3 -m unittest discover -s tests -v
+      - name: Assemble every accepted output without rebuilding any game
+        run: python3 tools/publish.py assemble --output _site --commit "$(git rev-parse HEAD)"
+      - name: Upload one complete static site
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
+        with:
+          path: _site
+      - name: Deploy exact assembled snapshot
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
-  smoke:
-    needs: deploy
-    runs-on: self-hosted
-    timeout-minutes: 5
-    permissions: {}
-    steps:
-      - name: Require an ordinary-user runner
-        run: |
-          if [ "$(id -u)" -eq 0 ]; then
-            echo "Refusing root execution. Use an ordinary-user runner." >&2
-            exit 1
-          fi
-          : "${RUNNER_TOOL_CACHE:?Runner-local tool cache is required}"
-          printf 'npm_config_cache=%s\n' "$RUNNER_TOOL_CACHE/little-lines-public/npm" >> "$GITHUB_ENV"
-          printf 'PLAYWRIGHT_BROWSERS_PATH=%s\n' "$RUNNER_TOOL_CACHE/little-lines-public/playwright" >> "$GITHUB_ENV"
-          printf 'npm_config_userconfig=/dev/null\n' >> "$GITHUB_ENV"
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
-        with:
-          node-version: '22.16.0'
-      - name: Check public game and GPS controls with real CDN and no private credentials
+      - name: Verify live deployment and sub-site identities
         env:
-          PAGES_URL: ${{ needs.deploy.outputs.page_url }}
+          WEB_BASE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python3 tools/publish.py check-live --output _site
+      - name: Report verified deployment
         run: |
-          smoke_dir="$RUNNER_TEMP/public-smoke-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
-          mkdir -p "$smoke_dir"
-          npm install --prefix "$smoke_dir" --no-save --ignore-scripts --no-audit --no-fund playwright@1.55.1
-          cd "$smoke_dir"
-          npx --no-install playwright install chromium
-          node - <<'JS'
-          const {chromium}=require('playwright');
-          (async()=>{
-            const url=new URL(process.env.PAGES_URL);url.searchParams.set('check',process.env.GITHUB_SHA);
-            if(url.protocol!=='https:')throw Error('Public game must use HTTPS');
-            const browser=await chromium.launch({args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
-            try {
-              const page=await browser.newPage();const errors=[];
-              page.on('pageerror',e=>errors.push(e.message));
-              await page.goto(url.href,{waitUntil:'domcontentloaded'});
-              await page.waitForFunction(()=>window.LittleLines?.modes && document.querySelector('#loading').style.display==='none',null,{timeout:90000});
-              const stats=await page.evaluate(()=>LittleLines.modes.stats());
-              const delayed=await page.evaluate(()=>!!document.querySelector('#gps-delayed') && LittleLines.gps.health.allowDelayed===true);
-              if(errors.length||stats.mode!=='simulation'||stats.buses!==19||!delayed)throw Error(JSON.stringify({errors,stats,delayed}));
-              console.log(JSON.stringify({publicURL:url.href,browser:browser.version(),mode:stats.mode,buses:stats.buses,delayedGPSControl:delayed,errors}));
-            } finally {await browser.close();}
-          })().catch(e=>{console.error(e);process.exitCode=1;});
-          JS
+          echo '## Public site deployed and identity-checked' >> "$GITHUB_STEP_SUMMARY"
+          echo "Source snapshot: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+          echo 'This checks serving identity, not full gameplay or physical-device compatibility.' >> "$GITHUB_STEP_SUMMARY"
