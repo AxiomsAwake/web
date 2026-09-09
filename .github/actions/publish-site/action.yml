@@ -1,0 +1,161 @@
+name: Publish an owned Axioms Awake sub-site
+description: Verify a passing source artifact, test its subpath, and update only its registered public folder.
+inputs:
+  site:
+    description: Registered site ID (also the owned folder)
+    required: true
+  source-run-id:
+    description: Exact successful main-branch build run
+    required: true
+  token:
+    description: Optional Contents-write token restricted to AxiomsAwake/web
+    required: false
+  app-id:
+    description: Optional publishing GitHub App ID
+    required: false
+  app-private-key:
+    description: Optional publishing GitHub App private key
+    required: false
+  base-url:
+    description: Public base URL, including the project prefix
+    default: https://axiomsawake.github.io/web/
+outputs:
+  status:
+    description: Repository publication disposition
+    value: ${{ steps.promote.outputs.status }}
+  url:
+    description: Public sub-site URL (see live-status for verification)
+    value: ${{ steps.promote.outputs.url }}
+  web-commit:
+    description: Accepted destination commit
+    value: ${{ steps.promote.outputs.web_commit }}
+  live-status:
+    description: Public serving verification disposition
+    value: ${{ steps.live.outputs.live_status }}
+runs:
+  using: composite
+  steps:
+    - name: Allocate isolated publication workspace
+      id: work
+      shell: bash
+      env:
+        SITE_ID: ${{ inputs.site }}
+        RUNNER_ENVIRONMENT: ${{ runner.environment }}
+      run: |
+        set -euo pipefail
+        [[ "$SITE_ID" =~ ^[a-z][a-z0-9-]{0,47}$ ]] || exit 1
+        python3 -c 'import sys; assert sys.version_info >= (3,10), "Python 3.10+ required"'
+        if [[ "$RUNNER_ENVIRONMENT" == self-hosted ]]; then
+          [[ "$(id -u)" != 0 ]] || { echo 'Use an ordinary-user runner, not root.' >&2; exit 1; }
+          : "${RUNNER_TOOL_CACHE:?Set the ordinary-user runner tool cache}"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TOOL_CACHE/axioms-web/playwright" >> "$GITHUB_ENV"
+        else
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/axioms-web-playwright" >> "$GITHUB_ENV"
+        fi
+        work="$(mktemp -d "$RUNNER_TEMP/axioms-web-$SITE_ID.XXXXXX")"
+        echo "path=$work" >> "$GITHUB_OUTPUT"
+    - name: Verify exact source run and explicitly selected artifact
+      id: resolve
+      shell: bash
+      env:
+        SOURCE_TOKEN: ${{ github.token }}
+        SITE_ID: ${{ inputs.site }}
+        SOURCE_RUN: ${{ inputs.source-run-id }}
+        WORK: ${{ steps.work.outputs.path }}
+        ACTION_ROOT: ${{ github.action_path }}
+      run: python3 "$ACTION_ROOT/../../../tools/publish.py" resolve --site "$SITE_ID" --run-id "$SOURCE_RUN" --candidate "$WORK/candidate.json"
+    - name: Download only the verified artifact ID
+      uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+      with:
+        artifact-ids: ${{ steps.resolve.outputs.artifact_id }}
+        merge-multiple: true
+        path: ${{ steps.work.outputs.path }}/incoming
+        repository: ${{ github.repository }}
+        run-id: ${{ steps.resolve.outputs.source_run }}
+        github-token: ${{ github.token }}
+    - name: Stage only the producer-approved public files
+      shell: bash
+      env:
+        SOURCE_TOKEN: ${{ github.token }}
+        WORK: ${{ steps.work.outputs.path }}
+        ACTION_ROOT: ${{ github.action_path }}
+      run: python3 "$ACTION_ROOT/../../../tools/publish.py" stage --candidate "$WORK/candidate.json" --artifact "$WORK/incoming" --payload "$WORK/payload"
+    - name: Prepare isolated browser checker
+      shell: bash
+      env:
+        WORK: ${{ steps.work.outputs.path }}
+        RUNNER_ENVIRONMENT: ${{ runner.environment }}
+      run: |
+        set -euo pipefail
+        python3 -m venv "$WORK/venv"
+        "$WORK/venv/bin/python" -m pip install --disable-pip-version-check --no-input playwright==1.55.1
+        if [[ "$RUNNER_ENVIRONMENT" == github-hosted ]]; then
+          "$WORK/venv/bin/python" -m playwright install --with-deps chromium
+        else
+          "$WORK/venv/bin/python" -m playwright install chromium
+        fi
+    - name: Check final sub-site prefix and declared interactions without publishing credentials
+      shell: bash
+      env:
+        WORK: ${{ steps.work.outputs.path }}
+        ACTION_ROOT: ${{ github.action_path }}
+        SITE_ID: ${{ inputs.site }}
+      run: '"$WORK/venv/bin/python" "$ACTION_ROOT/../../../tools/smoke.py" --site "$SITE_ID" --payload "$WORK/payload" --candidate "$WORK/candidate.json" --output "$WORK/evidence"'
+    - name: Retain private browser evidence
+      if: always() && steps.work.outputs.path != ''
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      with:
+        name: web-smoke-${{ inputs.site }}-${{ github.run_attempt }}
+        path: ${{ steps.work.outputs.path }}/evidence/
+        if-no-files-found: ignore
+        retention-days: 7
+    - name: Require publication credentials
+      shell: bash
+      env:
+        APP_ID: ${{ inputs.app-id }}
+        APP_KEY: ${{ inputs.app-private-key }}
+        TOKEN: ${{ inputs.token }}
+      run: |
+        if [[ -z "$TOKEN" && ( -z "$APP_ID" || -z "$APP_KEY" ) ]]; then
+          echo 'Configure WEB_PUBLISH_APP_ID + WEB_PUBLISH_APP_PRIVATE_KEY, or PUBLIC_RELEASE_TOKEN (Contents write on AxiomsAwake/web). Never paste secrets into chat.' >&2
+          exit 1
+        fi
+    - name: Mint token restricted to the public destination
+      id: app
+      if: inputs.app-id != '' && inputs.app-private-key != ''
+      uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349
+      with:
+        app-id: ${{ inputs.app-id }}
+        private-key: ${{ inputs.app-private-key }}
+        owner: AxiomsAwake
+        repositories: web
+        permission-contents: write
+    - name: Promote owned folder with optimistic conflict retries
+      id: promote
+      shell: bash
+      env:
+        SOURCE_TOKEN: ${{ github.token }}
+        PUBLIC_RELEASE_TOKEN: ${{ steps.app.outputs.token || inputs.token }}
+        WORK: ${{ steps.work.outputs.path }}
+        ACTION_ROOT: ${{ github.action_path }}
+        SITE_ID: ${{ inputs.site }}
+        WEB_BASE_URL: ${{ inputs.base-url }}
+      run: python3 "$ACTION_ROOT/../../../tools/publish.py" promote --site "$SITE_ID" --candidate "$WORK/candidate.json" --payload "$WORK/payload"
+    - name: Verify that the expected release is actually served
+      id: live
+      if: steps.promote.outputs.status == 'published' || steps.promote.outputs.status == 'unchanged'
+      shell: bash
+      env:
+        SOURCE_TOKEN: ${{ github.token }}
+        WORK: ${{ steps.work.outputs.path }}
+        ACTION_ROOT: ${{ github.action_path }}
+        SITE_ID: ${{ inputs.site }}
+        WEB_BASE_URL: ${{ inputs.base-url }}
+      run: python3 "$ACTION_ROOT/../../../tools/publish.py" wait --site "$SITE_ID" --candidate "$WORK/candidate.json"
+    - name: Remove this job's temporary payload and virtual environment
+      if: always() && steps.work.outputs.path != ''
+      shell: bash
+      env:
+        WORK: ${{ steps.work.outputs.path }}
+      run: |
+        case "$WORK" in "$RUNNER_TEMP"/axioms-web-*) rm -rf -- "$WORK";; *) exit 1;; esac
