@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "sites": {
+    "little-lines": {"producer": "AxiomsAwake/LittleLines", "enabled": true, "workflow": ".github/workflows/verify.yml", "artifact": "public-site", "title": "Little Lines", "kind": "Simulation", "description": "A miniature transit world with moving buses and explorable city layouts."},
+    "axis": {"producer": "AxiomsAwake/InterdimTicTacToe", "enabled": true, "workflow": ".github/workflows/verify.yml", "artifact": "axis-candidate", "title": "AXIS", "kind": "Strategy puzzle", "description": "Tic-tac-toe across dimensions. Play locally or challenge the computer."},
+    "romi16": {"producer": "AxiomsAwake/Romi16", "enabled": true, "workflow": ".github/workflows/ci-cd.yml", "artifact": "romi16-site-{sha}", "title": "Romi16", "kind": "Restored adventure", "description": "Michael K’s original 2001 game, restored for the browser."},
+    "earth-sim": {"producer": "AxiomsAwake/CompBioEarthSim", "enabled": true, "workflow": ".github/workflows/ci.yml", "artifact": "compbio-earth-sim-{sha}", "title": "Earth Simulation", "kind": "Cellular simulation", "description": "Explore a conceptual cellular world of terrain, climate and pollution."},
+    "crispery-room": {"producer": "AxiomsAwake/CrisperyRoom", "enabled": true, "workflow": ".github/workflows/game.yml", "artifact": "reusable-escape-room-v3", "title": "The Crispery Room", "kind": "Escape room", "description": "Investigate a familiar kitchen, operate its fixtures and solve its puzzles."},
+    "the-keepers": {"producer": "AxiomsAwake/TheKeepers", "enabled": true, "workflow": ".github/workflows/web-build.yml", "artifact": "public-web", "title": "The Keepers", "kind": "Strategy demo", "description": "An experimental command battle built with Godot."},
+    "living-worlds": {"producer": "AxiomsAwake/LivingWorlds", "enabled": false, "workflow": ".github/workflows/verify.yml", "artifact": "public-web", "title": "Living Worlds", "kind": "Pre-production", "description": "Reserved for a deliberately approved public experience; private design archives are not published."}
+  }
+}
