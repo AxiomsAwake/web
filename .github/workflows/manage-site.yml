@@ -1,0 +1,65 @@
+name: Manage one public sub-site
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Restore/unpublish/resume one site, or redeploy all currently accepted files
+        required: true
+        type: choice
+        options: [redeploy, restore, unpublish, resume]
+      site:
+        description: Registered site ID (not required for redeploy)
+        required: false
+        type: string
+      web-commit:
+        description: Full known-good web commit SHA for restore; never a source-game SHA
+        required: false
+        type: string
+permissions:
+  contents: read
+jobs:
+  manage:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Read current shared infrastructure
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Verify independent publication and restore regressions
+        run: python3 -m unittest discover -s tests -v
+      - name: Apply only the explicitly requested site operation
+        env:
+          OPERATION: ${{ inputs.operation }}
+          SITE_ID: ${{ inputs.site }}
+          REVISION: ${{ inputs.web-commit }}
+          PUBLIC_RELEASE_TOKEN: ${{ github.token }}
+          WEB_BASE_URL: ${{ vars.WEB_BASE_URL || 'https://axiomsawake.github.io/web/' }}
+        run: |
+          set -euo pipefail
+          case "$OPERATION" in
+            redeploy) echo 'Redeploying currently accepted files; no source builds or Git changes.' ;;
+            restore)
+              [[ "$SITE_ID" =~ ^[a-z][a-z0-9-]{0,47}$ ]] || exit 1
+              [[ "$REVISION" =~ ^[a-f0-9]{40}$ ]] || { echo 'Restore requires a full known-good web commit SHA.' >&2; exit 1; }
+              python3 tools/publish.py restore --site "$SITE_ID" --commit "$REVISION"
+              ;;
+            unpublish|resume)
+              [[ "$SITE_ID" =~ ^[a-z][a-z0-9-]{0,47}$ ]] || exit 1
+              python3 tools/publish.py "$OPERATION" --site "$SITE_ID"
+              ;;
+            *) echo 'Unknown operation' >&2; exit 1 ;;
+          esac
+      - name: Explicitly dispatch Pages after the management-token commit
+        # GITHUB_TOKEN pushes do not start ordinary push workflows. Dispatch is an exception.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/pages.yml/dispatches" -f ref=main
+          echo '## Deployment requested' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Check Deploy all public sub-sites for actual serving acceptance. This management job does not claim that Pages has already finished.' >> "$GITHUB_STEP_SUMMARY"
