@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:b28ac66e0515a3a025ea78e70a322b03ee4d56d4d68887e2a781fb6f81e97aeb",
-  "artifact_id": 10122160546,
+  "artifact_digest": "sha256:712d2e35c14a5fe374841c018813e67ed32791c3342d5430861590389f34679f",
+  "artifact_id": 10141259511,
   "digest": "11a1bc7fa3ec00ab69789df861541567f9672363010345afd8388dd0fdf3f4bb",
   "files": [
     {
@@ -57,7 +57,7 @@
   ],
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 34397668449,
+  "run_id": 34450282121,
   "schema": 1,
   "site": "earth-sim",
   "smoke": {
@@ -74,7 +74,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/CompBioEarthSim",
-  "source_sha": "3cf6242e144aa55f5e7cb9cfd9c9085b6ce62385",
+  "source_sha": "ef0d271fca16ef6253638d9d4d1e55aef67e9985",
   "suspended": false,
-  "watermark": "3cf6242e144aa55f5e7cb9cfd9c9085b6ce62385"
+  "watermark": "ef0d271fca16ef6253638d9d4d1e55aef67e9985"
 }
