@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:9c48f8001fd23d073f3427d9071ffbd75595341a9604ad386cfec864a3438fb1",
-  "artifact_id": 10122116159,
-  "digest": "969dc154dc6a94a71205f1a96b1ec5a37586cf0c68d95f9d42965b03da518475",
+  "artifact_digest": "sha256:ae9fbfa523fbe09c462d7ce4f261ae4485b7d1606bb55696b6df0a86b3942a8e",
+  "artifact_id": 10141246992,
+  "digest": "590a62064fc67181a02cddcf0d4f5ba07a4a466b504ef965d52757fb0850b245",
   "files": [
     {
       "bytes": 0,
@@ -247,7 +247,7 @@
     {
       "bytes": 185,
       "path": "build-info.json",
-      "sha256": "757ec71b1dd6a7ce44af99bc3b163b6f513594c0a3ab1955975591195e033d4e"
+      "sha256": "30d295ef7cf8986a3805d88bab56764863c4dfbdec2e9f63063c72e625281c48"
     },
     {
       "bytes": 2348,
@@ -257,7 +257,7 @@
   ],
   "retain_hashed_assets": true,
   "retained": [],
-  "run_id": 34397563339,
+  "run_id": 34450255971,
   "schema": 1,
   "site": "romi16",
   "smoke": {
@@ -271,7 +271,7 @@
     "touch": false
   },
   "source": "AxiomsAwake/Romi16",
-  "source_sha": "449f69f5beb69633e874f5aad1f88c7130721dc6",
+  "source_sha": "f2dc8f015e58d5d565c4b397670151cafa3159fc",
   "suspended": false,
-  "watermark": "449f69f5beb69633e874f5aad1f88c7130721dc6"
+  "watermark": "f2dc8f015e58d5d565c4b397670151cafa3159fc"
 }
