@@ -1,0 +1,37 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:cd230de829d3b25983a35decfb9113dcfd9a614470815188ed1380f19eae66c1",
+  "artifact_id": 10122061228,
+  "digest": "c1952f41239a5f5c4eb873095e2ca171f218d6e7e4769f82e58c80094bebf860",
+  "files": [
+    {
+      "bytes": 125,
+      "path": "build-info.json",
+      "sha256": "c9d06e4b8b01f306db8b52d0e85900fb99107708ea99eb697d2bcf7a2fb1fef1"
+    },
+    {
+      "bytes": 126155,
+      "path": "index.html",
+      "sha256": "b4cbd3326059a9f76bb794d63d1b6bb6f8e0573fca4ce7410bef02b570df4381"
+    }
+  ],
+  "retain_hashed_assets": false,
+  "retained": [],
+  "run_id": 34397441341,
+  "schema": 1,
+  "site": "axis",
+  "smoke": {
+    "dismiss": "#introDismiss",
+    "ready_selector": ".cell:visible",
+    "steps": [
+      {
+        "click": ".cell:visible"
+      }
+    ],
+    "touch": true
+  },
+  "source": "AxiomsAwake/InterdimTicTacToe",
+  "source_sha": "0f3b7242ca7ae4b0e3b544a4e991da927da4111f",
+  "suspended": false,
+  "watermark": "0f3b7242ca7ae4b0e3b544a4e991da927da4111f"
+}
