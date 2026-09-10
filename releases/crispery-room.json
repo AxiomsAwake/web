@@ -1,0 +1,47 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:890e7d5d007801347230b95301d7c26cc9f770a11de4a4fa991b450e2a862d31",
+  "artifact_id": 10123023317,
+  "digest": "303868ad6a1fa9ccac9454d4ddff75782753cea74bc1f97047d10a9a85d43d10",
+  "files": [
+    {
+      "bytes": 2398,
+      "path": "CREDITS.md",
+      "sha256": "31a41a21ebae196ed554927f8a6e4e16b63b717c56c9c4bcc47835fc3bfedd06"
+    },
+    {
+      "bytes": 684,
+      "path": "NOTICE.txt",
+      "sha256": "a58d1f1b84b10d3c84d0a54d2bc645d029a3ba61d36db950174e2c9bb875d520"
+    },
+    {
+      "bytes": 163946,
+      "path": "index.html",
+      "sha256": "5545508166d17ad17d9d3524a4638e4ab6575ccde9c09bcd9cc954bc91ed343a"
+    },
+    {
+      "bytes": 1913008,
+      "path": "models/crispery-kitchen.glb",
+      "sha256": "13e8ce3250b390a19f36328d18040afcf1238b65d302352fba3862c1f234e73b"
+    }
+  ],
+  "retain_hashed_assets": false,
+  "retained": [],
+  "run_id": 34399029243,
+  "schema": 1,
+  "site": "crispery-room",
+  "smoke": {
+    "assert_selector": "canvas",
+    "ready_selector": "body[data-ready='true'] canvas",
+    "steps": [
+      {
+        "click": "#start-btn"
+      }
+    ],
+    "touch": true
+  },
+  "source": "AxiomsAwake/CrisperyRoom",
+  "source_sha": "9a57f0e6405499bd3f380ba1e87b9e3f55886f7e",
+  "suspended": false,
+  "watermark": "9a57f0e6405499bd3f380ba1e87b9e3f55886f7e"
+}

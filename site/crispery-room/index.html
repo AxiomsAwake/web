@@ -1,0 +1,1378 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#202b29"><title>The Crispery Room · Supper’s secret</title><meta name="description" content="An original kitchen escape room with opening drawers, a stocked fridge and cooking puzzles. Offline. No accounts. No tracking."><style>:root{--cream:#ece4cc;--gold:#c6a66a;--ink:#18231f;--red:#9a4450;--line:#e8dfc532;--muted:#b9bbaa;color-scheme:dark;font-family:Arial,Helvetica,sans-serif}*{box-sizing:border-box}body{margin:0;background:#25312d;color:var(--cream);overflow:hidden}button,input{font:inherit}button{cursor:pointer;border:1px solid var(--line);color:inherit;background:#18221db8;min-height:40px;padding:9px 15px;border-radius:3px;transition:background .15s,border-color .15s}button:hover{background:#455045;border-color:var(--gold)}button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}button:disabled{opacity:.45;cursor:default}button.primary{background:var(--cream);color:var(--ink);border-color:var(--cream);padding:16px 24px;font-weight:600}.primary:hover{background:#fff5d8}button.primary span{margin-left:45px;font-size:21px}button.text-button{display:block;border:0;background:none;padding:14px 0;font-size:12px;color:#d8d1bb;text-decoration:underline;text-underline-offset:5px}#scene{position:fixed;inset:0;width:100%;height:100%;touch-action:none;outline:none}.vignette{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 57% 45%,transparent 35%,#101c1838 75%,#0c151b99 100%),linear-gradient(0deg,#0e191de0,transparent 26%,transparent 82%,#11221f88)}.grain{position:fixed;inset:0;opacity:.035;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+#hud{position:fixed;left:34px;right:34px;top:25px;display:flex;justify-content:space-between;align-items:center;gap:20px;z-index:4}.brand{display:flex;align-items:center;gap:13px;font-size:10px;font-weight:600;letter-spacing:2.6px;text-shadow:0 2px 5px #12231e}.brand small{display:block;font-size:8px;letter-spacing:1.7px;color:#d2c9b6;margin-top:8px;font-weight:400}.brand-mark{width:39px;height:42px;border:1px solid #dac49199;display:block;font-family:Georgia,serif;font-size:29px;font-weight:400;position:relative;padding:0 5px;line-height:36px}.brand-mark span{position:absolute;font-size:21px;bottom:-1px;right:0}.tools{display:flex;gap:6px}.tools button{font-size:11px;min-height:35px;padding:8px 11px;background:#15241e8a;backdrop-filter:blur(8px)}.intro{position:fixed;z-index:3;inset:0 auto 0 0;width:56%;padding:23vh 5.8vw 0;background:linear-gradient(90deg,#14251feF 35%,#14251fb0 69%,transparent 100%)}.eyebrow{font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:600}.intro h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-2.5px;font-size:clamp(43px,5.8vw,86px);line-height:1.03;margin:25px 0 24px}.intro h1 em{color:#cdb687;font-weight:400}.intro>p{font-size:13px;line-height:1.85;color:#d1d0be;margin-bottom:25px}.intro-meta{display:flex;gap:20px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);width:max-content;font-size:8px;letter-spacing:1.4px;color:#d0c5ac}.intro .intro-controls{font-size:10px;color:#bbc2b4;margin-top:17px;line-height:1.8}.hotspot{position:fixed;z-index:2;min-height:0;width:26px;height:26px;border-radius:50%;padding:0;background:#20362c6b;border:1px solid #e4d2a3ad;box-shadow:0 0 0 5px #e9d8a414;transform:translate(-50%,-50%);font-size:0;backdrop-filter:blur(2px)}.hotspot:before{content:'';position:absolute;inset:9px;border-radius:50%;background:#f5e1ac}.hotspot span{position:absolute;top:33px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#14271fdf;font-size:10px;letter-spacing:.4px;padding:6px 9px;border:1px solid var(--line);border-radius:2px;opacity:0;pointer-events:none}.hotspot:hover span,.hotspot:focus-visible span{opacity:1}.hotspot.seen{border-color:#e4d2a365}.hotspot.seen:before{background:#d1c4a6}.hotspot[hidden]{display:none}.hotspot:focus-visible{outline-offset:5px}#bottom{position:fixed;left:34px;right:34px;bottom:17px;z-index:4}.viewbar{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:19px}.viewbar button{font-size:11px;min-height:33px;padding:7px 13px;backdrop-filter:blur(8px)}#views{display:flex;gap:5px}#views .active{background:#dbccaa;color:#28382c;border-color:#dbccaa}.guide-toggle{margin-left:13px}.inventory-wrap{border-top:1px solid var(--line);padding-top:15px;display:flex;align-items:center;gap:24px}.inventory-label{font-size:8px;letter-spacing:2px;min-width:151px}.inventory-label small{display:block;font-size:9px;letter-spacing:0;color:#b9c2b5;margin-top:6px}.inventory-item{width:105px;height:62px;padding:6px 3px;background:#16271f88;position:relative}.inventory-item .icon{font-size:23px;display:block;line-height:27px;color:var(--gold)}.inventory-item .itemname{display:block;font-size:9px;margin-top:4px}.inventory-item.selected{border-color:var(--gold);box-shadow:inset 0 -2px var(--gold)}#inventory{display:flex;gap:8px;flex:1}.empty-slot{width:62px;height:62px;border:1px solid #e4e1c320;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:14px;color:#c9d0bc35}.progress{display:flex;gap:9px;align-items:center}.progress i{width:6px;height:6px;border:1px solid #c9b88999;transform:rotate(45deg)}.progress i.done{background:#dbbc72;border-color:#dbbc72}.footerline{display:flex;justify-content:space-between;font-size:8px;letter-spacing:1.4px;color:#b5bda9;margin-top:13px}#toast{position:fixed;z-index:12;bottom:196px;left:50%;transform:translateX(-50%) translateY(5px);opacity:0;transition:opacity .2s,transform .2s;background:#16281eef;border:1px solid #c7ba8b75;max-width:620px;width:max-content;padding:13px 22px;font-size:12px;line-height:1.6;pointer-events:none;text-align:center}#toast.show{opacity:1;transform:translateX(-50%)}
+dialog{border:1px solid #bba4735c;background:linear-gradient(140deg,#29382d,#17251f);color:var(--cream);padding:24px 31px 26px;width:480px;max-width:calc(100% - 32px);max-height:calc(100% - 40px);border-radius:5px;box-shadow:0 25px 120px #07150baa;overflow:auto}dialog::backdrop{background:#0618146b;backdrop-filter:blur(6px)}.panel-top{display:flex;justify-content:space-between;align-items:center}.panel-top button{border:0;background:none;padding:0;min-height:30px;width:30px;font-size:26px;color:#c6c2ad}h2{font-family:Georgia,serif;font-weight:400;font-size:31px;letter-spacing:-.5px;margin:16px 0}#panel-body p{font-size:13px;line-height:1.8;color:#d0d3bf}#panel-body .inscription{font-family:Georgia,serif;font-size:18px;line-height:1.7;color:#e2cea2;border-left:1px solid var(--gold);padding-left:17px;margin:23px 0}#panel-feedback{font-size:12px;line-height:1.7;color:#e2c48a;margin:16px 0 0;min-height:18px}.object-art{width:100%;height:170px;display:block;margin:8px auto 15px}.object-art text{font-family:Georgia,serif;fill:#d3bb83}.panel-action{width:100%;margin-top:12px;font-size:12px}.dials{display:flex;gap:14px;justify-content:center;margin:20px 0}.dial{display:flex;flex-direction:column;align-items:center;gap:6px}.dial button{width:58px;height:53px;font-family:Georgia,serif;font-size:28px;padding:6px;border-color:#bca67377;background:#142119}.dial small{font-size:9px;letter-spacing:1px;color:#c1bea8}.dial .decrement{height:28px;min-height:28px;font-family:Arial,sans-serif;font-size:14px;padding:1px}.safe-art{display:flex;align-items:center;justify-content:center;background:#672b32;border:6px solid #a17c4a;box-shadow:0 8px 0 #15291f,inset 0 0 40px #250b1490;padding:15px 10px;margin:25px 0}.safe-art .dials{margin:0}.safe-art .dial button{background:#d5c49b;color:#28332a}.small-label{font-size:9px;letter-spacing:2px;text-align:center;color:var(--gold)}.ring-controls{display:flex;gap:9px;justify-content:center;margin:20px 0}.ring-controls button{min-width:100px;height:66px;color:var(--gold);font-family:Georgia,serif;font-size:20px}.ring-controls small{display:block;font-family:Arial,sans-serif;font-size:8px;letter-spacing:1px;margin-bottom:8px;color:#c2bfa8}.item-detail{display:flex;align-items:center;gap:24px}.item-detail .big-icon{font-size:65px;color:var(--gold)}.note-entry{border-top:1px solid var(--line);padding-top:12px;margin-top:15px}.note-entry strong{font-size:11px;letter-spacing:1px;color:#ddc598}.note-entry p{margin:7px 0}.settings-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.settings-row button{font-size:11px}.hint-count{display:flex;gap:7px;margin:20px 0}.hint-count span{width:25px;height:3px;background:#8b9870}.hint-count span.used{background:var(--gold)}.stat-row{display:flex;justify-content:space-around;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:24px 0}.stat-row strong{display:block;font-family:Georgia,serif;font-size:25px;color:var(--gold)}.stat-row small{font-size:9px;letter-spacing:1px}#model-banner{position:fixed;top:105px;left:35px;width:335px;background:#15251fe8;padding:21px 25px;border:1px solid var(--line);z-index:3}#model-banner strong{display:block;font-family:Georgia,serif;font-size:25px;font-weight:400;margin:12px 0}#model-banner p{font-size:11px;line-height:1.8;color:#c5cab5}#model-banner .eyebrow{font-size:8px;line-height:1.7}#model-banner button{font-size:10px;margin-top:6px;margin-right:5px}#fatal{position:fixed;z-index:30;inset:20%;padding:40px;background:#172c24;border:1px solid var(--gold);line-height:1.8}noscript{position:fixed;inset:40% 15%;background:#11281d;padding:30px}.danger{border-color:#c48479;color:#ebb7a7}body.model #bottom .inventory-wrap,body.model #bottom .footerline{visibility:hidden}body.model .guide-toggle{display:none}
+@media(max-width:700px){#hud{left:17px;right:17px;top:16px;gap:8px;align-items:flex-start}.brand{font-size:8px;letter-spacing:1.3px;gap:8px}.brand small{display:none}.brand-mark{width:30px;height:33px;font-size:23px;line-height:29px}.brand-mark span{font-size:16px}.tools{max-width:230px;justify-content:flex-end;flex-wrap:wrap;gap:4px}.tools button{min-height:31px;font-size:9px;padding:6px 8px}.intro{width:100%;padding:24vh 7vw 0;background:linear-gradient(90deg,#14251fde,#14251f9e 64%,#14251f22)}.intro h1{font-size:clamp(44px,10vw,69px);letter-spacing:-1.7px;margin:18px 0}.intro>p{font-size:12px;line-height:1.8;margin-bottom:21px}.intro-meta{margin-top:13px;padding-top:14px;gap:13px;font-size:7px}.intro .intro-controls{font-size:9px;margin-top:11px}#bottom{left:15px;right:15px;bottom:12px}.inventory-wrap{gap:11px;padding-top:11px}.inventory-label{min-width:70px;font-size:7px;letter-spacing:1px;max-width:80px}.inventory-label small{font-size:8px;line-height:1.4}#inventory{gap:5px}.empty-slot{width:45px;height:51px}.inventory-item{width:78px;height:54px}.inventory-item .itemname{font-size:8px}.progress{gap:5px}.progress i{width:4px;height:4px}.viewbar{gap:4px;margin-bottom:12px}.viewbar button{padding:7px 9px;font-size:9px}#views{gap:3px}.guide-toggle{margin-left:3px}.footerline{font-size:6px;letter-spacing:.8px}.footerline span:last-child{max-width:95px;text-align:right}#toast{max-width:90%;bottom:166px;font-size:11px;padding:11px 16px}dialog{padding:19px 21px;max-height:calc(100% - 30px)}h2{font-size:27px}.ring-controls button{min-width:85px}.object-art{height:151px}#model-banner{left:17px;top:98px;width:calc(100% - 34px);padding:14px 18px}#model-banner strong{font-size:21px;margin:8px 0}#model-banner p{font-size:10px;margin:7px 0}#fatal{inset:15% 5%;padding:25px}}
+@media(max-height:650px){.intro{padding-top:19vh}.intro h1{font-size:49px;margin:16px 0}.intro>p{font-size:11px;margin-bottom:15px}.intro-meta{margin-top:12px;padding-top:13px}.intro .intro-controls{margin-top:10px}.intro button.primary{padding:11px 21px}.intro .text-button{padding:10px 0}.object-art{height:130px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* The shader provides surface grain without a full-screen SVG filter cost. */
+.grain{display:none}
+
+/* Kitchen chapter: a side inspection keeps real opening mechanisms in view. */
+.intro h1{font-size:clamp(57px,6.4vw,96px)}
+#inventory{min-width:0;overflow-x:auto;scrollbar-width:thin;padding:3px 1px;flex:1}.inventory-wrap{min-width:0}.inventory-item{flex-shrink:0;width:94px}.tray-empty{font-family:Georgia,serif;font-size:13px;color:#c2c9b6;padding:18px 8px;line-height:1.6}.progress{flex-shrink:0}
+dialog{margin-right:23px;margin-left:auto;width:405px;max-height:calc(100dvh - 48px);padding:22px 26px;background:linear-gradient(145deg,#293e30fa,#172b24fc)}
+dialog::backdrop{background:#08180c18;backdrop-filter:none}
+#panel-body .object-art{height:135px}#panel-body .inscription{margin:16px 0;font-size:18px}
+#panel-body p{line-height:1.65}.panel-action{min-height:41px;padding:10px 12px;line-height:1.45}
+.status-grid{display:flex;gap:12px;padding:12px 0;border-top:1px solid #a2b39440;border-bottom:1px solid #a2b39440;margin:15px 0;font-size:11px}.status-grid span{flex:1}.status-grid b{display:block;color:#daca9d;margin-top:6px}.collected{color:#b4ce93!important;font-size:11px!important}
+.heat-controls{display:flex;gap:6px;margin:16px 0}.heat-controls button{flex:1;font-size:12px;padding:10px 6px}.heat-controls button.active{background:#d3bf87;color:#172b22}
+.recipe-steps{padding:3px 16px;background:#10271b66;border-radius:4px}.recipe-steps small{color:#b9c3ac}
+progress{width:100%;height:8px;accent-color:#dfbf78;margin:10px 0}
+.object-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}.object-list button{text-align:left;font-size:11px;padding:10px 12px}
+.hotspot{width:23px;height:23px;min-height:23px;box-shadow:0 0 0 1px #d6c79d66;background:#192d2444}.hotspot span{font-size:10px}
+#panel-feedback{margin:10px 0 0}.steam-lines{animation:steam 2.4s ease-in-out infinite alternate}@keyframes steam{to{opacity:.4;transform:translateY(-5px)}}
+body.model #explore-btn{display:none}
+@media(min-width:850px){dialog .object-art{max-width:310px}.intro{width:57%}#bottom{right:35px}}
+@media(max-width:700px){dialog{margin:0 auto 0;top:auto;bottom:0;width:100%;max-width:100%;max-height:60dvh;border-radius:12px 12px 0 0;padding:17px 22px 20px}.panel-top{position:sticky;top:-17px;background:#23382d;z-index:1;padding:6px 0}.panel-top button{min-height:38px;width:38px}dialog h2{margin:8px 0;font-size:25px}.object-art{height:115px!important}#views{min-width:0;overflow-x:auto}#views button{flex-shrink:0}#guides-btn{display:none}#explore-btn{font-size:9px;padding:7px 9px}#bottom{left:10px;right:10px}.inventory-label{min-width:55px;max-width:70px}.inventory-item{width:83px;min-height:58px}#inventory{gap:5px}.progress{display:none}.footerline{margin-top:8px}.tray-empty{font-size:11px;padding:10px 3px}.intro{padding-top:24vh}.intro h1{font-size:clamp(46px,13vw,67px)}.intro .intro-meta{gap:17px}.tools button{min-height:34px}.hotspot{width:27px;height:27px;min-height:27px}.object-list button{min-height:43px}#model-banner{top:110px}.settings-row{gap:5px}}
+@media(prefers-reduced-motion:reduce){.steam-lines{animation:none}}
+/* Optional physical affordance guides: anchored to handles, never a replacement action. */
+.physical-guide{position:absolute;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50%;border:1px solid #f1d49699;background:#ead49e20;padding:0;box-shadow:0 0 0 4px #ead49e0b;cursor:pointer}
+.physical-guide:focus-visible{outline:3px solid #fff;width:40px;height:40px;background:#ad8750}
+#control-readout{position:fixed;top:100px;left:50%;transform:translateX(-50%);background:#172722d9;border-radius:20px;color:#f6ebce;padding:8px 18px;pointer-events:none;z-index:5;font-size:13px;max-width:80vw;text-align:center}
+#control-readout:empty{display:none} #room-library{white-space:nowrap}
+@media(pointer:coarse){.physical-guide{width:38px;height:38px}}
+.reticle{position:fixed;left:50%;top:50%;font-size:24px;color:#fff8;pointer-events:none}
+#pack-dialog,#library-dialog{background:#1f302b;color:#f4edd7;border:1px solid #a58e5e60;border-radius:15px;padding:24px;width:min(480px,94vw);max-height:84dvh;overflow:auto;box-shadow:0 24px 100px #0008}
+#pack-dialog::backdrop,#library-dialog::backdrop{background:#07130d88}
+#pack-dialog .panel-action,#library-dialog .panel-action{display:block;width:100%;margin:8px 0;min-height:44px}
+#pack-dialog p,#library-dialog p{line-height:1.6}#pack-dialog input{display:block;max-width:100%;padding:14px;color:#f4edd7;background:#31473b;border:1px solid #baa376}
+.pack-player #bottom{position:fixed}.pack-player .inventory-item{padding:12px;color:#eadfbd}
+@media(max-width:700px){.pack-player .brand{max-width:48vw}.pack-player .tools{flex-wrap:wrap;gap:3px}.pack-player #hud{align-items:flex-start}.pack-player .viewbar{flex-wrap:wrap;justify-content:center}.pack-player .inventory-wrap{max-height:104px;overflow:auto}}
+.physical-guide{min-height:0;min-width:0;padding:0}.physical-guide[hidden]{display:none}
+</style></head>
+<body>
+<canvas id="scene" aria-label="Explorable three-dimensional room" tabindex="0"></canvas>
+<div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+<header id="hud"><div class="brand"><span class="brand-mark">C<span>R</span></span><div>THE CRISPERY ROOM<small id="chapter">A KITCHEN WITH SECRETS</small></div></div><nav class="tools" aria-label="Game tools"><button id="room-library">Rooms</button><button id="journal-btn" title="Notebook (J)">Notebook</button><button id="hint-btn" title="Progressive hints (H)">Hint</button><button id="sound-btn" aria-pressed="false">Sound off</button><button id="model-btn" aria-pressed="false">Kitchen model</button><button id="help-btn" aria-label="Help and settings">?</button></nav></header>
+<main id="intro" class="intro"><div class="eyebrow">SUPPER’S SECRET · CHAPTER TWO</div><h1>Something’s<br><em>cooking.</em></h1><p>Your cupboards. Your countertop. Your kitchen.<br>A recipe, a locked drawer, and a promise:<br><b>nobody leaves hungry.</b></p><button id="start-btn" class="primary">Enter the kitchen <span>↗</span></button><button id="intro-model" class="text-button">Explore the familiar kitchen</button><div class="intro-meta"><span>ONE ROOM</span><span>SIX COURSES</span><span>NO RUSH</span></div><p class="intro-controls">Drag to look · Click to inspect · WASD to walk<br>Or use the viewpoint buttons. Headphones optional.</p></main>
+<div id="hotspots" aria-label="Objects in view"></div>
+<div id="model-banner" hidden><span class="eyebrow">ARCHITECTURE / APPROXIMATE RECONSTRUCTION</span><strong>The kitchen, without the clues.</strong><p>Cabinets, counters, sink, fridge, stove and lamps retained. Only game props are hidden. Dimensions and unseen geometry are approximate.</p><div><button id="cutaway-btn">Walk through</button><button id="export-btn">Download .glb model</button><button id="return-btn">Return to game</button></div></div>
+<div id="control-readout" aria-live="polite"></div><div id="toast" role="status" aria-live="polite"></div>
+<section id="bottom" hidden><div class="viewbar"><button id="turn-left" aria-label="Turn left">↶</button><div id="views" aria-label="Room viewpoints"></div><button id="turn-right" aria-label="Turn right">↷</button><button id="explore-btn">Explore</button><button id="guides-btn" class="guide-toggle" aria-pressed="true">Guides on</button></div><div class="inventory-wrap"><div class="inventory-label">YOUR TRAY<small id="selected-label">Select an item to use it</small></div><div id="inventory" aria-label="Inventory"></div><div class="progress" id="progress" aria-label="Escape progress"></div></div><div class="footerline"><span id="location-label">THE KITCHEN / SOMETHING IS COOKING</span><span id="save-label">SAVED ON THIS DEVICE</span></div></section>
+<dialog id="panel" aria-labelledby="panel-title"><div class="panel-top"><span id="panel-kicker" class="eyebrow">INSPECT</span><button id="close-panel" aria-label="Close inspection">×</button></div><h2 id="panel-title"></h2><div id="panel-body"></div><p id="panel-feedback" role="status" aria-live="polite"></p></dialog>
+<div id="fatal" hidden role="alert"></div>
+<noscript>This escape room requires JavaScript and WebGL. No network connection is required after downloading.</noscript>
+<script>'use strict';(()=>{const factories={"src/main.js":function(module,exports,require){
+const {mountKitchen}=require("src/packs/kitchen/app.js");
+const {mountPack}=require("src/player/pack-player.js");
+const {validatePack}=require("src/core/room-pack.js");
+const annex=require("packs/lantern-annex.json").default;
+const catalog=[validatePack(annex)];
+let imported=null;
+try{const raw=localStorage.getItem('escape-room:imported-pack');if(raw)imported=validatePack(raw);}catch{}
+const selected=location.hash.slice(1);
+const pack=selected==='imported'?imported:catalog.find(p=>p.id===selected);
+if(pack)mountPack(pack);else mountKitchen();
+function openLibrary(){
+ let d=document.getElementById('library-dialog');if(d)d.remove();d=document.createElement('dialog');d.id='library-dialog';d.setAttribute('aria-label','Room library');
+ const title=document.createElement('h2');title.textContent='Spaces, not engine rewrites.';d.append(title);
+ const text=document.createElement('p');text.textContent='Choose a game or load a validated room-pack JSON. Every game has its own local checkpoint. Importing a pack does not execute scripts or upload your files.';d.append(text);
+ const button=(label,fn)=>{const b=document.createElement('button');b.className='panel-action';b.textContent=label;b.onclick=fn;d.append(b);return b;};
+ const navigate=id=>{location.hash=id;location.reload();};
+ button('Supper’s Secret · photo-based kitchen',()=>navigate('kitchen'));
+ for(const p of catalog)button(p.title+' · '+p.rooms.length+' connected rooms',()=>navigate(p.id));
+ if(imported)button('Imported: '+imported.title,()=>navigate('imported'));
+ button('Import room-pack JSON',()=>{const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.onchange=async()=>{try{const f=input.files[0];if(!f||f.size>2000000)throw new Error('Choose a JSON room pack under 2 MB.');const p=validatePack(await f.text());localStorage.setItem('escape-room:imported-pack',JSON.stringify(p));navigate('imported');}catch(e){text.textContent='Import rejected: '+e.message+' No existing game was changed.';}};input.click();});
+ button('Close',()=>d.close());document.body.append(d);d.showModal();
+}
+document.getElementById('room-library').onclick=openLibrary;
+
+
+},"src/packs/kitchen/app.js":function(module,exports,require){
+const {freshState,act,restore,stage,ITEMS,HINTS,OPENABLES,SAVE_VERSION}=require("src/packs/kitchen/state.js");
+const {RoomRenderer,V,M,rigid,exportGLB}=require("src/engine.js");
+const {makeWorld,SPOTS,VIEWS,ROOM,kitchenPoses,canWalk}=require("src/packs/kitchen/world.js");
+const {SaveStore,SAVE_LABELS}=require("src/core/save-store.js");
+const {PhysicalControls,bindPhysicalInput,cameraRay}=require("src/core/interactions.js");
+const {KITCHEN_CONTROLS}=require("src/packs/kitchen/controls.js");
+function mountKitchen() {
+const $=id=>document.getElementById(id);
+const validCheckpoint=x=>{
+ if(!x?.game||x.game.version!==2)throw new Error('This is not a compatible kitchen checkpoint.');
+ const game=restore(x.game),ui=x.ui||{},camera=ui.camera;
+ const eyeOK=Array.isArray(camera?.eye)&&camera.eye.length===3&&camera.eye.every(Number.isFinite)&&canWalk(camera.eye,game);
+ return {game,ui:{camera:eyeOK&&Number.isFinite(camera.yaw)&&Number.isFinite(camera.pitch)?{eye:[camera.eye[0],1.63,camera.eye[2]],yaw:camera.yaw,pitch:Math.max(-1.1,Math.min(1.1,camera.pitch))}:null,
+ temperature:Number.isInteger(ui.temperature)&&ui.temperature>=60&&ui.temperature<=240?ui.temperature:120,
+ minutes:Number.isInteger(ui.minutes)&&ui.minutes>=1&&ui.minutes<=20?ui.minutes:8,
+ lockDigits:Array.isArray(ui.lockDigits)&&ui.lockDigits.length===3&&ui.lockDigits.every(v=>Number.isInteger(v)&&v>=0&&v<=9)?ui.lockDigits:[0,0,0],
+ selected:game.inventory.includes(ui.selected)?ui.selected:null,guides:ui.guides===true}};
+};
+const store=new SaveStore({id:'crispery-kitchen',version:3,validate:validCheckpoint,legacyKey:'crispery-kitchen-save-v2',migrate:(x,v)=>v===0&&x?.version===2?{game:restore(x),ui:{}}:null,
+ onStatus:status=>{$('save-label').textContent=SAVE_LABELS[status];}});
+const checkpoint=store.load();
+let state=checkpoint?.game||freshState();
+const physical=new PhysicalControls(KITCHEN_CONTROLS);
+
+let lastKitchenCamera=null;
+let renderer,meshes,geometryRevision=0,started=false,shell=false,cutaway=false,selected=null,view=0,guides=false,sound=false,audio=null,activePanel=null,hintStep=0,lastHintStage=-1;
+let eye=[...VIEWS[0].eye],yaw=-.5,pitch=-.1,fov=66*Math.PI/180,transition=null,lastTime=0,lastSpotTime=0,lastFrameKey='',toastTimer,drag=null;
+let lockDigits=[0,0,0],temperature=120,minutes=8;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,pressed=new Set(),motion={...state.open,door:state.door};
+function direction(){return [Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),-Math.cos(yaw)*Math.cos(pitch)];}
+function orient(target){const d=V.unit(V.sub(target,eye));yaw=Math.atan2(d[0],-d[2]);pitch=Math.asin(d[1]);}
+orient(VIEWS[0].target);
+if(checkpoint?.ui){temperature=checkpoint.ui.temperature;minutes=checkpoint.ui.minutes;lockDigits=checkpoint.ui.lockDigits;selected=checkpoint.ui.selected;guides=checkpoint.ui.guides;if(checkpoint.ui.camera){eye=[...checkpoint.ui.camera.eye];yaw=checkpoint.ui.camera.yaw;pitch=checkpoint.ui.camera.pitch;}}
+function save(replace=false){if(!shell)lastKitchenCamera={eye:[...eye],yaw,pitch};return store.write({game:state,ui:{camera:lastKitchenCamera,selected,temperature,minutes,lockDigits,guides}},{replace:replace===true});}
+
+function toast(text){if(!text)return;$('toast').textContent=text;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),4500);}
+function tone(ok=true){if(!sound)return;try{audio??=new(window.AudioContext||window.webkitAudioContext)();audio.resume();let now=audio.currentTime;for(let i=0;i<(ok?2:1);i++){let o=audio.createOscillator(),g=audio.createGain();o.frequency.value=ok?[392,523.25][i]:174;g.gain.setValueAtTime(.025,now+i*.1);g.gain.exponentialRampToValueAtTime(.001,now+i*.1+.25);o.connect(g);g.connect(audio.destination);o.start(now+i*.1);o.stop(now+i*.1+.26);}}catch{sound=false;$('sound-btn').textContent='Sound unavailable';}}
+function rebuild(){meshes=makeWorld(state);renderer.upload(meshes);physical.setMeshes(meshes);geometryRevision++;}
+function apply(action,value){
+ const before=state,result=act(state,action,value);state=result.state;
+ if(result.changed){
+  const simple=['observe','hint','toggle','lights','door'];
+  if(!simple.includes(action)&&!(action==='tick'&&before.course===state.course&&before.breadDone===state.breadDone))rebuild();
+  save();refresh();
+ }
+ if(result.message){$('panel-feedback').textContent=result.message;toast(result.message);tone(result.changed);}
+ return result;
+}
+function refresh(){
+ $('guides-btn').textContent=guides?'Guides on':'Guides off';$('guides-btn').setAttribute('aria-pressed',String(guides));
+ if(selected&&!state.inventory.includes(selected))selected=null;
+ $('start-btn').innerHTML=(state.moves||state.seen.length?'Continue cooking':'Enter the kitchen')+' <span>↗</span>';
+ const chapters=['I / THE RECIPE','II / PREPARE','III / SIMMER','IV / BAKE','V / SERVE','VI / WELCOME HOME','SUPPER IS READY'];$('chapter').textContent=chapters[stage(state)];
+ $('inventory').innerHTML=state.inventory.map(id=>`<button class="inventory-item ${id===selected?'selected':''}" data-item="${id}" aria-label="Select ${ITEMS[id].name}" aria-pressed="${id===selected}"><span class="icon" aria-hidden="true">${ITEMS[id].icon}</span><span class="itemname">${id==='tomatoes'&&state.chopped?'Chopped tomatoes':id==='pan'&&state.filled?'Filled saucepan':ITEMS[id].name}</span></button>`).join('')+(state.inventory.length?'':'<span class="tray-empty">Your tray is empty. Explore the drawers and fridge.</span>');
+ $('selected-label').textContent=selected?ITEMS[selected].name+' selected':'Select an item to use it';
+ const done=[state.spiceSolved,state.chopped&&state.panPlaced,state.soupDone,state.breadTaken,state.keyTaken,state.escaped];$('progress').innerHTML=done.map(x=>`<i class="${x?'done':''}"></i>`).join('');$('progress').setAttribute('aria-label',done.filter(Boolean).length+' of 6 courses complete');
+}
+function setView(i,instant=false){
+ view=(i+VIEWS.length)%VIEWS.length;if(shell&&cutaway)return;
+ const dest=VIEWS[view],from=[...eye],fromYaw=yaw,fromPitch=pitch;eye=[...dest.eye];orient(dest.target);let delta=yaw-fromYaw;while(delta>Math.PI)delta-=2*Math.PI;while(delta< -Math.PI)delta+=2*Math.PI;
+ transition={from,to:dest.eye,fromYaw,toYaw:fromYaw+delta,fromPitch,toPitch:pitch,start:performance.now(),duration:instant||reduced?0:450};eye=from;yaw=fromYaw;pitch=fromPitch;
+ document.querySelectorAll('#views button').forEach((b,k)=>b.classList.toggle('active',k===view));$('location-label').textContent=dest.name.toUpperCase()+' / '+(shell?'YOUR FAMILIAR KITCHEN':'SOMETHING IS COOKING');
+}
+function start(){started=true;$('intro').hidden=true;$('bottom').hidden=false;if(checkpoint?.ui.camera&&!shell){eye=[...checkpoint.ui.camera.eye];yaw=checkpoint.ui.camera.yaw;pitch=checkpoint.ui.camera.pitch;transition=null;}else setView(0);refresh();if(state.escaped)showPanel('ending');else toast('Pull handles. Turn knobs. Tap the recipe. E uses the control at the centre of your view.');}
+function setShell(on){if(on&&!shell)save();shell=on;started=true;closePanel();$('intro').hidden=true;$('bottom').hidden=false;$('model-banner').hidden=!on;document.body.classList.toggle('model',on);$('model-btn').textContent=on?'Play kitchen':'Kitchen model';$('model-btn').setAttribute('aria-pressed',String(on));if(on){cutaway=true;transition=null;eye=[6.1,5.7,7.1];orient([-.5,.8,-.2]);$('cutaway-btn').textContent='Walk through';}else{cutaway=false;if(lastKitchenCamera){eye=[...lastKitchenCamera.eye];yaw=lastKitchenCamera.yaw;pitch=lastKitchenCamera.pitch;transition=null;}else setView(0,true);}}
+function download(bytes,name,type){const u=URL.createObjectURL(new Blob([bytes],{type})),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),5000);}
+const button=(label,action,value='',disabled=false,extra='')=>`<button class="panel-action ${extra}" data-action="${action}" data-value="${value}" ${disabled?'disabled':''}>${label}</button>`;
+const toggle=(id,label=id)=>button((state.open[id]?'Close ':'Open ')+label,'toggle',id);
+const take=(id,flag)=>state[flag]?`<p class="collected">✓ ${ITEMS[id].name} collected</p>`:button('Take '+ITEMS[id].name,'take',id);
+function dial(value,id,label){return `<div class="dial"><button data-dial="${id}:1" aria-label="Increase ${label}">${value}</button><button class="decrement" data-dial="${id}:-1" aria-label="Decrease ${label}">−</button><small>${label}</small></div>`;}
+const svg=body=>`<svg class="object-art" viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kitchen clue illustration">${body}</svg>`;
+function recipeArt(){return svg(`<rect x="4" y="4" width="352" height="132" rx="5" fill="#e6d8b6"/><g fill="#c84c37"><circle cx="50" cy="58" r="18"/><circle cx="85" cy="58" r="18"/></g><g fill="#587547"><ellipse cx="163" cy="58" rx="10" ry="21" transform="rotate(-25 163 58)"/><ellipse cx="187" cy="58" rx="10" ry="21"/><ellipse cx="211" cy="58" rx="10" ry="21" transform="rotate(25 211 58)"/></g><path d="M270 39h45l-5 45h-35Z" fill="#8fa9ae" stroke="#657f7b" stroke-width="2"/><path d="M315 47q22 0 0 24" fill="none" stroke="#657f7b" stroke-width="4"/><g fill="#364a3a" text-anchor="middle" font-family="Georgia" font-size="14"><text x="67" y="111">2 tomatoes</text><text x="187" y="111">3 basil leaves</text><text x="294" y="111">1 cup water</text></g>`);}
+function potArt(){return svg(`<path d="M110 65h140l-10 58H120Z" fill="#9eaaa1" stroke="#d8dbbc" stroke-width="3"/><path d="M105 75H75M255 75h30" stroke="#99a89e" stroke-width="9"/><ellipse cx="180" cy="65" rx="70" ry="12" fill="${state.course?'#b94c2f':'#698d88'}" stroke="#d8dbbc" stroke-width="3"/>${state.heat?'<g class="steam-lines" fill="none" stroke="#dce9d3" stroke-width="2"><path d="M150 50q-14-15 0-33M180 43q-14-15 0-33M210 50q-14-15 0-33"/></g>':''}${state.heat?'<path d="M125 134l7-8 7 8m30 0 7-8 7 8m30 0 7-8 7 8" fill="none" stroke="#81bdf4" stroke-width="4"/>':''}`);}
+function setBody(html){$('panel-body').innerHTML=html;}
+function showPanel(id){
+ if(shell)return;pressed.clear();activePanel=id;$('panel-feedback').textContent='';$('panel-kicker').textContent='INSPECT / SUPPER’S SECRET';
+ const spot=SPOTS.find(s=>s.id===id);if(spot){apply('observe',id);if(started&&spot.view!==view)setView(spot.view);}
+ renderPanel();if(!$('panel').open)$('panel').showModal();
+}
+function renderPanel(){
+ const id=activePanel,spot=SPOTS.find(s=>s.id===id);
+ $('panel-title').textContent=spot?.name||({journal:'Your kitchen notebook',hint:'A little help',help:'Make yourself at home',restart:'Start a fresh supper?',ending:'Welcome home.',around:'Explore the kitchen'}[id]||'On your tray');
+ if(id==='recipe')setBody(recipeArt()+`<p class="inscription">Supper for two.<br>A rolling start, a gentle middle,<br>and a quiet finish.</p><div class="recipe-steps"><p><b>Red</b> goes into the rolling boil.<br><b>Green</b> follows at a gentle simmer.<br><b>White crystals</b> finish with the heat off.</p><p><b>Bread:</b> three half-turns of warmth; a dozen minutes.<br><small>Each half-turn adds 60 °C. Game time is compressed.</small></p></div><p>The pantry lock reads <b>RED · GREEN · CLEAR</b>. Use the quantities pictured above.</p><p class="small-label">SERVE SUPPER. THE LAST DRAWER WILL THANK YOU.</p>`);
+ if(id==='fridge')setBody(`<p>The familiar silver fridge, now stocked for tonight. Its shelves and door pockets are real 3D compartments.</p>${toggle('fridge','refrigerator')}${state.open.fridge?take('tomatoes','tomatoesTaken')+take('basil','basilTaken'):'<p class="inscription">Something red. Something green.</p>'}<button class="text-button" data-show="recipe">Read the recipe card</button>`);
+ if(id==='freezer')setBody(`<p>A sliding lower freezer. The ice tray is not a puzzle; not every part of home needs to hide a secret.</p>${toggle('freezer','freezer')}`);
+ if(id==='cutlery')setBody(`<p>The top drawer beside the sink. Its wooden tray slides out beneath the countertop.</p>${toggle('cutlery','cutlery drawer')}${state.open.cutlery?take('utensils','utensilsTaken'):''}`);
+ if(id==='pans')setBody(`<p>The deep drawer beneath the cutlery. A small saucepan waits inside.</p>${toggle('pans','pan drawer')}${state.open.pans?take('pan','panTaken'):''}`);
+ if(id==='spice')setBody(state.spiceSolved?`<p>The pantry is unlocked. Salt for the soup, proofed rolls for the oven.</p>${toggle('spice','pantry drawer')}${state.open.spice?take('salt','saltTaken')+take('dough','doughTaken'):''}`:`<p>Three recipe tumblers. No window counting, no mysterious machinery: this lock thinks in ingredients.</p><div class="small-label">RED · GREEN · CLEAR</div><div class="safe-art"><div class="dials">${lockDigits.map((v,i)=>dial(v,'lock'+i,['red','green','clear'][i])).join('')}</div></div>${button('Release the pantry drawer','spice','','','primary')}<button class="text-button" data-show="recipe">Read the recipe</button>`);
+ if(id==='sink')setBody(`<p>A recessed steel sink and a curved tap, in their familiar place.</p><div class="status-grid"><span>Tomatoes <b>${state.washed?'washed':'not washed'}</b></span><span>Saucepan <b>${state.filled?'filled':'empty'}</b></span></div>${button(state.tap?'Turn tap off':'Turn tap on','tap')}${button('Rinse selected tomatoes','wash','',state.washed)}${button('Fill selected saucepan','fill','',state.filled)}<p class="small-label">SELECT THE ITEM ON YOUR TRAY FIRST</p>`);
+ if(id==='prep')setBody(`<p>A clear working surface, with just a chopping board. Use the utensil roll from the cutlery drawer.</p><div class="status-grid"><span>Utensils <b>${state.utensilsTaken?'ready':'missing'}</b></span><span>Tomatoes <b>${state.chopped?'chopped':state.washed?'washed':'need washing'}</b></span></div>${button('Chop selected tomatoes','chop','',state.chopped,'primary')}`);
+ if(id==='stove')setBody(potArt()+`<div class="small-label">${['RED / A ROLLING START','GREEN / A GENTLE MIDDLE','SALT / A QUIET FINISH','SOUP / READY TO SERVE'][state.course]}</div>${!state.panPlaced?button('Place selected filled saucepan','placePan'):`<div class="heat-controls" aria-label="Burner heat">${['Off','Low','Medium','High'].map((h,i)=>`<button data-action="heat" data-value="${i}" class="${state.heat===i?'active':''}" aria-pressed="${state.heat===i}">${h}</button>`).join('')}</div>${state.cooking?`<p class="inscription">Stirring… <span id="cook-counter">${4-state.cookTicks}</span></p><progress max="4" value="${state.cookTicks}" aria-label="Cooking progress"></progress>`:state.soupDone?'<p class="inscription">A warm bowl of tomato and basil soup. Heat safely off.</p>':button(state.course===2?'Season with selected salt':'Add selected ingredient & stir','cook','','','primary')}`}<p>Change the heat between stages. Wrong attempts never waste an ingredient.</p><button class="text-button" data-show="recipe">Check the cooking instructions</button>`);
+ if(id==='oven')setBody(`<p>The small oven stays in its tall cabinet beneath the microwave. The recipe, not guesswork, sets this bake.</p>${toggle('oven','oven door')}${state.open.oven&&!state.doughPlaced?button('Place selected bread dough','placeDough'):''}${state.baking?`<p class="inscription">Baking the rolls… ${6-state.bakeTicks}</p><progress max="6" value="${state.bakeTicks}" aria-label="Baking progress"></progress>`:state.breadDone?`<p class="inscription">Two golden rolls. The oven is off.</p>${button('Take the baked bread','takeBread','',state.breadTaken)}`:`<div class="dials">${dial(temperature,'temp','temperature')}${dial(minutes,'minutes','minutes')}</div><div class="small-label">°C · RECIPE MINUTES</div>${button('Bake the rolls','bake','','','primary')}`}<p><small>Recipe time is compressed into six seconds. No real-world timer pressure.</small></p>`);
+ if(id==='serve')setBody(`<p>The counter beside the hob is set aside for the last step. A small label reads:</p><p class="inscription">“A meal is ready only<br>when someone can sit down to it.”</p><div class="status-grid"><span>Soup <b>${state.soupDone?'ready':'not ready'}</b></span><span>Bread <b>${state.breadTaken?'on the board':'not ready'}</b></span></div>${button('Serve supper','serve','',state.plated,'primary')}${state.plated?'<p>A drawer clicked open beneath this counter.</p><button class="panel-action" data-show="reward">Inspect the serving drawer</button>':''}`);
+ if(id==='reward')setBody(`<p>The drawer directly beneath the serving board.</p><p class="inscription">${state.plated?'“You remembered what this room is for.”':'“The last drawer opens when supper is served.”'}</p>${toggle('reward','serving drawer')}${state.open.reward?take('key','keyTaken'):''}`);
+ if(['upper','dishwasher','sinkdoor','microwave','hob1','hob2','tower'].includes(id)){
+  const text={upper:'The broad, white-framed frosted doors lift on their hinges. The cupboards belong to the kitchen even when the loose dishes are gone.',dishwasher:'The dishwasher door folds down to reveal its racks. It is here because it belongs in the room, not because every appliance needs a code.',sinkdoor:'A hinged door beneath the sink, with the drain plumbing behind it.',microwave:'The microwave stays in its fitted niche. Its door opens, but there is no microwave puzzle in this chapter.',hob1:'The top drawer under the hob slides out. Empty storage, ready for someone’s everyday things.',hob2:'A deep drawer under the hob. No hidden code here, just a functioning part of the kitchen.',tower:'The lower appliance-tower drawer opens like the others.'}[id];
+  setBody(`<p>${text}</p>${toggle(id,spot.name.toLowerCase())}`);
+ }
+ if(id==='lamps')setBody(`<p>Three white pendant shades hang near the doorway, like the ones in the photographs. Daylight remains when they are off.</p>${button(state.lamps?'Switch pendant lamps off':'Switch pendant lamps on','lights')}`);
+ if(id==='wide'||id==='narrow')setBody(`<p>${id==='wide'?'The main barred window above the hob. The air conditioner remains above it.':'The second barred window sits in the stepped wall to the right.'}</p><p class="inscription">Familiar ironwork. Ordinary daylight.</p><p>These are part of the kitchen, not number puzzles. The recipe is on the fridge.</p>`);
+ if(id==='door')setBody(`<p>The same pale door and silver handle. ${state.door?'The lock has released.':'A small note has appeared beside it.'}</p><p class="inscription">“Nobody leaves hungry.”</p>${state.door?button('Welcome everyone in','escape','','','primary'):button('Unlock with selected house key','door')}`);
+ if(id==='around')setBody(`<details><summary>Physical controls · keyboard / touch</summary><div class="object-list">${KITCHEN_CONTROLS.filter(controlEnabled).map(c=>`<button data-control="${c.id}">${c.label}</button>`).join('')}</div></details><p>Jump to a familiar part of the kitchen. Every action uses the same objects and inventory as the room view.</p><div class="object-list">${SPOTS.filter(s=>!['wide','narrow','recipe'].includes(s.id)).map(s=>`<button data-show="${s.id}">${s.name}</button>`).join('')}</div><button class="panel-action" data-show="recipe">Read the recipe card</button>`);
+ if(id==='journal'){
+  let notes=[];
+  if(state.seen.includes('recipe')||state.spiceSolved)notes.push(['The recipe','2 tomatoes · 3 basil leaves · 1 cup of water. Red at HIGH, green at LOW, salt with heat OFF. Bread: three × 60 °C, a dozen minutes.']);
+  if(state.spiceSolved)notes.push(['Pantry','231 released the drawer. Salt and bread dough are inside.']);
+  if(state.washed||state.filled||state.chopped)notes.push(['Preparation',[state.washed?'Tomatoes washed.':'',state.chopped?'Tomatoes chopped.':'',state.filled?'Saucepan filled.':'',state.panPlaced?'Pan on hob.':''].join(' ')]);
+  if(state.course)notes.push(['On the hob',state.soupDone?'Soup ready.':state.course===1?'Tomatoes cooked; basil at LOW next.':'Basil cooked; heat OFF, then salt.']);
+  if(state.breadDone)notes.push(['Bread',state.breadTaken?'Warm rolls on the serving board.':'Baked rolls wait in the oven.']);
+  if(state.plated)notes.push(['The last drawer','Supper is served. The drawer beneath the serving board has unlocked.']);
+  setBody(`<p>Clues are written down as you find them. There is no need to memorise everything.</p>${notes.length?notes.map(([h,t])=>`<div class="note-entry"><strong>${h}</strong><p>${t}</p></div>`).join(''):'<p class="inscription">Start with the recipe on the fridge.</p>'}<button class="panel-action" data-show="around">Explore kitchen objects</button>`);
+ }
+ if(id==='hint'){
+  let st=stage(state);if(st!==lastHintStage){hintStep=0;lastHintStage=st;}const hints=HINTS[st],n=Math.min(hintStep,hints.length);
+  setBody(`<p>One nudge at a time. The last gives the exact next step.</p><div class="hint-count">${hints.map((_,i)=>`<span class="${i<n?'used':''}"></span>`).join('')}</div>${n?`<p class="inscription">${hints[n-1]}</p>`:''}${button(n?'Reveal a clearer hint':'Reveal the first nudge','hint','',n>=hints.length,'primary')}`);
+ }
+ if(id==='help')setBody(`<p><b>Look:</b> drag. <b>Walk:</b> WASD. <b>Inspect:</b> click an object or guide. The viewpoint buttons and <b>Explore</b> menu work on touch screens too.</p><p>Select an item on your tray before using it. A selected item can be inspected by clicking it again. Click or tap a physical handle to open or close; turn knobs by tapping or dragging. E activates a control at the centre of the screen. Closing an inspection does not close the drawer.</p><p><b>J</b>: notebook. <b>H</b>: hints. <b>Escape</b>: close. There is no deadline. Cooking takes a few game seconds and pauses when the tab is hidden.</p><div class="settings-row">${button('Export save','export-save')}${button('Import save','import-save')}${button('Protect browser storage','persist')}<button class="danger" data-show="restart">Restart kitchen</button></div><p>Progress, camera and controls autosave locally with a previous-checkpoint backup. Existing kitchen progress imports once; old slots are retained. Browser data can still be cleared: export a backup. A conflicting newer save is protected instead of silently overwritten. This is a fictional cooking puzzle, not a real recipe.</p><p>The Kitchen model keeps permanent fixtures and appliances but removes game-only food, tools and clues. Dimensions and hidden geometry are approximate.</p>`);
+ if(id==='restart')setBody(`<p>This resets this kitchen chapter only. Export your save first to keep it.</p>${button('Start a new kitchen','restart','','','danger')}${button('Keep my progress','close')}`);
+ if(id==='ending')setBody(`<div class="eyebrow">SUPPER IS READY.</div><p class="inscription">Same cupboards. Same light.<br>One more story to tell here.</p><p>The soup is warm. The bread is golden. The door is open, and the room still feels like home.</p><div class="stat-row"><div><strong>${Math.floor(state.seconds/60)}:${String(state.seconds%60).padStart(2,'0')}</strong><small>TIME INSIDE</small></div><div><strong>${state.hints}</strong><small>NUDGES</small></div><div><strong>6 / 6</strong><small>COURSES</small></div></div>${button('Explore the furnished kitchen','model','','','primary')}<button class="text-button" data-show="restart">Cook again</button>`);
+ if(id?.startsWith('item:')){let item=ITEMS[id.slice(5)];if(item){$('panel-title').textContent=item.name;setBody(`<div class="item-detail"><span class="big-icon">${item.icon}</span><p>${item.description}</p></div>`);}}
+}
+function closePanel(){if($('panel').open)$('panel').close();activePanel=null;}
+$('panel-body').addEventListener('click',async e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.control){useControl(KITCHEN_CONTROLS.find(c=>c.id===b.dataset.control));return;}
+ if(b.dataset.show){showPanel(b.dataset.show);return;}
+ if(b.dataset.dial){const [id,d]=b.dataset.dial.split(':'),step=Number(d);if(id.startsWith('lock')){let i=Number(id.slice(4));lockDigits[i]=(lockDigits[i]+step+10)%10;}if(id==='temp')temperature=60+((temperature-60+step*20+200)%200);if(id==='minutes')minutes=1+((minutes-1+step+20)%20);save();renderPanel();document.querySelector(`[data-dial="${b.dataset.dial}"]`)?.focus();return;}
+ const action=b.dataset.action;if(!action)return;
+ if(action==='close'){closePanel();return;}if(action==='model'){setShell(true);return;}
+ if(action==='restart'){store.blocked=false;state=freshState();selected=null;lockDigits=[0,0,0];temperature=120;minutes=8;hintStep=0;lastHintStage=-1;save(true);rebuild();refresh();closePanel();if(shell)setShell(false);else setView(0);toast('The kitchen is ready for another supper.');return;}
+ if(action==='export-save'){download(store.export({game:state,ui:{camera:{eye,yaw,pitch},selected,temperature,minutes,lockDigits,guides}}),'crispery-kitchen-save.json','application/json');return;}
+ if(action==='persist'){const kept=await navigator.storage?.persist?.();toast(kept?'Browser persistence granted. Keep an exported backup too.':'Browser did not grant persistence. Local saves still work; export a backup.');return;}
+ if(action==='import-save'){
+  const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.onchange=async()=>{try{const f=input.files[0];if(!f||f.size>100000)throw new Error('Choose a kitchen save under 100 KB.');const x=JSON.parse(await f.text());const imported=x.format===1?store.import(JSON.stringify(x)):x.version===2?validCheckpoint({game:x,ui:{}}):null;if(!imported)throw new Error('Not a compatible kitchen save.');state=imported.game;temperature=imported.ui.temperature;minutes=imported.ui.minutes;lockDigits=imported.ui.lockDigits;selected=imported.ui.selected;save(true);rebuild();refresh();closePanel();toast('Your kitchen has been restored.');}catch(err){toast(err.message);}};input.click();return;
+ }
+ if(action==='hint'){hintStep++;apply('hint');renderPanel();return;}
+ let value=selected;if(['toggle','take'].includes(action))value=b.dataset.value;if(action==='heat')value=Number(b.dataset.value);if(action==='spice')value=lockDigits.join('');if(action==='bake')value={temperature,minutes};
+ const result=apply(action,value);if(result.changed){renderPanel();$('panel-feedback').textContent=result.message;}
+ if(action==='escape'&&state.escaped){closePanel();setView(4,true);setTimeout(()=>showPanel('ending'),500);}
+});
+$('close-panel').onclick=closePanel;$('panel').addEventListener('cancel',()=>{activePanel=null;});
+$('panel').addEventListener('click',e=>{if(e.target===$('panel')){const r=$('panel').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closePanel();}});
+$('start-btn').onclick=start;$('intro-model').onclick=()=>setShell(true);$('model-btn').onclick=()=>setShell(!shell);$('return-btn').onclick=()=>setShell(false);
+$('cutaway-btn').onclick=()=>{cutaway=!cutaway;transition=null;if(cutaway){eye=[6.1,5.7,7.1];orient([-.5,.8,-.2]);}else setView(0,true);$('cutaway-btn').textContent=cutaway?'Walk through':'Cutaway model';};
+$('export-btn').onclick=()=>download(exportGLB(makeWorld(freshState())),'crispery-kitchen.glb','model/gltf-binary');
+$('journal-btn').onclick=()=>{if(!started)start();showPanel('journal');};$('hint-btn').onclick=()=>{if(!started)start();showPanel('hint');};$('help-btn').onclick=()=>{if(shell)setShell(false);showPanel('help');};
+$('explore-btn').onclick=()=>{if(shell)setShell(false);showPanel('around');};
+$('sound-btn').onclick=()=>{sound=!sound;$('sound-btn').textContent=sound?'Sound on':'Sound off';$('sound-btn').setAttribute('aria-pressed',String(sound));if(sound)tone();};
+$('turn-left').onclick=()=>{transition=null;yaw-=Math.PI/2;};$('turn-right').onclick=()=>{transition=null;yaw+=Math.PI/2;};
+$('guides-btn').onclick=()=>{guides=!guides;$('guides-btn').textContent=guides?'Guides on':'Guides off';$('guides-btn').setAttribute('aria-pressed',String(guides));};
+$('inventory').onclick=e=>{let id=e.target.closest('[data-item]')?.dataset.item;if(!id)return;if(selected===id){showPanel('item:'+id);return;}selected=id;refresh();save();toast(ITEMS[id].name+' selected. Now inspect the place to use it.');};
+$('views').innerHTML=VIEWS.map((v,i)=>`<button data-view="${i}" aria-label="View ${v.name.toLowerCase()}">${v.name}</button>`).join('');$('views').onclick=e=>{const b=e.target.closest('[data-view]');if(b)setView(Number(b.dataset.view));};
+function controlEnabled(c){
+ if(c.source&&!state.open[c.source])return false;if(c.flag&&state[c.flag])return false;
+ if(c.id==='oven-food'&&state.breadTaken)return false;return true;
+}
+function allPoses(){const values={...motion,tap:Number(state.tap),'oven-temperature':(temperature-60)/180,'oven-timer':minutes/20};
+ for(let i=0;i<5;i++)values['knob'+i]=(i===2?state.heat:state.auxHeat?.[i]||0)/3;
+ for(let col=0;col<2;col++)for(const prefix of ['upper','upperTop'])values[prefix+col]=Math.max(values[prefix+col]||0,values.upper||0);
+ return kitchenPoses(values);
+}
+function useControl(c,step=1){
+ if(!c||!controlEnabled(c))return;
+ let action=c.action,value=c.value??selected;
+ if(action==='inspect'){showPanel(value);return;}
+ if(action==='burner'){
+  const i=c.value,heat=((i===2?state.heat:state.auxHeat[i])+step+4)%4;
+  action=i===2?'heat':'auxheat';value=i===2?heat:{index:i,heat};
+ }else if(action==='ovenTemp'){temperature=60+((temperature-60+step*20+200)%200);save();toast('Oven temperature: '+temperature+' °C');if(activePanel)renderPanel();return;}
+ else if(action==='ovenTimer'){minutes=1+((minutes-1+step+20)%20);save();toast('Oven timer: '+minutes+' recipe minutes');if(activePanel)renderPanel();return;}
+ else if(action==='bake')value={temperature,minutes};
+ else if(action==='sinkUse'){if(selected==='pan')action='fill';else if(selected==='tomatoes')action='wash';else{showPanel('sink');return;}}
+ else if(action==='stoveUse'){if(selected==='pan')action='placePan';else if(selected)action='cook';else{showPanel('stove');return;}}
+ else if(action==='ovenUse')action=state.breadDone?'takeBread':'placeDough';
+ else if(action==='door'&&state.door)action='escape';
+ const result=apply(action,value);if(activePanel)renderPanel();
+ if(c.id==='spice'&&!result.changed&&!state.spiceSolved)showPanel('spice');
+ if(action==='escape'&&state.escaped)showPanel('ending');
+}
+$('hotspots').innerHTML=KITCHEN_CONTROLS.map(c=>`<button id="control-${c.id}" class="physical-guide" aria-label="${c.label}" hidden></button>`).join('');
+for(const c of KITCHEN_CONTROLS){const el=$('control-'+c.id);el.onclick=()=>useControl(c);el.onkeydown=e=>{if(c.kind==='dial'&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();useControl(c,['ArrowRight','ArrowUp'].includes(e.key)?1:-1);}};}
+let renderedPoses={};
+function pickAt(x,y){if(shell)return null;return physical.pick(eye,cameraRay(x,y,innerWidth,innerHeight,direction(),fov),renderedPoses,controlEnabled);}
+function updateSpots(){
+ for(const c of KITCHEN_CONTROLS){const p=renderer.project(physical.position(c,renderedPoses)),el=$('control-'+c.id);
+  el.hidden=!(started&&!shell&&!$('panel').open&&guides&&p.visible&&controlEnabled(c)&&p.y>85&&p.y<innerHeight-190);
+  // Do not render invisible/back-facing controls through closed doors or walls.
+  if(!el.hidden){const picked=pickAt(p.x,p.y);el.hidden=picked?.id!==c.id;}
+  if(!el.hidden){el.style.left=p.x+'px';el.style.top=p.y+'px';}
+ }
+}
+bindPhysicalInput($('scene'),{enabled:()=>started&&!$('panel').open,pick:pickAt,activate:useControl,adjust:useControl,
+ look:(dx,dy)=>{transition=null;yaw-=dx*.004;pitch=Math.max(-1.1,Math.min(1.1,pitch-dy*.0035));},
+ hover:c=>{$('scene').style.cursor=c?'pointer':'grab';$('control-readout').textContent=c?c.label+(c.kind==='dial'?' · tap / drag to turn':' · tap / E'):'';}});
+$('scene').addEventListener('wheel',e=>{e.preventDefault();fov=Math.max(.65,Math.min(1.4,fov+e.deltaY*.0004));},{passive:false});
+addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||!started||['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName))return;const k=e.key.toLowerCase();if(k==='e'){useControl(pickAt(innerWidth/2,innerHeight/2));return;}if(k==='j'){showPanel('journal');return;}if(k==='h'){showPanel('hint');return;}if(['w','a','s','d','arrowleft','arrowright','arrowup','arrowdown'].includes(k)){e.preventDefault();pressed.add(k);transition=null;}});
+addEventListener('keyup',e=>pressed.delete(e.key.toLowerCase()));addEventListener('blur',()=>{pressed.clear();drag=null;});
+function frame(time){
+ const dt=Math.min((time-lastTime)/1000||0,.05);lastTime=time;
+ if(transition){const t=transition.duration?Math.min(1,(time-transition.start)/transition.duration):1,k=t*t*(3-2*t);eye=transition.from.map((x,i)=>x+(transition.to[i]-x)*k);yaw=transition.fromYaw+(transition.toYaw-transition.fromYaw)*k;pitch=transition.fromPitch+(transition.toPitch-transition.fromPitch)*k;if(t===1)transition=null;}
+ if(started&&!$('panel').open&&!(shell&&cutaway)&&!state.escaped){
+  if(pressed.has('arrowleft'))yaw-=dt*1.1;if(pressed.has('arrowright'))yaw+=dt*1.1;if(pressed.has('arrowup'))pitch=Math.min(1.1,pitch+dt*.8);if(pressed.has('arrowdown'))pitch=Math.max(-1.1,pitch-dt*.8);
+  const fw=Number(pressed.has('w'))-Number(pressed.has('s')),side=Number(pressed.has('d'))-Number(pressed.has('a')),norm=Math.hypot(fw,side)||1;
+  if(fw||side){let dx=(Math.sin(yaw)*fw+Math.cos(yaw)*side)*dt*1.6/norm,dz=(-Math.cos(yaw)*fw+Math.sin(yaw)*side)*dt*1.6/norm,p=[eye[0]+dx,1.63,eye[2]];if(canWalk(p,state))eye=p;p=[eye[0],1.63,eye[2]+dz];if(canWalk(p,state))eye=p;}
+ }
+ let moving=false;for(const id of [...OPENABLES,'door']){const goal=shell?0:Number(id==='door'?state.door:state.open[id]),old=Number(motion[id])||0,delta=goal-old;motion[id]=Math.abs(delta)<.002||reduced?goal:old+delta*(1-Math.exp(-dt*9));moving||=Math.abs(delta)>.002;}
+ const animate=!shell&&!reduced&&(state.cooking||state.heat>0||state.auxHeat.some(v=>v>0)||state.tap),stamp=animate?Math.floor(time/70):0;
+ const frameKey=[...eye,yaw,pitch,fov,shell,cutaway,state.lamps,innerWidth,innerHeight,geometryRevision,...Object.values(motion),state.tap,temperature,minutes,...state.auxHeat,stamp].join(',');
+ if(frameKey!==lastFrameKey){const poses=allPoses();renderedPoses=poses;if(state.cooking&&!reduced)poses['stirring-spoon']=rigid([-.63,1.21,-2.1],[0,time*.002,0]);renderer.render(eye,V.add(eye,direction()),fov,shell,shell&&cutaway,state.lamps,poses,time/1000);lastFrameKey=frameKey;}
+ if(time-lastSpotTime>220){updateSpots();lastSpotTime=time;}requestAnimationFrame(frame);
+}
+setInterval(()=>{if(started&&!shell&&!document.hidden&&!state.escaped){state.seconds++;if(state.cooking||state.baking){const result=apply('tick');if(result.changed&&['stove','oven'].includes(activePanel))renderPanel();}if(state.seconds%10===0)save();}},1000);
+addEventListener('pagehide',()=>save());document.addEventListener('visibilitychange',()=>{if(document.hidden){pressed.clear();save();}});
+$('scene').addEventListener('webglcontextlost',e=>{e.preventDefault();save();$('fatal').hidden=false;$('fatal').textContent='Graphics were interrupted. Reload to resume; export saves are also supported.';});
+try{renderer=new RoomRenderer($('scene'));rebuild();refresh();save();requestAnimationFrame(frame);document.body.dataset.ready='true';}catch(e){$('fatal').hidden=false;$('fatal').textContent=e.message;document.body.dataset.ready='error';console.error(e);}
+Object.defineProperty(window,'crispery',{value:Object.freeze({snapshot:()=>structuredClone(state),mode:()=>({shell,cutaway,eye:[...eye],motion:{...motion}}),controls:()=>KITCHEN_CONTROLS.map(c=>({id:c.id,label:c.label,enabled:controlEnabled(c),point:renderer.project(physical.position(c,renderedPoses))})),storage:()=>store.status,room:ROOM,triangles:()=>renderer?.triangles,meshes:()=>meshes.map(m=>({name:m.name,layer:m.layer,vertices:m.data.length/10})),spot:id=>{const c=KITCHEN_CONTROLS.find(c=>c.id===id);return c?renderer.project(physical.position(c,renderedPoses)):null;}}),writable:false});
+
+}
+
+exports.mountKitchen=mountKitchen;
+},"src/packs/kitchen/state.js":function(module,exports,require){
+/** Kitchen chapter v2. Pure, immutable progression; no timers or DOM in this module. */
+const SAVE_VERSION=2;
+const OPENABLES=['cutlery','pans','spice','fridge','freezer','upper','sinkdoor','dishwasher','oven','microwave','reward','hob1','hob2','tower','corner','towerupper','upper0','upper1','upperTop0','upperTop1','wide','narrow'];
+const OBSERVABLES=['recipe','cutlery','pans','spice','fridge','freezer','upper','sink','sinkdoor','dishwasher','stove','oven','microwave','prep','serve','reward','door','lamps','wide','narrow','hob1','hob2','tower'];
+const ITEMS={
+ utensils:{name:'Utensil roll',icon:'♜',description:'A paring knife and a wooden spoon. Prepare at the board; stir at the stove. Reusable.'},
+ pan:{name:'Saucepan',icon:'◡',description:'A small stainless saucepan. Fill it at the sink before placing it on the hob.'},
+ tomatoes:{name:'Two tomatoes',icon:'●',description:'Two ripe tomatoes from the refrigerator. Wash, then chop them at the board.'},
+ basil:{name:'Basil',icon:'❧',description:'Three basil leaves. Add these only at a gentle simmer.'},
+ salt:{name:'Sea salt',icon:'⋮',description:'The quiet finish: season only after the heat is off.'},
+ dough:{name:'Bread dough',icon:'◒',description:'Two small proofed rolls. The recipe card gives an oven temperature and a timer.'},
+ key:{name:'House key',icon:'⚿',description:'The serving drawer’s thank-you. It fits the front door.'}
+};
+const FLAGS=['panTaken','utensilsTaken','tomatoesTaken','basilTaken','spiceSolved','saltTaken','doughTaken','washed','filled','chopped','panPlaced','soupDone','doughPlaced','breadDone','breadTaken','plated','keyTaken','door','escaped'];
+function freshState(){return {version:SAVE_VERSION,open:Object.fromEntries(OPENABLES.map(x=>[x,false])),...Object.fromEntries(FLAGS.map(x=>[x,false])),inventory:[],seen:[],auxHeat:[0,0,0,0,0],ac:true,heat:0,course:0,cooking:false,cookTicks:0,baking:false,bakeTicks:0,lamps:true,tap:false,hints:0,moves:0,seconds:0};}
+/** Inventory is derived from durable facts, never trusted from save-file strings. */
+function inventory(s){
+ const a=[];
+ if(s.utensilsTaken)a.push('utensils');
+ if(s.panTaken&&!s.panPlaced)a.push('pan');
+ if(s.tomatoesTaken&&s.course<1)a.push('tomatoes');
+ if(s.basilTaken&&s.course<2)a.push('basil');
+ if(s.saltTaken&&!s.soupDone)a.push('salt');
+ if(s.doughTaken&&!s.doughPlaced)a.push('dough');
+ if(s.keyTaken&&!s.door)a.push('key');
+ s.inventory=a;
+}
+function act(input,action,value){
+ const s={...input,open:{...input.open},seen:[...input.seen],inventory:[...input.inventory],auxHeat:[...(input.auxHeat||[0,0,0,0,0])]};
+ let changed=false,message='';
+ const set=(k,v=true)=>{if(s[k]!==v){s[k]=v;changed=true;}};
+ const has=id=>s.inventory.includes(id),selected=id=>has(id)&&value===id;
+ const fail=text=>{message=text;};
+ if(s.escaped&&!['observe','toggle','lights','tap','hint'].includes(action))return {state:s,changed:false,message:'Supper is ready and the door is open.'};
+ switch(action){
+ case 'observe':if(OBSERVABLES.includes(value)&&!s.seen.includes(value)){s.seen.push(value);changed=true;}break;
+ case 'toggle':
+  if(!OPENABLES.includes(value))break;
+  if(value==='spice'&&!s.spiceSolved){fail('This drawer has a recipe lock: RED · GREEN · CLEAR.');break;}
+  if(value==='reward'&&!s.plated){fail('A tiny label reads: “The last drawer opens when supper is served.”');break;}
+  if(value==='oven'&&s.baking){fail('The oven is baking. Its door stays closed until the short cycle finishes.');break;}
+  s.open[value]=!s.open[value];changed=true;message=(s.open[value]?'Opened':'Closed')+' '+value+'.';break;
+ case 'take':{
+  const source={utensils:['cutlery','utensilsTaken'],pan:['pans','panTaken'],tomatoes:['fridge','tomatoesTaken'],basil:['fridge','basilTaken'],salt:['spice','saltTaken'],dough:['spice','doughTaken'],key:['reward','keyTaken']}[value];
+  if(!source)break;
+  if(!s.open[source[0]]){fail('Open the compartment first.');break;}
+  if(s[source[1]]){fail('You already collected that.');break;}
+  set(source[1]);message=ITEMS[value].name+' added to your tray.';break;
+ }
+ case 'spice':
+  if(s.spiceSolved){fail('The recipe lock is already released.');break;}
+  if(value==='231'){set('spiceSolved');s.open.spice=true;message='Two tomatoes. Three leaves. One cup. The pantry drawer slides open.';}
+  else fail('Not quite. Read the quantities on the recipe card in RED · GREEN · CLEAR order.');break;
+ case 'wash':
+  if(s.washed){fail('The tomatoes are already clean.');break;}
+  if(!selected('tomatoes')){fail('Select the tomatoes from your tray, then rinse them.');break;}
+  set('washed');set('tap');message='Cool water rinses the tomatoes. They are ready for the board.';break;
+ case 'fill':
+  if(s.filled){fail('The saucepan already holds one cup of water.');break;}
+  if(!selected('pan')){fail('Select the saucepan, then fill it at the sink.');break;}
+  set('filled');set('tap');message='One cup of water. The saucepan is ready for the hob.';break;
+ case 'tap':set('tap',!s.tap);message=s.tap?'The tap runs.':'The tap is off.';break;
+ case 'chop':
+  if(s.chopped){fail('The tomatoes are already chopped.');break;}
+  if(!selected('tomatoes')){fail('Select the tomatoes to put them on the chopping board.');break;}
+  if(!s.washed){fail('Rinse the tomatoes at the sink first.');break;}
+  if(!s.utensilsTaken){fail('The cutlery drawer holds the tools for this job.');break;}
+  set('chopped');message='A few neat cuts. The tomatoes are ready; the utensils remain available.';break;
+ case 'placePan':
+  if(s.panPlaced){fail('The saucepan is already on the hob.');break;}
+  if(!selected('pan')){fail('Select the saucepan first.');break;}
+  if(!s.filled){fail('Fill the saucepan at the sink before placing it here.');break;}
+  set('panPlaced');message='The saucepan settles over the middle burner.';break;
+ case 'ac':set('ac',!s.ac);message=s.ac?'Air conditioner on.':'Air conditioner off.';break;
+ case 'auxheat':if(value&&[0,1,3,4].includes(value.index)&&Number.isInteger(value.heat)&&value.heat>=0&&value.heat<=3){s.auxHeat[value.index]=value.heat;changed=true;message='Burner '+(value.index+1)+': '+['off','low','medium','high'][value.heat]+'.';}break;
+ case 'heat':
+  if(!Number.isInteger(value)||value<0||value>3)break;
+  if(s.cooking){fail('Finish stirring this short stage before changing the heat.');break;}
+  if(!s.panPlaced&&value!==0){fail('Put the filled saucepan on the hob first.');break;}
+  if(s.soupDone&&value!==0){fail('The soup is finished; leave the heat off.');break;}
+  set('heat',value);message=['Heat off.','A gentle simmer.','Medium heat.','A rolling boil.'][value];break;
+ case 'cook':{
+  if(s.soupDone){fail('The soup is finished.');break;}
+  if(s.cooking){fail('You are already stirring.');break;}
+  if(!s.panPlaced){fail('The hob needs the filled saucepan.');break;}
+  if(!s.utensilsTaken){fail('Collect the utensil roll before cooking.');break;}
+  const item=['tomatoes','basil','salt'][s.course],heat=[3,1,0][s.course];
+  if(value!==item||!has(item)){fail('Follow the recipe: red first, green second, the white crystals last. Select the next ingredient.');break;}
+  if(s.course===0&&!s.chopped){fail('Wash and chop the tomatoes before cooking them.');break;}
+  if(s.heat!==heat){fail(['Tomatoes need a rolling boil: HIGH heat.','Basil needs a gentle simmer: LOW heat.','Salt is the quiet finish: turn the heat OFF.'][s.course]);break;}
+  if(s.course===2){set('soupDone');set('course',3);message='A pinch of salt, with the heat off. The soup is ready to serve.';}
+  else {set('cooking');set('cookTicks',0);message=s.course===0?'Stirring the tomatoes into the boiling water…':'A gentle simmer brings out the basil…';}
+  break;
+ }
+ case 'tick':
+  if(s.cooking){set('cookTicks',s.cookTicks+1);if(s.cookTicks>=4){set('cooking',false);set('course',s.course+1);set('cookTicks',0);message=s.course===1?'Tomatoes cooked. Now lower the heat for the basil.':'Basil folded in. Switch the heat off before seasoning.';}}
+  if(s.baking){set('bakeTicks',s.bakeTicks+1);if(s.bakeTicks>=6){set('baking',false);set('breadDone');set('bakeTicks',0);message='Ding. Two golden rolls, and the oven switches itself off.';}}
+  break;
+ case 'placeDough':
+  if(s.doughPlaced){fail('The rolls are already in the oven.');break;}
+  if(!s.open.oven){fail('Open the oven door first.');break;}
+  if(!selected('dough')){fail('Select the bread dough from the pantry drawer.');break;}
+  set('doughPlaced');message='Two proofed rolls on the baking tray. Close the oven before baking.';break;
+ case 'bake':
+  if(s.breadDone||s.baking){fail('The rolls are already baking or finished.');break;}
+  if(!s.doughPlaced){fail('Put the proofed rolls in the oven first.');break;}
+  if(s.open.oven){fail('Close the oven door before starting.');break;}
+  if(!value||value.temperature!==180||value.minutes!==12){fail('Read the bread note: three half-turns of warmth, a dozen minutes. Nothing is used up.');break;}
+  set('baking');set('bakeTicks',0);message='180 °C · 12 recipe minutes. Baking time is compressed into six game seconds.';break;
+ case 'takeBread':
+  if(!s.open.oven){fail('Open the oven first.');break;}
+  if(!s.breadDone){fail('The rolls are not ready yet.');break;}
+  if(s.breadTaken){fail('The rolls are already on the serving board.');break;}
+  set('breadTaken');message='Using the oven mitt beside the oven, you transfer the rolls to the serving board.';break;
+ case 'serve':
+  if(s.plated){fail('Supper is already served.');break;}
+  if(!s.soupDone||!s.breadTaken){fail('Supper needs both the finished soup and the baked rolls on the serving board.');break;}
+  set('plated');set('tap',false);set('heat',0);s.auxHeat=[0,0,0,0,0];message='Soup and warm bread. A click comes from the drawer beneath the serving board.';break;
+ case 'door':
+  if(s.door){fail('The door is already open.');break;}
+  if(!selected('key')){fail('Select the house key from the last drawer.');break;}
+  set('door');message='Your familiar front door swings open. Supper is waiting.';break;
+ case 'escape':if(s.door){set('escaped');set('tap',false);set('heat',0);message='Home is still home. Now everyone can come in.';}else fail('The door is still locked.');break;
+ case 'lights':set('lamps',!s.lamps);message=s.lamps?'The three pendant lamps glow warmly.':'Pendant lamps off. Daylight stays.';break;
+ case 'hint':set('hints',s.hints+1);break;
+ default:fail('Nothing changes.');
+ }
+ if(changed&&!['observe','hint','tick'].includes(action))s.moves++;
+ inventory(s);
+ return {state:s,changed,message};
+}
+function restore(raw){
+ try{
+  const x=typeof raw==='string'?JSON.parse(raw):raw;if(!x||x.version!==SAVE_VERSION)return freshState();
+  const s=freshState();
+  for(const k of [...FLAGS,'lamps','tap'])if(typeof x[k]==='boolean')s[k]=x[k];
+  for(const k of ['hints','moves','seconds'])if(Number.isSafeInteger(x[k])&&x[k]>=0&&x[k]<1e9)s[k]=x[k];
+  s.seen=Array.isArray(x.seen)?[...new Set(x.seen.filter(v=>OBSERVABLES.includes(v)))]:[];
+  for(const k of OPENABLES)if(typeof x.open?.[k]==='boolean')s.open[k]=x.open[k];
+  s.saltTaken=s.spiceSolved&&s.saltTaken;s.doughTaken=s.spiceSolved&&s.doughTaken;
+  s.washed=s.tomatoesTaken&&s.washed;s.chopped=s.washed&&s.utensilsTaken&&s.chopped;
+  s.filled=s.panTaken&&s.filled;s.panPlaced=s.filled&&s.panPlaced;
+  s.course=Number.isInteger(x.course)&&x.course>=0&&x.course<=3?x.course:0;
+  if(!s.panPlaced||!s.chopped)s.course=0;
+  if(!s.basilTaken)s.course=Math.min(s.course,1);
+  if(!s.saltTaken)s.course=Math.min(s.course,2);
+  s.soupDone=s.course===3&&s.saltTaken&&s.soupDone;
+  if(!s.soupDone&&s.course===3)s.course=2;
+  s.heat=Number.isInteger(x.heat)&&x.heat>=0&&x.heat<=3?x.heat:0;if(!s.panPlaced||s.soupDone)s.heat=0;
+  s.cooking=x.cooking===true&&s.course<2&&s.panPlaced&&s.chopped&&s.heat===[3,1][s.course]&&(s.course===0||s.basilTaken);
+  s.cookTicks=s.cooking&&Number.isInteger(x.cookTicks)&&x.cookTicks>=0&&x.cookTicks<4?x.cookTicks:0;
+  s.doughPlaced=s.doughTaken&&s.doughPlaced;s.breadDone=s.doughPlaced&&s.breadDone;s.breadTaken=s.breadDone&&s.breadTaken;
+  s.baking=x.baking===true&&s.doughPlaced&&!s.breadDone;if(s.baking)s.open.oven=false;
+  s.bakeTicks=s.baking&&Number.isInteger(x.bakeTicks)&&x.bakeTicks>=0&&x.bakeTicks<6?x.bakeTicks:0;
+  s.plated=s.soupDone&&s.breadTaken&&s.plated;s.keyTaken=s.plated&&s.keyTaken;s.door=s.keyTaken&&s.door;s.escaped=s.door&&s.escaped;
+  if(!s.spiceSolved)s.open.spice=false;if(!s.plated)s.open.reward=false;
+  s.ac=x.ac!==false;s.auxHeat=Array.from({length:5},(_,i)=>i!==2&&Number.isInteger(x.auxHeat?.[i])&&x.auxHeat[i]>=0&&x.auxHeat[i]<=3&&!s.escaped?x.auxHeat[i]:0);
+  inventory(s);return s;
+ }catch{return freshState();}
+}
+function stage(s){if(!s.spiceSolved)return 0;if(!s.chopped||!s.panPlaced)return 1;if(!s.soupDone)return 2;if(!s.breadTaken)return 3;if(!s.plated||!s.keyTaken)return 4;if(!s.escaped)return 5;return 6;}
+const HINTS=[
+ ['A familiar place to start: the recipe card on the fridge.','The pantry lock asks for RED · GREEN · CLEAR. Use the recipe quantities, not the number of objects elsewhere.','Two tomatoes, three basil leaves, one cup of water: 231. Inspect the pantry drawer and enter it.'],
+ ['Explore the cutlery drawer, pan drawer and refrigerator. Every compartment can be opened.','Collect utensils, a pan, tomatoes and basil. Select the tomatoes to wash them at the sink; select the pan to fill it.','At the prep board, select the washed tomatoes and chop them. At the stove, select the filled saucepan and place it.'],
+ ['The soup follows the recipe’s changing heat. Mistakes never waste ingredients.','Red at a rolling boil, green at a gentle simmer, white crystals with no heat. Stir each short stage.','Select tomatoes, set HIGH, add and stir. Then select basil, set LOW, add and stir. Finally select salt, set OFF, and season.'],
+ ['The pantry drawer also contains bread dough. The small oven is in the tall cabinet.','Open the oven, insert the dough, then close it. The bread note says three half-turns of warmth, a dozen minutes. A half-turn is 60 °C.','Set 180 °C and 12 minutes. Bake; after the short game cycle, open the oven and take the bread.'],
+ ['A meal is not finished until it is served.','Bring soup and bread together at the serving board beside the stove. Then inspect the drawer below it.','Press Serve supper, open the serving drawer and take the house key.'],
+ ['The key belongs to the familiar door, not another puzzle box.','Select the house key and inspect the exit.','Unlock the door, then choose Welcome everyone in.'],
+ ['Supper is ready. Explore the furnished kitchen model, or start again.']
+];
+
+exports.SAVE_VERSION=SAVE_VERSION;
+exports.OPENABLES=OPENABLES;
+exports.OBSERVABLES=OBSERVABLES;
+exports.ITEMS=ITEMS;
+exports.freshState=freshState;
+exports.act=act;
+exports.restore=restore;
+exports.stage=stage;
+exports.HINTS=HINTS;
+},"src/engine.js":function(module,exports,require){
+/** Small original WebGL renderer: no runtime or build dependencies. World units are metres. */
+const V = {
+  add:(a,b)=>a.map((x,i)=>x+b[i]), sub:(a,b)=>a.map((x,i)=>x-b[i]),
+  mul:(a,s)=>a.map(x=>x*s), dot:(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0),
+  cross:(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],
+  unit:a=>{const n=Math.hypot(...a)||1;return a.map(x=>x/n);}
+};
+const M = {
+  multiply(a,b) {const o=new Float32Array(16);for(let c=0;c<4;c++) for(let r=0;r<4;r++) for(let k=0;k<4;k++)o[c*4+r]+=a[k*4+r]*b[c*4+k];return o;},
+  perspective(f,a,n=.04,z=60) {const q=1/Math.tan(f/2);return new Float32Array([q/a,0,0,0,0,q,0,0,0,0,(z+n)/(n-z),-1,0,0,2*z*n/(n-z),0]);},
+  look(eye,target) {const z=V.unit(V.sub(eye,target)),x=V.unit(V.cross([0,1,0],z)),y=V.cross(z,x);return new Float32Array([x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-V.dot(x,eye),-V.dot(y,eye),-V.dot(z,eye),1]);},
+  project(m,p) {const a=[...p,1],o=[0,0,0,0];for(let r=0;r<4;r++)for(let c=0;c<4;c++)o[r]+=m[c*4+r]*a[c];return o;}
+};
+function color(hex) {return [16,8,0].map(n=>((hex>>n)&255)/255);}
+function rotate(p,r) {
+  let [x,y,z]=p, c=Math.cos(r[0]),s=Math.sin(r[0]);[y,z]=[y*c-z*s,y*s+z*c];
+  c=Math.cos(r[1]);s=Math.sin(r[1]);[x,z]=[x*c+z*s,-x*s+z*c];
+  c=Math.cos(r[2]);s=Math.sin(r[2]);return [x*c-y*s,x*s+y*c,z];
+}
+class MeshBuilder {
+  constructor() {this.meshes=[];this.current=null;}
+  group(name,layer='shell') {this.current={name,layer,data:[]};this.meshes.push(this.current);return this;}
+  vertex(p,n,c,kind=0) {this.current.data.push(...p,...n,...c,kind);}
+  tri(a,b,c,col,kind=0, normals=null) {const n=V.unit(V.cross(V.sub(b,a),V.sub(c,a)));[a,b,c].forEach((p,i)=>this.vertex(p,normals?normals[i]:n,col,kind));}
+  box(pos,size,hex,rot=[0,0,0],kind=0) {
+    const h=size.map(v=>v/2),c=color(hex),v=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]].map(p=>V.add(pos,rotate(p.map((x,i)=>x*h[i]),rot)));
+    for(const q of [[0,3,2,1],[4,5,6,7],[0,4,7,3],[1,2,6,5],[3,7,6,2],[0,1,5,4]]) {this.tri(v[q[0]],v[q[1]],v[q[2]],c,kind);this.tri(v[q[0]],v[q[2]],v[q[3]],c,kind);}return this;
+  }
+  cylinder(pos,rt,rb,height,hex,rot=[0,0,0],segments=32,kind=0) {
+    const c=color(hex),tr=p=>V.add(pos,rotate(p,rot)),nr=p=>rotate(p,rot);
+    for(let i=0;i<segments;i++) {
+      const a=i/segments*Math.PI*2,b=(i+1)/segments*Math.PI*2;
+      const p=[tr([Math.cos(a)*rb,-height/2,Math.sin(a)*rb]),tr([Math.cos(a)*rt,height/2,Math.sin(a)*rt]),tr([Math.cos(b)*rt,height/2,Math.sin(b)*rt]),tr([Math.cos(b)*rb,-height/2,Math.sin(b)*rb])];
+      const n=[a,a,b,b].map(t=>nr(V.unit([Math.cos(t),(rb-rt)/height,Math.sin(t)])));
+      this.tri(p[0],p[1],p[2],c,kind,[n[0],n[1],n[2]]);this.tri(p[0],p[2],p[3],c,kind,[n[0],n[2],n[3]]);
+      this.tri(tr([0,height/2,0]),p[2],p[1],c,kind);this.tri(tr([0,-height/2,0]),p[0],p[3],c,kind);
+    }return this;
+  }
+  torus(pos,r,tube,hex,rot=[0,0,0],arc=Math.PI*2) {
+    const c=color(hex),seg=48,rad=8,tr=p=>V.add(pos,rotate(p,rot));
+    const pt=(a,b)=>tr([(r+tube*Math.cos(b))*Math.cos(a),(r+tube*Math.cos(b))*Math.sin(a),tube*Math.sin(b)]);
+    const nm=(a,b)=>rotate([Math.cos(a)*Math.cos(b),Math.sin(a)*Math.cos(b),Math.sin(b)],rot);
+    for(let i=0;i<seg;i++)for(let j=0;j<rad;j++) {let a=i/seg*arc,b=(i+1)/seg*arc,u=j/rad*Math.PI*2,v=(j+1)/rad*Math.PI*2;this.tri(pt(a,u),pt(b,u),pt(b,v),c,0,[nm(a,u),nm(b,u),nm(b,v)]);this.tri(pt(a,u),pt(b,v),pt(a,v),c,0,[nm(a,u),nm(b,v),nm(a,v)]);}return this;
+  }
+  sphere(pos,r,hex,scale=[1,1,1],kind=0) {
+    const c=color(hex),seg=18,rings=10;
+    const n=(a,t)=>[Math.cos(a)*Math.sin(t),Math.cos(t),Math.sin(a)*Math.sin(t)];
+    const pt=(a,t)=>V.add(pos,n(a,t).map((v,i)=>v*r*scale[i]));
+    for(let j=0;j<rings;j++)for(let i=0;i<seg;i++){
+      const a=i/seg*Math.PI*2,z=(i+1)/seg*Math.PI*2,t=j/rings*Math.PI,u=(j+1)/rings*Math.PI;
+      this.tri(pt(a,t),pt(a,u),pt(z,u),c,kind,[n(a,t),n(a,u),n(z,u)]);
+      this.tri(pt(a,t),pt(z,u),pt(z,t),c,kind,[n(a,t),n(z,u),n(z,t)]);
+    }return this;
+  }
+  rod(a,b,r,hex) {const d=V.sub(b,a),len=Math.hypot(...d);return this.cylinder(V.mul(V.add(a,b),.5),r,r,len,hex,[Math.acos(d[1]/len),Math.atan2(d[0],d[2]),0],12);}
+}
+const IDENTITY=new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);
+/** Rigid transform about a world-space hinge, followed by a translation. */
+function rigid(pivot=[0,0,0],rotation=[0,0,0],translation=[0,0,0]){
+ const a=rotate([1,0,0],rotation),b=rotate([0,1,0],rotation),c=rotate([0,0,1],rotation),q=rotate(pivot,rotation);
+ return new Float32Array([...a,0,...b,0,...c,0,...pivot.map((v,i)=>v-q[i]+translation[i]),1]);
+}
+const VS=`attribute vec3 aPos,aNormal,aColor;attribute float aKind;uniform mat4 uMatrix,uModel;uniform float uTime;varying vec3 vPos,vNormal,vColor;varying float vKind;
+void main(){vec3 p=aPos;if(aKind>4.5&&aKind<5.5){p.x+=sin(uTime*1.4+p.y*9.)*.028;p.y+=sin(uTime*1.1+p.z*6.)*.028;}vPos=(uModel*vec4(p,1.)).xyz;vNormal=mat3(uModel)*aNormal;vColor=aColor;vKind=aKind;gl_Position=uMatrix*vec4(vPos,1.);}`;
+const FS=`precision highp float;
+varying vec3 vPos,vNormal,vColor;varying float vKind;uniform vec3 uEye;uniform float uPowered,uShell,uTime;
+float hash(vec3 p){return fract(sin(dot(p,vec3(12.9898,78.233,43.127)))*43758.5453);}
+void main(){
+ vec3 n=normalize(vNormal),c=pow(vColor,vec3(2.2));
+ float grain=(hash(floor(vPos*430.))-.5)*.008;
+ vec3 light=vec3(.58,.60,.59)+max(dot(n,normalize(vec3(.4,.85,-.6))),0.)*vec3(.54,.50,.39);
+ light+=max(dot(n,normalize(vec3(-.4,.2,.7))),0.)*vec3(.13,.17,.20);
+ light+=uPowered*max(dot(n,normalize(vec3(-.5,2.,1.))),0.)*vec3(.12,.08,.035);
+ float edge=min(min(vPos.x+2.4,2.4-vPos.x),min(vPos.z+2.45,2.45-vPos.z));
+ float ao=(.80+.20*smoothstep(0.,.26,edge))*(.84+.16*smoothstep(0.,.25,vPos.y));
+ if(vPos.y<.035&&n.y>.8){float sx=vPos.x-vPos.z*.32;float patch=step(-1.28,sx)*step(sx,.2)*step(-1.35,vPos.z)*step(vPos.z,2.25);light+=patch*mix(.12,.53,step(.16,fract((sx+1.28)*4.05)))*vec3(1.,.89,.62);}
+ if(vKind>1.5&&vKind<2.5){c=vColor*.75;light=vec3(1.);ao=1.;}
+ if(vKind>2.5&&vKind<3.5){c=vColor*(.4+uPowered*.8);light=vec3(1.);ao=1.;}
+ if(vKind>3.5&&vKind<4.5){c=vColor*(1.1+.15*sin(uTime*11.+vPos.x*28.));light=vec3(1.);ao=1.;}
+ if(vKind>5.5){vec3 h=normalize(normalize(uEye-vPos)+normalize(vec3(.4,1.,-.7)));c+=pow(max(dot(n,h),0.),70.)*.18;}
+ c=max(vec3(0.),c*light*ao+grain);c=mix(c,vec3(.21,.23,.21),1.-exp(-length(vPos-uEye)*.006));c=pow(c/(c+vec3(.63)),vec3(1./2.2));
+ gl_FragColor=vec4(c,(vKind>4.5&&vKind<5.5)?.3:1.);
+}`;
+class RoomRenderer {
+  constructor(canvas) {
+    this.canvas=canvas;this.gl=canvas.getContext('webgl',{alpha:false,antialias:true,powerPreference:'high-performance'});
+    if(!this.gl) throw new Error('This browser could not create a WebGL context. Enable hardware acceleration or try a WebGL-capable browser.');
+    const g=this.gl,shader=(type,source)=>{let s=g.createShader(type);g.shaderSource(s,source);g.compileShader(s);if(!g.getShaderParameter(s,g.COMPILE_STATUS))throw new Error(g.getShaderInfoLog(s));return s;};
+    this.program=g.createProgram();g.attachShader(this.program,shader(g.VERTEX_SHADER,VS));g.attachShader(this.program,shader(g.FRAGMENT_SHADER,FS));g.linkProgram(this.program);if(!g.getProgramParameter(this.program,g.LINK_STATUS))throw new Error(g.getProgramInfoLog(this.program));g.useProgram(this.program);
+    this.buffer=g.createBuffer();g.bindBuffer(g.ARRAY_BUFFER,this.buffer);
+    for(const [name,size,offset] of [['aPos',3,0],['aNormal',3,12],['aColor',3,24],['aKind',1,36]]) {let p=g.getAttribLocation(this.program,name);g.enableVertexAttribArray(p);g.vertexAttribPointer(p,size,g.FLOAT,false,40,offset);}
+    this.uniforms={};for(const n of ['uMatrix','uModel','uEye','uPowered','uShell','uTime'])this.uniforms[n]=g.getUniformLocation(this.program,n);
+    g.enable(g.DEPTH_TEST);g.enable(g.BLEND);g.blendFunc(g.SRC_ALPHA,g.ONE_MINUS_SRC_ALPHA);g.disable(g.CULL_FACE);g.clearColor(.14,.15,.16,1);this.ranges=[];
+  }
+  upload(meshes) {const list=[],ranges=[];let start=0;for(const m of meshes){list.push(new Float32Array(m.data));ranges.push({name:m.name,layer:m.layer,start,count:m.data.length/10});start+=m.data.length/10;}const all=new Float32Array(start*10);let p=0;for(const a of list){all.set(a,p);p+=a.length;}this.gl.bindBuffer(this.gl.ARRAY_BUFFER,this.buffer);this.gl.bufferData(this.gl.ARRAY_BUFFER,all,this.gl.STATIC_DRAW);this.ranges=ranges;this.triangles=start/3;}
+  render(eye,target,fov,shell,cutaway,powered,poses={},time=0) {
+    const g=this.gl,c=this.canvas,dpr=Math.min(devicePixelRatio||1,1.7),w=Math.round(c.clientWidth*dpr),h=Math.round(c.clientHeight*dpr);
+    if(c.width!==w||c.height!==h){c.width=w;c.height=h;g.viewport(0,0,w,h);}
+    this.matrix=M.multiply(M.perspective(fov,w/h),M.look(eye,target));
+    g.clear(g.COLOR_BUFFER_BIT|g.DEPTH_BUFFER_BIT);g.uniformMatrix4fv(this.uniforms.uMatrix,false,this.matrix);g.uniform3fv(this.uniforms.uEye,eye);g.uniform1f(this.uniforms.uPowered,powered?1:0);g.uniform1f(this.uniforms.uShell,shell?1:0);g.uniform1f(this.uniforms.uTime,time);
+    for(const r of this.ranges) {
+      if(shell&&['puzzle','effect'].includes(r.layer))continue;
+      if(cutaway&&['south','east','ceiling','door-leaf','door-frame'].includes(r.name))continue;
+      if(poses[r.name]===false)continue;
+      g.uniformMatrix4fv(this.uniforms.uModel,false,poses[r.name]||IDENTITY);
+      g.depthMask(r.layer!=='effect');g.drawArrays(g.TRIANGLES,r.start,r.count);
+    }g.depthMask(true);
+  }
+  project(p) {const q=M.project(this.matrix,p);return {x:(q[0]/q[3]*.5+.5)*this.canvas.clientWidth,y:(.5-q[1]/q[3]*.5)*this.canvas.clientHeight,visible:q[3]>0&&Math.abs(q[0]/q[3])<.97&&Math.abs(q[1]/q[3])<.93};}
+}
+/** Export baked, editable triangle meshes as standard glTF 2.0 binary with vertex colours. */
+function exportGLB(meshes,{architectureOnly=false}={}) {
+  const doc={asset:{version:'2.0',generator:'The Crispery Room — original procedural reconstruction',copyright:'Private project. Photo-derived dimensions are design assumptions.'},scene:0,scenes:[{nodes:[]}],nodes:[],meshes:[],buffers:[{byteLength:0}],bufferViews:[],accessors:[],materials:[{name:'Kitchen surfaces',pbrMetallicRoughness:{baseColorFactor:[1,1,1,1],metallicFactor:0,roughnessFactor:.8},doubleSided:true}]};
+  const chunks=[];let offset=0;
+  function accessor(array,type,min,max) {const index=doc.accessors.length;doc.bufferViews.push({buffer:0,byteOffset:offset,byteLength:array.byteLength,target:34962});doc.accessors.push({bufferView:doc.bufferViews.length-1,componentType:5126,count:array.length/3,type,...(min?{min,max}:{})});chunks.push(new Uint8Array(array.buffer));offset+=array.byteLength;return index;}
+  for(const m of meshes.filter(m=>m.layer==='shell'||(!architectureOnly&&m.layer==='fixture'))) {
+    const p=[],n=[],c=[],min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];
+    for(let i=0;i<m.data.length;i+=10)for(let j=0;j<3;j++){const v=m.data[i+j];p.push(v);n.push(m.data[i+3+j]);c.push(Math.pow(m.data[i+6+j],2.2));min[j]=Math.min(min[j],v);max[j]=Math.max(max[j],v);}
+    if(!p.length)continue;const position=accessor(new Float32Array(p),'VEC3',min,max),normal=accessor(new Float32Array(n),'VEC3'),colors=accessor(new Float32Array(c),'VEC3');
+    const i=doc.meshes.length;doc.meshes.push({name:m.name,primitives:[{attributes:{POSITION:position,NORMAL:normal,COLOR_0:colors},material:0}]});doc.nodes.push({name:m.name,mesh:i,extras:{units:'metres',reconstruction:'approximate; not a survey'}});doc.scenes[0].nodes.push(i);
+  }
+  doc.buffers[0].byteLength=offset;let json=new TextEncoder().encode(JSON.stringify(doc)),pad=(4-json.length%4)%4,binpad=(4-offset%4)%4;
+  const total=12+8+json.length+pad+8+offset+binpad,out=new Uint8Array(total),dv=new DataView(out.buffer);dv.setUint32(0,0x46546c67,true);dv.setUint32(4,2,true);dv.setUint32(8,total,true);dv.setUint32(12,json.length+pad,true);dv.setUint32(16,0x4e4f534a,true);out.set(json,20);out.fill(32,20+json.length,20+json.length+pad);
+  let pos=20+json.length+pad;dv.setUint32(pos,offset+binpad,true);dv.setUint32(pos+4,0x004e4942,true);pos+=8;for(const a of chunks){out.set(a,pos);pos+=a.length;}return out;
+}
+
+exports.V=V;
+exports.M=M;
+exports.color=color;
+exports.MeshBuilder=MeshBuilder;
+exports.IDENTITY=IDENTITY;
+exports.rigid=rigid;
+exports.RoomRenderer=RoomRenderer;
+exports.exportGLB=exportGLB;
+},"src/packs/kitchen/world.js":function(module,exports,require){
+const {MeshBuilder,rigid,IDENTITY}=require("src/engine.js");
+const ROOM={width:4.8,depth:4.9,height:2.85,wall:.14,footprint:[[-2.4,-2.45],[.55,-2.45],[.55,-1.85],[2.4,-1.85],[2.4,2.45],[-2.4,2.45]],note:'Approximate photo-guided kitchen. Preserve cabinetry, counters, sink, appliances, lamps and architecture. Dimensions, unseen surfaces and appliance interiors are design assumptions.'};
+const VIEWS=[
+ {name:'Kitchen',eye:[1.6,1.68,1.7],target:[-1.2,1.18,-1.5]},
+ {name:'Sink',eye:[-.65,1.6,.62],target:[-2.1,1.12,-.48]},
+ {name:'Cook',eye:[-.53,1.63,-.65],target:[-.84,1.02,-2.0]},
+ {name:'Fridge',eye:[-.20,1.64,1.5],target:[-2.03,1.14,1.30]},
+ {name:'Door',eye:[.7,1.68,.4],target:[.20,1.45,2.4]}
+];
+const SPOTS=[
+ {id:'recipe',name:'Recipe card',pos:[-1.58,1.59,1.25],normal:[1,0,0],radius:.20,view:3},
+ {id:'fridge',name:'Refrigerator',pos:[-1.57,1.12,1.52],normal:[1,0,0],radius:.37,view:3},
+ {id:'freezer',name:'Freezer drawer',pos:[-1.56,.35,1.35],normal:[1,0,0],radius:.27,view:3},
+ {id:'cutlery',name:'Cutlery drawer',pos:[-1.72,.75,.60],normal:[1,0,0],radius:.20,view:1},
+ {id:'pans',name:'Pan drawer',pos:[-1.72,.40,.60],normal:[1,0,0],radius:.22,view:1},
+ {id:'sink',name:'Sink & tap',pos:[-2.00,1.05,-.06],normal:null,radius:.36,view:1},
+ {id:'sinkdoor',name:'Under-sink cabinet',pos:[-1.72,.48,-.12],normal:[1,0,0],radius:.25,view:1},
+ {id:'dishwasher',name:'Dishwasher',pos:[-1.73,.56,-.88],normal:[1,0,0],radius:.29,view:1},
+ {id:'upper',name:'Frosted cupboards',pos:[-2.01,1.89,-.12],normal:[1,0,0],radius:.35,view:1},
+ {id:'prep',name:'Preparation board',pos:[-2.0,1.0,-1.48],normal:null,radius:.28,view:1},
+ {id:'spice',name:'Pantry drawer',pos:[-1.42,.76,-1.73],normal:[0,0,1],radius:.21,view:2},
+ {id:'reward',name:'Serving drawer',pos:[-1.42,.43,-1.73],normal:[0,0,1],radius:.23,view:2},
+ {id:'serve',name:'Serving board',pos:[-1.42,1.03,-2.02],normal:null,radius:.26,view:2},
+ {id:'stove',name:'Gas hob',pos:[-.64,1.01,-1.95],normal:null,radius:.40,view:2},
+ {id:'hob1',name:'Top hob drawer',pos:[-.61,.74,-1.73],normal:[0,0,1],radius:.20,view:2},
+ {id:'hob2',name:'Lower hob drawer',pos:[-.61,.39,-1.73],normal:[0,0,1],radius:.25,view:2},
+ {id:'oven',name:'Oven',pos:[.28,1.08,-1.72],normal:[0,0,1],radius:.25,view:2},
+ {id:'microwave',name:'Microwave',pos:[.28,1.70,-1.73],normal:[0,0,1],radius:.25,view:2},
+ {id:'tower',name:'Tower drawers',pos:[.28,.43,-1.72],normal:[0,0,1],radius:.28,view:2},
+ {id:'lamps',name:'Pendant lamps',pos:[-.4,1.47,2.37],normal:[0,0,-1],radius:.15,view:4},
+ {id:'door',name:'Front door',pos:[.75,1.26,2.33],normal:[0,0,-1],radius:.50,view:4},
+ {id:'wide',name:'Main window',pos:[-.70,1.75,-2.26],normal:[0,0,1],radius:.42,view:0},
+ {id:'narrow',name:'Side window',pos:[1.5,1.68,-1.67],normal:[0,0,1],radius:.4,view:0}
+];
+// Per-mesh transforms let doors rotate around true hinges without rebuilding the room.
+const MOTIONS={};
+function bind(name,id,translation=null,pivot=null,rotation=null){MOTIONS[name]={id,translation,pivot,rotation};}
+function kitchenPoses(values){const poses={};for(const [name,m] of Object.entries(MOTIONS)){const t=values[m.id]||0;poses[name]=rigid(m.pivot||[0,0,0],(m.rotation||[0,0,0]).map(v=>v*t),(m.translation||[0,0,0]).map(v=>v*t));}return poses;}
+function makeWorld(s){
+ const b=new MeshBuilder(),plaster=0xe0e2d9,trim=0xe8e9df,metal=0x333b39,brass=0xad8750,red=0x792d38,black=0x232c2b;
+ b.group('floor');
+ // Tile meshes deliberately remain separate geometry within one editable floor mesh.
+ for(let x=-2.4;x<2.39;x+=.6)for(let z=-2.45;z<2.44;z+=.6){let endX=Math.min(x+.6,2.4),endZ=Math.min(z+.6,2.45);if(z< -1.85)endX=Math.min(endX,.55);if(endX<=x)continue;const c=((Math.round((x+2.4)*10)+Math.round((z+2.45)*10))%3);b.box([(x+endX)/2,-.043,(z+endZ)/2],[endX-x-.011,.08,endZ-z-.011],[0x77776d,0x72756c,0x7d7d72][c]);}
+ b.box([-.925,-.13,0],[2.95,.12,4.9],0x5a5b55);b.box([1.475,-.13,.3],[1.85,.12,4.3],0x5a5b55);
+ b.group('west').box([-2.47,1.425,0],[.14,2.85,4.9],plaster);
+ b.group('east').box([2.47,1.425,.3],[.14,2.85,4.3],plaster);
+ function wallWithWindow(name,x0,x1,z,cx,w) {
+  b.group(name);const lo=.95,hi=2.24;
+  b.box([(x0+x1)/2,lo/2,z],[x1-x0,lo,.14],plaster);
+  b.box([(x0+x1)/2,(hi+2.85)/2,z],[x1-x0,2.85-hi,.14],plaster);
+  const a=cx-w/2,d=cx+w/2;
+  b.box([(x0+a)/2,(lo+hi)/2,z],[a-x0,hi-lo,.14],plaster);
+  b.box([(d+x1)/2,(lo+hi)/2,z],[x1-d,hi-lo,.14],plaster);
+ }
+ wallWithWindow('north',-2.4,.55,-2.52,-.62,1.44);
+ wallWithWindow('north-step',.55,2.4,-1.92,1.45,1.2);
+ b.group('return').box([.55,1.425,-2.15],[.14,2.85,.6],plaster);
+ b.group('south');b.box([-1.09,1.425,2.52],[2.62,2.85,.14],plaster);b.box([1.84,1.425,2.52],[1.12,2.85,.14],plaster);b.box([.75,2.57,2.52],[1.06,.56,.14],plaster);
+ b.group('ceiling').box([-.925,2.92,0],[2.95,.14,4.9],0xc8c6b8).box([1.475,2.92,.3],[1.85,.14,4.3],0xc8c6b8);
+ b.group('skirting');for(const [p,d] of [[[-2.385,.065,0],[.04,.13,4.9]],[[2.385,.065,.3],[.04,.13,4.3]],[[-.925,.065,-2.43],[2.95,.13,.04]],[[1.475,.065,-1.83],[1.85,.13,.04]],[[.59,.065,-2.15],[.04,.13,.6]],[[-1.09,.065,2.43],[2.62,.13,.04]],[[1.84,.065,2.43],[1.12,.13,.04]]])b.box(p,d,0x424941);
+ b.group('cornice');b.box([-2.38,2.76,0],[.07,.1,4.9],trim);b.box([-.925,2.76,-2.43],[2.95,.1,.08],trim);b.box([1.475,2.76,-1.83],[1.85,.1,.08],trim);
+ // Architectural tile backsplash retained; the cabinetry and appliances are restored as permanent fixtures below.
+ b.group('backsplash');for(let row=0;row<5;row++) {
+  const y=.97+row*.135;
+  for(let z=-2.29;z<.42;z+=.28)b.box([-2.386,y,z+(row%2)*.11],[.025,.126,.264],row%3===0?0xe0dfce:0xd3d6c9);
+  for(let x=-2.25;x<.36;x+=.28){if(y>.95&&x> -1.42 && x<.18)continue;b.box([x,y,-2.428],[.264,.126,.025],0xd6d7cc);}
+ }
+ function window(name,cx,z,w,count) {
+  b.group(name);const mid=1.595,h=1.29;
+  // Layered exterior panels suggest depth but are invented, not photo reconstructions.
+  b.box([cx,mid,z-.12],[w,h,.02],0xc3d6d3,[0,0,0],2);
+  b.box([cx+.18,1.13,z-.1],[w*.48,.25,.025],0xc4b7a0,[0,0,0],2);
+  for(const xx of [cx-w/2,cx+w/2])b.box([xx,mid,z+.055],[.075,h+.16,.14],trim);
+  for(const yy of [.95,2.24])b.box([cx,yy,z+.055],[w+.12,.075,.14],trim);
+  b.box([cx,.915,z+.1],[w+.22,.085,.27],0xb7afa0);
+  // Exactly count interior black uprights. White frame pieces are not part of the count.
+  for(let i=1;i<=count;i++){const xx=cx-w/2+i*w/(count+1);b.rod([xx,1.01,z+.02],[xx,2.18,z+.02],.011,metal);}
+  let last=null;for(let i=0;i<=36;i++){const t=i/36*Math.PI*2,p=[cx+.011*16*Math.pow(Math.sin(t),3),1.55+.011*(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t)),z+.04];if(last)b.rod(last,p,.009,metal);last=p;}
+ }
+ window('wide-window',-.62,-2.45,1.44,5);window('narrow-window',1.45,-1.85,1.2,3);
+ for(const [name,cx,z,w] of [['wide',-.62,-2.45,1.44],['narrow',1.45,-1.85,1.2]]){b.group(name+'-sash','fixture');b.box([cx+w*.23,1.59,z+.10],[.035,1.18,.035],trim);b.rod([cx+w*.18,1.52,z+.14],[cx+w*.18,1.7,z+.14],.012,metal);bind(name+'-sash',name,[-w*.38,0,0]);}
+
+ // KITCHEN_FIXTURES
+ const cream=0xe0e8da,inset=0xcbd6c7,steel=0x929c99,glass=0x92a9a7,wood=0xb68b57,dark=0x343c39;
+ // Door and original trim are retained, not converted into an abstract vault.
+ b.group('door-frame').box([.75,2.34,2.415],[1.225,.075,.1],trim);
+ for(const x of [.175,1.325])b.box([x,1.16,2.415],[.075,2.4,.1],trim);
+ b.group('door-leaf').box([.75,1.135,2.455],[1.035,2.27,.065],0xd4d2c1);
+ b.box([1.03,1.06,2.397],[.17,.025,.035],steel);b.cylinder([1.10,1.045,2.418],.038,.038,.035,steel,[Math.PI/2,0,0],16);
+ bind('door-leaf','door',null,[.22,0,2.455],[0,-1.45,0]);
+ b.group('light-switch','fixture').box([-.42,1.43,2.418],[.09,.13,.026],cream).box([-.42,1.43,2.397],[.045,.072,.013],inset);
+ // A local cabinetry builder uses +Z as the opening direction.
+ function local(origin,ry,fn){
+  const c=new MeshBuilder(),cs=Math.cos(ry),sn=Math.sin(ry),pt=p=>[origin[0]+p[0]*cs+p[2]*sn,origin[1]+p[1],origin[2]-p[0]*sn+p[2]*cs];
+  const move=(name,id,d=.43)=>bind(name,id,[sn*d,0,cs*d]);
+  const hinge=(name,id,p,rot)=>{const axis=rot[0]?[Math.cos(ry)*rot[0],0,-Math.sin(ry)*rot[0]]:rot;bind(name,id,null,pt(p),axis);};
+  fn(c,move,hinge,pt);
+  for(const m of c.meshes){for(let i=0;i<m.data.length;i+=10){let x=m.data[i],z=m.data[i+2];m.data[i]=origin[0]+x*cs+z*sn;m.data[i+1]+=origin[1];m.data[i+2]=origin[2]-x*sn+z*cs;let nx=m.data[i+3],nz=m.data[i+5];m.data[i+3]=nx*cs+nz*sn;m.data[i+5]=-nx*sn+nz*cs;}b.meshes.push(m);}
+ }
+ function face(c,w,h,y,z,material=cream){
+  c.box([0,y,z],[w,h,.034],material);
+  c.box([0,y,z+.019],[w-.095,h-.073,.009],inset);
+  for(const x of [-w/2+.026,w/2-.026])c.box([x,y,z+.024],[.045,h,.018],material);
+  for(const yy of [y-h/2+.022,y+h/2-.022])c.box([0,yy,z+.024],[w,.037,.018],material);
+  c.rod([-w*.31,y+h*.27,z+.063],[w*.31,y+h*.27,z+.063],.011,steel);
+  for(const x of [-w*.25,w*.25])c.rod([x,y+h*.27,z+.021],[x,y+h*.27,z+.064],.008,steel);
+ }
+ function carcass(c,w,d=.65,h=.88){
+  c.group('cabinet-body-'+c.meshes.length,'fixture');
+  c.box([0,.10,d/2-.05],[w-.06,.20,d-.12],0x586159);
+  for(const x of [-w/2+.012,w/2-.012])c.box([x,(h+.15)/2,d/2],[.024,h-.15,d],cream);
+  c.box([0,.17,d/2],[w,.034,d],inset);c.box([0,h-.015,d/2],[w,.03,d],cream);c.box([0,(h+.15)/2,.027],[w,h-.15,.036],inset);
+ }
+ function drawer(c,move,id,w,y,h,d=.65){
+  c.group('drawer-'+id,'fixture');
+  c.box([0,y-h/2+.036,d/2],[w-.055,.03,d-.03],wood);
+  for(const x of [-w/2+.034,w/2-.034])c.box([x,y-.018,d/2],[.025,h-.055,d-.06],0xc7b696);
+  c.box([0,y-.016,.07],[w-.07,h-.055,.022],wood);
+  face(c,w-.018,h,y,d+.01);move('drawer-'+id,id);
+ }
+ // L-shaped grey worktop. The sink cut-out is actual geometry, not a solid slab under a bowl.
+ b.group('countertops','fixture');
+ b.box([-2.065,.92,-1.32],[.70,.055,2.23],0x7c8580);
+ b.box([-2.065,.92,.665],[.70,.055,.48],0x7c8580);
+ for(const x of [-2.365,-1.762])b.box([x,.92,.025],[.095,.055,.78],0x7c8580);
+ b.box([-1.19,.92,-2.10],[1.73,.055,.71],0x7c8580);
+ // West run: two real sliding drawers, sink door, dishwasher and the prep corner.
+ local([-2.4,0,.59],Math.PI/2,(c,move)=>{carcass(c,.55);drawer(c,move,'cutlery',.55,.755,.22);drawer(c,move,'pans',.55,.40,.45);
+  if(!s.utensilsTaken){c.group('utensils-in-drawer','puzzle');c.box([0,.684,.38],[.37,.025,.32],0x7b8b79);c.rod([-.11,.712,.20],[-.11,.712,.52],.014,wood);c.sphere([-.11,.713,.55],.034,wood,[1,.25,1.4]);c.box([.06,.714,.39],[.036,.008,.22],steel);c.box([.06,.716,.20],[.045,.023,.14],wood);move('utensils-in-drawer','cutlery');}
+  if(!s.panTaken){c.group('pan-in-drawer','puzzle');c.cylinder([0,.26,.35],.14,.13,.13,steel);c.cylinder([0,.327,.35],.125,.125,.008,dark);c.rod([.1,.3,.35],[.21,.3,.35],.015,dark);move('pan-in-drawer','pans');}
+ });
+ local([-2.4,0,-.12],Math.PI/2,(c,move,hinge)=>{carcass(c,.83);c.group('sink-door','fixture');face(c,.81,.67,.52,.66);hinge('sink-door','sinkdoor',[-.415,0,.66],[0,-1.45,0]);c.group('sink-plumbing','fixture');c.cylinder([0,.61,.30],.055,.055,.29,steel);c.rod([0,.48,.3],[.23,.48,.3],.038,steel);});
+ b.group('sink-basin','fixture');b.box([-2.04,.78,.035],[.49,.02,.68],0x586d69);
+ for(const x of [-2.29,-1.80])b.box([x,.85,.035],[.025,.15,.68],steel);
+ for(const z of [-.307,.377])b.box([-2.04,.85,z],[.49,.15,.025],steel);
+ b.cylinder([-2.04,.797,.08],.035,.035,.01,metal,[0,0,0],20);
+ b.rod([-2.305,.935,-.05],[-2.305,1.255,-.05],.022,steel);
+ for(let i=0;i<10;i++){const a=i/10*Math.PI,z=(i+1)/10*Math.PI;b.rod([-2.205-.10*Math.cos(a),1.255+.10*Math.sin(a),-.05],[-2.205-.10*Math.cos(z),1.255+.10*Math.sin(z),-.05],.021,steel);}
+ b.rod([-2.105,1.255,-.05],[-2.105,1.205,-.05],.021,steel);b.group('tap-lever','fixture');b.rod([-2.305,1.045,-.05],[-2.305,1.085,.07],.012,steel);
+ bind('tap-lever','tap',null,[-2.305,1.045,-.05],[.50,0,0]);
+ local([-2.4,0,-.88],Math.PI/2,(c,move,hinge)=>{
+  carcass(c,.64);c.group('dishwasher-inside','fixture').box([0,.50,.06],[.57,.61,.025],steel);
+  for(const y of [.35,.60])for(let x=-.24;x<.27;x+=.08)c.rod([x,y,.11],[x,y,.54],.006,steel);
+  c.group('dishwasher-front','fixture').box([0,.48,.66],[.62,.72,.045],cream).box([0,.79,.69],[.6,.09,.025],0xcbd4c9);
+  c.rod([-.19,.74,.716],[.19,.74,.716],.012,steel);
+  for(let i=0;i<4;i++)c.cylinder([.11+i*.032,.797,.71],.006,.006,.006,metal,[Math.PI/2,0,0],10);
+  hinge('dishwasher-front','dishwasher',[0,.13,.66],[1.48,0,0]);
+ });
+ local([-2.4,0,-1.57],Math.PI/2,(c,move,hinge)=>{carcass(c,.68);c.group('corner-front','fixture');face(c,.66,.70,.515,.66);hinge('corner-front','corner',[-.34,0,.66],[0,-1.3,0]);});
+ // Broad white framed frosted upper doors, visually characteristic of the source kitchen.
+ for(let col=0;col<2;col++)for(let row=0;row<2;row++)local([-2.4,0,-.92+col*1.06],Math.PI/2,(c,move,hinge)=>{
+  const y=1.91+row*.51,w=1.02,h=.49,id='upper-'+col+'-'+row;
+  c.group('upper-carcass-'+col+'-'+row,'fixture');
+  for(const xx of [-w/2,w/2])c.box([xx,y,.18],[.022,h,.35],cream);
+  for(const yy of [y-h/2,y+h/2])c.box([0,yy,.18],[w,.022,.35],cream);
+  c.box([0,y,.035],[w,h,.04],inset);
+  c.group(id,'fixture').box([0,y,.37],[w,h,.04],cream).box([0,y,.394],[w-.14,h-.12,.015],glass,[0,0,0],6);
+  c.rod([-.25,y-h/2+.035,.43],[.25,y-h/2+.035,.43],.011,steel);
+  hinge(id,row?'upperTop'+col:'upper'+col,[0,y+h/2,.37],[-1.12,0,0]);
+ });
+ b.group('under-cabinet-light','fixture').box([-2.04,1.637,-.38],[.018,.016,2.0],0xffd798,[0,0,0],3);
+ // North run: pantry and serving drawers beside the hob.
+ local([-1.42,0,-2.45],0,(c,move)=>{
+  carcass(c,.60);drawer(c,move,'spice',.60,.755,.22);drawer(c,move,'reward',.60,.40,.45);
+  c.group('recipe-lock','fixture').box([0,.77,.706],[.19,.065,.02],dark);for(let i=0;i<3;i++)c.box([-.054+i*.054,.77,.721],[.037,.044,.008],i===0?red:i===1?0x67824d:0xe0d3b6);move('recipe-lock','spice');
+  if(!s.saltTaken){c.group('salt-in-drawer','puzzle');c.cylinder([-.16,.75,.31],.044,.044,.13,0xe9e3d4);c.cylinder([-.16,.82,.31],.048,.048,.018,steel);move('salt-in-drawer','spice');}
+  if(!s.doughTaken){c.group('dough-in-drawer','puzzle');for(const x of [.04,.17])c.sphere([x,.714,.33],.057,0xdacead,[1,.6,1.5]);move('dough-in-drawer','spice');}
+  if(!s.keyTaken){c.group('house-key','puzzle');c.torus([0,.22,.31],.025,.007,brass,[Math.PI/2,0,0]);c.box([0,.22,.39],[.013,.014,.13],brass);c.box([.015,.22,.44],[.032,.014,.018],brass);move('house-key','reward');}
+ });
+ local([-.63,0,-2.45],0,(c,move)=>{carcass(c,.94);drawer(c,move,'hob1',.94,.755,.22);drawer(c,move,'hob2',.94,.40,.45);});
+ // Hob: black glass, five gas burners, pan supports and five control knobs.
+ b.group('hob','fixture').box([-.63,.963,-2.085],[.87,.035,.51],0x141e21,[0,0,0],6);
+ for(const [dx,dz,r] of [[-.27,-.13,.07],[.27,-.13,.07],[-.27,.10,.07],[.27,.10,.07],[0,0,.095]]){
+  const x=-.63+dx,z=-2.10+dz;b.cylinder([x,1.001,z],r,r,.024,steel,[0,0,0],24);b.cylinder([x,1.020,z],r*.84,r*.84,.018,0x1e292d,[0,0,0],24);
+  b.box([x,1.034,z],[r*2.75,.021,.018],metal);b.box([x,1.034,z],[.018,.021,r*2.75],metal);
+ }
+ for(let i=0;i<5;i++){b.group('hob-knob-'+i,'fixture').cylinder([-.87+i*.12,.997,-1.865],.023,.026,.03,dark,[0,0,0],16);b.box([-.87+i*.12,1.014,-1.875],[.006,.004,.024],cream);bind('hob-knob-'+i,'knob'+i,null,[-.87+i*.12,.997,-1.865],[0,-2.35,0]);}
+ for(const [i,dx,dz] of [[0,-.27,-.13],[1,.27,-.13],[3,-.27,.1],[4,.27,.1]])if(s.auxHeat?.[i]){b.group('aux-flame-'+i,'effect');for(let j=0;j<12;j++){const a=j*Math.PI/6;b.cylinder([-.63+dx+Math.cos(a)*.07,1.055,-2.10+dz+Math.sin(a)*.07],.002,.009,.026+s.auxHeat[i]*.01,0x7dbdff,[0,0,0],8,4);}}
+ // Slim appliance tower is a deliberate fit to the uncertain window/reveal spacing.
+ local([.28,0,-2.45],0,(c,move,hinge)=>{
+  const w=.49,d=.70;carcass(c,w,d,2.66);
+  drawer(c,move,'tower',w,.36,.42,d);c.group('tower-trim','fixture');c.box([0,.63,.36],[w,.027,.70],cream);c.box([0,1.40,.36],[w,.025,.70],cream);c.box([0,1.99,.36],[w,.025,.70],cream);
+  c.group('oven-inside','fixture').box([0,1.065,.10],[w-.055,.63,.035],0x161e20);c.box([0,.80,.39],[w-.06,.025,.56],dark);
+  for(let i=0;i<7;i++)c.rod([-.18+i*.06,.86,.14],[-.18+i*.06,.86,.65],.005,steel);
+  c.group('oven-door','fixture').box([0,1.065,.705],[w-.035,.62,.04],metal).box([0,1.03,.73],[w-.10,.41,.015],0x18252a,[0,0,0],6);c.rod([-.17,1.275,.774],[.17,1.275,.774],.016,steel);
+  hinge('oven-door','oven',[0,.755,.705],[1.48,0,0]);
+  c.group('oven-controls','fixture').box([0,1.385,.721],[w-.03,.11,.05],dark);
+  for(const [x,name] of [[-.15,'temperature'],[.15,'timer']]){c.group('oven-'+name,'fixture').cylinder([x,1.387,.76],.027,.027,.027,steel,[Math.PI/2,0,0],16);c.box([x,1.402,.778],[.006,.020,.006],dark);hinge('oven-'+name,'oven-'+name,[x,1.387,.76],[0,0,-2.5]);}c.group('oven-display','fixture');
+  c.box([0,1.38,.752],[.095,.042,.008],0x7dae92,[0,0,0],3);
+  c.group('microwave-case','fixture').box([0,1.70,.32],[w-.04,.47,.58],0xbbc4b9);
+  c.group('microwave-door','fixture').box([-.033,1.70,.713],[w-.12,.35,.04],dark).box([-.06,1.70,.737],[w-.2,.26,.009],0x19262a,[0,0,0],6);c.rod([.095,1.61,.75],[.095,1.79,.75],.012,steel);hinge('microwave-door','microwave',[-.225,0,.713],[0,-1.35,0]);
+  c.group('tower-upper','fixture').box([0,2.33,.72],[w-.025,.62,.045],cream).box([0,2.33,.747],[w-.13,.43,.014],glass);
+  c.rod([-.16,2.095,.783],[.16,2.095,.783],.011,steel);hinge('tower-upper','towerupper',[0,2.64,.72],[-1.1,0,0]);
+  if(s.doughPlaced&&!s.breadTaken){c.group('oven-food','puzzle');for(const x of [-.105,.105]){c.sphere([x,.905,.40],.085,s.breadDone?0xcc903f:0xdcd0b1,[1,.63,1.6]);for(let i=0;i<3;i++)c.box([x,.956,.34+i*.07],[.09,.006,.01],s.breadDone?0xf1c774:0xeee2c5,[0,.3,0]);}}
+ });
+ // Stainless refrigerator with an actual cavity, shelves, door pockets and lower freezer.
+ local([-2.4,0,1.34],Math.PI/2,(c,move,hinge)=>{
+  c.group('fridge-body','fixture');
+  c.box([0,.06,.39],[.79,.10,.76],dark);
+  for(const x of [-.40,.40])c.box([x,1.11,.39],[.045,2.11,.77],steel,[0,0,0],6);
+  c.box([0,2.16,.39],[.84,.04,.77],steel);c.box([0,1.11,.04],[.81,2.11,.05],0xd7e0d5);
+  for(const y of [.65,1.04,1.45,1.82,2.08])c.box([0,y,.38],[.76,.018,.64],0xc3d6c9);
+  c.group('fridge-door','fixture').box([0,1.40,.80],[.79,1.45,.062],0xabb6b1,[0,0,0],6);
+  c.rod([.315,1.23,.855],[.315,1.65,.855],.016,metal);
+  for(const y of [.83,1.21,1.66]){c.box([0,y,.722],[.67,.11,.15],0xb9cbbd);c.rod([-.3,y+.07,.65],[.3,y+.07,.65],.008,steel);}
+  hinge('fridge-door','fridge',[-.40,0,.80],[0,-1.48,0]);
+  c.group('freezer-drawer','fixture').box([0,.34,.79],[.79,.56,.07],steel).box([0,.15,.40],[.70,.05,.66],inset);c.rod([-.23,.55,.85],[.23,.55,.85],.014,metal);move('freezer-drawer','freezer',.46);
+  c.group('fridge-cooling-light','fixture').box([0,2.08,.70],[.36,.018,.07],0xe6faeb,[0,0,0],2);
+  if(!s.tomatoesTaken){c.group('fridge-tomatoes','puzzle');for(const x of [-.16,.075]){c.sphere([x,1.122,.53],.073,0xc6452f,[1,1,1]);for(let j=0;j<5;j++)c.rod([x,1.197,.53],[x+Math.cos(j*1.26)*.041,1.195,.53+Math.sin(j*1.26)*.041],.005,0x557346);}}
+  if(!s.basilTaken){c.group('fridge-basil','puzzle');c.box([0,1.47,.48],[.35,.027,.26],0xe2ddc4);for(let i=0;i<3;i++)c.sphere([-.11+i*.11,1.491,.49],.036,0x567d40,[.75,.20,1.55]);}
+  c.group('fridge-stock','puzzle').box([.18,1.61,.26],[.11,.30,.12],0xdec9a2);c.cylinder([-.22,1.584,.27],.04,.04,.25,0xe4e4d4);c.box([-.2,.77,.29],[.29,.11,.22],0xb4bf9f);
+  // The recipe is a new gameplay card, not retained household clutter.
+  c.group('recipe-card','puzzle').box([.12,1.71,.846],[.27,.35,.009],0xf3e9cf);
+  c.cylinder([.12,1.88,.858],.020,.020,.009,red,[Math.PI/2,0,0],18);
+  for(let i=0;i<5;i++)c.box([.12,1.82-i*.048,.853],[i%2?.18:.21,.008,.003],0x697767);
+  hinge('recipe-card','fridge',[-.40,0,.80],[0,-1.48,0]);
+ });
+ // Air conditioner and the small attached wall shelf from the source view.
+ b.group('air-conditioner','fixture').box([-.63,2.60,-2.36],[1.55,.33,.21],0xd8d5c5);b.box([-.63,2.49,-2.244],[1.4,.044,.025],0x364344);for(let i=0;i<4;i++)b.box([-.63,2.455+i*.017,-2.235],[1.36,.006,.022],0x8b978d);
+ b.cylinder([.05,2.51,-2.227],.018,.018,.018,s.ac?0x87c99c:0x44534d,[Math.PI/2,0,0],16);
+ b.group('wall-shelf','fixture');for(const y of [1.77,2.11])b.box([-1.75,y,-2.29],[.47,.026,.24],cream);for(const x of [-1.97,-1.53])b.box([x,1.94,-2.30],[.022,.36,.22],cream);
+ // Three white bell-shaped pendant shades on fine ceiling cords.
+ for(let i=0;i<3;i++){
+  const x=-1.66+i*.54,z=1.81;
+  b.group('pendant-'+i,'fixture').cylinder([x,2.82,z],.055,.055,.06,steel);b.rod([x,2.79,z],[x,2.25,z],.004,dark);
+  b.cylinder([x,2.255,z],.028,.04,.11,brass);b.cylinder([x,2.10,z],.085,.18,.22,cream,[0,0,0],32);b.cylinder([x,1.981,z],.18,.18,.021,cream,[0,0,0],32);b.sphere([x,1.982,z],.073,0xffdfa1,[1,.25,1],3);
+ }
+ // Only purposeful kitchen puzzle props are reintroduced on otherwise clear countertops.
+ b.group('prep-board','puzzle').box([-2.04,.970,-1.48],[.49,.032,.48],wood);b.box([-1.785,.977,-1.48],[.075,.016,.15],wood);
+ if(s.chopped&&s.course===0){b.group('chopped-tomatoes','puzzle');for(let i=0;i<8;i++)b.box([-2.19+(i%3)*.105,1.005,-1.62+Math.floor(i/3)*.11],[.075,.042,.072],0xc7472a,[0,i*.27,0]);}
+ b.group('serving-board','puzzle').box([-1.41,.97,-2.095],[.48,.028,.50],0xc2a06c);
+ if(s.breadTaken){b.group('served-bread','puzzle');for(const x of [-1.52,-1.34])b.sphere([x,1.047,-2.20],.072,0xd49b4c,[1,.65,1.25]);}
+ if(s.plated){b.group('served-soup','puzzle');b.cylinder([-1.42,1.02,-1.97],.102,.068,.09,cream);b.cylinder([-1.42,1.068,-1.97],.094,.094,.007,0xb94626);for(let i=0;i<3;i++)b.sphere([-1.46+i*.033,1.076,-1.97],.014,0x56824b,[1,.20,1.4]);}
+ b.group('oven-mitt','puzzle').box([.04,1.08,-1.70],[.13,.22,.035],0x873e39,[0,0,.1]);
+ if(s.panPlaced){
+  b.group('cooking-pan','puzzle').cylinder([-.63,1.15,-2.1],.145,.13,.18,steel,[0,0,0],32);b.cylinder([-.63,1.244,-2.1],.13,.13,.012,s.course?0xb44e2e:0x839f9a,[0,0,0],32);b.rod([-.50,1.17,-2.1],[-.32,1.17,-2.1],.022,dark);
+  if(s.heat>0){b.group('gas-flame','puzzle');for(let i=0;i<18;i++){const a=i*Math.PI/9;b.cylinder([-.63+Math.cos(a)*.122,1.061,-2.1+Math.sin(a)*.122],.004,.011,.038+s.heat*.008,0x7dbdff,[0,0,0],8,4);}}
+  if(s.cooking){b.group('stirring-spoon','puzzle').rod([-.71,1.22,-2.12],[-.75,1.46,-2.18],.012,wood);b.sphere([-.71,1.22,-2.12],.025,wood,[1,.4,1.4]);}
+  if(s.heat>0){b.group('steam','effect');for(let i=0;i<5;i++)b.sphere([-.7+(i%2)*.13,1.33+i*.087,-2.13+(i%3)*.031],.043,0xe5eae3,[.75,1.8,.8],5);}
+ }
+ if(s.tap)b.group('tap-water','effect').cylinder([-2.105,1.015,-.05],.008,.012,.38,0xcbeaf0,[0,0,0],12,5);
+ return b.meshes;
+}
+/** Conservative footprint collision, including swept/open appliance volumes. */
+function canWalk(p,s){
+ const [x,,z]=p;if(x< -2.16||x>2.16||z>2.21||z<(x>.32?-1.62:-2.22))return false;
+ if(x< -1.47&&z<.99)return false;
+ if(x< -1.34&&z>.83&&z<1.96)return false;
+ if(z< -1.49&&x<.71)return false;
+ if(s.open?.oven&&x>-.16&&x<.72&&z<-.96)return false;
+ if(s.open?.dishwasher&&x<-.89&&z> -1.37&&z<-.43)return false;
+ if((s.open?.cutlery||s.open?.pans)&&x< -1.02&&z>.16&&z<.99)return false;
+ if(s.open?.fridge&&x<-.76&&z>.8&&z<2.04)return false;
+ if((s.open?.spice||s.open?.reward||s.open?.hob1||s.open?.hob2||s.open?.tower)&&z< -1.05&&x<.72)return false;
+ return true;
+}
+
+exports.ROOM=ROOM;
+exports.VIEWS=VIEWS;
+exports.SPOTS=SPOTS;
+exports.MOTIONS=MOTIONS;
+exports.kitchenPoses=kitchenPoses;
+exports.makeWorld=makeWorld;
+exports.canWalk=canWalk;
+},"src/core/save-store.js":function(module,exports,require){
+/** Versioned, game-isolated local checkpoints. Storage is injected for tests. */
+function saveChecksum(text) {
+  let hash = 2166136261;
+  for (let i = 0; i < text.length; i++) hash = Math.imul(hash ^ text.charCodeAt(i), 16777619);
+  return (hash >>> 0).toString(16); // Corruption detection, NOT authentication.
+}
+class SaveStore {
+  constructor({id, version = 1, storage, validate, migrate, legacyKey, onStatus = () => {}}) {
+    this.id = id; this.version = version; this.validate = validate; this.migrate = migrate;
+    this.legacyKey = legacyKey; this.onStatus = onStatus; this.sequence = 0;
+    this.writer = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
+    this.key = `escape-room:${id}:checkpoint`; this.blocked = false; this.status = 'ready';
+    try { this.storage = storage === undefined ? globalThis.localStorage : storage; }
+    catch { this.storage = null; }
+  }
+  report(status) { this.status = status; this.onStatus(status); }
+  decode(raw) {
+    if (typeof raw !== 'string' || raw.length > 2000000) throw new Error('Invalid checkpoint size.');
+    const e = JSON.parse(raw);
+    if (e.format !== 1 || e.gameId !== this.id) throw new Error('This save belongs to another game or format.');
+    if (e.version > this.version) { const err = new Error('Save needs a newer game version. It has not been overwritten.'); err.future = true; throw err; }
+    if (!Number.isSafeInteger(e.sequence) || e.sequence < 0 || e.checksum !== saveChecksum(JSON.stringify(e.payload))) throw new Error('Checkpoint is damaged.');
+    const payload = e.version === this.version ? e.payload : this.migrate?.(e.payload, e.version);
+    if (!payload) throw new Error('No compatible save migration.');
+    return {...e, payload:this.validate(payload)};
+  }
+  load() {
+    if (!this.storage) { this.report('session-only'); return null; }
+    try {
+      let damaged = false;
+      for (const key of [this.key, this.key + ':backup']) {
+        const raw = this.storage.getItem(key); if (!raw) continue;
+        try {
+          const e = this.decode(raw); this.sequence = e.sequence; this.current = raw;
+          this.report(damaged ? 'recovered' : 'saved'); return e.payload;
+        } catch (error) {
+          if (error.future) { this.blocked = true; this.report('newer-save'); return null; }
+          damaged = true;
+        }
+      }
+      if (damaged) { this.blocked = true; this.report('damaged-save'); return null; }
+      if (this.legacyKey) {
+        const raw = this.storage.getItem(this.legacyKey);
+        if (raw) { const p = this.migrate?.(JSON.parse(raw), 0); if (p) { this.report('migrated'); return this.validate(p); } }
+      }
+      this.report('ready'); return null;
+    } catch { this.report('session-only'); return null; }
+  }
+  write(payload, {replace = false} = {}) {
+    replace = replace === true; // Only an explicit boolean can authorize replacing a protected checkpoint.
+    if (!this.storage) { this.report('session-only'); return false; }
+    if (this.blocked && !replace) return false;
+    try {
+      payload = this.validate(payload);
+      const raw = this.storage.getItem(this.key);
+      if (raw && !replace) {
+        let remote;
+        try { remote = this.decode(raw); }
+        catch (error) { if (this.status !== 'recovered') { this.blocked = true; this.report(error.future ? 'newer-save' : 'damaged-save'); return false; } }
+        if (remote && remote.sequence > this.sequence && remote.writer !== this.writer) {
+          this.blocked = true; this.report('other-tab'); return false;
+        }
+      }
+      const e = {format:1, gameId:this.id, version:this.version, sequence:this.sequence+1, writer:this.writer,
+        savedAt:new Date().toISOString(), payload, checksum:saveChecksum(JSON.stringify(payload))};
+      const encoded = JSON.stringify(e);
+      if (encoded.length > 2000000) throw new Error('Checkpoint too large.');
+      // Backup only previously validated data, never replace a good backup with corrupt input.
+      if (this.current) this.storage.setItem(this.key + ':backup', this.current);
+      this.storage.setItem(this.key, encoded);
+      this.current = encoded; this.sequence = e.sequence; this.blocked = false; this.report('saved'); return true;
+    } catch { this.report('session-only'); return false; }
+  }
+  export(payload) {
+    const p = this.validate(payload);
+    return JSON.stringify({format:1, gameId:this.id, version:this.version, sequence:this.sequence,
+      payload:p, checksum:saveChecksum(JSON.stringify(p))}, null, 2);
+  }
+  import(raw) { return this.decode(raw).payload; }
+}
+const SAVE_LABELS = Object.freeze({ready:'READY · LOCAL AUTOSAVE',saved:'SAVED ON THIS DEVICE',migrated:'PREVIOUS PROGRESS RESTORED',recovered:'BACKUP RESTORED',
+  'session-only':'SESSION ONLY · EXPORT A SAVE','newer-save':'NEWER SAVE PROTECTED · EXPORT THIS SESSION',
+  'damaged-save':'DAMAGED SAVE PROTECTED · IMPORT A BACKUP','other-tab':'ANOTHER TAB SAVED · RELOAD OR EXPORT'});
+
+exports.saveChecksum=saveChecksum;
+exports.SaveStore=SaveStore;
+exports.SAVE_LABELS=SAVE_LABELS;
+},"src/core/interactions.js":function(module,exports,require){
+const {V, M, IDENTITY}=require("src/engine.js");
+/** Transform-aware physical affordances shared by every room, independent of puzzles/UI. */
+function worldPoint(p, matrix = IDENTITY) { return M.project(matrix,p).slice(0,3); }
+function inversePoint(p,m) {
+  const v=V.sub(p,[m[12],m[13],m[14]]);
+  return [m[0]*v[0]+m[1]*v[1]+m[2]*v[2],m[4]*v[0]+m[5]*v[1]+m[6]*v[2],m[8]*v[0]+m[9]*v[1]+m[10]*v[2]];
+}
+function cameraRay(x,y,width,height,forward,fov) {
+  const right=V.unit(V.cross(forward,[0,1,0])), up=V.cross(right,forward), t=Math.tan(fov/2);
+  return V.unit(V.add(forward,V.add(V.mul(right,(x/width*2-1)*t*width/height),V.mul(up,(1-y/height*2)*t))));
+}
+function rayBox(origin,dir,center,size) {
+  let near=0,far=Infinity;
+  for(let i=0;i<3;i++) {
+    const lo=center[i]-size[i]/2, hi=center[i]+size[i]/2;
+    if(Math.abs(dir[i])<1e-9) {if(origin[i]<lo||origin[i]>hi)return null;continue;}
+    let a=(lo-origin[i])/dir[i],b=(hi-origin[i])/dir[i];if(a>b)[a,b]=[b,a];
+    near=Math.max(near,a);far=Math.min(far,b);if(near>far)return null;
+  } return near;
+}
+function rayTriangle(o,d,a,b,c) {
+  const e=V.sub(b,a),f=V.sub(c,a),p=V.cross(d,f),det=V.dot(e,p);if(Math.abs(det)<1e-8)return null;
+  const q=V.sub(o,a),u=V.dot(q,p)/det;if(u<0||u>1)return null;
+  const r=V.cross(q,e),v=V.dot(d,r)/det;if(v<0||u+v>1)return null;
+  const t=V.dot(f,r)/det;return t>0?t:null;
+}
+class PhysicalControls {
+  constructor(controls, {reach = 4.6} = {}) {this.controls=controls;this.reach=reach;this.meshes=[];}
+  setMeshes(meshes) {
+    this.meshes=meshes.filter(m=>m.layer!=='effect').map(m=>{
+      const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];
+      for(let i=0;i<m.data.length;i+=10)for(let j=0;j<3;j++){min[j]=Math.min(min[j],m.data[i+j]);max[j]=Math.max(max[j],m.data[i+j]);}
+      return {...m, center:min.map((x,i)=>(x+max[i])/2),size:min.map((x,i)=>max[i]-x)};
+    });
+  }
+  position(c,poses={}) {return worldPoint(c.position,poses[c.mesh]||IDENTITY);}
+  pick(origin,dir,poses={},enabled=()=>true) {
+    let best=null,nearest=this.reach;
+    for(const c of this.controls) {
+      if(!enabled(c)||poses[c.mesh]===false)continue;
+      const m=poses[c.mesh]||IDENTITY,o=inversePoint(origin,m),end=inversePoint(V.add(origin,dir),m),d=V.sub(end,o);
+      const t=rayBox(o,d,c.position,c.size);
+      if(t!==null&&t<nearest){nearest=t;best=c;}
+    }
+    if(!best)return null;
+    // Mesh bounds broad phase, triangles narrow phase: a handle on a far wall cannot be clicked through a near door.
+    for(const mesh of this.meshes) {
+      if((best.ignoreMeshes||[]).includes(mesh.name)||poses[mesh.name]===false)continue;
+      const m=poses[mesh.name]||IDENTITY,o=inversePoint(origin,m),d=V.sub(inversePoint(V.add(origin,dir),m),o),bound=rayBox(o,d,mesh.center,mesh.size);
+      if(bound===null||bound>nearest+.015)continue;
+      for(let i=0;i<mesh.data.length;i+=30){const a=mesh.data.slice(i,i+3),b=mesh.data.slice(i+10,i+13),c=mesh.data.slice(i+20,i+23),t=rayTriangle(o,d,a,b,c);if(t!==null&&t<nearest-.025)return null;}
+    }
+    return best;
+  }
+}
+/** One pointer model for mouse/touch/pen. Drag empty space to look; drag a dial to adjust. */
+function bindPhysicalInput(canvas,{pick,activate,adjust,look,enabled=()=>true,hover=()=>{}}) {
+  let gesture=null;
+  const down=e=>{if(!enabled()||e.button>0)return;canvas.focus();const control=pick(e.clientX,e.clientY);gesture={id:e.pointerId,x:e.clientX,y:e.clientY,lx:e.clientX,ly:e.clientY,moved:false,control,delta:0};canvas.setPointerCapture(e.pointerId);};
+  const move=e=>{
+    if(!gesture){if(enabled())hover(pick(e.clientX,e.clientY));return;}
+    if(gesture.id!==e.pointerId)return;
+    const dx=e.clientX-gesture.lx,dy=e.clientY-gesture.ly;
+    gesture.moved ||= Math.hypot(e.clientX-gesture.x,e.clientY-gesture.y)>6;
+    if(gesture.moved) {
+      if(gesture.control?.kind==='dial') {gesture.delta+=dx-dy;while(Math.abs(gesture.delta)>=24){const step=Math.sign(gesture.delta);adjust(gesture.control,step);gesture.delta-=step*24;}}
+      else look(dx,dy);
+    }
+    gesture.lx=e.clientX;gesture.ly=e.clientY;
+  };
+  const up=e=>{if(!gesture||gesture.id!==e.pointerId)return;const g=gesture;gesture=null;if(!g.moved&&g.control)activate(g.control);};
+  const cancel=()=>{gesture=null;};
+  for(const [name,fn] of [['pointerdown',down],['pointermove',move],['pointerup',up],['pointercancel',cancel],['lostpointercapture',cancel]])canvas.addEventListener(name,fn);
+  return ()=>{for(const [name,fn] of [['pointerdown',down],['pointermove',move],['pointerup',up],['pointercancel',cancel],['lostpointercapture',cancel]])canvas.removeEventListener(name,fn);};
+}
+
+exports.worldPoint=worldPoint;
+exports.cameraRay=cameraRay;
+exports.rayBox=rayBox;
+exports.PhysicalControls=PhysicalControls;
+exports.bindPhysicalInput=bindPhysicalInput;
+},"src/packs/kitchen/controls.js":function(module,exports,require){
+/** Photo-specific affordance definitions. All positions refer to CLOSED geometry, transformed with its mesh. */
+const KITCHEN_CONTROLS=[];
+function control(id,label,mesh,position,size,kind,action,value,extra={}) {
+  KITCHEN_CONTROLS.push({id,label,mesh,position,size,kind,action,value,...extra});
+}
+const handle=(id,label,mesh,p,size=[.32,.085,.11],extra={})=>control(id,label,mesh,p,size,'handle','toggle',id,extra);
+handle('fridge','Refrigerator handle','fridge-door',[-1.54,1.44,1.025],[.10,.46,.09]);
+handle('freezer','Freezer handle','freezer-drawer',[-1.54,.55,1.34],[.10,.09,.49]);
+handle('cutlery','Cutlery drawer handle','drawer-cutlery',[-1.677,.8144,.59],[.11,.09,.36]);
+handle('pans','Pan drawer handle','drawer-pans',[-1.677,.5215,.59],[.11,.09,.36]);
+handle('sinkdoor','Under-sink door handle','sink-door',[-1.677,.701,-.12],[.11,.09,.52]);
+handle('dishwasher','Dishwasher handle','dishwasher-front',[-1.678,.74,-.88],[.11,.09,.42]);
+handle('corner','Corner cabinet handle','corner-front',[-1.677,.704,-1.57],[.11,.09,.44]);
+for(const [id,x,y,w] of [['spice',-1.42,.8144,.38],['reward',-1.42,.5215,.38],['hob1',-.63,.8144,.58],['hob2',-.63,.5215,.58],['tower',.28,.4734,.30]])
+  handle(id,id+' drawer handle','drawer-'+id,[x,y,id==='tower'?-1.677:-1.727],[w,.08,.11]);
+for(let col=0;col<2;col++)for(let row=0;row<2;row++){
+  const id=row?'upperTop'+col:'upper'+col;
+  handle(id,'Cupboard '+(col+1)+(row?' top':' lower')+' handle',`upper-${col}-${row}`,[-1.96,1.70+row*.51,-.92+col*1.06],[.12,.095,.54]);
+}
+handle('oven','Oven handle','oven-door',[.28,1.275,-1.668],[.38,.09,.10]);
+handle('microwave','Microwave handle','microwave-door',[.375,1.70,-1.69],[.075,.23,.095]);
+handle('towerupper','Tower cupboard handle','tower-upper',[.28,2.095,-1.665],[.35,.09,.10]);
+control('door','Front door lever','door-leaf',[1.03,1.06,2.38],[.22,.09,.12],'handle','door');
+control('tap','Tap lever','tap-lever',[-2.305,1.07,.05],[.12,.12,.18],'handle','tap');
+control('lamps','Pendant light switch','light-switch',[-.42,1.43,2.39],[.095,.14,.07],'button','lights');
+control('ac','Air conditioner power button','air-conditioner',[.05,2.51,-2.235],[.13,.09,.08],'button','ac');
+for(const [name,cx,z,w] of [['wide',-.62,-2.45,1.44],['narrow',1.45,-1.85,1.2]])handle(name,'Slide '+name+' window',name+'-sash',[cx+w*.18,1.61,z+.14],[.09,.24,.10]);
+for(let i=0;i<5;i++)control('burner'+i,(i===2?'Centre':'Burner '+(i+1))+' gas knob','hob-knob-'+i,[-.87+i*.12,1.008,-1.865],[.095,.09,.105],'dial','burner',i);
+control('oven-temp','Oven temperature dial','oven-temperature',[.13,1.387,-1.676],[.085,.085,.09],'dial','ovenTemp');
+control('oven-timer','Oven timer dial','oven-timer',[.43,1.387,-1.676],[.085,.085,.09],'dial','ovenTimer');
+control('oven-start','Oven start button','oven-controls',[.28,1.38,-1.675],[.09,.06,.09],'button','bake');
+control('recipe','Read recipe card','recipe-card',[-1.542,1.71,1.22],[.025,.35,.27],'surface','inspect','recipe');
+control('pantry-lock','Pantry recipe tumblers','recipe-lock',[-1.42,.77,-1.716],[.19,.063,.08],'surface','inspect','spice');
+for(const [id,mesh,p,size,source,flag] of [
+ ['utensils','utensils-in-drawer',[-2.02,.715,.59],[.36,.06,.36],'cutlery','utensilsTaken'],
+ ['pan','pan-in-drawer',[-2.05,.33,.59],[.30,.09,.30],'pans','panTaken'],
+ ['tomatoes','fridge-tomatoes',[-1.87,1.13,1.38],[.18,.18,.35],'fridge','tomatoesTaken'],
+ ['basil','fridge-basil',[-1.91,1.50,1.34],[.24,.09,.34],'fridge','basilTaken'],
+ ['salt','salt-in-drawer',[-1.58,.81,-2.14],[.11,.16,.11],'spice','saltTaken'],
+ ['dough','dough-in-drawer',[-1.315,.76,-2.12],[.26,.11,.19],'spice','doughTaken'],
+ ['key','house-key',[-1.42,.23,-2.07],[.11,.06,.19],'reward','keyTaken']])
+ control(id,'Take '+id,mesh,p,size,'item','take',id,{source,flag});
+control('sink','Sink basin','sink-basin',[-2.04,.82,.035],[.43,.09,.58],'surface','sinkUse');
+control('prep','Chopping board','prep-board',[-2.04,.997,-1.48],[.49,.07,.48],'surface','chop');
+control('stove','Centre burner / saucepan','hob',[-.63,1.10,-2.10],[.27,.27,.27],'surface','stoveUse',null,{ignoreMeshes:['cooking-pan','stirring-spoon']});
+control('oven-food','Oven tray','oven-inside',[.28,.96,-2.00],[.36,.22,.34],'surface','ovenUse',null,{source:'oven'});
+control('serve','Serving board','serving-board',[-1.41,1.01,-2.095],[.48,.13,.50],'surface','serve',null,{ignoreMeshes:['served-bread','served-soup']});
+
+exports.KITCHEN_CONTROLS=KITCHEN_CONTROLS;
+},"src/player/pack-player.js":function(module,exports,require){
+const {RoomRenderer,V,exportGLB}=require("src/engine.js");
+const {PhysicalControls,bindPhysicalInput,cameraRay}=require("src/core/interactions.js");
+const {SaveStore,SAVE_LABELS}=require("src/core/save-store.js");
+const {initialGame,restoreGame,dispatchGame,advanceGame,matches}=require("src/core/rules.js");
+const {packScene,packPoses,walkable}=require("src/core/scene.js");
+/** The generic player consumes validated packs. No game-specific identifiers appear here. */
+function mountPack(pack) {
+ document.body.className='pack-player';
+ document.body.innerHTML=`<canvas id="scene" tabindex="0" aria-label="Explorable escape room"></canvas><div class="vignette"></div>
+ <header id="hud"><div class="brand"><span class="brand-mark">ER</span><div><span id="pack-title"></span><small id="room-title"></small></div></div>
+ <nav class="tools"><button id="pack-journal">Notebook</button><button id="pack-hint">Hint</button><button id="room-library">Rooms</button><button id="pack-settings">Save / settings</button></nav></header>
+ <div id="control-readout" aria-live="polite"></div><div id="toast" role="status"></div><div class="reticle" aria-hidden="true">·</div>
+ <section id="bottom"><div class="viewbar"><button id="turn-left">↶</button><button id="walk-forward">Forward</button><button id="walk-back">Back</button><button id="turn-right">↷</button><button id="home-view">Room view</button><button id="pack-controls">Controls</button></div>
+ <div class="inventory-wrap"><div class="inventory-label">INVENTORY<small id="pack-selected">Choose an item to use</small></div><div id="inventory"></div></div>
+ <div class="footerline"><span id="pack-progress"></span><span id="save-label"></span></div></section>
+ <dialog id="pack-dialog"><div class="panel-top"><h2 id="dialog-title"></h2><button id="dialog-close" aria-label="Close dialog">×</button></div><div id="dialog-body"></div></dialog><div id="fatal" hidden role="alert"></div>`;
+ const el=id=>document.getElementById(id),canvas=el('scene'),dialog=el('pack-dialog');
+ const store=new SaveStore({id:pack.id,version:pack.saveVersion,validate:x=>restoreGame(pack,x),onStatus:s=>{el('save-label').textContent=SAVE_LABELS[s];}});
+ let state=store.load()||initialGame(pack),room,meshes,physical,renderer,poses={},motion={},selected=state.selection,eye,yaw=0,pitch=0,last=0,dirty=true,lastSave=0,tick=0;
+ const fov=66*Math.PI/180,keys=new Set(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const forward=()=>[Math.sin(yaw)*Math.cos(pitch),Math.sin(pitch),-Math.cos(yaw)*Math.cos(pitch)];
+ function orient(target){const d=V.unit(V.sub(target,eye));yaw=Math.atan2(d[0],-d[2]);pitch=Math.asin(d[1]);}
+ function setRoom(){room=pack.rooms.find(r=>r.id===state.room);meshes=packScene(room);renderer.upload(meshes);physical=new PhysicalControls(room.controls);physical.setMeshes(meshes);motion={};poses={};eye=state.view?.eye||[...room.spawn];if(state.view){yaw=state.view.yaw;pitch=state.view.pitch;}else orient(room.target);dirty=true;el('room-title').textContent=room.title||room.id;refresh();}
+ function save(replace=false){state.view={eye:[...eye],yaw,pitch};return store.write(state,{replace});}
+ function notify(text){el('toast').textContent=text;el('toast').classList.add('show');clearTimeout(notify.timer);notify.timer=setTimeout(()=>el('toast').classList.remove('show'),6500);}
+ function refresh(){el('pack-title').textContent=pack.title;el('pack-progress').textContent=state.ended?'ESCAPED':`${pack.rooms.length} ROOMS · ${state.completed.length} DISCOVERIES`;
+  if(!state.inventory[selected])selected=null;el('pack-selected').textContent=selected?pack.items[selected].name+' selected':'Choose an item to use';
+  el('inventory').replaceChildren();for(const [id,count] of Object.entries(state.inventory)){if(!count)continue;const b=document.createElement('button');b.className='inventory-item'+(selected===id?' selected':'');b.textContent=pack.items[id].name+(count>1?' ×'+count:'');b.dataset.item=id;b.setAttribute('aria-pressed',String(id===selected));b.onclick=()=>{selected=id;state.selection=id;refresh();save();};el('inventory').append(b);}
+ }
+ function modal(title){keys.clear();el('dialog-title').textContent=title;el('dialog-body').replaceChildren();if(!dialog.open)dialog.showModal();return el('dialog-body');}
+ function paragraph(parent,text){const p=document.createElement('p');p.textContent=text;parent.append(p);}
+ function button(parent,label,fn){const b=document.createElement('button');b.className='panel-action';b.textContent=label;b.onclick=fn;parent.append(b);return b;}
+ function send(action,value){const before=state.room,result=dispatchGame(pack,state,action,{value,selected});state=result.state;
+  if(result.changed){if(before!==state.room){setRoom();dialog.close();}refresh();save();dirty=true;}notify(result.message);
+  if(state.ended){const body=modal('You escaped.');paragraph(body,result.message);button(body,'Review the room',()=>dialog.close());}
+ }
+ function enabled(c){return matches(c.enabled,state);}
+ function activate(c,step=1){if(!c||!enabled(c))return;
+  if(c.kind==='dial'){const d=pack.variables[c.variable],min=d.min??0,max=d.max??9;send(c.action,min+((state.facts[c.variable]-min+step+(max-min+1))%(max-min+1)));notify(c.label+': '+state.facts[c.variable]);}
+  else if(c.input){const body=modal(c.label),input=document.createElement('input');input.maxLength=c.input.maxLength||12;input.setAttribute('aria-label',c.input.label||'Code');input.autocomplete='off';body.append(input);button(body,'Submit',()=>{send(c.action,input.value);dialog.close();});input.focus();}
+  else send(c.action,c.value);
+ }
+ function pick(x,y){return physical.pick(eye,cameraRay(x,y,innerWidth,innerHeight,forward(),fov),poses,enabled);}
+ function controls(){const body=modal('Physical controls');paragraph(body,'These keyboard/touch alternatives dispatch the same actions as the visible handles and knobs.');for(const c of room.controls.filter(enabled)){const b=button(body,c.label,()=>{activate(c);if(!c.input&&!state.ended&&dialog.open)controls();});b.dataset.control=c.id;}}
+ el('pack-controls').onclick=controls;el('dialog-close').onclick=()=>dialog.close();
+ el('pack-journal').onclick=()=>{const body=modal('Notebook');(state.notes.length?state.notes:['Nothing recorded yet. Look for a note, an object, or a handle.']).forEach(t=>paragraph(body,t));};
+ el('pack-hint').onclick=()=>{const body=modal('A nudge');paragraph(body,pack.hints?.find(h=>matches(h.when,state))?.text||'Explore the room and try its physical controls.');};
+ function download(text,name,type='application/json'){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([text],{type}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),5000);}
+ el('pack-settings').onclick=()=>{
+  const body=modal('Local saves & settings');paragraph(body,'Progress, room, camera, inventory and running puzzle timers autosave on this browser. Timers pause while hidden or closed. Export a backup before clearing browser data or changing devices.');
+  button(body,'Export save',()=>{save();download(store.export(state),pack.id+'-save.json');});
+  button(body,'Import save',()=>{const input=document.createElement('input');input.type='file';input.accept='.json';input.onchange=async()=>{try{const f=input.files[0];if(!f||f.size>2000000)throw new Error('Choose a save under 2 MB.');const next=store.import(await f.text());state=next;setRoom();save(true);dialog.close();notify('Checkpoint restored.');}catch(e){notify(e.message);}};input.click();});
+  button(body,'Protect browser storage',async()=>{const ok=await navigator.storage?.persist?.();notify(ok?'Persistence granted; exported backups are still useful.':'Persistence not granted. Keep an exported save.');});
+  button(body,'Export room model',()=>download(exportGLB(meshes),pack.id+'-'+room.id+'.glb','model/gltf-binary'));
+  button(body,'Restart this game',()=>{const b=modal('Discard this game’s progress?');paragraph(b,'Other room packs and the kitchen are not affected. Export first to keep a copy.');button(b,'Confirm restart',()=>{state=initialGame(pack);selected=null;setRoom();save(true);dialog.close();});});
+  paragraph(body,'Drag to look; WASD to walk; E to use the centre control. Tap a knob or drag it to turn. Controls offers accessible alternatives. Browser storage is local to this origin and profile.');
+ };
+ const walk=(forwardStep,sideStep=0)=>{const dx=(Math.sin(yaw)*forwardStep+Math.cos(yaw)*sideStep),dz=(-Math.cos(yaw)*forwardStep+Math.sin(yaw)*sideStep);let p=[eye[0]+dx,eye[1],eye[2]];if(walkable(room,p))eye=p;p=[eye[0],eye[1],eye[2]+dz];if(walkable(room,p))eye=p;dirty=true;};
+ el('walk-forward').onclick=()=>walk(.35);el('walk-back').onclick=()=>walk(-.35);el('turn-left').onclick=()=>{yaw-=Math.PI/4;dirty=true;};el('turn-right').onclick=()=>{yaw+=Math.PI/4;dirty=true;};el('home-view').onclick=()=>{eye=[...room.spawn];orient(room.target);dirty=true;};
+ bindPhysicalInput(canvas,{enabled:()=>!dialog.open,pick,activate,adjust:activate,look:(dx,dy)=>{yaw-=dx*.004;pitch=Math.max(-1.1,Math.min(1.1,pitch-dy*.0035));dirty=true;},hover:c=>{el('control-readout').textContent=c?c.label:'';canvas.style.cursor=c?'pointer':'grab';}});
+ addEventListener('keydown',e=>{if(document.querySelector('dialog[open]'))return;const key=e.key.toLowerCase();if(key==='e')activate(pick(innerWidth/2,innerHeight/2));if(key==='j')el('pack-journal').click();if(['w','a','s','d','arrowleft','arrowright','arrowup','arrowdown'].includes(key)){e.preventDefault();keys.add(key);}});
+ addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));addEventListener('blur',()=>keys.clear());addEventListener('resize',()=>{dirty=true;});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){keys.clear();save();}});addEventListener('pagehide',()=>save());
+ canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();save();el('fatal').hidden=false;el('fatal').textContent='Graphics interrupted. Reload to resume from your saved checkpoint.';});
+ function frame(now){const dt=Math.min((now-last)/1000||0,.05);last=now;
+  if(!document.hidden){
+   if(!dialog.open){const f=Number(keys.has('w'))-Number(keys.has('s')),side=Number(keys.has('d'))-Number(keys.has('a')),norm=Math.hypot(f,side)||1;if(f||side)walk(f*dt*1.6/norm,side*dt*1.6/norm);if(keys.has('arrowup')){pitch=Math.min(1.1,pitch+dt);dirty=true;}if(keys.has('arrowdown')){pitch=Math.max(-1.1,pitch-dt);dirty=true;}if(keys.has('arrowleft')){yaw-=dt;dirty=true;}if(keys.has('arrowright')){yaw+=dt;dirty=true;}}
+   const result=packPoses(room,state,motion,dt,reduced);poses=result.poses;
+   if(dirty||result.moving){renderer.render(eye,V.add(eye,forward()),fov,false,false,true,poses,now/1000);dirty=false;}
+   if(now-tick>=1000){tick=now;const old=state;state=advanceGame(pack,state,1);if(old.timers.length){dirty=true;refresh();save();}}
+   if(now-lastSave>3000){lastSave=now;save();}
+  }else tick=now;
+  requestAnimationFrame(frame);
+ }
+ try {renderer=new RoomRenderer(canvas);setRoom();requestAnimationFrame(frame);document.body.dataset.ready='true';notify(pack.description||pack.title);}
+ catch(e){el('fatal').hidden=false;el('fatal').textContent=e.message;document.body.dataset.ready='error';throw e;}
+ Object.defineProperty(window,'escapeRoom',{value:Object.freeze({snapshot:()=>structuredClone(state),storage:()=>store.status,controls:()=>room.controls.map(c=>({id:c.id,label:c.label,enabled:enabled(c),point:renderer.project(physical.position(c,poses))})),packId:pack.id}),writable:false});
+}
+
+exports.mountPack=mountPack;
+},"src/core/rules.js":function(module,exports,require){
+const {validVariable,assertSafeJSON}=require("src/core/room-pack.js");
+/** Pure transactional challenge interpreter; no renderer, DOM, networking or kitchen knowledge. */
+function initialGame(pack) {
+  return {room:pack.startRoom,facts:Object.fromEntries(Object.entries(pack.variables||{}).map(([k,v])=>[k,v.initial])),
+    inventory:{},completed:[],notes:[],timers:[],ended:false,seconds:0,view:null,selection:null};
+}
+function matches(c,s,event={}) {
+  if(!c)return true;
+  if(c.all)return c.all.every(x=>matches(x,s,event));if(c.any)return c.any.some(x=>matches(x,s,event));if(c.not)return !matches(c.not,s,event);
+  if(c.fact)return s.facts[c.fact[0]]===c.fact[1];if(c.has)return (s.inventory[c.has]||0)>0;
+  if(c.selected)return event.selected===c.selected&&(s.inventory[c.selected]||0)>0;
+  if(c.room)return s.room===c.room;if(c.done)return s.completed.includes(c.done);
+  if(Object.hasOwn(c,'input'))return event.value===c.input;return false;
+}
+function restoreGame(pack,raw) {
+  assertSafeJSON(raw);if(!raw||!pack.rooms.some(r=>r.id===raw.room)||typeof raw.ended!=='boolean')throw new Error('Invalid saved room.');
+  const s=initialGame(pack);s.room=raw.room;
+  for(const [k,d] of Object.entries(pack.variables||{})){const value=raw.facts?.[k]??d.initial;if(!validVariable(value,d))throw new Error('Invalid saved fact '+k);s.facts[k]=value;}
+  for(const [k,v] of Object.entries(raw.inventory||{})){if(!pack.items?.[k]||!Number.isSafeInteger(v)||v<0||v>999)throw new Error('Invalid saved inventory.');if(v)s.inventory[k]=v;}
+  if(!Array.isArray(raw.completed)||raw.completed.some(x=>!pack.actions[x])||!Array.isArray(raw.notes)||raw.notes.length>500||raw.notes.some(x=>typeof x!=='string'||x.length>4000))throw new Error('Invalid saved journal.');
+  s.selection=s.inventory[raw.selection]>0?raw.selection:null;
+  s.completed=[...new Set(raw.completed)];s.notes=[...raw.notes];s.ended=raw.ended;s.seconds=Number.isFinite(raw.seconds)&&raw.seconds>=0?Math.min(raw.seconds,1e9):0;
+  if(!Array.isArray(raw.timers)||raw.timers.length>100)throw new Error('Invalid saved timers.');
+  s.timers=raw.timers.map(t=>{if(!pack.actions[t.action]||typeof t.id!=='string'||!Number.isFinite(t.remaining)||t.remaining<0||t.remaining>86400)throw new Error('Invalid saved timer.');return {...t};});
+  const r=pack.rooms.find(x=>x.id===s.room),v=raw.view;
+  if(v&&Array.isArray(v.eye)&&v.eye.length===3&&v.eye.every(Number.isFinite)&&v.eye[0]>r.bounds[0]&&v.eye[0]<r.bounds[1]&&v.eye[2]>r.bounds[2]&&v.eye[2]<r.bounds[3]&&Number.isFinite(v.yaw)&&Number.isFinite(v.pitch))s.view={eye:[v.eye[0],Math.max(.4,Math.min(3,v.eye[1])),v.eye[2]],yaw:v.yaw,pitch:Math.max(-1.2,Math.min(1.2,v.pitch))};
+  return s;
+}
+function dispatchGame(pack,input,actionId,event={}) {
+  const a=pack.actions[actionId];
+  if(!a||input.ended||a.room&&a.room!==input.room||a.once&&input.completed.includes(actionId)||!matches(a.when,input,event))return {state:input,changed:false,message:a?.blocked||'That is not ready yet.'};
+  const s=JSON.parse(JSON.stringify(input));
+  try {
+    for(const e of a.effects) {
+      if(e.op==='set')s.facts[e.fact]=e.value==='$input'?event.value:e.value;
+      if(e.op==='add')s.facts[e.fact]+=e.value;
+      if(e.op==='toggle')s.facts[e.fact]=!s.facts[e.fact];
+      if(e.op==='give'||e.op==='take'){const n=(s.inventory[e.item]||0)+(e.op==='give'?1:-1)*(e.count??1);if(n<0||n>999)throw new Error('Item count out of range.');s.inventory[e.item]=n;}
+      if(e.op==='goto'){s.room=e.room;s.view=null;}
+      if(e.op==='note'&&!s.notes.includes(e.text))s.notes.push(e.text);
+      if(e.op==='schedule'){if(s.timers.some(t=>t.id===e.id))throw new Error('Timer already running.');s.timers.push({id:e.id,remaining:e.seconds,action:e.action});}
+      if(e.op==='end')s.ended=true;
+    }
+    if(a.once)s.completed.push(actionId);
+    const checked=restoreGame(pack,s);
+    return {state:checked,changed:true,message:a.message||'Done.'};
+  } catch {return {state:input,changed:false,message:'That action would create an invalid state. Nothing was changed.'};}
+}
+function advanceGame(pack,input,seconds) {
+  if(!Number.isFinite(seconds)||seconds<=0||input.ended)return input;
+  const s=JSON.parse(JSON.stringify(input));s.seconds+=Math.min(seconds,1);
+  s.timers=s.timers.map(t=>({...t,remaining:Math.max(0,t.remaining-Math.min(seconds,1))}));
+  const ready=s.timers.filter(t=>t.remaining===0);s.timers=s.timers.filter(t=>t.remaining>0);
+  return ready.reduce((state,t)=>{const result=dispatchGame(pack,state,t.action);if(!result.changed&&!state.completed.includes(t.action))state.timers.push(t);return result.changed?result.state:state;},s);
+}
+
+exports.initialGame=initialGame;
+exports.matches=matches;
+exports.restoreGame=restoreGame;
+exports.dispatchGame=dispatchGame;
+exports.advanceGame=advanceGame;
+},"src/core/room-pack.js":function(module,exports,require){
+/** Untrusted content boundary. Room packs are JSON data, never executable scripts. */
+const IDENTIFIER=/^[a-z][A-Za-z0-9_.-]{0,79}$/;
+const PACK_LIMITS=Object.freeze({bytes:2000000,rooms:128,nodes:3000,actions:4000,depth:24});
+function assertSafeJSON(value,depth=0) {
+  if(depth>PACK_LIMITS.depth)throw new Error('Content nesting exceeds budget.');
+  if(typeof value==='number'&&!Number.isFinite(value))throw new Error('Non-finite number.');
+  if(typeof value==='function'||typeof value==='undefined')throw new Error('Only JSON data is supported.');
+  if(value&&typeof value==='object')for(const [k,v] of Object.entries(value)) {
+    if(['__proto__','prototype','constructor'].includes(k))throw new Error('Unsafe property name.');assertSafeJSON(v,depth+1);
+  }
+}
+const id=(v)=>{if(typeof v!=='string'||!IDENTIFIER.test(v))throw new Error('Invalid stable identifier: '+v);};
+const vec=(v)=>Array.isArray(v)&&v.length===3&&v.every(n=>Number.isFinite(n)&&Math.abs(n)<10000);
+function validVariable(value,def) {
+  return def.type==='boolean'?typeof value==='boolean':def.type==='number'?Number.isFinite(value)&&value>=(def.min??-1e6)&&value<=(def.max??1e6):
+    def.type==='string'?typeof value==='string'&&value.length<=(def.maxLength??256):false;
+}
+function validatePack(input) {
+  let p=input;
+  if(typeof p==='string'){if(p.length>PACK_LIMITS.bytes)throw new Error('Room pack exceeds 2 MB.');p=JSON.parse(p);}
+  assertSafeJSON(p);
+  if(JSON.stringify(p).length>PACK_LIMITS.bytes)throw new Error('Room pack exceeds 2 MB.');
+  if(p?.schemaVersion!==1)throw new Error('Unsupported room-pack schema version.');
+  id(p.id);if(!Number.isSafeInteger(p.saveVersion)||p.saveVersion<1)throw new Error('Invalid save version.');
+  if(typeof p.title!=='string'||p.title.length>200)throw new Error('Invalid title.');
+  if(!Array.isArray(p.rooms)||!p.rooms.length||p.rooms.length>PACK_LIMITS.rooms)throw new Error('Room count exceeds budget.');
+  const roomIds=new Set(), actionIds=new Set(Object.keys(p.actions||{})),items=new Set(Object.keys(p.items||{}));
+  if(actionIds.size>PACK_LIMITS.actions)throw new Error('Action count exceeds budget.');
+  for(const [k,v] of Object.entries(p.variables||{})){id(k);if(!validVariable(v.initial,v))throw new Error('Invalid variable '+k);}
+  for(const k of items)id(k);
+  for(const r of p.rooms){id(r.id);if(roomIds.has(r.id))throw new Error('Duplicate room id.');roomIds.add(r.id);}
+  if(!roomIds.has(p.startRoom))throw new Error('Start room does not exist.');
+  const condition=(c,depth=0)=>{
+    if(c===undefined)return;if(depth>12||!c||typeof c!=='object')throw new Error('Invalid condition.');
+    const keys=Object.keys(c);if(keys.length!==1)throw new Error('A condition needs exactly one operator.');
+    const k=keys[0],v=c[k];
+    if(k==='all'||k==='any'){if(!Array.isArray(v)||v.length>100)throw new Error('Invalid condition list.');v.forEach(x=>condition(x,depth+1));}
+    else if(k==='not')condition(v,depth+1);
+    else if(k==='fact'){if(!Array.isArray(v)||v.length!==2||!p.variables?.[v[0]]||!validVariable(v[1],p.variables[v[0]]))throw new Error('Unknown/invalid fact.');}
+    else if(k==='has'||k==='selected'){if(!items.has(v))throw new Error('Unknown item.');}
+    else if(k==='room'){if(!roomIds.has(v))throw new Error('Unknown room.');}
+    else if(k==='input'){if(!['string','number','boolean'].includes(typeof v))throw new Error('Invalid input guard.');}
+    else if(k==='done'){if(!actionIds.has(v))throw new Error('Unknown action.');}
+    else throw new Error('Unsupported condition '+k);
+  };
+  let count=0;
+  for(const r of p.rooms) {
+    if(!vec(r.spawn)||!vec(r.target)||!Array.isArray(r.bounds)||r.bounds.length!==4||!r.bounds.every(Number.isFinite)||r.bounds[0]>=r.bounds[1]||r.bounds[2]>=r.bounds[3])throw new Error('Invalid room camera/bounds.');
+    if(r.spawn[0]<=r.bounds[0]||r.spawn[0]>=r.bounds[1]||r.spawn[2]<=r.bounds[2]||r.spawn[2]>=r.bounds[3])throw new Error('Spawn outside room.');
+    if(!Array.isArray(r.nodes)||!Array.isArray(r.controls))throw new Error('Room needs nodes and controls.');
+    const names=new Set();
+    for(const n of r.nodes) {
+      id(n.id);if(names.has(n.id))throw new Error('Duplicate node.');names.add(n.id);
+      if(++count>PACK_LIMITS.nodes)throw new Error('Geometry budget exceeded.');
+      if(!['box','cylinder','sphere','mesh'].includes(n.type)||!vec(n.position)||!vec(n.size)||n.size.some(v=>v<=0)||!Number.isInteger(n.color)||n.color<0||n.color>0xffffff)throw new Error('Invalid geometry node '+n.id);
+      if(n.type==='mesh'&&(!Array.isArray(n.vertices)||n.vertices.length%9!==0||n.vertices.length>90000||!n.vertices.every(v=>Number.isFinite(v)&&Math.abs(v)<10000)))throw new Error('Invalid or oversized triangle mesh.');
+      if(n.rotation&&!vec(n.rotation))throw new Error('Invalid rotation.');condition(n.visible);
+      if(n.motion){const m=n.motion;if(!['boolean','number'].includes(p.variables?.[m.fact]?.type)||(m.scale!==undefined&&!Number.isFinite(m.scale))||!vec(m.pivot||[0,0,0])||!vec(m.rotation||[0,0,0])||!vec(m.translation||[0,0,0]))throw new Error('Invalid motion.');}
+    }
+    const controls=new Set();
+    for(const c of r.controls){id(c.id);if(controls.has(c.id))throw new Error('Duplicate control.');controls.add(c.id);
+      if(!names.has(c.mesh)||!vec(c.position)||!vec(c.size)||c.size.some(x=>x<=0)||!actionIds.has(c.action)||!['handle','button','dial','item','surface','portal'].includes(c.kind))throw new Error('Invalid physical control '+c.id);
+      if(typeof c.label!=='string'||c.label.length>200)throw new Error('Invalid control label.');condition(c.enabled);
+      if(c.input&&(typeof c.input.label!=='string'||!Number.isSafeInteger(c.input.maxLength)||c.input.maxLength<1||c.input.maxLength>256))throw new Error('Invalid input control.');
+      if(c.kind==='dial'&&(!p.variables?.[c.variable]||p.variables[c.variable].type!=='number'))throw new Error('Dial requires numeric variable.');
+    }
+    for(const box of r.colliders||[])if(!vec(box.position)||!vec(box.size)||box.size.some(v=>v<=0))throw new Error('Invalid collider.');
+  }
+  for(const [k,a] of Object.entries(p.actions||{})) {
+    id(k);condition(a.when);if(a.room&&!roomIds.has(a.room))throw new Error('Invalid action room.');
+    if(!Array.isArray(a.effects)||a.effects.length>100)throw new Error('Invalid effects.');
+    for(const e of a.effects) {
+      if(['set','add','toggle'].includes(e.op)) {
+        const d=p.variables?.[e.fact];if(!d)throw new Error('Unknown effect fact.');
+        if(e.op==='toggle'&&d.type!=='boolean')throw new Error('Toggle needs a boolean.');
+        if(e.op==='add'&&(d.type!=='number'||!Number.isFinite(e.value)))throw new Error('Add needs a number.');
+        if(e.op==='set'&&e.value!=='$input'&&!validVariable(e.value,d))throw new Error('Invalid assignment.');
+      } else if(e.op==='give'||e.op==='take'){if(!items.has(e.item)||!Number.isSafeInteger(e.count??1)||(e.count??1)<1)throw new Error('Invalid item effect.');}
+      else if(e.op==='goto'){if(!roomIds.has(e.room))throw new Error('Invalid portal.');}
+      else if(e.op==='schedule'){id(e.id);if(!actionIds.has(e.action)||!Number.isFinite(e.seconds)||e.seconds<.1||e.seconds>86400)throw new Error('Invalid timer.');}
+      else if(e.op==='note'){if(typeof e.text!=='string'||e.text.length>4000)throw new Error('Invalid note.');}
+      else if(e.op!=='end')throw new Error('Unsupported effect '+e.op);
+    }
+  }
+  for(const h of p.hints||[]){condition(h.when);if(typeof h.text!=='string'||h.text.length>4000)throw new Error('Invalid hint.');}
+  // JSON clone strips foreign object prototypes; all references have been checked first.
+  return JSON.parse(JSON.stringify(p));
+}
+
+exports.PACK_LIMITS=PACK_LIMITS;
+exports.assertSafeJSON=assertSafeJSON;
+exports.validVariable=validVariable;
+exports.validatePack=validatePack;
+},"src/core/scene.js":function(module,exports,require){
+const {MeshBuilder,rigid,color,M}=require("src/engine.js");
+const {matches}=require("src/core/rules.js");
+/** Generic geometry/animation adapter. Content positions and motion share the renderer's metre/Y-up convention. */
+function packScene(room) {
+  const b=new MeshBuilder();
+  for(const n of room.nodes) {
+    b.group(n.id,n.layer||'fixture');
+    if(n.type==='box')b.box(n.position,n.size,n.color,n.rotation||[0,0,0]);
+    if(n.type==='cylinder')b.cylinder(n.position,n.size[0]/2,n.size[2]/2,n.size[1],n.color,n.rotation||[0,0,0],24);
+    if(n.type==='sphere')b.sphere(n.position,.5,n.color,n.size);
+    if(n.type==='mesh'){const matrix=rigid([0,0,0],n.rotation||[0,0,0],n.position);for(let i=0;i<n.vertices.length;i+=9){const pts=[0,3,6].map(offset=>M.project(matrix,n.vertices.slice(i+offset,i+offset+3).map((v,j)=>v*n.size[j])).slice(0,3));b.tri(...pts,color(n.color));}}
+  }
+  return b.meshes;
+}
+function packPoses(room,state,motion={},dt=1,reduced=false) {
+  const poses={};let moving=false;
+  for(const n of room.nodes) {
+    if(!matches(n.visible,state)){poses[n.id]=false;continue;}
+    if(!n.motion)continue;
+    const m=n.motion,goal=Number(state.facts[m.fact])*(m.scale??1),old=motion[n.id]??goal,delta=goal-old;
+    const t=Math.abs(delta)<.002||reduced?goal:old+delta*(1-Math.exp(-dt*10));motion[n.id]=t;moving ||= Math.abs(delta)>.002;
+    poses[n.id]=rigid(m.pivot,(m.rotation||[0,0,0]).map(v=>v*t),(m.translation||[0,0,0]).map(v=>v*t));
+  }
+  return {poses,moving};
+}
+function walkable(room,pos) {
+  const [x,,z]=pos,[minX,maxX,minZ,maxZ]=room.bounds,r=.18;
+  if(x<minX+r||x>maxX-r||z<minZ+r||z>maxZ-r)return false;
+  return !(room.colliders||[]).some(b=>Math.abs(x-b.position[0])<b.size[0]/2+r&&Math.abs(z-b.position[2])<b.size[2]/2+r);
+}
+
+exports.packScene=packScene;
+exports.packPoses=packPoses;
+exports.walkable=walkable;
+},"packs/lantern-annex.json":function(module,exports,require){
+exports.default={"schemaVersion":1,"id":"lantern-annex","title":"The Lantern Annex","version":"1.0.0","saveVersion":1,"startRoom":"archive","description":"A room-pack proof: two connected rooms, a drawer, inventory, a dial, a timed signal and a gated exit. All content is JSON.","variables":{"drawerOpen":{"type":"boolean","initial":false},"frequency":{"type":"number","initial":0,"min":0,"max":4},"signalReady":{"type":"boolean","initial":false}},"items":{"brass-key":{"name":"Brass garden key"}},"rooms":[{"id":"archive","title":"The Archive","bounds":[-2.4,2.4,-2.45,2.45],"spawn":[0,1.63,1.5],"target":[0,1.2,-1.5],"nodes":[{"id":"floor","type":"box","position":[0,-0.05,0],"size":[4.8,0.1,4.9],"color":6643024},{"id":"north","type":"box","position":[0,1.4,-2.5],"size":[4.9,2.8,0.1],"color":13092272},{"id":"west","type":"box","position":[-2.45,1.4,0],"size":[0.1,2.8,5],"color":13092272},{"id":"east","type":"box","position":[2.45,1.4,0],"size":[0.1,2.8,5],"color":13092272},{"id":"south","type":"box","position":[0,1.4,2.5],"size":[4.8,2.8,0.1],"color":13092272},{"id":"ceiling","type":"box","position":[0,2.85,0],"size":[4.8,0.1,5],"color":14538181},{"id":"rug","type":"box","position":[0,0.008,0.1],"size":[2.8,0.015,3.1],"color":7748674},{"id":"desk","type":"box","position":[0,0.74,-1.8],"size":[2,0.11,0.85],"color":10978130},{"id":"lega","type":"box","position":[-0.85,0.36,-1.8],"size":[0.08,0.72,0.65],"color":6507829},{"id":"legb","type":"box","position":[0.85,0.36,-1.8],"size":[0.08,0.72,0.65],"color":6507829},{"id":"drawer","type":"box","position":[0,0.6,-1.47],"size":[1.1,0.22,0.07],"color":8414276,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]}},{"id":"handle","type":"box","position":[0,0.66,-1.4],"size":[0.35,0.028,0.05],"color":13544550,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]}},{"id":"tray","type":"box","position":[0,0.51,-1.78],"size":[1.03,0.035,0.62],"color":9795919,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]}},{"id":"brass-key","type":"box","position":[0.08,0.55,-1.62],"size":[0.13,0.024,0.04],"color":14991481,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]},"visible":{"not":{"done":"take-key"}}},{"id":"letter","type":"box","position":[-0.55,0.81,-1.69],"size":[0.5,0.02,0.38],"color":15785390},{"id":"archive-door","type":"box","position":[1.8,1.12,-2.36],"size":[0.85,2.2,0.1],"color":9079923},{"id":"archive-lever","type":"box","position":[1.53,1.06,-2.26],"size":[0.2,0.04,0.07],"color":14005620},{"id":"shelf0","type":"box","position":[-2.1,0.72,-0.6],"size":[0.48,0.045,1.55],"color":10257246},{"id":"book00","type":"box","position":[-2.09,0.88,-1.18],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book01","type":"box","position":[-2.09,0.88,-1.02],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book02","type":"box","position":[-2.09,0.88,-0.8599999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book03","type":"box","position":[-2.09,0.88,-0.7],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book04","type":"box","position":[-2.09,0.88,-0.5399999999999999],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book05","type":"box","position":[-2.09,0.88,-0.3799999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book06","type":"box","position":[-2.09,0.88,-0.21999999999999997],"size":[0.28,0.28,0.085],"color":9393220},{"id":"shelf1","type":"box","position":[-2.1,1.26,-0.6],"size":[0.48,0.045,1.55],"color":10257246},{"id":"book10","type":"box","position":[-2.09,1.42,-1.18],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book11","type":"box","position":[-2.09,1.42,-1.02],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book12","type":"box","position":[-2.09,1.42,-0.8599999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book13","type":"box","position":[-2.09,1.42,-0.7],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book14","type":"box","position":[-2.09,1.42,-0.5399999999999999],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book15","type":"box","position":[-2.09,1.42,-0.3799999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book16","type":"box","position":[-2.09,1.42,-0.21999999999999997],"size":[0.28,0.28,0.085],"color":9393220},{"id":"shelf2","type":"box","position":[-2.1,1.8,-0.6],"size":[0.48,0.045,1.55],"color":10257246},{"id":"book20","type":"box","position":[-2.09,1.96,-1.18],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book21","type":"box","position":[-2.09,1.96,-1.02],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book22","type":"box","position":[-2.09,1.96,-0.8599999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book23","type":"box","position":[-2.09,1.96,-0.7],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book24","type":"box","position":[-2.09,1.96,-0.5399999999999999],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book25","type":"box","position":[-2.09,1.96,-0.3799999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book26","type":"box","position":[-2.09,1.96,-0.21999999999999997],"size":[0.28,0.28,0.085],"color":9393220}],"controls":[{"id":"drawer","label":"Pull the desk drawer handle","mesh":"handle","position":[0,0.66,-1.4],"size":[0.42,0.1,0.14],"kind":"handle","action":"drawer"},{"id":"key","label":"Take the brass key","mesh":"brass-key","position":[0.08,0.56,-1.62],"size":[0.18,0.1,0.14],"kind":"item","action":"take-key","enabled":{"all":[{"fact":["drawerOpen",true]},{"not":{"done":"take-key"}}]}},{"id":"letter","label":"Read the letter on the desk","mesh":"letter","position":[-0.55,0.825,-1.69],"size":[0.5,0.08,0.38],"kind":"surface","action":"read-letter"},{"id":"door","label":"Use the observatory door lever","mesh":"archive-lever","position":[1.53,1.06,-2.26],"size":[0.26,0.12,0.16],"kind":"portal","action":"to-observatory"}],"colliders":[{"position":[0,0.4,-1.8],"size":[2,0.8,0.85]}]},{"id":"observatory","title":"The Observatory","bounds":[-2.4,2.4,-2.45,2.45],"spawn":[0,1.63,1.5],"target":[0,1.2,-1.5],"nodes":[{"id":"floor","type":"box","position":[0,-0.05,0],"size":[4.8,0.1,4.9],"color":6643024},{"id":"north","type":"box","position":[0,1.4,-2.5],"size":[4.9,2.8,0.1],"color":8231068},{"id":"west","type":"box","position":[-2.45,1.4,0],"size":[0.1,2.8,5],"color":8231068},{"id":"east","type":"box","position":[2.45,1.4,0],"size":[0.1,2.8,5],"color":8231068},{"id":"south","type":"box","position":[0,1.4,2.5],"size":[4.8,2.8,0.1],"color":8231068},{"id":"ceiling","type":"box","position":[0,2.85,0],"size":[4.8,0.1,5],"color":14538181},{"id":"rug","type":"box","position":[0,0.008,0.1],"size":[2.8,0.015,3.1],"color":7748674},{"id":"console","type":"box","position":[0,0.77,-1.8],"size":[1.65,0.16,0.82],"color":5203816},{"id":"console-foot","type":"box","position":[0,0.38,-1.8],"size":[1.3,0.7,0.65],"color":3558995},{"id":"wheel","type":"cylinder","position":[-0.32,0.94,-1.57],"size":[0.25,0.12,0.25],"color":13347171,"motion":{"fact":"frequency","pivot":[-0.32,0.94,-1.57],"rotation":[0,-0.65,0]}},{"id":"wheel-mark","type":"box","position":[-0.32,1.006,-1.65],"size":[0.014,0.014,0.065],"color":3157285,"motion":{"fact":"frequency","pivot":[-0.32,0.94,-1.57],"rotation":[0,-0.65,0]}},{"id":"start-button","type":"box","position":[0.38,0.88,-1.55],"size":[0.18,0.06,0.16],"color":10709322},{"id":"keyhole","type":"box","position":[0.68,1.35,-2.36],"size":[0.08,0.12,0.025],"color":12096851},{"id":"shutter","type":"box","position":[0,1.8,-2.31],"size":[1.5,1.5,0.055],"color":2636616,"visible":{"not":{"fact":["signalReady",true]}}},{"id":"sky","type":"box","position":[0,1.8,-2.38],"size":[1.5,1.5,0.02],"color":2505812},{"id":"moon","type":"sphere","position":[0.32,2.04,-2.32],"size":[0.4,0.4,0.035],"color":16770221},{"id":"star0","type":"box","position":[-0.64,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star1","type":"box","position":[-0.44,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star2","type":"box","position":[-0.24,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star3","type":"box","position":[-0.039999999999999925,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star4","type":"box","position":[0.16000000000000003,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star5","type":"box","position":[0.36,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star6","type":"box","position":[0.5600000000000002,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star7","type":"box","position":[-0.64,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star8","type":"box","position":[-0.44,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star9","type":"box","position":[-0.24,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star10","type":"box","position":[-0.039999999999999925,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star11","type":"box","position":[0.16000000000000003,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star12","type":"box","position":[0.36,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star13","type":"box","position":[0.5600000000000002,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star14","type":"box","position":[-0.64,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star15","type":"box","position":[-0.44,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star16","type":"box","position":[-0.24,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star17","type":"box","position":[-0.039999999999999925,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star18","type":"box","position":[0.16000000000000003,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star19","type":"box","position":[0.36,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star20","type":"box","position":[0.5600000000000002,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"return-door","type":"box","position":[-1.77,1.12,-2.35],"size":[0.84,2.2,0.1],"color":7111042},{"id":"return-handle","type":"box","position":[-1.5,1.07,-2.25],"size":[0.18,0.03,0.08],"color":13217905},{"id":"exit-door","type":"box","position":[1.78,1.12,-2.35],"size":[0.85,2.2,0.1],"color":6843480},{"id":"exit-handle","type":"box","position":[1.52,1.07,-2.25],"size":[0.18,0.035,0.08],"color":13217905}],"controls":[{"id":"frequency","label":"Turn the signal dial","mesh":"wheel","position":[-0.32,0.99,-1.57],"size":[0.29,0.15,0.29],"kind":"dial","variable":"frequency","action":"set-frequency"},{"id":"start","label":"Press the signal button","mesh":"start-button","position":[0.38,0.91,-1.55],"size":[0.23,0.1,0.23],"kind":"button","action":"start-signal"},{"id":"return","label":"Return through the archive door","mesh":"return-handle","position":[-1.5,1.07,-2.25],"size":[0.26,0.1,0.16],"kind":"portal","action":"to-archive"},{"id":"exit","label":"Unlock the garden door with selected key","mesh":"exit-handle","position":[1.52,1.07,-2.25],"size":[0.26,0.1,0.16],"kind":"portal","action":"finish"}],"colliders":[{"position":[0,0.4,-1.8],"size":[1.65,0.85,0.82]}]}],"actions":{"drawer":{"room":"archive","effects":[{"op":"toggle","fact":"drawerOpen"}],"message":"The wooden drawer moves on its runners."},"read-letter":{"room":"archive","once":true,"effects":[{"op":"note","text":"Set the observatory dial to 3, then press the signal button. Wait for the shutter. The garden key is in the desk drawer."}],"message":"A letter: dial 3, signal, wait. The drawer holds the key."},"take-key":{"room":"archive","once":true,"when":{"fact":["drawerOpen",true]},"effects":[{"op":"give","item":"brass-key"}],"message":"Brass key added to your inventory."},"to-observatory":{"room":"archive","effects":[{"op":"goto","room":"observatory"}],"message":"You enter the observatory. Your archive progress stays intact."},"to-archive":{"room":"observatory","effects":[{"op":"goto","room":"archive"}],"message":"Back in the archive."},"set-frequency":{"room":"observatory","effects":[{"op":"set","fact":"frequency","value":"$input"}],"message":"The signal dial clicks into its next detent."},"start-signal":{"room":"observatory","once":true,"when":{"fact":["frequency",3]},"effects":[{"op":"schedule","id":"signal","seconds":4,"action":"signal-ready"}],"blocked":"The signal is quiet. Read the letter in the archive.","message":"The signal starts. The shutter will release in four active-play seconds."},"signal-ready":{"once":true,"effects":[{"op":"set","fact":"signalReady","value":true},{"op":"note","text":"The signal has released the shutter. Select the brass key and use the garden door."}],"message":"Moonlight. The garden lock is ready."},"finish":{"room":"observatory","once":true,"when":{"all":[{"fact":["signalReady",true]},{"selected":"brass-key"}]},"effects":[{"op":"take","item":"brass-key"},{"op":"end"}],"blocked":"The garden door needs the signal and a selected brass key.","message":"The garden opens. You completed a different escape without changing the engine."}},"hints":[{"when":{"not":{"has":"brass-key"}},"text":"The archive desk drawer has a physical handle. Open it and take the key."},{"when":{"not":{"fact":["signalReady",true]}},"text":"In the observatory, set the dial to 3 and press the signal button."},{"when":{"fact":["signalReady",true]},"text":"Select the brass key, then use the garden door lever."}],"evidence":{"source":"original synthetic demonstration","dimensions":"invented; not reconstructed from user photos"}};
+}};const cache={};function require(id){if(cache[id])return cache[id].exports;const module={exports:{}};cache[id]=module;factories[id](module,module.exports,require);return module.exports;}require('src/main.js');})();</script></body></html>

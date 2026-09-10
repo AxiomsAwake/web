@@ -1,0 +1,7 @@
+The Crispery Room — owner-authorized browser build
+
+This is the selected public browser player and generated kitchen model, published with the project owner's authorization. It is not the private development repository or the original reference photographs. You may run this published build in your browser.
+
+Publication does not grant an open-source or general redistribution license to the private repository or its materials. Existing rights and the limitations described in CREDITS.md remain unchanged. No affiliation with or ownership of Crimson Room or other inspiration works is claimed.
+
+The software is provided without warranty, to the extent permitted by applicable law.
