@@ -1,0 +1,102 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:75b650cdd2fc511a3ebe5d22eca5f4850b239a49af3781a5a7fe05ac263d4a43",
+  "artifact_id": 10122324751,
+  "digest": "df25f0fb416a879e65fa9dd12002f98c8a2ab82445c9689ca81a98cc497c86f1",
+  "files": [
+    {
+      "bytes": 11358,
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "bytes": 268,
+      "path": "NOTICE",
+      "sha256": "a7b1750731af893610cac513a5bd72f294b037b30293690e212bf1ce76077b1e"
+    },
+    {
+      "bytes": 1744,
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "194ff99bc0be8a3f88a9d57a40229d1a211630af06480739fc37b3eb7ebffef0"
+    },
+    {
+      "bytes": 11944,
+      "path": "index.apple-touch-icon.png",
+      "sha256": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5"
+    },
+    {
+      "bytes": 2973,
+      "path": "index.audio.position.worklet.js",
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    {
+      "bytes": 7298,
+      "path": "index.audio.worklet.js",
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    {
+      "bytes": 5458,
+      "path": "index.html",
+      "sha256": "bc3100fcf58b1629d6722bb10c88bbf6ea5f213ba62738af32fdd2114a62f136"
+    },
+    {
+      "bytes": 5700,
+      "path": "index.icon.png",
+      "sha256": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5"
+    },
+    {
+      "bytes": 279815,
+      "path": "index.js",
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+    },
+    {
+      "bytes": 64020,
+      "path": "index.pck",
+      "sha256": "ec21153059d36aa478c7214fc86dba65638038ac7917ba70bb25f4b21a708d78"
+    },
+    {
+      "bytes": 21443,
+      "path": "index.png",
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    {
+      "bytes": 39514754,
+      "path": "index.wasm",
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+    },
+    {
+      "bytes": 100108,
+      "path": "legal/GODOT_COPYRIGHT.txt",
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    }
+  ],
+  "retain_hashed_assets": false,
+  "retained": [],
+  "run_id": 34398061341,
+  "schema": 1,
+  "site": "the-keepers",
+  "smoke": {
+    "assert_selector": "#canvas",
+    "ready_selector": "#canvas",
+    "steps": [
+      {
+        "click": "#canvas"
+      },
+      {
+        "press": "Enter"
+      },
+      {
+        "press": "1"
+      },
+      {
+        "press": "Q"
+      }
+    ],
+    "touch": false,
+    "wait_hidden": "#status"
+  },
+  "source": "AxiomsAwake/TheKeepers",
+  "source_sha": "77989e89286e280597f254871efc64f66a3d1351",
+  "suspended": false,
+  "watermark": "77989e89286e280597f254871efc64f66a3d1351"
+}
