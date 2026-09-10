@@ -1,0 +1,277 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:9c48f8001fd23d073f3427d9071ffbd75595341a9604ad386cfec864a3438fb1",
+  "artifact_id": 10122116159,
+  "digest": "969dc154dc6a94a71205f1a96b1ec5a37586cf0c68d95f9d42965b03da518475",
+  "files": [
+    {
+      "bytes": 0,
+      "path": ".nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1650,
+      "path": "CREDITS.txt",
+      "sha256": "9017bf2cd4572a89b24bd1d187612b35f1dd8b65d82c3986f8667c24ace85f46"
+    },
+    {
+      "bytes": 2388,
+      "path": "LICENSE",
+      "sha256": "f40ef1aaf6e1f8aab0946e1f1c0568af8ee175372f3cf795410f867de27f91f7"
+    },
+    {
+      "bytes": 13195,
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "sha256": "617eec070033cf773aca3cb732bac745b5ab42f3675261e59266b6302f2bb7fd"
+    },
+    {
+      "bytes": 602656,
+      "path": "assets/index-C1pnU8CA.js",
+      "sha256": "f1b17fb44d173d3966d2e2e3fc60dffc878a97e7b7ecdd3813cd0163b6dfcb25"
+    },
+    {
+      "bytes": 2592,
+      "path": "assets/index-CjDs2fFO.css",
+      "sha256": "55e724c17ba097b0b42475af8108e6ace5f45e3b7e9090a4f182133538d24b19"
+    },
+    {
+      "bytes": 59687,
+      "path": "assets/music/l1.mid",
+      "sha256": "4962726076a917e3b5d34edf8b4e9c23acddc976c4c3aea4c61918a573dcfd69"
+    },
+    {
+      "bytes": 10916,
+      "path": "assets/music/l2.mid",
+      "sha256": "0c332596b2894e89fc5fb3760a7f37d0f912fb1707abc92e59bb1900b0ca1762"
+    },
+    {
+      "bytes": 20791,
+      "path": "assets/music/l3.mid",
+      "sha256": "d5d0f10cbc90f1b844782646c61dc4226cc8ff4a7388cda09ee06fca85441ced"
+    },
+    {
+      "bytes": 41456,
+      "path": "assets/music/u1.mid",
+      "sha256": "16b4a4140e4da1313c8baa8827bd4650f1c99eacaec20e70723f8bc344ada1c3"
+    },
+    {
+      "bytes": 11940,
+      "path": "assets/music/u2.mid",
+      "sha256": "5cf378ce451cf5e9fea97f5d4b956721ca76e6b6244a6292c9ce58d26039e9e6"
+    },
+    {
+      "bytes": 32226,
+      "path": "assets/music/u3.mid",
+      "sha256": "c38aa65bf772a677303539a59f8020b1223692ffa8803e52e9c86e5252b718f8"
+    },
+    {
+      "bytes": 131428,
+      "path": "assets/refreshed/Marble1.webp",
+      "sha256": "31ba3dea816ab018b7e3bee7b7b55c5806f95208d145ee024ff8dd3648621f21"
+    },
+    {
+      "bytes": 177516,
+      "path": "assets/refreshed/Marble2.webp",
+      "sha256": "f0ec0d5f2ab0d9eed03c54db441587f5b3bf0db8d4d10f8041aac62056a8e596"
+    },
+    {
+      "bytes": 14704,
+      "path": "assets/sounds/Explode1.wav",
+      "sha256": "8bf4724e763b8a8d84bc208ca362bbd2318c9b53223565e10e370a6efc318291"
+    },
+    {
+      "bytes": 23584,
+      "path": "assets/sounds/Explode2.wav",
+      "sha256": "4ecbd8d4bcd73d49e5a7d68f3e0074f4f9a8518fae8b235aa96bf910c219a60f"
+    },
+    {
+      "bytes": 36000,
+      "path": "assets/sounds/Explode3.wav",
+      "sha256": "b58df2eef02660f6dd2d25c512300dd64b2dfaa52dd08d29dee6dfd1d63f7fe3"
+    },
+    {
+      "bytes": 14798,
+      "path": "assets/sounds/Scroll.wav",
+      "sha256": "190673338cbe682553b3a1b2ddc25275aa0bb5c8c33fb19a641da4285b91cc64"
+    },
+    {
+      "bytes": 21706,
+      "path": "assets/sounds/StoneRoll.wav",
+      "sha256": "0c0c7b65d189338f4022a37579fb981d0c79ce361c4752a9c5d3b99786aab88a"
+    },
+    {
+      "bytes": 954,
+      "path": "assets/sounds/Switch.wav",
+      "sha256": "6c50cb21df034fc707695c79734924d20346f5e9998cfe0e5c03fe760957f75c"
+    },
+    {
+      "bytes": 21806,
+      "path": "assets/sounds/TextAdd.wav",
+      "sha256": "48b788e7be03b79bfc2ece0cd09c6505fc2d8fbe933479e829652e882647d9d1"
+    },
+    {
+      "bytes": 42256,
+      "path": "assets/sounds/Voltage.wav",
+      "sha256": "ebeb207e96f2feb681eff79480f3aaac85e698db1b7e3ca5c77e00b35875d8f7"
+    },
+    {
+      "bytes": 166020,
+      "path": "assets/sounds/Water.wav",
+      "sha256": "e96111319dae49deaed22c7bb3ed56c2477e268cb9e2f925d5d2e4c03edc790b"
+    },
+    {
+      "bytes": 28862,
+      "path": "assets/sounds/Whistle.wav",
+      "sha256": "976d89860ba8c02155a6b075b77ee91eac327564834cc0c5e8d00d834339b4d7"
+    },
+    {
+      "bytes": 23068,
+      "path": "assets/textures/Map.jpg",
+      "sha256": "4845e08c02d962b13ba43796e66d4f9316dbbd3414d673e4f8e3789c9a779fd8"
+    },
+    {
+      "bytes": 25550,
+      "path": "assets/textures/Marble1.jpg",
+      "sha256": "6c7da15b8275b044dd9bdb51322a524d151d126365d7c27373ab70f7ca04aa39"
+    },
+    {
+      "bytes": 31534,
+      "path": "assets/textures/Marble2.jpg",
+      "sha256": "405b61f2d97590675b6ec1979e6bf9bcb27f65ed2db2a53bb6e812fd1259e8f3"
+    },
+    {
+      "bytes": 9283,
+      "path": "assets/textures/Metal1.jpg",
+      "sha256": "6436fca8067c05619cd4031d21d775392ff9da65def49936427e718cd27f9ec4"
+    },
+    {
+      "bytes": 6226,
+      "path": "assets/textures/Metal2.jpg",
+      "sha256": "964836fe41f9ba500a1c6f90f431ca3d2bbefc44e5330d99843b6fdb9cd78a68"
+    },
+    {
+      "bytes": 7201,
+      "path": "assets/textures/Scroll.jpg",
+      "sha256": "66f3bc6c94797e3f6f27fe86b0d4a8debc8defcc041311b464abdce77717ae68"
+    },
+    {
+      "bytes": 19894,
+      "path": "assets/textures/Sky.jpg",
+      "sha256": "3bdbaaba909951da47d0a9611d1a531b77127a9bc9a4d927f8a92be38ce2bfe7"
+    },
+    {
+      "bytes": 11287,
+      "path": "assets/textures/Stone.jpg",
+      "sha256": "de791a4bcd6cbe419d929c3cb6229ffd63777a2ba6c11929ddd6d3530c022276"
+    },
+    {
+      "bytes": 6723,
+      "path": "assets/textures/SwitchOFF.jpg",
+      "sha256": "40584a827ead636b3188f7d945a547b7856975d0d5f3cc6d52d6bd12426f1f6f"
+    },
+    {
+      "bytes": 6910,
+      "path": "assets/textures/SwitchON.jpg",
+      "sha256": "ae69ad8c8b302c2cba011b238ab6d1a3bff1005a3992da1c0ebd8f89988330f6"
+    },
+    {
+      "bytes": 6415,
+      "path": "assets/textures/bubble.jpg",
+      "sha256": "3e2d5dac4175fd196b3ecb2e1e97df64f7808b53d09d01c6b7479e5b1f997ae6"
+    },
+    {
+      "bytes": 5989,
+      "path": "assets/textures/flare.jpg",
+      "sha256": "2d3bcf579602074239911653405b3f3e803ffb5a3c3d8d3054972c494ee2d1ed"
+    },
+    {
+      "bytes": 4053,
+      "path": "assets/textures/lamp-off.png",
+      "sha256": "867fb5dfe76ef69148e6f1ec20746df90410f2350fd6e999a7a33ad119fa437c"
+    },
+    {
+      "bytes": 4067,
+      "path": "assets/textures/lamp-on.png",
+      "sha256": "ccf43c248a535bc85084e2eada7113b9b39e747871d140ba0c5d6dc42637f310"
+    },
+    {
+      "bytes": 23931,
+      "path": "assets/textures/lava.png",
+      "sha256": "1bfac1afb0345dbc44aa1b613d3717770c99c3dbeb691180cecc81a76ace5ed8"
+    },
+    {
+      "bytes": 5909,
+      "path": "assets/textures/smoke.jpg",
+      "sha256": "255cc2bc4fd1a56b8b64e2f74eccae047c2ef20e2d04aa736d8b88d79eaa9b7b"
+    },
+    {
+      "bytes": 6302,
+      "path": "assets/textures/spark.jpg",
+      "sha256": "682b9ca940e5c663f180510bb1b66c7d57a282ac093f93f80b283bc08ef8306e"
+    },
+    {
+      "bytes": 14438,
+      "path": "assets/textures/water1.png",
+      "sha256": "3b2bc25c30ceb53b33f75b78da2e1090f30e3d179ad148d68b5fd29f9cff40ac"
+    },
+    {
+      "bytes": 14021,
+      "path": "assets/textures/water2.png",
+      "sha256": "79f5d3e262618aee162286131aa264e35f5f85db3fac1af72d6ce5ff9e7cf2a6"
+    },
+    {
+      "bytes": 14126,
+      "path": "assets/textures/water3.png",
+      "sha256": "cdfaad0a803846413fe4e746a6047d5288f947a6b67128209c2c6d87ef9d7a92"
+    },
+    {
+      "bytes": 14309,
+      "path": "assets/textures/water4.png",
+      "sha256": "e084d207d915a45dc0116a292c0077a7a0f9a262ad665797da81df5e72a8b931"
+    },
+    {
+      "bytes": 14529,
+      "path": "assets/textures/water5.png",
+      "sha256": "5a7b16785e88be2356212babaa4a81ef157db4c1a5079ea42138bfe909033d8c"
+    },
+    {
+      "bytes": 14456,
+      "path": "assets/textures/water6.png",
+      "sha256": "0d4ec1043859afcf6a0959233dcae9068beb4aa68bf77ccde1915dbe9d235802"
+    },
+    {
+      "bytes": 392631,
+      "path": "assets/world.json.gz",
+      "sha256": "10cd0bcf64811fecbe8209a8cc189e1078042b50aa257648bbc8b195640f6c82"
+    },
+    {
+      "bytes": 185,
+      "path": "build-info.json",
+      "sha256": "757ec71b1dd6a7ce44af99bc3b163b6f513594c0a3ab1955975591195e033d4e"
+    },
+    {
+      "bytes": 2348,
+      "path": "index.html",
+      "sha256": "35d979b7658c477382404cdbfc082def8a52ce06e4d7494b47c6905bd0dbe773"
+    }
+  ],
+  "retain_hashed_assets": true,
+  "retained": [],
+  "run_id": 34397563339,
+  "schema": 1,
+  "site": "romi16",
+  "smoke": {
+    "assert_selector": "#game",
+    "ready_selector": "#launch-button:not([disabled])",
+    "steps": [
+      {
+        "click": "#launch-button"
+      }
+    ],
+    "touch": false
+  },
+  "source": "AxiomsAwake/Romi16",
+  "source_sha": "449f69f5beb69633e874f5aad1f88c7130721dc6",
+  "suspended": false,
+  "watermark": "449f69f5beb69633e874f5aad1f88c7130721dc6"
+}

@@ -1,0 +1,45 @@
+Romi16 Free-to-Play License
+Version 1.1 — 5 September 2026 (attribution clarification)
+
+Original Romi16 game and all original game materials:
+Copyright (c) 2001 Michael K. All rights reserved except as granted below.
+
+Michael K created the original game entirely himself, including its code, design,
+world, graphics, music, sounds, and writing. Romi K guided the modern conversion,
+verification, and publication. OpenAI Codex generated the new WebGL code through
+AI translation and adaptation of Michael K's original implementation. These are
+contribution credits, not a transfer of rights or a copyright claim by the AI.
+See CREDITS.txt for the complete attribution record.
+
+1. Free play
+
+The copyright holders grant everyone a worldwide, non-exclusive, royalty-free
+permission to download, store, copy for their own use, and play the released
+compiled Romi16 game, without payment. This includes playing in a browser and
+serving an unmodified copy on a local server for personal or household play.
+This permission continues for copies lawfully obtained under these terms,
+provided these terms are followed. Keep the included credits and notices intact.
+
+2. Rights reserved
+
+This license grants no right to sell, sublicense, publicly redistribute or host,
+modify, or reuse the game's code or assets in other works. Those uses require
+separate permission from the relevant copyright holders. No source-code access
+or source-code distribution is promised or required by this license. All rights
+not expressly granted are reserved. Nothing here limits rights available under
+applicable law or rights independently granted under other licenses.
+
+3. Third-party components
+
+Third-party components remain governed by their own licenses. In particular,
+three.js is licensed under MIT and webaudio-tinysynth under Apache-2.0. Their
+notices and license texts are included in THIRD_PARTY_NOTICES.txt. The limits
+above do not restrict permissions those licenses independently grant.
+
+4. No warranty
+
+To the extent permitted by applicable law, the game is provided "as is", without
+warranty of any kind, express or implied, including merchantability, fitness for
+a particular purpose, and non-infringement. The copyright holders are not liable
+for claims, damages, or other liability arising from use of the game. Nothing
+here excludes liability that applicable law does not allow to be excluded.
