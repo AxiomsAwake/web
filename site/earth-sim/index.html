@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071014">
+    <meta name="description" content="A browser-native reconstruction of Romi Kuntsman's 2012 cellular-automata climate simulation.">
+    <title>Earth · A Cellular Climate</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="identity">
+        <p class="eyebrow">Computational Biology · MMN 11 · 2012 → Web</p>
+        <h1>Earth <span>/ A Cellular Climate</span></h1>
+      </div>
+      <div class="phase" aria-live="polite">
+        <span class="phase-dot" id="stage-dot" aria-hidden="true"></span>
+        <div>
+          <strong id="stage-label">Awaiting world</strong>
+          <span>Generation <b id="generation-label">0</b> · Build <b id="build-label">0</b></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="simulator-panel" aria-labelledby="world-heading">
+        <h2 class="visually-hidden" id="world-heading">Cellular climate world</h2>
+
+        <div class="control-rack" aria-label="Simulation controls">
+          <div class="button-group primary-actions">
+            <button class="button button-primary" id="generate-button" type="button">Generate world</button>
+            <button class="button icon-button" id="random-seed-button" type="button" aria-label="Choose a random seed" title="Choose a random seed">↻</button>
+            <button class="button" id="run-button" type="button" disabled>Run climate</button>
+            <button class="button" id="step-button" type="button" disabled>Step</button>
+            <button class="button" id="year-button" type="button" disabled>Run 365</button>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="seed-input">Seed</label>
+            <input id="seed-input" inputmode="numeric" type="number" value="935527044" step="1">
+          </div>
+
+          <div class="field-group pollution-control">
+            <label class="field-label" for="pollution-input">Pollution rise <output id="pollution-value" for="pollution-input">0</output></label>
+            <input id="pollution-input" type="range" min="0" max="25" step="1" value="0">
+          </div>
+
+          <div class="field-group compact-field">
+            <label class="field-label" for="speed-select">Speed</label>
+            <select id="speed-select">
+              <option value="4">4 / sec</option>
+              <option value="15">15 / sec</option>
+              <option value="30" selected>30 / sec</option>
+              <option value="60">60 / sec</option>
+              <option value="0">Maximum</option>
+            </select>
+          </div>
+
+          <div class="button-group secondary-actions">
+            <button class="button button-quiet" id="reset-button" type="button">Reset</button>
+            <button class="button button-quiet" id="csv-button" type="button" disabled>Export CSV</button>
+          </div>
+        </div>
+
+        <div class="world-frame">
+          <canvas id="earth-canvas" width="1280" height="720" tabindex="0" aria-label="A 64 by 36 toroidal cellular climate map. Select a cell to inspect it."></canvas>
+          <div class="canvas-readout" aria-hidden="true">
+            <span>64 × 36 torus</span>
+            <span id="coordinate-label"></span>
+          </div>
+        </div>
+
+        <fieldset class="layer-rack">
+          <legend>Visible layers</legend>
+          <label class="layer-toggle terrain"><input type="checkbox" data-layer="terrain" checked><span>Terrain</span></label>
+          <label class="layer-toggle clouds"><input type="checkbox" data-layer="clouds" checked><span>Clouds</span></label>
+          <label class="layer-toggle pollution"><input type="checkbox" data-layer="pollution" checked><span>Pollution</span></label>
+          <label class="layer-toggle temperature"><input type="checkbox" data-layer="temperature" checked><span>Temperature</span></label>
+          <label class="layer-toggle wind"><input type="checkbox" data-layer="wind" checked><span>Wind</span></label>
+          <label class="layer-toggle elevation"><input type="checkbox" data-layer="elevation"><span>Elevation</span></label>
+          <span class="shortcut-note"><kbd>Space</kbd> run/pause · <kbd>.</kbd> step</span>
+        </fieldset>
+      </section>
+
+      <aside class="telemetry" aria-label="World telemetry">
+        <section class="telemetry-card weather-card">
+          <div class="card-heading">
+            <h2>Sky state</h2>
+            <span>share of cells</span>
+          </div>
+          <dl class="three-up">
+            <div><dt>Clear</dt><dd id="stat-clear">1.0000</dd></div>
+            <div><dt>Cloudy</dt><dd id="stat-cloudy">0.0000</dd></div>
+            <div><dt>Raining</dt><dd id="stat-raining">0.0000</dd></div>
+          </dl>
+        </section>
+
+        <section class="telemetry-card signals-card">
+          <div class="card-heading">
+            <h2>System signals</h2>
+            <span>mean · normalized 0–1</span>
+          </div>
+          <dl class="signal-list">
+            <div class="signal pollution-signal">
+              <dt>Pollution</dt><dd id="stat-pollution">0.0000</dd><small id="range-pollution">0.0000–0.0000 · σ 0.0000</small>
+            </div>
+            <div class="signal temperature-signal">
+              <dt>Temperature</dt><dd id="stat-temperature">0.0000</dd><small id="range-temperature">0.0000–0.0000 · σ 0.0000</small>
+            </div>
+            <div class="signal wind-signal">
+              <dt>Wind</dt><dd id="stat-wind">0.0000</dd><small id="range-wind">0.0000–0.0000 · σ 0.0000</small>
+            </div>
+          </dl>
+        </section>
+
+        <section class="telemetry-card mix-card">
+          <div class="card-heading"><h2>Terrain mix</h2><span>current world</span></div>
+          <dl class="terrain-mix">
+            <div><dt><i class="swatch ice"></i>Ice</dt><dd id="mix-ice">0%</dd></div>
+            <div><dt><i class="swatch water"></i>Water</dt><dd id="mix-water">100%</dd></div>
+            <div><dt><i class="swatch ground"></i>Ground</dt><dd id="mix-ground">0%</dd></div>
+            <div><dt><i class="swatch forest"></i>Forest</dt><dd id="mix-forest">0%</dd></div>
+            <div><dt><i class="swatch city"></i>City</dt><dd id="mix-city">0%</dd></div>
+          </dl>
+        </section>
+
+        <section class="telemetry-card inspector-card">
+          <div class="card-heading"><h2>Cell inspector</h2><span>click map · arrows move</span></div>
+          <p class="empty-inspector" id="inspector-empty">Select a cell to see the local state.</p>
+          <dl class="inspector-grid" id="inspector-content" hidden>
+            <div><dt>Coordinate</dt><dd id="cell-coordinate"></dd></div>
+            <div><dt>Terrain</dt><dd id="cell-terrain"></dd></div>
+            <div><dt>Elevation</dt><dd id="cell-elevation"></dd></div>
+            <div><dt>Temperature</dt><dd id="cell-temperature"></dd></div>
+            <div><dt>Pollution</dt><dd id="cell-pollution"></dd></div>
+            <div><dt>Clouds</dt><dd id="cell-clouds"></dd></div>
+            <div class="wide"><dt>Wind</dt><dd id="cell-wind"></dd></div>
+          </dl>
+        </section>
+      </aside>
+
+      <section class="history-panel" aria-labelledby="history-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Live statistical analysis</p>
+            <h2 id="history-heading">Normalized system history</h2>
+          </div>
+          <div class="chart-legend" aria-label="Chart series">
+            <span style="--series:#80b8ff">Clear</span>
+            <span style="--series:#d87970">Cloudy</span>
+            <span style="--series:#98c86c">Rain</span>
+            <span style="--series:#be8de5">Pollution</span>
+            <span style="--series:#32d9ea">Temperature</span>
+            <span style="--series:#f5b24e">Wind</span>
+          </div>
+        </div>
+        <canvas id="history-chart" width="1200" height="310" role="img" aria-label="Normalized climate history; run the simulation to populate the chart"></canvas>
+        <p class="chart-note">Each series is centered on its running mean and shown in standard deviations, matching the assignment’s comparison method. CSV collection becomes available after generation 50.</p>
+      </section>
+
+      <section class="reference-grid" aria-label="Simulation reference">
+        <details class="reference-card" open>
+          <summary>How to read the original layers</summary>
+          <div class="legend-grid">
+            <div>
+              <h3>Terrain</h3>
+              <p><i class="swatch water"></i>Water <i class="swatch ground"></i>Ground <i class="swatch city"></i>City <i class="swatch forest"></i>Forest <i class="swatch ice"></i>Ice</p>
+            </div>
+            <div>
+              <h3>Weather</h3>
+              <p><i class="legend-cloud"></i>Cloud <i class="legend-cloud raining"></i>Rain <i class="legend-arrow">↑</i>Wind</p>
+            </div>
+            <div>
+              <h3>Signals</h3>
+              <p><i class="legend-border"></i>Temperature border <i class="legend-haze"></i>Pollution haze</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="reference-card">
+          <summary>What this model is—and is not</summary>
+          <div class="reference-copy">
+            <p>This is a conceptual cellular automaton, not a physical weather forecast. Local rules couple terrain, heat, wind, clouds, rain, and urban pollution to expose emergent behavior and tipping under sustained stress.</p>
+            <p>The browser version preserves the 2012 rule set and visual encodings, makes the historical scan order deterministic, and restores elevation—the one assignment element the original report explicitly left out.</p>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <span>Originally designed and implemented by Romi Kuntsman, December 2011.</span>
+      <a href="https://github.com/rmkn85/CompBioEarthSim">Source on GitHub</a>
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

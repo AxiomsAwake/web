@@ -1,0 +1,80 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:b28ac66e0515a3a025ea78e70a322b03ee4d56d4d68887e2a781fb6f81e97aeb",
+  "artifact_id": 10122160546,
+  "digest": "11a1bc7fa3ec00ab69789df861541567f9672363010345afd8388dd0fdf3f4bb",
+  "files": [
+    {
+      "bytes": 860,
+      "path": "assets/heat-map-palette.jpg",
+      "sha256": "2dd3a2b2536701fda002f3be63c1f13f955e1443ff9496531bd62185dd55ebc2"
+    },
+    {
+      "bytes": 10337,
+      "path": "index.html",
+      "sha256": "240f5132f4557776c940854df1a0ceeb6a952d61e3ef389404e1e1f5993d8b34"
+    },
+    {
+      "bytes": 10975,
+      "path": "js/app.js",
+      "sha256": "e8d4465166e9bf6cd12a4a8c793809c0bc8c6af26792ad409ab4c277e2ee0645"
+    },
+    {
+      "bytes": 4101,
+      "path": "js/chart.js",
+      "sha256": "9fb20abe8ded1cb6e156dee26b798cac390a0d0774651c7f7975621a229f4c5e"
+    },
+    {
+      "bytes": 1466,
+      "path": "js/pollution.js",
+      "sha256": "4c2b9e4bd6cba2a0eebedb83ec2a54913d4bf75c85ca29c1a433f1ad8c235819"
+    },
+    {
+      "bytes": 1896,
+      "path": "js/random.js",
+      "sha256": "4ad2d47a1935b1467fd3e42c0f2058e477cafd75094be41c4fe30554ab794004"
+    },
+    {
+      "bytes": 11407,
+      "path": "js/renderer.js",
+      "sha256": "504deace41ffe793e54e9dda46e05448fc44852ba24ca7208c204461f5ef726b"
+    },
+    {
+      "bytes": 22493,
+      "path": "js/simulation.js",
+      "sha256": "f5e7799fea090803e73ca0786f1e6e80efd1c2bbceec8e1ecd0643cf6b2bb420"
+    },
+    {
+      "bytes": 937,
+      "path": "js/weather.js",
+      "sha256": "175d0df339107e8d73cd7f9362536c5d3631580348072be9986c0f30959c4b49"
+    },
+    {
+      "bytes": 14568,
+      "path": "styles.css",
+      "sha256": "f1071ea8e87d4a9dd107a75ea48a5bac33ad1d28ce1cb02d378f0a252dd10abf"
+    }
+  ],
+  "retain_hashed_assets": false,
+  "retained": [],
+  "run_id": 34397668449,
+  "schema": 1,
+  "site": "earth-sim",
+  "smoke": {
+    "assert_selector": "#earth-canvas",
+    "ready_selector": "#generate-button",
+    "steps": [
+      {
+        "click": "#generate-button"
+      },
+      {
+        "click": "#step-button"
+      }
+    ],
+    "touch": true
+  },
+  "source": "AxiomsAwake/CompBioEarthSim",
+  "source_sha": "3cf6242e144aa55f5e7cb9cfd9c9085b6ce62385",
+  "suspended": false,
+  "watermark": "3cf6242e144aa55f5e7cb9cfd9c9085b6ce62385"
+}
