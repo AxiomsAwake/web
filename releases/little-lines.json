@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:3c596f93d4fc45d29963e332f24da43d062b88b937c5603bc4c4ec0fc5a52625",
-  "artifact_id": 10167515011,
-  "digest": "06704c912175898143a8958fa0cf634b2bf2147f196e97e25f75a9f126f27380",
+  "artifact_digest": "sha256:ee4e5f29d79a02a8c31a828317b2efb017c51c2df7829f9ed0f912349400fc48",
+  "artifact_id": 10168788409,
+  "digest": "a68832cb6f267ac2250f45e53d5bd8a5c865d40d34fc73b8e21a79e76d5fa99c",
   "files": [
     {
       "bytes": 293,
@@ -67,33 +67,17 @@
     {
       "bytes": 11961,
       "path": "index.html",
-      "sha256": "5969ac3eb0145383abf37f4613829864a71bc067aad7c652b903772c2c6a8ebc"
+      "sha256": "23994852ff2f149c8d36e654521de9059aab6b3e2a33cdcd7ce9e099c6de665d"
     },
     {
       "bytes": 3480,
       "path": "release.json",
-      "sha256": "1c38df797b54efee5e107580abefb568cdeedbed2c0a385b9ea2548ffe825c5e"
+      "sha256": "683e9cb2a6e41b7870d1e045d939664ccacf005f82af832912224db10f1ef492"
     }
   ],
   "retain_hashed_assets": true,
-  "retained": [
-    {
-      "bytes": 145678,
-      "path": "assets/application.ffb813c3a84f737644da.js",
-      "sha256": "ffb813c3a84f737644dae00d95cd94d07a3933dc19dea9217cc8307de735751b"
-    },
-    {
-      "bytes": 26630,
-      "path": "assets/route-service.5f5674117e6d984b8383.js",
-      "sha256": "5f5674117e6d984b8383fe5dcd372360b604800e9fd187fdd0d0733106d54b58"
-    },
-    {
-      "bytes": 13050,
-      "path": "assets/style.ed59553a03acd9fd7684.css",
-      "sha256": "ed59553a03acd9fd76843bd96c1b4b1fb48fde659f3ac9448796dc24f49bbe76"
-    }
-  ],
-  "run_id": 34515160571,
+  "retained": [],
+  "run_id": 34518467506,
   "schema": 1,
   "site": "little-lines",
   "smoke": {
@@ -110,7 +94,7 @@
     "wait_hidden": "#loading"
   },
   "source": "AxiomsAwake/LittleLines",
-  "source_sha": "632dc3058ed59321ee407bbbf6c3d2c427da9d3b",
+  "source_sha": "b70abe157a77dd1caa5e1a2844ffd9de3893c9ac",
   "suspended": false,
-  "watermark": "632dc3058ed59321ee407bbbf6c3d2c427da9d3b"
+  "watermark": "b70abe157a77dd1caa5e1a2844ffd9de3893c9ac"
 }
