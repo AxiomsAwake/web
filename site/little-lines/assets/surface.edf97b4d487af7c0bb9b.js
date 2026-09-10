@@ -1,0 +1,1 @@
+(function(e){const o=(typeof module=="object"&&module.exports?require("../vendor/axioms/geospatial/surface.js"):e.AxiomsSurface).create({nx:64,nz:40,width:49,depth:30.5});typeof module=="object"&&module.exports?module.exports=o:e.LittleLinesSurface=o})(globalThis);

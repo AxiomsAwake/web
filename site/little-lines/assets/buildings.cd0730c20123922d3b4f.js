@@ -1,0 +1,1 @@
+(function(e){const o=typeof module=="object"&&module.exports?require("../vendor/axioms/geospatial/buildings.js"):e.AxiomsBuildings;typeof module=="object"&&module.exports?module.exports=o:e.LittleLinesBuildings=o})(globalThis);

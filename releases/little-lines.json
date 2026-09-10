@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:6147f144bfe192c1f256353c606831f03e98edd29e4901a3a128a862c6404e69",
-  "artifact_id": 10122993628,
-  "digest": "7ad74a087a95241a68246f07c58f787304ebe582e1eccc7947140eb9baef8924",
+  "artifact_digest": "sha256:efa40300f7d73da95124a506a50361d23c1444bc747c5d22ee56a6a549370bec",
+  "artifact_id": 10156388244,
+  "digest": "b452281ce0bf6cc72c98855d6930f4f6a7d6f3c561038b9524881187d20887dd",
   "files": [
     {
       "bytes": 293,
@@ -14,6 +14,69 @@
       "path": "assets/application.a235c8c2b93458ef8d45.js",
       "sha256": "a235c8c2b93458ef8d4547efecbd842f3ff1d43fcaca65f74987b96f04ed4481"
     },
+    {
+      "bytes": 228,
+      "path": "assets/buildings.cd0730c20123922d3b4f.js",
+      "sha256": "cd0730c20123922d3b4f8283107ae156016dcb938cb2277e7b9d4d9bfd7676a4"
+    },
+    {
+      "bytes": 15194,
+      "path": "assets/data.f6712e4b30e5ef8c4c96.js",
+      "sha256": "f6712e4b30e5ef8c4c966260f3edef0f1a34fcb4e2c6899d7bd122fbfa0c82c7"
+    },
+    {
+      "bytes": 225,
+      "path": "assets/gps.1353769e77aa48a6469b.js",
+      "sha256": "1353769e77aa48a6469b066d3afde159e0d1f0dd8646dc7089e8f2873da0c2cf"
+    },
+    {
+      "bytes": 5472,
+      "path": "assets/lanes.4b431f02c6c2f33cf67f.js",
+      "sha256": "4b431f02c6c2f33cf67fd850b2e4cb5561a4ab442ad25686ae0a22b9a38d45ea"
+    },
+    {
+      "bytes": 244,
+      "path": "assets/position-estimate.41dfc2dec2dac89972bc.js",
+      "sha256": "41dfc2dec2dac89972bccd5e7ba84e9d4e29d9381eaee245ea36454993f4b37c"
+    },
+    {
+      "bytes": 20470,
+      "path": "assets/route-service.45b021172757526d7abf.js",
+      "sha256": "45b021172757526d7abf39030ac18727a030f65dad48502096d952c2f7c626d2"
+    },
+    {
+      "bytes": 13050,
+      "path": "assets/style.ed59553a03acd9fd7684.css",
+      "sha256": "ed59553a03acd9fd76843bd96c1b4b1fb48fde659f3ac9448796dc24f49bbe76"
+    },
+    {
+      "bytes": 266,
+      "path": "assets/surface.edf97b4d487af7c0bb9b.js",
+      "sha256": "edf97b4d487af7c0bb9bf033ee481b8b549c22f4c35ce32472376e57dd235856"
+    },
+    {
+      "bytes": 5317,
+      "path": "assets/timetable.9de839be25a4ae57e991.js",
+      "sha256": "9de839be25a4ae57e9914b330f6a14c11182abd33a0bc820be9df27f1670827e"
+    },
+    {
+      "bytes": 3871,
+      "path": "assets/traffic.bd5874324cd6b7ca2c7c.js",
+      "sha256": "bd5874324cd6b7ca2c7c48ac52371d099bce653f68007f73288e70a1e4b5bcc8"
+    },
+    {
+      "bytes": 11715,
+      "path": "index.html",
+      "sha256": "a3e4b3dd774c3a0e0a58d9570a5f6be5b13079a1b1f8e623a9cb234c3a85eaf7"
+    },
+    {
+      "bytes": 3462,
+      "path": "release.json",
+      "sha256": "fa66b0033dd3761f7dd1f70113741bc1e4755dd501318cc02e8a53cf2cc41639"
+    }
+  ],
+  "retain_hashed_assets": true,
+  "retained": [
     {
       "bytes": 1950,
       "path": "assets/buildings.9a1b8bd60c1a8acc5d21.js",
@@ -30,11 +93,6 @@
       "sha256": "613a65bb616724489d988d334225b5034eac83cb9c5eb8e7ec2ddbbb8527aeac"
     },
     {
-      "bytes": 5472,
-      "path": "assets/lanes.4b431f02c6c2f33cf67f.js",
-      "sha256": "4b431f02c6c2f33cf67fd850b2e4cb5561a4ab442ad25686ae0a22b9a38d45ea"
-    },
-    {
       "bytes": 1246,
       "path": "assets/position-estimate.8bc0d11c4f657a496f78.js",
       "sha256": "8bc0d11c4f657a496f78d8fff88476bfad5e410975ec51e2e6e0c9f49027c848"
@@ -45,39 +103,12 @@
       "sha256": "e19e0102da98ced847f270b1643d79c579b69005ed774c595ae78d6f3dc8d1d2"
     },
     {
-      "bytes": 13050,
-      "path": "assets/style.ed59553a03acd9fd7684.css",
-      "sha256": "ed59553a03acd9fd76843bd96c1b4b1fb48fde659f3ac9448796dc24f49bbe76"
-    },
-    {
       "bytes": 2626,
       "path": "assets/surface.52a652c1a95c57f5ff15.js",
       "sha256": "52a652c1a95c57f5ff15b7bd46e2106763a17661b35cb221180c1ff2595d5fc5"
-    },
-    {
-      "bytes": 5317,
-      "path": "assets/timetable.9de839be25a4ae57e991.js",
-      "sha256": "9de839be25a4ae57e9914b330f6a14c11182abd33a0bc820be9df27f1670827e"
-    },
-    {
-      "bytes": 3871,
-      "path": "assets/traffic.bd5874324cd6b7ca2c7c.js",
-      "sha256": "bd5874324cd6b7ca2c7c48ac52371d099bce653f68007f73288e70a1e4b5bcc8"
-    },
-    {
-      "bytes": 11715,
-      "path": "index.html",
-      "sha256": "726b1fca3c476b39a63be54c06696734255c4f528e17768bd81acc18451cf43f"
-    },
-    {
-      "bytes": 3464,
-      "path": "release.json",
-      "sha256": "710affe7ce36a8ed8414d33925b649cf00876aac55940795f3d3cae3561b01cc"
     }
   ],
-  "retain_hashed_assets": true,
-  "retained": [],
-  "run_id": 34399655337,
+  "run_id": 34466235444,
   "schema": 1,
   "site": "little-lines",
   "smoke": {
@@ -94,7 +125,7 @@
     "wait_hidden": "#loading"
   },
   "source": "AxiomsAwake/LittleLines",
-  "source_sha": "5d2faaf3351bcf033a1062dfba52537956eae64e",
+  "source_sha": "2401db1b484231d49db3b1315248737a135ebf54",
   "suspended": false,
-  "watermark": "5d2faaf3351bcf033a1062dfba52537956eae64e"
+  "watermark": "2401db1b484231d49db3b1315248737a135ebf54"
 }

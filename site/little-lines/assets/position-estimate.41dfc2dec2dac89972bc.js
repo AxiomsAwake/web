@@ -1,0 +1,1 @@
+(function(e){const o=typeof module=="object"&&module.exports?require("../vendor/axioms/geospatial/route-estimate.js"):e.AxiomsRouteEstimate;typeof module=="object"&&module.exports?module.exports=o:e.LittleLinesPositionEstimate=o})(globalThis);
