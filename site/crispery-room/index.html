@@ -882,6 +882,20 @@ exports.kitchenPoses=kitchenPoses;
 exports.makeWorld=makeWorld;
 exports.canWalk=canWalk;
 },"src/core/save-store.js":function(module,exports,require){
+const {SaveStore : SharedSaveStore,saveChecksum : checksum}=require("src/vendor/axioms/checkpoints/save-store.js");
+/** Kitchen/pack compatibility: retain existing key namespace and player messages. */
+class SaveStore extends SharedSaveStore {
+  constructor(options) { super({...options,key:`escape-room:${options.id}:checkpoint`}); }
+}
+function saveChecksum(text) { return checksum(text); }
+const SAVE_LABELS = Object.freeze({ready:'READY · LOCAL AUTOSAVE',saved:'SAVED ON THIS DEVICE',migrated:'PREVIOUS PROGRESS RESTORED',recovered:'BACKUP RESTORED',
+  'session-only':'SESSION ONLY · EXPORT A SAVE','newer-save':'NEWER SAVE PROTECTED · EXPORT THIS SESSION',
+  'damaged-save':'DAMAGED SAVE PROTECTED · IMPORT A BACKUP','other-tab':'ANOTHER TAB SAVED · RELOAD OR EXPORT'});
+
+exports.SaveStore=SaveStore;
+exports.saveChecksum=saveChecksum;
+exports.SAVE_LABELS=SAVE_LABELS;
+},"src/vendor/axioms/checkpoints/save-store.js":function(module,exports,require){
 /** Versioned, game-isolated local checkpoints. Storage is injected for tests. */
 function saveChecksum(text) {
   let hash = 2166136261;
@@ -889,11 +903,13 @@ function saveChecksum(text) {
   return (hash >>> 0).toString(16); // Corruption detection, NOT authentication.
 }
 class SaveStore {
-  constructor({id, version = 1, storage, validate, migrate, legacyKey, onStatus = () => {}}) {
+  constructor({id, key, version = 1, storage, validate, migrate, legacyKey, onStatus = () => {}}) {
+    if (typeof key !== 'string' || !key) throw new TypeError('A non-empty storage key is required.');
+    if (typeof validate !== 'function') throw new TypeError('A payload validator is required.');
     this.id = id; this.version = version; this.validate = validate; this.migrate = migrate;
     this.legacyKey = legacyKey; this.onStatus = onStatus; this.sequence = 0;
     this.writer = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
-    this.key = `escape-room:${id}:checkpoint`; this.blocked = false; this.status = 'ready';
+    this.key = key; this.blocked = false; this.status = 'ready';
     try { this.storage = storage === undefined ? globalThis.localStorage : storage; }
     catch { this.storage = null; }
   }
@@ -962,14 +978,11 @@ class SaveStore {
   }
   import(raw) { return this.decode(raw).payload; }
 }
-const SAVE_LABELS = Object.freeze({ready:'READY · LOCAL AUTOSAVE',saved:'SAVED ON THIS DEVICE',migrated:'PREVIOUS PROGRESS RESTORED',recovered:'BACKUP RESTORED',
-  'session-only':'SESSION ONLY · EXPORT A SAVE','newer-save':'NEWER SAVE PROTECTED · EXPORT THIS SESSION',
-  'damaged-save':'DAMAGED SAVE PROTECTED · IMPORT A BACKUP','other-tab':'ANOTHER TAB SAVED · RELOAD OR EXPORT'});
 
 exports.saveChecksum=saveChecksum;
 exports.SaveStore=SaveStore;
-exports.SAVE_LABELS=SAVE_LABELS;
 },"src/core/interactions.js":function(module,exports,require){
+const {bindPhysicalInput : bindSharedInput}=require("src/vendor/axioms/input/pointer-gestures.js");
 const {V, M, IDENTITY}=require("src/engine.js");
 /** Transform-aware physical affordances shared by every room, independent of puzzles/UI. */
 function worldPoint(p, matrix = IDENTITY) { return M.project(matrix,p).slice(0,3); }
@@ -1025,6 +1038,15 @@ class PhysicalControls {
     return best;
   }
 }
+/** Renderer-independent gesture lifecycle is shared; picking remains this renderer's adapter. */
+function bindPhysicalInput(canvas,callbacks) { return bindSharedInput(canvas,callbacks); }
+
+exports.worldPoint=worldPoint;
+exports.cameraRay=cameraRay;
+exports.rayBox=rayBox;
+exports.PhysicalControls=PhysicalControls;
+exports.bindPhysicalInput=bindPhysicalInput;
+},"src/vendor/axioms/input/pointer-gestures.js":function(module,exports,require){
 /** One pointer model for mouse/touch/pen. Drag empty space to look; drag a dial to adjust. */
 function bindPhysicalInput(canvas,{pick,activate,adjust,look,enabled=()=>true,hover=()=>{}}) {
   let gesture=null;
@@ -1046,10 +1068,6 @@ function bindPhysicalInput(canvas,{pick,activate,adjust,look,enabled=()=>true,ho
   return ()=>{for(const [name,fn] of [['pointerdown',down],['pointermove',move],['pointerup',up],['pointercancel',cancel],['lostpointercapture',cancel]])canvas.removeEventListener(name,fn);};
 }
 
-exports.worldPoint=worldPoint;
-exports.cameraRay=cameraRay;
-exports.rayBox=rayBox;
-exports.PhysicalControls=PhysicalControls;
 exports.bindPhysicalInput=bindPhysicalInput;
 },"src/packs/kitchen/controls.js":function(module,exports,require){
 /** Photo-specific affordance definitions. All positions refer to CLOSED geometry, transformed with its mesh. */
@@ -1183,7 +1201,21 @@ function mountPack(pack) {
 
 exports.mountPack=mountPack;
 },"src/core/rules.js":function(module,exports,require){
-const {validVariable,assertSafeJSON}=require("src/core/room-pack.js");
+const {initialGame : shared_initialGame,matches : shared_matches,restoreGame : shared_restoreGame,dispatchGame : shared_dispatchGame,advanceGame : shared_advanceGame}=require("src/vendor/axioms/room-kit/rules.js");
+// Compatibility exports; canonical implementation lives in AxiomsAwake/game-libs.
+const initialGame = shared_initialGame;
+const matches = shared_matches;
+const restoreGame = shared_restoreGame;
+const dispatchGame = shared_dispatchGame;
+const advanceGame = shared_advanceGame;
+
+exports.initialGame=initialGame;
+exports.matches=matches;
+exports.restoreGame=restoreGame;
+exports.dispatchGame=dispatchGame;
+exports.advanceGame=advanceGame;
+},"src/vendor/axioms/room-kit/rules.js":function(module,exports,require){
+const {validVariable,assertSafeJSON}=require("src/vendor/axioms/room-kit/room-pack.js");
 /** Pure transactional challenge interpreter; no renderer, DOM, networking or kitchen knowledge. */
 function initialGame(pack) {
   return {room:pack.startRoom,facts:Object.fromEntries(Object.entries(pack.variables||{}).map(([k,v])=>[k,v.initial])),
@@ -1244,7 +1276,7 @@ exports.matches=matches;
 exports.restoreGame=restoreGame;
 exports.dispatchGame=dispatchGame;
 exports.advanceGame=advanceGame;
-},"src/core/room-pack.js":function(module,exports,require){
+},"src/vendor/axioms/room-kit/room-pack.js":function(module,exports,require){
 /** Untrusted content boundary. Room packs are JSON data, never executable scripts. */
 const IDENTIFIER=/^[a-z][A-Za-z0-9_.-]{0,79}$/;
 const PACK_LIMITS=Object.freeze({bytes:2000000,rooms:128,nodes:3000,actions:4000,depth:24});
@@ -1373,6 +1405,18 @@ function walkable(room,pos) {
 exports.packScene=packScene;
 exports.packPoses=packPoses;
 exports.walkable=walkable;
+},"src/core/room-pack.js":function(module,exports,require){
+const {PACK_LIMITS : shared_PACK_LIMITS,assertSafeJSON : shared_assertSafeJSON,validVariable : shared_validVariable,validatePack : shared_validatePack}=require("src/vendor/axioms/room-kit/room-pack.js");
+// Compatibility exports; canonical implementation lives in AxiomsAwake/game-libs.
+const PACK_LIMITS = shared_PACK_LIMITS;
+const assertSafeJSON = shared_assertSafeJSON;
+const validVariable = shared_validVariable;
+const validatePack = shared_validatePack;
+
+exports.PACK_LIMITS=PACK_LIMITS;
+exports.assertSafeJSON=assertSafeJSON;
+exports.validVariable=validVariable;
+exports.validatePack=validatePack;
 },"packs/lantern-annex.json":function(module,exports,require){
 exports.default={"schemaVersion":1,"id":"lantern-annex","title":"The Lantern Annex","version":"1.0.0","saveVersion":1,"startRoom":"archive","description":"A room-pack proof: two connected rooms, a drawer, inventory, a dial, a timed signal and a gated exit. All content is JSON.","variables":{"drawerOpen":{"type":"boolean","initial":false},"frequency":{"type":"number","initial":0,"min":0,"max":4},"signalReady":{"type":"boolean","initial":false}},"items":{"brass-key":{"name":"Brass garden key"}},"rooms":[{"id":"archive","title":"The Archive","bounds":[-2.4,2.4,-2.45,2.45],"spawn":[0,1.63,1.5],"target":[0,1.2,-1.5],"nodes":[{"id":"floor","type":"box","position":[0,-0.05,0],"size":[4.8,0.1,4.9],"color":6643024},{"id":"north","type":"box","position":[0,1.4,-2.5],"size":[4.9,2.8,0.1],"color":13092272},{"id":"west","type":"box","position":[-2.45,1.4,0],"size":[0.1,2.8,5],"color":13092272},{"id":"east","type":"box","position":[2.45,1.4,0],"size":[0.1,2.8,5],"color":13092272},{"id":"south","type":"box","position":[0,1.4,2.5],"size":[4.8,2.8,0.1],"color":13092272},{"id":"ceiling","type":"box","position":[0,2.85,0],"size":[4.8,0.1,5],"color":14538181},{"id":"rug","type":"box","position":[0,0.008,0.1],"size":[2.8,0.015,3.1],"color":7748674},{"id":"desk","type":"box","position":[0,0.74,-1.8],"size":[2,0.11,0.85],"color":10978130},{"id":"lega","type":"box","position":[-0.85,0.36,-1.8],"size":[0.08,0.72,0.65],"color":6507829},{"id":"legb","type":"box","position":[0.85,0.36,-1.8],"size":[0.08,0.72,0.65],"color":6507829},{"id":"drawer","type":"box","position":[0,0.6,-1.47],"size":[1.1,0.22,0.07],"color":8414276,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]}},{"id":"handle","type":"box","position":[0,0.66,-1.4],"size":[0.35,0.028,0.05],"color":13544550,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]}},{"id":"tray","type":"box","position":[0,0.51,-1.78],"size":[1.03,0.035,0.62],"color":9795919,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]}},{"id":"brass-key","type":"box","position":[0.08,0.55,-1.62],"size":[0.13,0.024,0.04],"color":14991481,"motion":{"fact":"drawerOpen","translation":[0,0,0.55]},"visible":{"not":{"done":"take-key"}}},{"id":"letter","type":"box","position":[-0.55,0.81,-1.69],"size":[0.5,0.02,0.38],"color":15785390},{"id":"archive-door","type":"box","position":[1.8,1.12,-2.36],"size":[0.85,2.2,0.1],"color":9079923},{"id":"archive-lever","type":"box","position":[1.53,1.06,-2.26],"size":[0.2,0.04,0.07],"color":14005620},{"id":"shelf0","type":"box","position":[-2.1,0.72,-0.6],"size":[0.48,0.045,1.55],"color":10257246},{"id":"book00","type":"box","position":[-2.09,0.88,-1.18],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book01","type":"box","position":[-2.09,0.88,-1.02],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book02","type":"box","position":[-2.09,0.88,-0.8599999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book03","type":"box","position":[-2.09,0.88,-0.7],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book04","type":"box","position":[-2.09,0.88,-0.5399999999999999],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book05","type":"box","position":[-2.09,0.88,-0.3799999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book06","type":"box","position":[-2.09,0.88,-0.21999999999999997],"size":[0.28,0.28,0.085],"color":9393220},{"id":"shelf1","type":"box","position":[-2.1,1.26,-0.6],"size":[0.48,0.045,1.55],"color":10257246},{"id":"book10","type":"box","position":[-2.09,1.42,-1.18],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book11","type":"box","position":[-2.09,1.42,-1.02],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book12","type":"box","position":[-2.09,1.42,-0.8599999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book13","type":"box","position":[-2.09,1.42,-0.7],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book14","type":"box","position":[-2.09,1.42,-0.5399999999999999],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book15","type":"box","position":[-2.09,1.42,-0.3799999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book16","type":"box","position":[-2.09,1.42,-0.21999999999999997],"size":[0.28,0.28,0.085],"color":9393220},{"id":"shelf2","type":"box","position":[-2.1,1.8,-0.6],"size":[0.48,0.045,1.55],"color":10257246},{"id":"book20","type":"box","position":[-2.09,1.96,-1.18],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book21","type":"box","position":[-2.09,1.96,-1.02],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book22","type":"box","position":[-2.09,1.96,-0.8599999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book23","type":"box","position":[-2.09,1.96,-0.7],"size":[0.28,0.28,0.085],"color":9393220},{"id":"book24","type":"box","position":[-2.09,1.96,-0.5399999999999999],"size":[0.28,0.28,0.085],"color":5795431},{"id":"book25","type":"box","position":[-2.09,1.96,-0.3799999999999999],"size":[0.28,0.28,0.085],"color":11772789},{"id":"book26","type":"box","position":[-2.09,1.96,-0.21999999999999997],"size":[0.28,0.28,0.085],"color":9393220}],"controls":[{"id":"drawer","label":"Pull the desk drawer handle","mesh":"handle","position":[0,0.66,-1.4],"size":[0.42,0.1,0.14],"kind":"handle","action":"drawer"},{"id":"key","label":"Take the brass key","mesh":"brass-key","position":[0.08,0.56,-1.62],"size":[0.18,0.1,0.14],"kind":"item","action":"take-key","enabled":{"all":[{"fact":["drawerOpen",true]},{"not":{"done":"take-key"}}]}},{"id":"letter","label":"Read the letter on the desk","mesh":"letter","position":[-0.55,0.825,-1.69],"size":[0.5,0.08,0.38],"kind":"surface","action":"read-letter"},{"id":"door","label":"Use the observatory door lever","mesh":"archive-lever","position":[1.53,1.06,-2.26],"size":[0.26,0.12,0.16],"kind":"portal","action":"to-observatory"}],"colliders":[{"position":[0,0.4,-1.8],"size":[2,0.8,0.85]}]},{"id":"observatory","title":"The Observatory","bounds":[-2.4,2.4,-2.45,2.45],"spawn":[0,1.63,1.5],"target":[0,1.2,-1.5],"nodes":[{"id":"floor","type":"box","position":[0,-0.05,0],"size":[4.8,0.1,4.9],"color":6643024},{"id":"north","type":"box","position":[0,1.4,-2.5],"size":[4.9,2.8,0.1],"color":8231068},{"id":"west","type":"box","position":[-2.45,1.4,0],"size":[0.1,2.8,5],"color":8231068},{"id":"east","type":"box","position":[2.45,1.4,0],"size":[0.1,2.8,5],"color":8231068},{"id":"south","type":"box","position":[0,1.4,2.5],"size":[4.8,2.8,0.1],"color":8231068},{"id":"ceiling","type":"box","position":[0,2.85,0],"size":[4.8,0.1,5],"color":14538181},{"id":"rug","type":"box","position":[0,0.008,0.1],"size":[2.8,0.015,3.1],"color":7748674},{"id":"console","type":"box","position":[0,0.77,-1.8],"size":[1.65,0.16,0.82],"color":5203816},{"id":"console-foot","type":"box","position":[0,0.38,-1.8],"size":[1.3,0.7,0.65],"color":3558995},{"id":"wheel","type":"cylinder","position":[-0.32,0.94,-1.57],"size":[0.25,0.12,0.25],"color":13347171,"motion":{"fact":"frequency","pivot":[-0.32,0.94,-1.57],"rotation":[0,-0.65,0]}},{"id":"wheel-mark","type":"box","position":[-0.32,1.006,-1.65],"size":[0.014,0.014,0.065],"color":3157285,"motion":{"fact":"frequency","pivot":[-0.32,0.94,-1.57],"rotation":[0,-0.65,0]}},{"id":"start-button","type":"box","position":[0.38,0.88,-1.55],"size":[0.18,0.06,0.16],"color":10709322},{"id":"keyhole","type":"box","position":[0.68,1.35,-2.36],"size":[0.08,0.12,0.025],"color":12096851},{"id":"shutter","type":"box","position":[0,1.8,-2.31],"size":[1.5,1.5,0.055],"color":2636616,"visible":{"not":{"fact":["signalReady",true]}}},{"id":"sky","type":"box","position":[0,1.8,-2.38],"size":[1.5,1.5,0.02],"color":2505812},{"id":"moon","type":"sphere","position":[0.32,2.04,-2.32],"size":[0.4,0.4,0.035],"color":16770221},{"id":"star0","type":"box","position":[-0.64,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star1","type":"box","position":[-0.44,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star2","type":"box","position":[-0.24,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star3","type":"box","position":[-0.039999999999999925,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star4","type":"box","position":[0.16000000000000003,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star5","type":"box","position":[0.36,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star6","type":"box","position":[0.5600000000000002,1.35,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star7","type":"box","position":[-0.64,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star8","type":"box","position":[-0.44,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star9","type":"box","position":[-0.24,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star10","type":"box","position":[-0.039999999999999925,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star11","type":"box","position":[0.16000000000000003,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star12","type":"box","position":[0.36,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star13","type":"box","position":[0.5600000000000002,1.73,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star14","type":"box","position":[-0.64,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star15","type":"box","position":[-0.44,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star16","type":"box","position":[-0.24,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star17","type":"box","position":[-0.039999999999999925,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star18","type":"box","position":[0.16000000000000003,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star19","type":"box","position":[0.36,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"star20","type":"box","position":[0.5600000000000002,2.1100000000000003,-2.31],"size":[0.013,0.013,0.016],"color":15523769},{"id":"return-door","type":"box","position":[-1.77,1.12,-2.35],"size":[0.84,2.2,0.1],"color":7111042},{"id":"return-handle","type":"box","position":[-1.5,1.07,-2.25],"size":[0.18,0.03,0.08],"color":13217905},{"id":"exit-door","type":"box","position":[1.78,1.12,-2.35],"size":[0.85,2.2,0.1],"color":6843480},{"id":"exit-handle","type":"box","position":[1.52,1.07,-2.25],"size":[0.18,0.035,0.08],"color":13217905}],"controls":[{"id":"frequency","label":"Turn the signal dial","mesh":"wheel","position":[-0.32,0.99,-1.57],"size":[0.29,0.15,0.29],"kind":"dial","variable":"frequency","action":"set-frequency"},{"id":"start","label":"Press the signal button","mesh":"start-button","position":[0.38,0.91,-1.55],"size":[0.23,0.1,0.23],"kind":"button","action":"start-signal"},{"id":"return","label":"Return through the archive door","mesh":"return-handle","position":[-1.5,1.07,-2.25],"size":[0.26,0.1,0.16],"kind":"portal","action":"to-archive"},{"id":"exit","label":"Unlock the garden door with selected key","mesh":"exit-handle","position":[1.52,1.07,-2.25],"size":[0.26,0.1,0.16],"kind":"portal","action":"finish"}],"colliders":[{"position":[0,0.4,-1.8],"size":[1.65,0.85,0.82]}]}],"actions":{"drawer":{"room":"archive","effects":[{"op":"toggle","fact":"drawerOpen"}],"message":"The wooden drawer moves on its runners."},"read-letter":{"room":"archive","once":true,"effects":[{"op":"note","text":"Set the observatory dial to 3, then press the signal button. Wait for the shutter. The garden key is in the desk drawer."}],"message":"A letter: dial 3, signal, wait. The drawer holds the key."},"take-key":{"room":"archive","once":true,"when":{"fact":["drawerOpen",true]},"effects":[{"op":"give","item":"brass-key"}],"message":"Brass key added to your inventory."},"to-observatory":{"room":"archive","effects":[{"op":"goto","room":"observatory"}],"message":"You enter the observatory. Your archive progress stays intact."},"to-archive":{"room":"observatory","effects":[{"op":"goto","room":"archive"}],"message":"Back in the archive."},"set-frequency":{"room":"observatory","effects":[{"op":"set","fact":"frequency","value":"$input"}],"message":"The signal dial clicks into its next detent."},"start-signal":{"room":"observatory","once":true,"when":{"fact":["frequency",3]},"effects":[{"op":"schedule","id":"signal","seconds":4,"action":"signal-ready"}],"blocked":"The signal is quiet. Read the letter in the archive.","message":"The signal starts. The shutter will release in four active-play seconds."},"signal-ready":{"once":true,"effects":[{"op":"set","fact":"signalReady","value":true},{"op":"note","text":"The signal has released the shutter. Select the brass key and use the garden door."}],"message":"Moonlight. The garden lock is ready."},"finish":{"room":"observatory","once":true,"when":{"all":[{"fact":["signalReady",true]},{"selected":"brass-key"}]},"effects":[{"op":"take","item":"brass-key"},{"op":"end"}],"blocked":"The garden door needs the signal and a selected brass key.","message":"The garden opens. You completed a different escape without changing the engine."}},"hints":[{"when":{"not":{"has":"brass-key"}},"text":"The archive desk drawer has a physical handle. Open it and take the key."},{"when":{"not":{"fact":["signalReady",true]}},"text":"In the observatory, set the dial to 3 and press the signal button."},{"when":{"fact":["signalReady",true]},"text":"Select the brass key, then use the garden door lever."}],"evidence":{"source":"original synthetic demonstration","dimensions":"invented; not reconstructed from user photos"}};
 }};const cache={};function require(id){if(cache[id])return cache[id].exports;const module={exports:{}};cache[id]=module;factories[id](module,module.exports,require);return module.exports;}require('src/main.js');})();</script></body></html>
