@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:eceaa3b39ab4375fea3fa8bf672e930da32d88e679dc600225be3a957924ca9e",
-  "artifact_id": 10147055514,
+  "artifact_digest": "sha256:84ac13069c83252587c6a25f34c5cc40743ea6867d26659a7ba3c612347d6bfb",
+  "artifact_id": 10168645896,
   "digest": "363db95e5d793c031b88d18e2637182a7e5013f7eca7a7239eee102bf331035c",
   "files": [
     {
@@ -17,7 +17,7 @@
   ],
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 34464833517,
+  "run_id": 34518491610,
   "schema": 1,
   "site": "axis",
   "smoke": {
@@ -31,7 +31,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/InterdimTicTacToe",
-  "source_sha": "98ebe89b6efea038c728f03fd7e88e06ef1de594",
+  "source_sha": "3ee79d835a103c9ed6595ac7e4fc91e4ffc00315",
   "suspended": false,
-  "watermark": "98ebe89b6efea038c728f03fd7e88e06ef1de594"
+  "watermark": "3ee79d835a103c9ed6595ac7e4fc91e4ffc00315"
 }
