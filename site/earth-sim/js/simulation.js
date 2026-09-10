@@ -1,3 +1,4 @@
+import { mooreNeighbors } from "./vendor/axioms/neighbors.js";
 import { transportPollution } from "./pollution.js";
 import { advectedCloud, NEIGHBOR_X, NEIGHBOR_Y } from "./weather.js";
 import { DotNetRandom, normalizeSeed } from "./random.js";
@@ -453,19 +454,7 @@ export class EarthSimulation {
   }
 
   #makeNeighborTable() {
-    const table = new Int32Array(this.size * 8);
-    const offsets = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
-    for (let y = 0; y < this.height; y += 1) {
-      for (let x = 0; x < this.width; x += 1) {
-        const index = y * this.width + x;
-        offsets.forEach(([dx, dy], slot) => {
-          const nx = (x + dx + this.width) % this.width;
-          const ny = (y + dy + this.height) % this.height;
-          table[index * 8 + slot] = ny * this.width + nx;
-        });
-      }
-    }
-    return table;
+    return mooreNeighbors(this.width, this.height);
   }
 
   #terrainCounts(index, includeSelf) {

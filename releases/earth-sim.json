@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:712d2e35c14a5fe374841c018813e67ed32791c3342d5430861590389f34679f",
-  "artifact_id": 10141259511,
-  "digest": "11a1bc7fa3ec00ab69789df861541567f9672363010345afd8388dd0fdf3f4bb",
+  "artifact_digest": "sha256:526991d734b6febc553036d558e8701dc2c4b20a1ccf1f0592e3593f486e77ce",
+  "artifact_id": 10143707326,
+  "digest": "e529f02e8ece7f747d49c468737d08f5d1da2cb750a8c1d1c9bca4fa35ec403d",
   "files": [
     {
       "bytes": 860,
@@ -30,9 +30,9 @@
       "sha256": "4c2b9e4bd6cba2a0eebedb83ec2a54913d4bf75c85ca29c1a433f1ad8c235819"
     },
     {
-      "bytes": 1896,
+      "bytes": 149,
       "path": "js/random.js",
-      "sha256": "4ad2d47a1935b1467fd3e42c0f2058e477cafd75094be41c4fe30554ab794004"
+      "sha256": "52f05da1c79520857603a51b0ee4720cdea2111f997d3066114523c927a8be50"
     },
     {
       "bytes": 11407,
@@ -40,9 +40,19 @@
       "sha256": "504deace41ffe793e54e9dda46e05448fc44852ba24ca7208c204461f5ef726b"
     },
     {
-      "bytes": 22493,
+      "bytes": 22066,
       "path": "js/simulation.js",
-      "sha256": "f5e7799fea090803e73ca0786f1e6e80efd1c2bbceec8e1ecd0643cf6b2bb420"
+      "sha256": "dcf88c62bcabe855eec95aedd878eae04f57d400fb89b5e784ed1dc055a6bbe7"
+    },
+    {
+      "bytes": 1896,
+      "path": "js/vendor/axioms/dotnet-random.js",
+      "sha256": "4ad2d47a1935b1467fd3e42c0f2058e477cafd75094be41c4fe30554ab794004"
+    },
+    {
+      "bytes": 825,
+      "path": "js/vendor/axioms/neighbors.js",
+      "sha256": "cca1a7812bd33febf223ea0820859bbe32979e5cba9ae8d1c0f0366df3e812d1"
     },
     {
       "bytes": 937,
@@ -57,7 +67,7 @@
   ],
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 34450282121,
+  "run_id": 34456508913,
   "schema": 1,
   "site": "earth-sim",
   "smoke": {
@@ -74,7 +84,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/CompBioEarthSim",
-  "source_sha": "ef0d271fca16ef6253638d9d4d1e55aef67e9985",
+  "source_sha": "345e940ed2d43c81abecf3dcbeae2c42a63354d1",
   "suspended": false,
-  "watermark": "ef0d271fca16ef6253638d9d4d1e55aef67e9985"
+  "watermark": "345e940ed2d43c81abecf3dcbeae2c42a63354d1"
 }
