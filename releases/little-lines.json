@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:efa40300f7d73da95124a506a50361d23c1444bc747c5d22ee56a6a549370bec",
-  "artifact_id": 10156388244,
-  "digest": "b452281ce0bf6cc72c98855d6930f4f6a7d6f3c561038b9524881187d20887dd",
+  "artifact_digest": "sha256:fe5b12742c89f506954e27537e0f3e6e7fe33e96d786237543ef694bcb3d7f00",
+  "artifact_id": 10162655745,
+  "digest": "3383dd1a50740e8417f80591f7b798ea7ba3eaee2b526ff6bb370e9070f87f22",
   "files": [
     {
       "bytes": 293,
@@ -10,9 +10,9 @@
       "sha256": "920d47da777f6bf775357dbda234fb8f2dc80c93d4e1537374c4e28a8b3d2181"
     },
     {
-      "bytes": 144929,
-      "path": "assets/application.a235c8c2b93458ef8d45.js",
-      "sha256": "a235c8c2b93458ef8d4547efecbd842f3ff1d43fcaca65f74987b96f04ed4481"
+      "bytes": 145678,
+      "path": "assets/application.ffb813c3a84f737644da.js",
+      "sha256": "ffb813c3a84f737644dae00d95cd94d07a3933dc19dea9217cc8307de735751b"
     },
     {
       "bytes": 228,
@@ -20,9 +20,9 @@
       "sha256": "cd0730c20123922d3b4f8283107ae156016dcb938cb2277e7b9d4d9bfd7676a4"
     },
     {
-      "bytes": 15194,
-      "path": "assets/data.f6712e4b30e5ef8c4c96.js",
-      "sha256": "f6712e4b30e5ef8c4c966260f3edef0f1a34fcb4e2c6899d7bd122fbfa0c82c7"
+      "bytes": 18326,
+      "path": "assets/data.6f8d04892cee32e2d91d.js",
+      "sha256": "6f8d04892cee32e2d91d2d5ec486056b7381737de4fb008b6fe98b741dcc95a3"
     },
     {
       "bytes": 225,
@@ -40,9 +40,9 @@
       "sha256": "41dfc2dec2dac89972bccd5e7ba84e9d4e29d9381eaee245ea36454993f4b37c"
     },
     {
-      "bytes": 20470,
-      "path": "assets/route-service.45b021172757526d7abf.js",
-      "sha256": "45b021172757526d7abf39030ac18727a030f65dad48502096d952c2f7c626d2"
+      "bytes": 26630,
+      "path": "assets/route-service.5f5674117e6d984b8383.js",
+      "sha256": "5f5674117e6d984b8383fe5dcd372360b604800e9fd187fdd0d0733106d54b58"
     },
     {
       "bytes": 13050,
@@ -65,50 +65,35 @@
       "sha256": "bd5874324cd6b7ca2c7c48ac52371d099bce653f68007f73288e70a1e4b5bcc8"
     },
     {
-      "bytes": 11715,
+      "bytes": 11741,
       "path": "index.html",
-      "sha256": "a3e4b3dd774c3a0e0a58d9570a5f6be5b13079a1b1f8e623a9cb234c3a85eaf7"
+      "sha256": "2d4682d78faf4668b4e7cc45041aae22ae7aa433959a5f5c229e215f70689d63"
     },
     {
       "bytes": 3462,
       "path": "release.json",
-      "sha256": "fa66b0033dd3761f7dd1f70113741bc1e4755dd501318cc02e8a53cf2cc41639"
+      "sha256": "c6bf68ad5ee90f72f74c48f9c8d487e667e3d7cbe1ade3fb26cab1df45fadc05"
     }
   ],
   "retain_hashed_assets": true,
   "retained": [
     {
-      "bytes": 1950,
-      "path": "assets/buildings.9a1b8bd60c1a8acc5d21.js",
-      "sha256": "9a1b8bd60c1a8acc5d2186dbeaebaae2a57b6fef0a8b4ad44f1fd7a58b957c5c"
+      "bytes": 144929,
+      "path": "assets/application.a235c8c2b93458ef8d45.js",
+      "sha256": "a235c8c2b93458ef8d4547efecbd842f3ff1d43fcaca65f74987b96f04ed4481"
     },
     {
-      "bytes": 22342,
-      "path": "assets/data.6ed7f117244eb27ba023.js",
-      "sha256": "6ed7f117244eb27ba023402c1137456e383b77deaf2e6a0e45a178b30fdb6908"
+      "bytes": 15194,
+      "path": "assets/data.f6712e4b30e5ef8c4c96.js",
+      "sha256": "f6712e4b30e5ef8c4c966260f3edef0f1a34fcb4e2c6899d7bd122fbfa0c82c7"
     },
     {
-      "bytes": 4947,
-      "path": "assets/gps.613a65bb616724489d98.js",
-      "sha256": "613a65bb616724489d988d334225b5034eac83cb9c5eb8e7ec2ddbbb8527aeac"
-    },
-    {
-      "bytes": 1246,
-      "path": "assets/position-estimate.8bc0d11c4f657a496f78.js",
-      "sha256": "8bc0d11c4f657a496f78d8fff88476bfad5e410975ec51e2e6e0c9f49027c848"
-    },
-    {
-      "bytes": 981,
-      "path": "assets/route-service.e19e0102da98ced847f2.js",
-      "sha256": "e19e0102da98ced847f270b1643d79c579b69005ed774c595ae78d6f3dc8d1d2"
-    },
-    {
-      "bytes": 2626,
-      "path": "assets/surface.52a652c1a95c57f5ff15.js",
-      "sha256": "52a652c1a95c57f5ff15b7bd46e2106763a17661b35cb221180c1ff2595d5fc5"
+      "bytes": 20470,
+      "path": "assets/route-service.45b021172757526d7abf.js",
+      "sha256": "45b021172757526d7abf39030ac18727a030f65dad48502096d952c2f7c626d2"
     }
   ],
-  "run_id": 34466235444,
+  "run_id": 34502755942,
   "schema": 1,
   "site": "little-lines",
   "smoke": {
@@ -125,7 +110,7 @@
     "wait_hidden": "#loading"
   },
   "source": "AxiomsAwake/LittleLines",
-  "source_sha": "2401db1b484231d49db3b1315248737a135ebf54",
+  "source_sha": "972e0d393615b6c016bff354f989b36fe72d648a",
   "suspended": false,
-  "watermark": "2401db1b484231d49db3b1315248737a135ebf54"
+  "watermark": "972e0d393615b6c016bff354f989b36fe72d648a"
 }
