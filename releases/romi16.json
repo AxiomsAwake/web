@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:83d79b99d408fae108fc4a9d76a037e44ae7cf93dca54b6450b635ff154ca226",
-  "artifact_id": 10268469821,
-  "digest": "a23299b52ea773a922e220ed88a8458f667483a4baa988c5ed7f824f214554b9",
+  "artifact_digest": "sha256:6f9c5e0499c8af4c697865c0d42ba07c8a76692a3e0316720e68c1e37f3628a6",
+  "artifact_id": 10269506538,
+  "digest": "e59eac0782661a9db8d5ac3e07f841faade3e089843437f8f7bf7953a01bb8e5",
   "files": [
     {
       "bytes": 0,
@@ -30,9 +30,9 @@
       "sha256": "7742b7a674174f7816b7292e3102963f66ef3f474740547e597d7c9079fad702"
     },
     {
-      "bytes": 608149,
-      "path": "assets/index-Cbr2aXMM.js",
-      "sha256": "5b84936be1c903337965788be4385b06d7fbd76640f8722516f8d64c41619977"
+      "bytes": 608139,
+      "path": "assets/index-DvrQyFQ5.js",
+      "sha256": "0b4a4a53ff0b8e483f670f0c7228c075f60bf90cb9a81ad4a17d0162d0163f84"
     },
     {
       "bytes": 59687,
@@ -247,17 +247,17 @@
     {
       "bytes": 185,
       "path": "build-info.json",
-      "sha256": "feb0c55170e09bf4648129618404b922a686cf11b067dd152f775210fc6faf24"
+      "sha256": "157874b3f447bc691ca0b8c6b85326867f4ac75c07ccd64ede6f0532ffaea1e3"
     },
     {
       "bytes": 2348,
       "path": "index.html",
-      "sha256": "67bd4a64c03d84851a17b999fc612838c35f27ab3de24d4cf11e18ef2309f4eb"
+      "sha256": "a73738c188ea9b787388f27feaf949d0e0ee27340bb78eb926fe3204244155bf"
     }
   ],
   "retain_hashed_assets": true,
   "retained": [],
-  "run_id": 34613089819,
+  "run_id": 34613656402,
   "schema": 1,
   "site": "romi16",
   "smoke": {
@@ -271,7 +271,7 @@
     "touch": false
   },
   "source": "AxiomsAwake/Romi16",
-  "source_sha": "1b071e3eac9f2c4f041806f757ab260d2dfea74a",
+  "source_sha": "4140f28490fc245c5881232d97de398939b0c40b",
   "suspended": false,
-  "watermark": "1b071e3eac9f2c4f041806f757ab260d2dfea74a"
+  "watermark": "4140f28490fc245c5881232d97de398939b0c40b"
 }
