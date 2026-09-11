@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:eec64a0b3e19c6a71e74d1c00a325b819d99014c1ac0114298efe7cef5bbeafe",
-  "artifact_id": 10262572015,
-  "digest": "985c75a66d6e6a9ce6bb6895930c3aa6c6e96a69ebdf9995b71d91593929a665",
+  "artifact_digest": "sha256:e0cf00c85579c6aef39bab24f5e59ed49430e4db723acff89040e0e0e623a3bf",
+  "artifact_id": 10269732488,
+  "digest": "0a84f946989f8cf99bd41be94c26fa15adf175a1601c0c884d358f7505c9a02d",
   "files": [
     {
       "bytes": 11358,
@@ -22,7 +22,7 @@
     {
       "bytes": 186,
       "path": "build.json",
-      "sha256": "19caaad76a16b544c8860fffab50d967b6faafa03abb62497959a9d7f7631e2f"
+      "sha256": "6fa162bcacbe23bcc20b198e7deffb2b820d6b7250f68df79bfee0a11c16ccad"
     },
     {
       "bytes": 11944,
@@ -40,9 +40,9 @@
       "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
     },
     {
-      "bytes": 5467,
+      "bytes": 5563,
       "path": "index.html",
-      "sha256": "b1b037528cc5dc5ff20502fefba42358bc91d2338ff6441a8859c8d2f7e87400"
+      "sha256": "fcce493e407663ae8d2bd7257b69f9f804c5a7f45ff2fe0edbe67041cb605034"
     },
     {
       "bytes": 5700,
@@ -57,7 +57,7 @@
     {
       "bytes": 140096,
       "path": "index.pck",
-      "sha256": "94178c22f927d724962c505588aa01db7437d0a4257591b701cf8ac54906f6c9"
+      "sha256": "56d53635831fcd128982b5e465177f43f5c380711be48cb788d1ea544ee56e23"
     },
     {
       "bytes": 21443,
@@ -73,11 +73,21 @@
       "bytes": 100108,
       "path": "legal/GODOT_COPYRIGHT.txt",
       "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    },
+    {
+      "bytes": 2237,
+      "path": "player-feedback-adapter.js",
+      "sha256": "fdd6df6dfb380660cd4dba39387c0184cde608d5bd7e6cc57e2e0baf3000c968"
+    },
+    {
+      "bytes": 6857,
+      "path": "player-feedback.js",
+      "sha256": "08948c80988921921a8001061b1ce95dd970cd43fe4eb16ee3c812040f4091bb"
     }
   ],
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 34595652256,
+  "run_id": 34614373693,
   "schema": 1,
   "site": "the-keepers",
   "smoke": {
@@ -101,7 +111,7 @@
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "db9b8aa3ea45a453d0116d66a328aa53a0389646",
+  "source_sha": "24f1c2029117fa2b638e564f05543c78b284a312",
   "suspended": false,
-  "watermark": "db9b8aa3ea45a453d0116d66a328aa53a0389646"
+  "watermark": "24f1c2029117fa2b638e564f05543c78b284a312"
 }
