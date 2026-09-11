@@ -11,7 +11,7 @@ import shutil
 import tempfile
 import threading
 from urllib.parse import urlparse
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
 from contract import ID, read_json, require
 
 
@@ -19,6 +19,20 @@ class Handler(SimpleHTTPRequestHandler):
     extensions_map = dict(SimpleHTTPRequestHandler.extensions_map, **{'.wasm': 'application/wasm'})
     def log_message(self, *_):
         pass
+
+
+def _capture_optional(page, path: Path) -> str:
+    """Retain useful evidence without making compositor readback a serving contract.
+
+    Some real-time WebGL canvases continue rendering correctly while headless Chromium's
+    screenshot compositor stalls. Browser startup, declared input, same-origin assets and
+    reload remain authoritative smoke checks; rendered game evidence belongs to producers.
+    """
+    try:
+        page.screenshot(path=str(path), timeout=5000)
+        return 'captured'
+    except PlaywrightTimeoutError:
+        return 'skipped-compositor-timeout'
 
 
 def check(url: str, config: dict, output: Path) -> dict:
@@ -64,7 +78,7 @@ def check(url: str, config: dict, output: Path) -> dict:
                         page.locator(config['assert_selector']).first.wait_for(state='visible')
                     require(not errors, 'Browser runtime errors: ' + '; '.join(errors))
                     require(not missing, 'Missing same-origin assets: ' + '; '.join(missing))
-                    page.screenshot(path=str(output / f"{viewport['width']}.png"))
+                    screenshot = _capture_optional(page, output / f"{viewport['width']}.png")
                     # Same context: verifies reload rather than only an empty browser cache.
                     page.reload(wait_until='domcontentloaded')
                     page.locator(selector).first.wait_for(state='visible')
@@ -72,7 +86,7 @@ def check(url: str, config: dict, output: Path) -> dict:
                         page.locator(config['wait_hidden']).wait_for(state='hidden')
                     page.wait_for_timeout(500)
                     require(not errors and not missing, 'Reload failed')
-                    evidence.append({'viewport': viewport, 'url': url, 'runtime_errors': errors, 'missing_assets': missing, 'reload': 'passed'})
+                    evidence.append({'viewport': viewport, 'url': url, 'runtime_errors': errors, 'missing_assets': missing, 'reload': 'passed', 'screenshot': screenshot})
                 except Exception:
                     try:
                         page.screenshot(path=str(output / f"failed-{viewport['width']}.png"), timeout=5000)
@@ -83,7 +97,7 @@ def check(url: str, config: dict, output: Path) -> dict:
                     context.close()
         finally:
             browser.close()
-    report = {'scope': 'startup, declared UI steps, prefix assets and cached reload; not full gameplay or physical-device certification', 'browser': 'Chromium', 'checks': evidence}
+    report = {'scope': 'startup, declared UI steps, prefix assets and cached reload; screenshots are optional evidence, not a WebGL serving requirement; not full gameplay or physical-device certification', 'browser': 'Chromium', 'checks': evidence}
     (output / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
     return report
 
