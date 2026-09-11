@@ -1,7 +1,7 @@
 {
   "game": "the-keepers",
-  "version": "0.1.0-demo.5",
-  "source_revision": "f083e340a75dde7c66f00358fd321576640de09a",
-  "built_at": "2026-09-11T11:21:30.617004Z",
+  "version": "0.1.0-demo.6",
+  "source_revision": "db9b8aa3ea45a453d0116d66a328aa53a0389646",
+  "built_at": "2026-09-11T11:46:44.341989Z",
   "target": "web"
 }
