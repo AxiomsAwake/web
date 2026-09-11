@@ -1,8 +1,8 @@
 {
   "active": true,
-  "artifact_digest": "sha256:83740a1a2bc87c807f955179d84c6c8d733bf55766980c52787bf1a695688046",
-  "artifact_id": 10168618018,
-  "digest": "e529f02e8ece7f747d49c468737d08f5d1da2cb750a8c1d1c9bca4fa35ec403d",
+  "artifact_digest": "sha256:c3413b84847e8d832c07f9e8d89a9944869475ea6e28f98deb3b8a3a489e72f6",
+  "artifact_id": 10269850678,
+  "digest": "6776ff13efaf3f65e33f83bb0ba724163bbc5dad152a522faa58997441825409",
   "files": [
     {
       "bytes": 860,
@@ -10,9 +10,9 @@
       "sha256": "2dd3a2b2536701fda002f3be63c1f13f955e1443ff9496531bd62185dd55ebc2"
     },
     {
-      "bytes": 10337,
+      "bytes": 10455,
       "path": "index.html",
-      "sha256": "240f5132f4557776c940854df1a0ceeb6a952d61e3ef389404e1e1f5993d8b34"
+      "sha256": "41556b99a3e9c00d1dda8bb1d977e44614a304da1d98ae1b1ef00d532683ae21"
     },
     {
       "bytes": 10975,
@@ -23,6 +23,11 @@
       "bytes": 4101,
       "path": "js/chart.js",
       "sha256": "9fb20abe8ded1cb6e156dee26b798cac390a0d0774651c7f7975621a229f4c5e"
+    },
+    {
+      "bytes": 1714,
+      "path": "js/player-feedback.js",
+      "sha256": "b38f5c114fe7ec73273d3f7d5a83226c484c6a8fe0c11f7fe990db29787f8f71"
     },
     {
       "bytes": 1466,
@@ -55,6 +60,11 @@
       "sha256": "cca1a7812bd33febf223ea0820859bbe32979e5cba9ae8d1c0f0366df3e812d1"
     },
     {
+      "bytes": 6857,
+      "path": "js/vendor/axioms/player-feedback.js",
+      "sha256": "08948c80988921921a8001061b1ce95dd970cd43fe4eb16ee3c812040f4091bb"
+    },
+    {
       "bytes": 937,
       "path": "js/weather.js",
       "sha256": "175d0df339107e8d73cd7f9362536c5d3631580348072be9986c0f30959c4b49"
@@ -67,7 +77,7 @@
   ],
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 34518385195,
+  "run_id": 34613560630,
   "schema": 1,
   "site": "earth-sim",
   "smoke": {
@@ -84,7 +94,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/CompBioEarthSim",
-  "source_sha": "ce6a23ee41701611edf1b9f098b55927aa1891dc",
+  "source_sha": "d6ce1178b8be5c4c8b60db9bf7c454da2500b95d",
   "suspended": false,
-  "watermark": "ce6a23ee41701611edf1b9f098b55927aa1891dc"
+  "watermark": "d6ce1178b8be5c4c8b60db9bf7c454da2500b95d"
 }
