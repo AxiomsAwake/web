@@ -83,6 +83,10 @@ def registry(repo: Path) -> dict:
         require(re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", entry.get("producer", "")) is not None, "Invalid producer")
         require(isinstance(entry.get("enabled"), bool), "enabled must be explicit")
         require(re.fullmatch(r"\.github/workflows/[A-Za-z0-9_-]+\.ya?ml", entry.get("workflow", "")) is not None, "Invalid source workflow")
+        package_names = [name for name in ("artifact", "release_asset") if name in entry]
+        require(len(package_names) == 1, "Choose exactly one source package kind")
+        package_name = entry[package_names[0]]
+        require(isinstance(package_name, str) and bool(package_name) and all(c not in package_name for c in "\r\n/\\"), "Invalid source package name")
     return sites
 
 

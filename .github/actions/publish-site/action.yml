@@ -1,5 +1,5 @@
 name: Publish an owned Axioms Awake sub-site
-description: Verify a passing source artifact, test its subpath, and update only its registered public folder.
+description: Verify a passing source package, test its subpath, and update only its registered public folder.
 inputs:
   site:
     description: Registered site ID (also the owned folder)
@@ -54,7 +54,7 @@ runs:
         fi
         work="$(mktemp -d "$RUNNER_TEMP/axioms-web-$SITE_ID.XXXXXX")"
         echo "path=$work" >> "$GITHUB_OUTPUT"
-    - name: Verify exact source run and explicitly selected artifact
+    - name: Verify exact source run and explicitly selected package
       id: resolve
       shell: bash
       env:
@@ -65,6 +65,7 @@ runs:
         ACTION_ROOT: ${{ github.action_path }}
       run: python3 "$ACTION_ROOT/../../../tools/publish.py" resolve --site "$SITE_ID" --run-id "$SOURCE_RUN" --candidate "$WORK/candidate.json"
     - name: Download only the verified artifact ID
+      if: steps.resolve.outputs.package_kind == 'actions-artifact'
       uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
       with:
         artifact-ids: ${{ steps.resolve.outputs.artifact_id }}
@@ -73,6 +74,25 @@ runs:
         repository: ${{ github.repository }}
         run-id: ${{ steps.resolve.outputs.source_run }}
         github-token: ${{ github.token }}
+    - name: Download the verified immutable release asset
+      if: steps.resolve.outputs.package_kind == 'release-asset'
+      shell: bash
+      env:
+        SOURCE_TOKEN: ${{ github.token }}
+        SOURCE_REPOSITORY: ${{ github.repository }}
+        ASSET_ID: ${{ steps.resolve.outputs.release_asset_id }}
+        WORK: ${{ steps.work.outputs.path }}
+        ACTION_ROOT: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        curl --fail --location --proto '=https' --retry 2 --max-time 180 \
+          -H "Authorization: Bearer $SOURCE_TOKEN" \
+          -H 'Accept: application/octet-stream' \
+          -H 'X-GitHub-Api-Version: 2022-11-28' \
+          "https://api.github.com/repos/$SOURCE_REPOSITORY/releases/assets/$ASSET_ID" \
+          -o "$WORK/release.zip"
+        python3 "$ACTION_ROOT/../../../tools/publish.py" unpack-release \
+          --candidate "$WORK/candidate.json" --artifact "$WORK/release.zip" --payload "$WORK/incoming"
     - name: Stage only the producer-approved public files
       shell: bash
       env:
@@ -102,7 +122,7 @@ runs:
         SITE_ID: ${{ inputs.site }}
       run: '"$WORK/venv/bin/python" "$ACTION_ROOT/../../../tools/smoke.py" --site "$SITE_ID" --payload "$WORK/payload" --candidate "$WORK/candidate.json" --output "$WORK/evidence"'
     - name: Retain private browser evidence
-      if: always() && steps.work.outputs.path != ''
+      if: always() && steps.work.outputs.path != '' && steps.resolve.outputs.package_kind != 'release-asset'
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
       with:
         name: web-smoke-${{ inputs.site }}-${{ github.run_attempt }}

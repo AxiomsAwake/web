@@ -8,7 +8,7 @@ Source repositories keep their code, engines, tests and private archives. They p
 
 ## What is implemented
 
-A registered source workflow builds and tests an approved publish candidate. Its successful trusted main run starts the source's `Publish browser output` workflow, which calls the reviewed common action at an immutable commit. The action verifies the exact run and source ancestry, downloads its exact public artifact ID, reads `web-publish.json` from the tested source SHA, stages only selected files, and checks the actual `/web/<site>/` prefix in Chromium. Only then does it promote the owned folder. The registry chooses the producer workflow deliberately: for most games that is a verification build; The Keepers intentionally requires its accepted source-prerelease workflow so an ordinary development Web build cannot become the public release.
+A registered source workflow builds and tests an approved publish candidate. Its successful trusted main run starts the source's `Publish browser output` workflow, which calls the reviewed common action at an immutable commit. The action verifies the exact run and source ancestry, reads `web-publish.json` from the tested source SHA, obtains the registered package, stages only selected files, and checks the actual `/web/<site>/` prefix in Chromium. Most games use an exact Actions artifact ID. The Keepers uses the immutable Web ZIP attached to its accepted GitHub prerelease: the publisher additionally proves the release target and tag both resolve to the successful self-hosted run SHA, binds the download to GitHub's SHA-256 asset digest, and rejects an asset created or changed outside that run. Only then does it promote the owned folder.
 
 The publisher can change only `site/<registered-id>/**` and `releases/<registered-id>.json`. It retries real Git conflicts by fetching current main and reapplying only its own output. It never force-pushes. Older source releases cannot overwrite newer accepted ones. Duplicate source SHA/digest is a no-op. Failed builds leave accepted bytes intact.
 
@@ -23,7 +23,7 @@ The credential is restricted to this repository, but **GitHub does not grant Con
 | `romi16` | `AxiomsAwake/Romi16` | `ci-cd.yml` | `romi16-site-<sha>` |
 | `earth-sim` | `AxiomsAwake/CompBioEarthSim` | `ci.yml` | `compbio-earth-sim-<sha>` |
 | `crispery-room` | `AxiomsAwake/CrisperyRoom` | `game.yml` | Selected player/model from `reusable-escape-room-v3` |
-| `the-keepers` | `AxiomsAwake/TheKeepers` | `release.yml` (`Playable prerelease`) | `public-web` |
+| `the-keepers` | `AxiomsAwake/TheKeepers` | `release.yml` (`Playable prerelease`) | `TheKeepers-<tag>-web.zip` GitHub Release asset |
 | `living-worlds` | `AxiomsAwake/LivingWorlds` | Reserved, disabled | Requires a dedicated approved `public-web` package |
 
 Only accepted active releases appear in the catalogue. A registry entry is not a claim of a live release. LivingWorlds' private concept handbook/source archive is deliberately not published.
@@ -80,16 +80,16 @@ Retain these settings for smooth operation:
 - The `github-pages` environment must permit `main`. Recurring human deployment approval would intentionally interrupt automatic publication; do not add it unless that is desired. The workflow declares `pages: write` and `id-token: write` only where needed.
 - Actions policy must permit the pinned `AxiomsAwake/web` action, its referenced GitHub actions, and existing game build actions. Do not enable secrets for untrusted pull requests. Publication admits only successful trusted main producer runs registered for that site.
 - Any `web/main` ruleset must permit the publishing identity's non-force commits. If required-PR rules are added, use a narrowly appropriate App bypass or redesign the promotion permission; do not disable all protections or grant source workflows administrative power. Management operations also need permission for their own GitHub Actions identity to commit.
-- GitHub-hosted runners serve the central deployment and most sources. Little Lines intentionally retains its ordinary-user **self-hosted** source build/publish policy. Its runner/group must be authorized for the transferred `AxiomsAwake/LittleLines` repository, have Python 3.10+ and venv plus browser prerequisites, and retain `RUNNER_TOOL_CACHE`. The shared action never installs system dependencies or elevates privileges on self-hosted runners.
+- The central deployment and publication jobs use ordinary-user **self-hosted** runners. Their runner/group must be authorized for the relevant repository, have Python 3.10+ and venv plus browser prerequisites, and retain `RUNNER_TOOL_CACHE`. The shared action never installs system dependencies or elevates privileges on self-hosted runners.
 - Optional variable `WEB_BASE_URL` overrides the public base URL for producer live checks. Leave it unset for the default Pages URL. A domain change is a serving change, not a new public repository requirement.
 
 The implementation connection can edit source/workflows and inspect runs, but it does not supply the owner's App key/PAT. Successful Pages deployment is not evidence that every source has its publication credential configured.
 
 ## First publication and retries
 
-Use the producer workflow registered for that site, or a successful retained run that already contains `web-publish.json`. For producers whose registered workflow is an ordinary verification build, normal accepted main updates can publish automatically. **The Keepers is intentionally different:** ordinary `Verify browser export` runs are evidence only; public promotion starts only after an explicit successful `Playable prerelease` source-release run has created the immutable GitHub source prerelease and retained its exact `public-web` artifact.
+Use the producer workflow registered for that site, or a successful retained run that already contains `web-publish.json`. For producers whose registered workflow is an ordinary verification build, normal accepted main updates can publish automatically. **The Keepers is intentionally different:** ordinary `Verify browser export` runs are evidence only; public promotion starts only after an explicit successful `Playable prerelease` self-hosted run has created its immutable GitHub prerelease and exact Web ZIP. That Release asset replaces Actions artifact storage for this flow. Browser smoke evidence remains in the local runner log/workspace for the job and is not uploaded as another Actions artifact.
 
-After a credential/network fix, rerun the failed **Publish browser output** job. Alternatively select that workflow's **Run workflow**, keep branch `main`, and enter the **successful registered producer run ID** (not the failing publication run ID). This reuses its exact artifact; it does not rebuild the game or rewrite its source release. If an artifact expired, make a fresh eligible producer run. An older source run that predates the publication manifest or no longer matches the registry is deliberately not eligible.
+After a credential/network fix, rerun the failed **Publish browser output** job. Alternatively select that workflow's **Run workflow**, keep branch `main`, and enter the **successful registered producer run ID** (not the failing publication run ID). This reuses its exact Actions artifact or immutable Release asset; it does not rebuild the game or rewrite its source release. If an Actions artifact expired, make a fresh eligible producer run. An older source run that predates the publication manifest or no longer matches the registry is deliberately not eligible.
 
 A source build failure, missing artifact, path error, browser failure or missing credential is reported as a failure, never silently described as published. `published` means committed to `web`; the following serving check must show `live` or an explicitly newer/restore disposition before calling it served. After a prolonged Pages failure, rerun the destination deployment and then the source publication job if a fresh verified report is needed.
 
@@ -114,7 +114,7 @@ Unpublishing or hiding a catalogue listing does **not** erase Git history, cache
 
 ## Onboard another game, demo or showcase
 
-Add a unique site ID and producer/workflow/artifact mapping to `catalog/sites.json`; the producer may belong to another explicitly trusted organization. One producer can own multiple separately registered sites. Registry/hosting changes are maintainer changes, not part of a game payload.
+Add a unique site ID and producer/workflow mapping to `catalog/sites.json`, with exactly one `artifact` or `release_asset` package name. Release names may use `{tag}` and artifact names may use `{sha}`. The producer may belong to another explicitly trusted organization. One producer can own multiple separately registered sites. Registry/hosting changes are maintainer changes, not part of a game payload.
 
 In the source, produce a tested artifact and add `web-publish.json`:
 

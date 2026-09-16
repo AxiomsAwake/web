@@ -7,11 +7,12 @@ import sys
 import tempfile
 import threading
 import unittest
+import zipfile
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from contract import assemble, decide, digest, install, read_json, registry, rows, safe_name, stage, validate_state, write_json
-from publish import admin_mutation, git, promote_mutation, transaction, resolve
+from publish import admin_mutation, git, promote_mutation, transaction, resolve, unpack_release
 
 A, B, C = 'a' * 40, 'b' * 40, 'c' * 40
 
@@ -162,6 +163,103 @@ class ContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             assemble(self.repo, self.repo / 'site/output', A)
         self.assertTrue((self.repo / 'README.md').exists())
+
+    def test_release_zip_digest_and_paths_are_enforced(self):
+        archive = self.root / 'release.zip'
+        with zipfile.ZipFile(archive, 'w') as bundle:
+            bundle.writestr('index.html', '<!doctype html>')
+            bundle.writestr('app.js', 'ok')
+        candidate_file = self.root / 'candidate.json'
+        write_json(candidate_file, {
+            'package_kind': 'release-asset', 'release_asset_size': archive.stat().st_size,
+            'artifact_digest': 'sha256:' + hashlib.sha256(archive.read_bytes()).hexdigest(),
+        })
+        extracted = self.root / 'incoming'
+        unpack_release(candidate_file, archive, extracted)
+        self.assertEqual((extracted / 'app.js').read_text(), 'ok')
+        archive.write_bytes(archive.read_bytes() + b'tampered')
+        with self.assertRaises(ValueError):
+            unpack_release(candidate_file, archive, self.root / 'tampered')
+
+    def test_release_zip_cannot_escape_destination(self):
+        archive = self.root / 'unsafe.zip'
+        with zipfile.ZipFile(archive, 'w') as bundle:
+            bundle.writestr('../outside.txt', 'no')
+        candidate_file = self.root / 'candidate.json'
+        write_json(candidate_file, {
+            'package_kind': 'release-asset', 'release_asset_size': archive.stat().st_size,
+            'artifact_digest': 'sha256:' + hashlib.sha256(archive.read_bytes()).hexdigest(),
+        })
+        with self.assertRaises(ValueError):
+            unpack_release(candidate_file, archive, self.root / 'unsafe')
+        self.assertFalse((self.root / 'outside.txt').exists())
+
+
+class ResolutionTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        init_tree(self.root)
+
+    def test_release_asset_is_bound_to_run_sha_tag_and_digest(self):
+        catalog = read_json(self.root / 'catalog/sites.json')
+        catalog['sites']['alpha'].pop('artifact')
+        catalog['sites']['alpha']['release_asset'] = 'Game-{tag}-web.zip'
+        write_json(self.root / 'catalog/sites.json', catalog)
+        run = {
+            'conclusion': 'success', 'status': 'completed', 'event': 'workflow_dispatch',
+            'head_branch': 'main', 'head_sha': A, 'path': '.github/workflows/verify.yml@refs/heads/main',
+            'repository': {'full_name': 'OtherOrg/alpha'}, 'head_repository': {'full_name': 'OtherOrg/alpha'},
+            'run_started_at': '2026-01-01T00:00:00Z', 'updated_at': '2026-01-01T00:10:00Z',
+        }
+        release = {
+            'id': 5, 'target_commitish': A, 'draft': False, 'prerelease': True,
+            'tag_name': 'v1', 'published_at': '2026-01-01T00:05:00Z',
+            'assets': [{'id': 9, 'name': 'Game-v1-web.zip', 'size': 12,
+                        'digest': 'sha256:' + '1' * 64,
+                        'created_at': '2026-01-01T00:06:00Z', 'updated_at': '2026-01-01T00:06:01Z'}],
+        }
+        def fake_api(path):
+            if '/actions/runs/17' in path: return run
+            if '/git/ref/heads/main' in path: return {'object': {'sha': A}}
+            if '/compare/' in path: return {'status': 'identical'}
+            if '/releases?' in path: return [release]
+            if '/git/ref/tags/v1' in path: return {'object': {'type': 'commit', 'sha': A}}
+            raise AssertionError(path)
+        output = self.root / 'candidate.json'
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=fake_api), \
+             patch('publish.source_file', return_value=json.dumps(config()).encode()):
+            resolved = resolve(self.root, 'alpha', '17', output)
+        self.assertEqual(resolved['package_kind'], 'release-asset')
+        self.assertEqual((resolved['source_sha'], resolved['release_tag'], resolved['release_asset_id']), (A, 'v1', 9))
+
+    def test_release_tag_must_resolve_to_tested_sha(self):
+        catalog = read_json(self.root / 'catalog/sites.json')
+        catalog['sites']['alpha'].pop('artifact')
+        catalog['sites']['alpha']['release_asset'] = 'Game-{tag}-web.zip'
+        write_json(self.root / 'catalog/sites.json', catalog)
+        run = {
+            'conclusion': 'success', 'status': 'completed', 'event': 'workflow_dispatch',
+            'head_branch': 'main', 'head_sha': A, 'path': '.github/workflows/verify.yml',
+            'repository': {'full_name': 'OtherOrg/alpha'}, 'head_repository': {'full_name': 'OtherOrg/alpha'},
+            'run_started_at': '2026-01-01T00:00:00Z', 'updated_at': '2026-01-01T00:10:00Z',
+        }
+        release = {'id': 5, 'target_commitish': A, 'draft': False, 'prerelease': True,
+                   'tag_name': 'v1', 'published_at': '2026-01-01T00:05:00Z', 'assets': []}
+        def fake_api(path):
+            if '/actions/runs/17' in path: return run
+            if '/git/ref/heads/main' in path: return {'object': {'sha': A}}
+            if '/compare/' in path: return {'status': 'identical'}
+            if '/releases?' in path: return [release]
+            if '/git/ref/tags/v1' in path: return {'object': {'type': 'commit', 'sha': B}}
+            raise AssertionError(path)
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=fake_api), \
+             patch('publish.source_file', return_value=json.dumps(config()).encode()):
+            with self.assertRaisesRegex(ValueError, 'tag does not resolve'):
+                resolve(self.root, 'alpha', '17', self.root / 'candidate.json')
 
 
 class GitPublicationTests(unittest.TestCase):

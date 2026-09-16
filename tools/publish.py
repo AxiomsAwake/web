@@ -14,8 +14,9 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import zipfile
 from pathlib import Path
-from contract import ID, SHA, MAX_TOTAL, assemble, decide, digest, install, read_json, registry, require, rows, safe_name, stage, validate_state, write_json
+from contract import ID, SHA, MAX_SITE, MAX_TOTAL, assemble, decide, digest, install, read_json, registry, require, rows, safe_name, stage, validate_state, write_json
 
 TARGET = 'AxiomsAwake/web'
 BASE_URL = 'https://axiomsawake.github.io/web/'
@@ -78,6 +79,44 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
     require(compare_source(source, sha, head) in ('ahead', 'identical'), 'Tested source is not on current main history')
     config = json.loads(source_file(source, sha, 'web-publish.json'))
     require(config.get('site') == site_id and config.get('schema') == 1 and config.get('enabled') is True, 'Source has not approved this publication')
+    if 'release_asset' in entry:
+        releases = []
+        for page in range(1, 21):
+            items = api(f'{source}/releases?per_page=100&page={page}')
+            releases.extend(x for x in items if x.get('target_commitish') == sha and not x.get('draft'))
+            if len(items) < 100:
+                break
+        require(len(releases) == 1, 'Expected exactly one published release targeting the tested SHA')
+        release = releases[0]
+        require(release.get('prerelease') is True, 'Registered source package must be a prerelease')
+        tag = release.get('tag_name', '')
+        require(bool(tag) and '\n' not in tag and '\r' not in tag, 'Invalid release tag')
+        ref = api(f'{source}/git/ref/tags/{urllib.parse.quote(tag, safe="")}')['object']
+        if ref.get('type') == 'tag':
+            ref = api(f'{source}/git/tags/{ref["sha"]}')['object']
+        require(ref.get('type') == 'commit' and ref.get('sha') == sha, 'Release tag does not resolve to tested SHA')
+        require(release.get('target_commitish') == sha, 'Release target does not equal tested SHA')
+        name = entry['release_asset'].replace('{tag}', tag).replace('{sha}', sha)
+        matches = [x for x in release.get('assets', []) if x.get('name') == name]
+        require(len(matches) == 1, f'Expected exactly one release asset named {name}')
+        asset = matches[0]
+        asset_digest = asset.get('digest', '')
+        require(isinstance(asset_digest, str) and asset_digest.startswith('sha256:') and
+                len(asset_digest) == 71, 'Release asset needs a GitHub SHA-256 digest')
+        started, completed = run.get('run_started_at', ''), run.get('updated_at', '')
+        require(bool(started) and bool(completed) and
+                started <= release.get('published_at', '') <= completed and
+                started <= asset.get('created_at', '') <= completed and
+                asset.get('updated_at', '') <= completed,
+                'Release asset was not created by the verified source run')
+        candidate = dict(schema=1, site=site_id, source=source, source_sha=sha, run_id=int(run_id),
+                         package_kind='release-asset', release_id=release['id'], release_tag=tag,
+                         release_asset_id=asset['id'], release_asset_name=name,
+                         release_asset_size=asset['size'], artifact_digest=asset_digest, config=config)
+        write_json(output, candidate)
+        outputs(package_kind='release-asset', release_asset_id=asset['id'], source_sha=sha,
+                source_run=run_id)
+        return candidate
     name = entry['artifact'].replace('{sha}', sha)
     matches = []
     for page in range(1, 21):
@@ -89,10 +128,49 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
     artifact = matches[0]
     require(artifact.get('workflow_run', {}).get('head_sha', sha) == sha, 'Artifact/source mismatch')
     candidate = dict(schema=1, site=site_id, source=source, source_sha=sha, run_id=int(run_id),
-                     artifact_id=artifact['id'], artifact_digest=artifact.get('digest'), config=config)
+                     package_kind='actions-artifact', artifact_id=artifact['id'],
+                     artifact_digest=artifact.get('digest'), config=config)
     write_json(output, candidate)
-    outputs(artifact_id=artifact['id'], source_sha=sha, source_run=run_id)
+    outputs(package_kind='actions-artifact', artifact_id=artifact['id'], source_sha=sha, source_run=run_id)
     return candidate
+
+
+def unpack_release(candidate_file: Path, archive: Path, artifact: Path) -> None:
+    candidate = read_json(candidate_file)
+    require(candidate.get('package_kind') == 'release-asset', 'Candidate is not a release asset')
+    require(archive.is_file() and not archive.is_symlink(), 'Missing release archive')
+    require(archive.stat().st_size == candidate.get('release_asset_size'), 'Release asset size changed')
+    require(archive.stat().st_size <= MAX_SITE, 'Release archive exceeds publication budget')
+    expected = candidate.get('artifact_digest', '')
+    require(expected == 'sha256:' + hashlib.sha256(archive.read_bytes()).hexdigest(),
+            'Release asset digest changed')
+    require(not artifact.exists(), 'Extract into a new directory')
+    artifact.mkdir(parents=True)
+    total = 0
+    names = set()
+    try:
+        with zipfile.ZipFile(archive) as bundle:
+            for item in bundle.infolist():
+                name = item.filename.rstrip('/')
+                if not name:
+                    continue
+                safe_name(name)
+                require(name not in names, 'Duplicate release archive path')
+                names.add(name)
+                mode = item.external_attr >> 16
+                require(mode & 0o170000 != 0o120000, 'Release archive symlinks are forbidden')
+                if item.is_dir():
+                    continue
+                require(item.file_size <= MAX_SITE, 'Release archive entry exceeds limit')
+                total += item.file_size
+                require(total <= MAX_SITE and len(names) <= 5000, 'Release archive exceeds publication budget')
+                target = artifact / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                with bundle.open(item) as source, open(target, 'xb') as destination:
+                    shutil.copyfileobj(source, destination)
+    except Exception:
+        shutil.rmtree(artifact, ignore_errors=True)
+        raise
 
 
 def prepare(candidate_file: Path, artifact: Path, payload: Path) -> dict:
@@ -237,7 +315,7 @@ def wait_live(site_id: str, candidate: dict, base: str, seconds: int = 360) -> s
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('resolve', 'stage', 'promote', 'assemble', 'wait', 'unpublish', 'restore', 'resume', 'check-live'))
+    parser.add_argument('command', choices=('resolve', 'unpack-release', 'stage', 'promote', 'assemble', 'wait', 'unpublish', 'restore', 'resume', 'check-live'))
     parser.add_argument('--repo', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--site')
     parser.add_argument('--run-id', default='')
@@ -250,6 +328,9 @@ def main() -> None:
     args = parser.parse_args()
     if args.command == 'resolve':
         resolve(args.repo, args.site, args.run_id, args.candidate)
+        return
+    if args.command == 'unpack-release':
+        unpack_release(args.candidate, args.artifact, args.payload)
         return
     if args.command == 'stage':
         print(json.dumps(prepare(args.candidate, args.artifact, args.payload)))
