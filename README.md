@@ -91,7 +91,7 @@ Use the producer workflow registered for that site, or a successful retained run
 
 After a credential/network fix, rerun the failed **Publish browser output** job. Alternatively select that workflow's **Run workflow**, keep branch `main`, and enter the **successful registered producer run ID** (not the failing publication run ID). This reuses its exact Actions artifact or immutable Release asset; it does not rebuild the game or rewrite its source release. If an Actions artifact expired, make a fresh eligible producer run. An older source run that predates the publication manifest or no longer matches the registry is deliberately not eligible.
 
-A source build failure, missing artifact, path error, browser failure or missing credential is reported as a failure, never silently described as published. `published` means committed to `web`; the following serving check must show `live` or an explicitly newer/restore disposition before calling it served. After a prolonged Pages failure, rerun the destination deployment and then the source publication job if a fresh verified report is needed.
+A source build failure, missing package, path error, browser failure or missing credential is reported as a failure, never silently described as published. `published` means committed to `web`. The publisher does not wait for Pages while occupying the same self-hosted runner; the queued **Deploy all public sub-sites** workflow verifies the live deployment and every sub-site identity before the build is called served. After a prolonged Pages failure, rerun the destination deployment.
 
 ## Redeploy, rollback and unpublish
 

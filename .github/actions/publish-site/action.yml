@@ -30,8 +30,8 @@ outputs:
     description: Accepted destination commit
     value: ${{ steps.promote.outputs.web_commit }}
   live-status:
-    description: Public serving verification disposition
-    value: ${{ steps.live.outputs.live_status }}
+    description: Serving verification is delegated to the queued Pages deployment
+    value: pending-pages
 runs:
   using: composite
   steps:
@@ -161,17 +161,6 @@ runs:
         SITE_ID: ${{ inputs.site }}
         WEB_BASE_URL: ${{ inputs.base-url }}
       run: python3 "$ACTION_ROOT/../../../tools/publish.py" promote --site "$SITE_ID" --candidate "$WORK/candidate.json" --payload "$WORK/payload"
-    - name: Verify that the expected release is actually served
-      id: live
-      if: steps.promote.outputs.status == 'published' || steps.promote.outputs.status == 'unchanged'
-      shell: bash
-      env:
-        SOURCE_TOKEN: ${{ github.token }}
-        WORK: ${{ steps.work.outputs.path }}
-        ACTION_ROOT: ${{ github.action_path }}
-        SITE_ID: ${{ inputs.site }}
-        WEB_BASE_URL: ${{ inputs.base-url }}
-      run: python3 "$ACTION_ROOT/../../../tools/publish.py" wait --site "$SITE_ID" --candidate "$WORK/candidate.json"
     - name: Remove this job's temporary payload and virtual environment
       if: always() && steps.work.outputs.path != ''
       shell: bash
