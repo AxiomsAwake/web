@@ -39,10 +39,12 @@ jobs:
           "$RUNNER_TEMP/infra-python/bin/python" -m playwright install --with-deps chromium
       - name: Verify desktop and touch-sized subpath interaction and reload
         run: '"$RUNNER_TEMP/infra-python/bin/python" tools/smoke.py --site alpha --payload fixture --candidate fixture-candidate.json --output evidence'
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - name: Retain browser evidence on the self-hosted runner
         if: always()
-        with:
-          name: publishing-infrastructure-evidence
-          path: evidence/
-          if-no-files-found: ignore
-          retention-days: 7
+        run: |
+          if test -d evidence; then
+            destination="$RUNNER_TOOL_CACHE/axioms-evidence/web/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/publishing-infrastructure"
+            mkdir -p "$destination"
+            cp -R evidence/. "$destination/"
+            echo "Retained runner-local evidence at $destination"
+          fi
