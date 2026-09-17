@@ -79,7 +79,8 @@ async function state(){
   };
 }
 const hostFeedbackButton=feedback.installFeedbackButton({
-  game:'The Keepers',site:'the-keepers',host:document.body,id:'playerFeedbackBtn',buildInfoUrl:false,
+  game:'The Keepers',site:'the-keepers',issueUrl:'https://github.com/AxiomsAwake/web/issues/new',
+  host:document.body,id:'playerFeedbackBtn',buildInfoUrl:false,
   getBuild:async()=>{const build=await loadBuild();return build?{version:`${build.version||'unknown'} · ${build.source_revision||'unknown'}`} : null;},
   getState:state
 });

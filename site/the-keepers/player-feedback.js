@@ -1,13 +1,21 @@
-/* Shared browser player-feedback composer. No credentials; opens a public issue draft for review. */
+/* Shared browser player-feedback composer. No credentials; opens a consumer-supplied issue draft for review. */
 (function(root,factory){
   const api=factory(root);
   if(typeof module==='object'&&module.exports) module.exports=api;
   else root.AxiomsPlayerFeedback=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(root){
   'use strict';
-  const DEFAULT_ISSUE_URL='https://github.com/AxiomsAwake/web/issues/new';
   const DRAFT_KEY='axioms:last-feedback-draft/v1';
   let lastDraft=null;
+
+  function requireIssueUrl(issueUrl){
+    const value=typeof issueUrl==='string'?issueUrl.trim():'';
+    if(!value) throw new TypeError('issueUrl is required.');
+    let url;
+    try{url=new URL(value);}catch(_){throw new TypeError('issueUrl must be an absolute http(s) URL.');}
+    if(url.protocol!=='https:'&&url.protocol!=='http:') throw new TypeError('issueUrl must be an absolute http(s) URL.');
+    return url;
+  }
 
   function textValue(value){
     if(value===null||value===undefined||value==='') return '—';
@@ -103,13 +111,13 @@
     lines.push('','</details>');
     return lines.join('\n');
   }
-  function buildIssueDraft({issueUrl=DEFAULT_ISSUE_URL,message,game,site,build,state={},environment={}}){
+  function buildIssueDraft({issueUrl,message,game,site,build,state={},environment={}}){
+    const url=requireIssueUrl(issueUrl);
     const clean=String(message||'').trim();
     if(!clean) throw new TypeError('Feedback message is required.');
     const summary=clean.replace(/\s+/g,' ');
     const title=`[${game}] ${summary.slice(0,72)}${summary.length>72?'…':''}`;
     const body=buildIssueBody({message:clean,game,site,build,state,environment});
-    const url=new URL(issueUrl);
     url.searchParams.set('title',title);
     url.searchParams.set('body',body);
     return {
@@ -122,6 +130,7 @@
   }
   function buildIssueUrl(options){return buildIssueDraft(options).issue.url;}
   async function prepareFeedbackDraft(options){
+    requireIssueUrl(options.issueUrl);
     const env=options.env||root;
     const state=await Promise.resolve(options.getState?.()||{});
     let info=null;
@@ -129,7 +138,7 @@
     else if(options.buildInfoUrl!==false) info=await fetchBuildInfo(options.buildInfoUrl||'build-info.json',env);
     const build=options.build||buildSummary(info);
     return buildIssueDraft({
-      issueUrl:options.issueUrl||DEFAULT_ISSUE_URL,
+      issueUrl:options.issueUrl,
       message:options.message,
       game:options.game,
       site:options.site,
@@ -155,6 +164,7 @@
     return null;
   }
   function installFeedbackButton(options){
+    requireIssueUrl(options.issueUrl);
     const env=options.env||root;
     const doc=env.document;
     if(!doc) throw new TypeError('A browser document is required.');
