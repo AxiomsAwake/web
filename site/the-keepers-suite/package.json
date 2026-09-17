@@ -2,15 +2,15 @@
   "schema": "keepers-suite-package/v1",
   "profile": "public-local-studio",
   "target": "suite-web",
-  "source_revision": "8532d205bf284b1cdbc2b7cbbb25f6e634f4bb46",
-  "version": "0.1.0-demo.12",
-  "content_identity": "sha256:5eebadf182235823647165c64c489ef71cd919766007a2cefb6ee4ea8fd5f098",
-  "law_identity": "8532d205bf284b1cdbc2b7cbbb25f6e634f4bb46",
+  "source_revision": "489ec6fb6326a9d4ec42a432238ac0424cb53aa5",
+  "version": "0.1.0-demo.13",
+  "content_identity": "sha256:2ce556ea4f5f9940c51c9f915cc71e99a1bb36172102361164654acbb1f8b4d4",
+  "law_identity": "489ec6fb6326a9d4ec42a432238ac0424cb53aa5",
   "main_scene": "res://suite/boot.tscn",
   "files": {
     "index.html": {
       "bytes": 5458,
-      "sha256": "bb29460d1a95d166004cf77839558a67df5e0e6ff355b316e80e3500a83ff571"
+      "sha256": "2c51eea0658f08f54a955e608ba84cf5ab82ed92afd0038d8dadbd80e197b655"
     },
     "index.js": {
       "bytes": 279815,
@@ -21,8 +21,8 @@
       "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
     },
     "index.pck": {
-      "bytes": 146432,
-      "sha256": "d99be76ce0f2fb3ea55792e616f55a062d3f79d8858ca15cb1c5e09ec9bae6b4"
+      "bytes": 160264,
+      "sha256": "91ecf274f97cb85982670620ab9c364087c090993d31f50650964ca8abda44f6"
     }
   }
 }
