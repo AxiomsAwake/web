@@ -77,7 +77,8 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
     require(bool(SHA.fullmatch(sha)), 'Invalid tested SHA')
     head = api(f'{source}/git/ref/heads/main')['object']['sha']
     require(compare_source(source, sha, head) in ('ahead', 'identical'), 'Tested source is not on current main history')
-    config = json.loads(source_file(source, sha, 'web-publish.json'))
+    manifest_path = entry.get('manifest_path', 'web-publish.json')
+    config = json.loads(source_file(source, sha, manifest_path))
     require(config.get('site') == site_id and config.get('schema') == 1 and config.get('enabled') is True, 'Source has not approved this publication')
     if 'release_asset' in entry:
         releases = []

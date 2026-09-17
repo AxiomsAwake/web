@@ -102,6 +102,17 @@ class ContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             registry(self.repo)
 
+    def test_registry_rejects_unsafe_or_non_json_manifest_paths(self):
+        original = read_json(self.repo / 'catalog/sites.json')
+        for manifest_path in ('../web-publish.json', '/web-publish.json', '.github/config.json',
+                              'nested\\config.json', 'web-publish.yaml', ''):
+            with self.subTest(manifest_path=manifest_path):
+                value = json.loads(json.dumps(original))
+                value['sites']['alpha']['manifest_path'] = manifest_path
+                write_json(self.repo / 'catalog/sites.json', value)
+                with self.assertRaises(ValueError):
+                    registry(self.repo)
+
     def test_ancestry_and_idempotence(self):
         c = candidate(self.payload)
         old = install(self.repo, 'alpha', self.payload, c, None)
@@ -201,6 +212,52 @@ class ResolutionTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         init_tree(self.root)
+
+    def manifest_gate_api(self, path):
+        if path.endswith('/actions/runs/17'):
+            return {
+                'conclusion': 'success', 'status': 'completed', 'event': 'push',
+                'head_branch': 'main', 'head_sha': A,
+                'path': '.github/workflows/verify.yml@refs/heads/main',
+                'repository': {'full_name': 'OtherOrg/alpha'},
+                'head_repository': {'full_name': 'OtherOrg/alpha'},
+            }
+        if path.endswith('/git/ref/heads/main'):
+            return {'object': {'sha': A}}
+        if '/compare/' in path:
+            return {'status': 'identical'}
+        raise AssertionError(path)
+
+    def test_default_manifest_path_is_backward_compatible(self):
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=self.manifest_gate_api), \
+             patch('publish.source_file', side_effect=ValueError('missing')) as source:
+            with self.assertRaisesRegex(ValueError, 'missing'):
+                resolve(self.root, 'alpha', '17', self.root / 'candidate.json')
+        source.assert_called_once_with('OtherOrg/alpha', A, 'web-publish.json')
+
+    def test_registry_selected_manifest_is_used_without_default_fallback(self):
+        catalog = read_json(self.root / 'catalog/sites.json')
+        catalog['sites']['alpha']['manifest_path'] = 'manifests/alpha-publication.json'
+        write_json(self.root / 'catalog/sites.json', catalog)
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=self.manifest_gate_api), \
+             patch('publish.source_file', side_effect=ValueError('missing selected manifest')) as source:
+            with self.assertRaisesRegex(ValueError, 'missing selected manifest'):
+                resolve(self.root, 'alpha', '17', self.root / 'candidate.json')
+        source.assert_called_once_with('OtherOrg/alpha', A, 'manifests/alpha-publication.json')
+
+    def test_wrong_site_in_registry_selected_manifest_is_rejected(self):
+        catalog = read_json(self.root / 'catalog/sites.json')
+        catalog['sites']['alpha']['manifest_path'] = 'web-publish-suite.json'
+        write_json(self.root / 'catalog/sites.json', catalog)
+        wrong = dict(config(), site='beta')
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=self.manifest_gate_api), \
+             patch('publish.source_file', return_value=json.dumps(wrong).encode()) as source:
+            with self.assertRaisesRegex(ValueError, 'has not approved'):
+                resolve(self.root, 'alpha', '17', self.root / 'candidate.json')
+        source.assert_called_once_with('OtherOrg/alpha', A, 'web-publish-suite.json')
 
     def test_release_asset_is_bound_to_run_sha_tag_and_digest(self):
         catalog = read_json(self.root / 'catalog/sites.json')

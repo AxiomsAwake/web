@@ -83,6 +83,9 @@ def registry(repo: Path) -> dict:
         require(re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", entry.get("producer", "")) is not None, "Invalid producer")
         require(isinstance(entry.get("enabled"), bool), "enabled must be explicit")
         require(re.fullmatch(r"\.github/workflows/[A-Za-z0-9_-]+\.ya?ml", entry.get("workflow", "")) is not None, "Invalid source workflow")
+        manifest_path = entry.get("manifest_path", "web-publish.json")
+        safe_name(manifest_path)
+        require(PurePosixPath(manifest_path).suffix.lower() == ".json", "Source manifest must be JSON")
         package_names = [name for name in ("artifact", "release_asset") if name in entry]
         require(len(package_names) == 1, "Choose exactly one source package kind")
         package_name = entry[package_names[0]]
