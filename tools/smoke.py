@@ -14,7 +14,8 @@ import time
 from urllib.parse import urlparse
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
 from contract import ID, read_json, require
-from smoke_plan import plan, console_is_error
+from smoke_plan import plan
+from console_diagnostics import ConsoleDiagnostics
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -52,8 +53,9 @@ def check(url: str, config: dict, output: Path) -> dict:
                     page = context.new_page()
                     page.set_default_timeout(90000)
                     errors, missing = [], []
+                    diagnostics = ConsoleDiagnostics()
                     page.on('pageerror', lambda error: errors.append(str(error)))
-                    page.on('console', lambda message: errors.append(message.text) if console_is_error(message.type, message.text) else None)
+                    page.on('console', lambda message: errors.append(message.text) if diagnostics.is_error(message.type, message.text) else None)
                     page.on('response', lambda response: missing.append(response.url) if response.status >= 400 and urlparse(response.url).netloc == urlparse(url).netloc and not response.url.endswith('/favicon.ico') else None)
                     started = time.monotonic()
                     response = page.goto(url, wait_until='domcontentloaded')
@@ -90,6 +92,7 @@ def check(url: str, config: dict, output: Path) -> dict:
                     page.wait_for_timeout(500)
                     require(not errors and not missing, 'Reload failed: ' + '; '.join(errors + missing))
                     evidence.append({'viewport': viewport, 'url': url, 'runtime_errors': errors, 'missing_assets': missing,
+                                     'warnings': diagnostics.warnings,
                                      'reload': 'passed', 'screenshot': screenshot, 'boot_ms': boot_ms,
                                      'reload_ms': round((time.monotonic() - reload_started) * 1000), 'screenshot_ms': screenshot_ms})
                 except Exception:
