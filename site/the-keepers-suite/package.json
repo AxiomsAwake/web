@@ -2,10 +2,10 @@
   "schema": "keepers-suite-package/v1",
   "profile": "public-local-studio",
   "target": "suite-web",
-  "source_revision": "bcb18653ca4876ec40fdc6846f86e74be531da78",
-  "version": "0.1.0-demo.14",
-  "content_identity": "sha256:808c69bcd535f73fe720431d5b65705ea27e56bc3d8de3fbf056aa9db57b2ae8",
-  "law_identity": "bcb18653ca4876ec40fdc6846f86e74be531da78",
+  "source_revision": "974aff7e66c704c3f2fb9459ea0d0cd8bc207c1c",
+  "version": "0.1.0-demo.15",
+  "content_identity": "sha256:8492ceb3fd9eee87f411e5440bb1dcbd460ee7c5a395c9e7389d7923caa1f46d",
+  "law_identity": "974aff7e66c704c3f2fb9459ea0d0cd8bc207c1c",
   "main_scene": "res://suite/boot.tscn",
   "files": {
     "index.html": {
@@ -22,7 +22,7 @@
     },
     "index.pck": {
       "bytes": 232496,
-      "sha256": "1c59f78d4966abb7e5bca36292b4a96430dcc75b28c0e231681c2f41af433b56"
+      "sha256": "e74014e32910941197e7456e09f255b969e3632ae0a26b145244012a649653c3"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:f90896ee0ed6474b4cbe472b4833e6c8d49e1a1b8048bf66bb54ba4b01fad959",
-  "digest": "5bd692cc36ff93e4229c23b3f0b9e4aa446b904aac6333881d7a0b165762c7e3",
+  "artifact_digest": "sha256:57f11bdd334090f7427ba66d53881f4f428b77e417a4144e02f44587a3a8c87a",
+  "digest": "dbfe5f350de78e572f93b5c5aacb09e3782a64878c83785c11eb6d04c553a8e8",
   "files": [
     {
       "bytes": 11358,
@@ -21,7 +21,7 @@
     {
       "bytes": 388,
       "path": "build.json",
-      "sha256": "e335b547e9b889e44b20fb0fb2f67b275d2251fce1f0df294c749dbda353aa07"
+      "sha256": "c1f5927641bcd8d5bb1a756a70231a717d80f135442e8b54af0b8b23928b1181"
     },
     {
       "bytes": 11944,
@@ -56,7 +56,7 @@
     {
       "bytes": 232496,
       "path": "index.pck",
-      "sha256": "1c59f78d4966abb7e5bca36292b4a96430dcc75b28c0e231681c2f41af433b56"
+      "sha256": "e74014e32910941197e7456e09f255b969e3632ae0a26b145244012a649653c3"
     },
     {
       "bytes": 21443,
@@ -76,23 +76,69 @@
     {
       "bytes": 945,
       "path": "package.json",
-      "sha256": "05ed3a0e893acb758f7a3bdfc53c15ca1cd8ed302f85e5ad9370271ca40c09a3"
+      "sha256": "1778ee922aea6840d2c73ea02f8fc659440dc7ee5c941f200a690462970733f5"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 572437669,
-  "release_asset_name": "TheKeepers-v0.1.0-demo.14-suite-web.zip",
-  "release_asset_size": 10445928,
-  "release_id": 391403201,
-  "release_tag": "v0.1.0-demo.14",
+  "release_asset_id": 572467684,
+  "release_asset_name": "TheKeepers-v0.1.0-demo.15-suite-web.zip",
+  "release_asset_size": 10445929,
+  "release_id": 391413415,
+  "release_tag": "v0.1.0-demo.15",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 35337005976,
+  "run_id": 35338671395,
   "schema": 1,
   "site": "the-keepers-suite",
   "smoke": {
     "assert_selector": "#canvas",
     "ready_selector": "#canvas",
+    "routes": [
+      {
+        "name": "unit-appearance",
+        "query": {
+          "workspace": "unit-appearance"
+        },
+        "steps": [
+          {
+            "click": "#canvas"
+          }
+        ]
+      },
+      {
+        "name": "terrain",
+        "query": {
+          "workspace": "terrain"
+        },
+        "steps": [
+          {
+            "click": "#canvas"
+          }
+        ]
+      },
+      {
+        "name": "design-scale",
+        "query": {
+          "workspace": "design-scale"
+        },
+        "steps": [
+          {
+            "click": "#canvas"
+          }
+        ]
+      },
+      {
+        "name": "capabilities",
+        "query": {
+          "workspace": "capabilities"
+        },
+        "steps": [
+          {
+            "click": "#canvas"
+          }
+        ]
+      }
+    ],
     "steps": [
       {
         "click": "#canvas"
@@ -104,11 +150,11 @@
         "press": "N"
       }
     ],
-    "touch": false,
+    "touch": true,
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "bcb18653ca4876ec40fdc6846f86e74be531da78",
+  "source_sha": "974aff7e66c704c3f2fb9459ea0d0cd8bc207c1c",
   "suspended": false,
-  "watermark": "bcb18653ca4876ec40fdc6846f86e74be531da78"
+  "watermark": "974aff7e66c704c3f2fb9459ea0d0cd8bc207c1c"
 }
