@@ -51,7 +51,8 @@ def rows(root: Path) -> list[dict]:
     require(root.is_dir() and not root.is_symlink(), "Payload must be a real directory")
     out = []
     total = 0
-    for p in sorted(root.rglob("*")):
+    # Path objects sort by components; manifests and validation sort full relative names.
+    for p in sorted(root.rglob("*"), key=lambda item: item.relative_to(root).as_posix()):
         require(not p.is_symlink(), "Payload symlinks are forbidden")
         name = p.relative_to(root).as_posix()
         safe_name(name)
@@ -223,13 +224,13 @@ def assemble(repo: Path, output: Path, commit: str) -> dict:
         if not state.get("active"):
             continue
         require(entry['enabled'], f"Disable by unpublishing first: {site_id}")
-        total += sum(r["bytes"] for r in state["files"] + state.get("retained", []))
+        total += sum(r["bytes"] for r in state["files"] + state.get('retained', []))
         require(total <= MAX_TOTAL, "Assembled site exceeds 900 MiB budget")
         shutil.copytree(source / site_id, output / site_id)
         public = {k: state.get(k) for k in ("site", "source_sha", "digest", "watermark", "run_id")}
         public['deployment_commit'] = commit
         write_json(output / site_id / "__release.json", public)
-        deployment["sites"][site_id] = public
+        deployment['sites'][site_id] = public
         cards.append(f'<article><small>{html.escape(entry.get("kind", "game"))}</small><h2>{html.escape(entry["title"])}</h2><p>{html.escape(entry.get("description", ""))}</p><a href="./{site_id}/">Open {html.escape(entry["title"])} <span aria-hidden="true">→</span></a></article>')
     template = (repo / "catalog/index.html").read_text(encoding="utf-8")
     empty = '<p class="empty">The catalogue is being prepared. Games appear here after their first successful publication.</p>'
