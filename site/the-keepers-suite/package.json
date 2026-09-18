@@ -2,27 +2,407 @@
   "schema": "keepers-suite-package/v1",
   "profile": "public-local-studio",
   "target": "suite-web",
-  "source_revision": "974aff7e66c704c3f2fb9459ea0d0cd8bc207c1c",
-  "version": "0.1.0-demo.15",
-  "content_identity": "sha256:8492ceb3fd9eee87f411e5440bb1dcbd460ee7c5a395c9e7389d7923caa1f46d",
-  "law_identity": "974aff7e66c704c3f2fb9459ea0d0cd8bc207c1c",
+  "source_revision": "3a810ff0821dfe21d189809d6afaecdcf42d846b",
+  "version": "0.1.0-demo.16",
+  "content_identity": "sha256:5d6d89c6d4430e1dc4a1a0cb76433dda6cb60d3c45718fc1e3b3a8c4d006ac67",
+  "law_identity": "3a810ff0821dfe21d189809d6afaecdcf42d846b",
   "main_scene": "res://suite/boot.tscn",
   "files": {
+    "LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "NOTICE": {
+      "bytes": 268,
+      "sha256": "a7b1750731af893610cac513a5bd72f294b037b30293690e212bf1ce76077b1e"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "bytes": 2055,
+      "sha256": "72d65cf02196caf6b931fa930a17e60c69ef9610b25e2a25cd4ebe2f65e562b6"
+    },
+    "authoring-host.js": {
+      "bytes": 7406,
+      "sha256": "14e986a47880ac1643586a11868e0f09dbcd48fa4a34e554e0b9a70b4b51c30b"
+    },
+    "build.json": {
+      "bytes": 388,
+      "sha256": "6013dbe3203cc6433af26938cae275aa6c774211d67d70f6117dc3f6b5139f4d"
+    },
+    "editors/blockbench/LICENSE.MD": {
+      "bytes": 35148,
+      "sha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b"
+    },
+    "editors/blockbench/SOURCES.md": {
+      "bytes": 903,
+      "sha256": "e46eb8237bf7f931d478d747e24e5a847882d23be66bef5bc3441ce4df8fe597"
+    },
+    "editors/blockbench/assets/armor_stand.png": {
+      "bytes": 664,
+      "sha256": "3255d73a7838114316debd575e739adc81f1869f9abafccdd531895bb9c02230"
+    },
+    "editors/blockbench/assets/brush.png": {
+      "bytes": 381,
+      "sha256": "f3d9a01f60c3a1bda777474b709362ca183b97acdf1a367454035c259df13b4b"
+    },
+    "editors/blockbench/assets/brush_outline.png": {
+      "bytes": 111,
+      "sha256": "773ea6fea683281e8273c37a91c066e062301ff5ef7370ffbbfe4e50776cd4b8"
+    },
+    "editors/blockbench/assets/brush_outline_circle.png": {
+      "bytes": 429,
+      "sha256": "bc5bfe8a8d2a970ba7f3ba5cf6f48861ada5474c927e65a2553d03ec4c0ae47f"
+    },
+    "editors/blockbench/assets/crafting_table.png": {
+      "bytes": 1572,
+      "sha256": "77ce3d97d19feb0ec4c4caa14ec43eccda09404285d41030321d2d26e09dc20e"
+    },
+    "editors/blockbench/assets/crosshair.png": {
+      "bytes": 97,
+      "sha256": "dfd3e628d2a4941a7ad8bacf4b362363b64197ad0ae1148b0f069ceeea69534e"
+    },
+    "editors/blockbench/assets/flower_pot.png": {
+      "bytes": 378,
+      "sha256": "7146b0e65fd18daee254bd7960a5660c91183c639343d94d4c2e8d09dede7198"
+    },
+    "editors/blockbench/assets/fox.png": {
+      "bytes": 584,
+      "sha256": "5bd169935621d7273679107802d49acae83de163179cf36aa0f707332a1d885a"
+    },
+    "editors/blockbench/assets/hud.png": {
+      "bytes": 1495,
+      "sha256": "ccb133a37673246b6bbe20229ae02fc52ec89b236264c3df4ae4339dd350605b"
+    },
+    "editors/blockbench/assets/image_editor.png": {
+      "bytes": 48678,
+      "sha256": "954a97549234c5e0119d7bd24cc1ef35e35473435cf16ff8630d53a4aa5ec24d"
+    },
+    "editors/blockbench/assets/inventory_full.png": {
+      "bytes": 1022,
+      "sha256": "305cf4fdb4df28c08284ac4482e713684672f3a2445b1385056d9c49c1208d2f"
+    },
+    "editors/blockbench/assets/inventory_nine.png": {
+      "bytes": 386,
+      "sha256": "008ff343d2b8c7c3d11c649935cc54c0a668c0e5f235648aa962f1b2f05a2727"
+    },
+    "editors/blockbench/assets/item_frame.png": {
+      "bytes": 599,
+      "sha256": "6fd5620a58df1fda40e414a755ff103b76ddd268666fc5e16b4d5bb7a2d3209d"
+    },
+    "editors/blockbench/assets/locator.png": {
+      "bytes": 244,
+      "sha256": "cdd6028e7528e9be24932362edd3657a0c236fd8cd33937d44f5c78d8611c6ed"
+    },
+    "editors/blockbench/assets/logo_cutout.svg": {
+      "bytes": 9561,
+      "sha256": "55e4b756c917c4f6abf19548f1d332d6ef4818420aa260b42e1bec0e99d35713"
+    },
+    "editors/blockbench/assets/logo_text_white.svg": {
+      "bytes": 15454,
+      "sha256": "dcb9a7c03fac5da85b51e4d73f2d72b57bbb1f536df8dfab472f368c1e7b912e"
+    },
+    "editors/blockbench/assets/missing.png": {
+      "bytes": 192,
+      "sha256": "bf9538c15b9363b1db1b071e758ae5a8b96b9e64e1be728fd6c4106de8772bb7"
+    },
+    "editors/blockbench/assets/missing_blend.png": {
+      "bytes": 1486,
+      "sha256": "8e90427f9950fb17578fee5e9f94ee94efacabdca1f9aebdb3f5aa14b42566f3"
+    },
+    "editors/blockbench/assets/netlify-full-logo-dark.svg": {
+      "bytes": 5979,
+      "sha256": "eef051fad220fc55a35b79b5cea65bb739ed8a1e8c08790b78ad0ca56794167a"
+    },
+    "editors/blockbench/assets/north.png": {
+      "bytes": 6571,
+      "sha256": "d23c4f80ae93a79f9b59f0e371221ef9a3ea59a42c3fb70f2b0f01e5256afdf0"
+    },
+    "editors/blockbench/assets/null_object.png": {
+      "bytes": 235,
+      "sha256": "14d361570f9d3e654b80ff04ac43ecee5256b098e5ae4443a1c45ad399cc26dd"
+    },
+    "editors/blockbench/assets/oak_shelf.png": {
+      "bytes": 585,
+      "sha256": "cb7cf9720f3e50d6cd2e67dd8fde89a4865aa507f84e38d1c0ae0e639dd52c87"
+    },
+    "editors/blockbench/assets/player_skin.png": {
+      "bytes": 2261,
+      "sha256": "8f348547559183284492ee38f2ae5d9b7bf95c026dad1efc1ee90786b52869be"
+    },
+    "editors/blockbench/assets/plugins.png": {
+      "bytes": 36011,
+      "sha256": "7510a09c2069726a186ff8e72fc476507e93d5fb9f9d35864b8b8eb47c4b2300"
+    },
+    "editors/blockbench/assets/poses/aiming.svg": {
+      "bytes": 3304,
+      "sha256": "79ec77f155dbf895828d0d7d75c15e0517fd953bf3c599560819d11703e32fe1"
+    },
+    "editors/blockbench/assets/poses/crouching.svg": {
+      "bytes": 3109,
+      "sha256": "76b06fa768a476f189921861422487f38907d738f373f42ef975f62b317cdc7d"
+    },
+    "editors/blockbench/assets/poses/jumping.svg": {
+      "bytes": 3235,
+      "sha256": "402c450f016e06b5c2756801cd0c0ac708cfacd7d5cc08e441973c22e8ad445e"
+    },
+    "editors/blockbench/assets/poses/natural.svg": {
+      "bytes": 2828,
+      "sha256": "c719303536b64e6b72663a14b3e518ba44dd8fe98694441227cd9c770dc256c2"
+    },
+    "editors/blockbench/assets/poses/none.svg": {
+      "bytes": 2252,
+      "sha256": "1510a687680e37251f659112a362da409272f274d6f889608401078b776c3db6"
+    },
+    "editors/blockbench/assets/poses/sitting.svg": {
+      "bytes": 3035,
+      "sha256": "da449b4db132173d3fbb4ba8e1fc90d1e616132e2da708f8eb340248dc83aff1"
+    },
+    "editors/blockbench/assets/poses/walking.svg": {
+      "bytes": 3235,
+      "sha256": "77489039117bd58c10031051438698d168b1798ebe1c54d4ac3c843c3e29b3a1"
+    },
+    "editors/blockbench/assets/preview_scenes/studio.png": {
+      "bytes": 3833,
+      "sha256": "9c4967bdffc44f78d0a3c90654ce6de267446be576df29ecfb026bc2247f2911"
+    },
+    "editors/blockbench/assets/rotate_cursor.png": {
+      "bytes": 11933,
+      "sha256": "b8a7345e762b3a8c3716549b8e7b1fd4e74911190fdbe72ec7123ece96ed81c3"
+    },
+    "editors/blockbench/assets/splash_art/1.webp": {
+      "bytes": 76488,
+      "sha256": "35c421fe3113ea2966ce60716baf3a1754b8ed442a03d360017161df809e26a5"
+    },
+    "editors/blockbench/assets/splash_art/2.webp": {
+      "bytes": 109574,
+      "sha256": "cc26fd41bec68eeef929b506cae81afac2636e484605166c3eb91dc4eae074bd"
+    },
+    "editors/blockbench/assets/splash_art/3.webp": {
+      "bytes": 42102,
+      "sha256": "caf325bf8b0caba2b4d6b94a10fb25f3de64fcdadcbb5864b613b55786075c6a"
+    },
+    "editors/blockbench/assets/splash_art/4.webp": {
+      "bytes": 47550,
+      "sha256": "19addb0b109e49b6756ee011f67f2670e6677a4755c891dc9e6fd475579a2a66"
+    },
+    "editors/blockbench/assets/splash_art.png": {
+      "bytes": 197951,
+      "sha256": "bb47b77b5b56cea2a26a00722fa9d7f7bf86432b93aa34e63642090d1a1f559e"
+    },
+    "editors/blockbench/assets/uv_preview.png": {
+      "bytes": 12992,
+      "sha256": "3bc106e2663e3a0d061e2c0afded74d32a4140775e56eea5c74ad2f037713cba"
+    },
+    "editors/blockbench/assets/vertex.png": {
+      "bytes": 1476,
+      "sha256": "83ca60415b097c91afcd548259f023bd1b0ac0866349b31af03e069609d7c089"
+    },
+    "editors/blockbench/assets/zombie.png": {
+      "bytes": 1111,
+      "sha256": "1a3177a2dd30388ec02809a8d7b32ab23d9342261650706e8c8c4ca5500f32e8"
+    },
+    "editors/blockbench/blockbench-bridge.js": {
+      "bytes": 2655,
+      "sha256": "8b05b032cfc3e9ea8b23bceec7558891990869995eed69718c2c98a111596eea"
+    },
+    "editors/blockbench/corresponding-source.zip": {
+      "bytes": 11215504,
+      "sha256": "2264c871fc5cf140b9581215ef745a27aeaae7461fa11d1d0f91097fa1cd0210"
+    },
+    "editors/blockbench/css/dialogs.css": {
+      "bytes": 59937,
+      "sha256": "eef3f4d39b5431e3b4c70006c7e2b96a61909639a96b1d325d1d98c2892f0806"
+    },
+    "editors/blockbench/css/fontawesome.css": {
+      "bytes": 133065,
+      "sha256": "7d6bc846be36e2c02544339adf5c1dad83efcceb9ccd3a8e424620ec740b58ec"
+    },
+    "editors/blockbench/css/general.css": {
+      "bytes": 19795,
+      "sha256": "c93311a31e701435c8d4b113e79805742a9dc04f5337a97a6d4e2dc8b8d4e285"
+    },
+    "editors/blockbench/css/jquery-ui.min.css": {
+      "bytes": 11715,
+      "sha256": "dfcd8512a786d9e8c2e0f1bae55575fd31e10866bad70fccf068e49573b3768a"
+    },
+    "editors/blockbench/css/panels.css": {
+      "bytes": 67920,
+      "sha256": "6c8d472def741afc631b6e53a87c013cb45b7681e35bded66be782fa8f3152c5"
+    },
+    "editors/blockbench/css/prism.css": {
+      "bytes": 3848,
+      "sha256": "4ac7a43ab62dc7c1bb98557209005bf2b98bbc544998f26efff166c8e9a67e60"
+    },
+    "editors/blockbench/css/setup.css": {
+      "bytes": 17990,
+      "sha256": "277456bb2518dee8145e932c02e55f178217ec2849cb037357025d5857bc626c"
+    },
+    "editors/blockbench/css/spectrum.css": {
+      "bytes": 12552,
+      "sha256": "5fb1e4e0e0d64f7ba5b09fc028b6e282715de7d4285b710783756ec65e453abe"
+    },
+    "editors/blockbench/css/start_screen.css": {
+      "bytes": 12755,
+      "sha256": "432d71228d3932ce4b62eb65798f911570b54dda9cfbd516a1b841b21a356bba"
+    },
+    "editors/blockbench/css/w3.css": {
+      "bytes": 2719,
+      "sha256": "305665273c7055ccc17fef569f99baf550a96ecae13941ee55ed09622f4617da"
+    },
+    "editors/blockbench/css/window.css": {
+      "bytes": 30419,
+      "sha256": "f19e32ce7629b343179aeb10b17b4d8cb7098dc8a8bb633e8b57679a21cc933b"
+    },
+    "editors/blockbench/dist/bundle.js": {
+      "bytes": 9011993,
+      "sha256": "f520d907363f4340819467f67586d2a45d3a600aee9d2a0a4f85f3c759da71bb"
+    },
+    "editors/blockbench/favicon.png": {
+      "bytes": 11382,
+      "sha256": "94b250c457ee212cc93194be8ef3ee01e5e2d49f634a8dcf865e3a06d1e4111b"
+    },
+    "editors/blockbench/font/Assistant-Bold.ttf": {
+      "bytes": 63092,
+      "sha256": "f853d3191ada80a736a4b781d234d04880498bc309759240c34cf63dff0a4be9"
+    },
+    "editors/blockbench/font/Assistant-ExtraBold.ttf": {
+      "bytes": 64740,
+      "sha256": "72c4b44b02e598d9fe9e86a56914e84838ba68443b4e775502a98e56f5588fc9"
+    },
+    "editors/blockbench/font/Assistant-ExtraLight.ttf": {
+      "bytes": 60904,
+      "sha256": "92100e9f871d7787e1aff2a08213d403543220e0024021e9a5e549e8bbc50133"
+    },
+    "editors/blockbench/font/Assistant-Light.ttf": {
+      "bytes": 61892,
+      "sha256": "15df71be475c473af086b5ba6ee16966a4575257867e08d31c9698c5c00adb82"
+    },
+    "editors/blockbench/font/Assistant-Regular.ttf": {
+      "bytes": 62024,
+      "sha256": "a371de97ec70f1097296336ab8d35d1e73d3d4dd19e54bea9b8d6025672993a1"
+    },
+    "editors/blockbench/font/Assistant-SemiBold.ttf": {
+      "bytes": 62888,
+      "sha256": "6a0cab01d3f902b1d821037ea9b180156964ca34228f416c751a403bc4c01d39"
+    },
+    "editors/blockbench/font/Montserrat-VariableFont_wght.ttf": {
+      "bytes": 688600,
+      "sha256": "498dc34d0fa45288e0ac5345bd385c98bf81c56ee70209aacfb4a22a6510697c"
+    },
+    "editors/blockbench/font/fa-brands-400.woff2": {
+      "bytes": 118072,
+      "sha256": "c411f11975d26eb04cd2aa3c071181d4b18e489f1fb97060d4176a3531dfb36e"
+    },
+    "editors/blockbench/font/fa-regular-400.woff2": {
+      "bytes": 25464,
+      "sha256": "c732f106e91bc618767fbac8e2c7b27e5c736d477b2bb4fb83f597a43198c33c"
+    },
+    "editors/blockbench/font/fa-solid-900.woff2": {
+      "bytes": 157192,
+      "sha256": "1f0189e087fcefbf654fad74a3a06668b782c01353a61d5c0b7f0bf23e33c020"
+    },
+    "editors/blockbench/font/icomoon.ttf": {
+      "bytes": 10976,
+      "sha256": "9ef98c2260ffba7c79a8ff14ad86afc5a065f345b7b2ac1fb68fdde4e2303e0c"
+    },
+    "editors/blockbench/font/icomoon.woff": {
+      "bytes": 11052,
+      "sha256": "4a15f10a97d8ce84b0dcb1ca8496882a692b0a2f044b16301dbf8b53a4bda44c"
+    },
+    "editors/blockbench/font/material-icons.woff2": {
+      "bytes": 330596,
+      "sha256": "6682b29f7d5badced1032b8c114e8a3c27ec79fe6e0e5a32366ca83fc4429c41"
+    },
+    "editors/blockbench/icon.ico": {
+      "bytes": 368019,
+      "sha256": "9d4a507cb7b7c6f1bd466f56fbbbff3682aa281a8b3ebcd33f79dd9e2a09a8a8"
+    },
+    "editors/blockbench/icon.png": {
+      "bytes": 136798,
+      "sha256": "7ae8d8c5a37c81b43ff3f9dad96b9ab94c008145b02f9de0425edcd2df166e9b"
+    },
+    "editors/blockbench/icon_full.png": {
+      "bytes": 28359,
+      "sha256": "d66c6f937ab38ab5c822c0c24fdc5b50d0a001eabb44a9bd4703bda44670a7f4"
+    },
+    "editors/blockbench/icon_maskable.png": {
+      "bytes": 23828,
+      "sha256": "971ad5dcc59a8a868f3867c02fa27947c9e99aa5015a28ee4ae8cb94e00f9d69"
+    },
+    "editors/blockbench/index.html": {
+      "bytes": 9688,
+      "sha256": "a92d8b32da2d13aff1c2abda80a06c466e674b9aa5b416d62345210b28b8ac01"
+    },
+    "editors/blockbench/isolated-storage.js": {
+      "bytes": 1294,
+      "sha256": "3a8284c0d2ece6a5ce4c61309e49f8931bb3029c85dd18e0bf259b388818307e"
+    },
+    "editors/blockbench/lib/gif.worker.js": {
+      "bytes": 16636,
+      "sha256": "ca9e3048557ec05d619e18b83403cd3669c88939e5fa2d6034ce7625d445970d"
+    },
+    "editors/blockbench/manifest-beta.webmanifest": {
+      "bytes": 821,
+      "sha256": "98cd9ce22577de37636fbb9eed568fa00c54328bcd52b869e8f914a49b5a5be3"
+    },
+    "editors/blockbench/manifest.webmanifest": {
+      "bytes": 774,
+      "sha256": "846306457057a13356d6185b1d2bd85ae1df321cd92ae259865c841e4b58ca74"
+    },
+    "editors/blockbench/upstream.json": {
+      "bytes": 7840,
+      "sha256": "98636771ccf7d0ad04f419bfa521ec4d77a4669fa41ad9760b9cf6624989e4d1"
+    },
+    "index.apple-touch-icon.png": {
+      "bytes": 11944,
+      "sha256": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5"
+    },
+    "index.audio.position.worklet.js": {
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    "index.audio.worklet.js": {
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
     "index.html": {
-      "bytes": 5449,
-      "sha256": "4008bf7e18fa7363b8c2e8058f3d7ac00f8b34bedffa43941a53a496ce72dcbe"
+      "bytes": 5525,
+      "sha256": "fb5326dd8381d583790a4f3ce3db7d3e2a68ab5f7d23cb55884026c54c9e0c8e"
+    },
+    "index.icon.png": {
+      "bytes": 5700,
+      "sha256": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5"
     },
     "index.js": {
-      "bytes": 279815,
-      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
-    },
-    "index.wasm": {
-      "bytes": 39514754,
-      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+      "bytes": 2859484,
+      "sha256": "631bbecee5e5136b5f29ed7dedb31a5d022d65da4b639b6e52a48d0c5e3d3154"
     },
     "index.pck": {
-      "bytes": 232496,
-      "sha256": "e74014e32910941197e7456e09f255b969e3632ae0a26b145244012a649653c3"
+      "bytes": 310536,
+      "sha256": "307bb390e8303d739932a578a4f64b7337002f11abadb3a9c0d491534a0ff354"
+    },
+    "index.png": {
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    "index.side.wasm": {
+      "bytes": 44078870,
+      "sha256": "e0c3b75ff009c54b83a02ae819e04dd1f533f457c54e516f440a564d8f308a07"
+    },
+    "index.wasm": {
+      "bytes": 1508095,
+      "sha256": "d37e06f7126849a81fa099f1cf89f0d8ccbb87502b8c857492490dff66fad95a"
+    },
+    "legal/GODOT_COPYRIGHT.txt": {
+      "bytes": 100108,
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    },
+    "legal/TERRAIN3D_LICENSE.txt": {
+      "bytes": 1110,
+      "sha256": "4dbcfc70ae9005d11bd82e45cab93d8ed7e3dbb804f123e71c72abd3e95ae678"
+    },
+    "libterrain.web.release.wasm32.wasm": {
+      "bytes": 2047823,
+      "sha256": "9fee4397a806567f476eb2c4e7017c0e415ea8af03aab48021378e82cf64ac63"
     }
   }
 }

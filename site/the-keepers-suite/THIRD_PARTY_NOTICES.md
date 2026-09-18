@@ -14,3 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 The complete upstream Godot copyright and bundled third-party license inventory for the exact engine version is distributed as [legal/GODOT_COPYRIGHT.txt](legal/GODOT_COPYRIGHT.txt) in the public package. It is retrieved from the pinned upstream 4.7.2-stable source commit, not from a moving branch.
 
 The game's own Apache 2.0 LICENSE and NOTICE accompany the export. This file preserves the engine attribution from the former public mirror; consolidation does not change ownership or license terms.
+
+## Studio authoring dependencies
+
+Terrain3D 1.0.2 (MIT): legal/TERRAIN3D_LICENSE.txt. Blockbench is a separately bundled GPL-3.0-or-later editor: editors/blockbench/LICENSE.MD and SOURCES.md. Its exact corresponding source and integration build instructions are in editors/blockbench/corresponding-source.zip.
