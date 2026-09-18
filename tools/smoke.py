@@ -10,9 +10,11 @@ from pathlib import Path
 import shutil
 import tempfile
 import threading
+import time
 from urllib.parse import urlparse
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
 from contract import ID, read_json, require
+from smoke_plan import plan, console_is_error
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -22,12 +24,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def _capture_optional(page, path: Path) -> str:
-    """Retain useful evidence without making compositor readback a serving contract.
-
-    Some real-time WebGL canvases continue rendering correctly while headless Chromium's
-    screenshot compositor stalls. Browser startup, declared input, same-origin assets and
-    reload remain authoritative smoke checks; rendered game evidence belongs to producers.
-    """
+    """Compositor readback is optional evidence, never a substitute for runtime checks."""
     try:
         page.screenshot(path=str(path), timeout=5000)
         return 'captured'
@@ -50,18 +47,22 @@ def check(url: str, config: dict, output: Path) -> dict:
             for viewport in viewports:
                 context = browser.new_context(viewport=viewport, has_touch=viewport['width'] < 600,
                                               is_mobile=viewport['width'] < 600)
+                page = None
                 try:
                     page = context.new_page()
                     page.set_default_timeout(90000)
                     errors, missing = [], []
                     page.on('pageerror', lambda error: errors.append(str(error)))
+                    page.on('console', lambda message: errors.append(message.text) if console_is_error(message.type, message.text) else None)
                     page.on('response', lambda response: missing.append(response.url) if response.status >= 400 and urlparse(response.url).netloc == urlparse(url).netloc and not response.url.endswith('/favicon.ico') else None)
+                    started = time.monotonic()
                     response = page.goto(url, wait_until='domcontentloaded')
                     require(response is not None and response.ok, 'Entrypoint HTTP failure')
                     selector = config.get('ready_selector', 'body')
                     page.locator(selector).first.wait_for(state='visible')
                     if config.get('wait_hidden'):
                         page.locator(config['wait_hidden']).wait_for(state='hidden')
+                    boot_ms = round((time.monotonic() - started) * 1000)
                     if config.get('dismiss') and page.locator(config['dismiss']).is_visible():
                         page.locator(config['dismiss']).click()
                     for step in config.get('steps', []):
@@ -78,18 +79,23 @@ def check(url: str, config: dict, output: Path) -> dict:
                         page.locator(config['assert_selector']).first.wait_for(state='visible')
                     require(not errors, 'Browser runtime errors: ' + '; '.join(errors))
                     require(not missing, 'Missing same-origin assets: ' + '; '.join(missing))
+                    screenshot_started = time.monotonic()
                     screenshot = _capture_optional(page, output / f"{viewport['width']}.png")
-                    # Same context: verifies reload rather than only an empty browser cache.
+                    screenshot_ms = round((time.monotonic() - screenshot_started) * 1000)
+                    reload_started = time.monotonic()
                     page.reload(wait_until='domcontentloaded')
                     page.locator(selector).first.wait_for(state='visible')
                     if config.get('wait_hidden'):
                         page.locator(config['wait_hidden']).wait_for(state='hidden')
                     page.wait_for_timeout(500)
-                    require(not errors and not missing, 'Reload failed')
-                    evidence.append({'viewport': viewport, 'url': url, 'runtime_errors': errors, 'missing_assets': missing, 'reload': 'passed', 'screenshot': screenshot})
+                    require(not errors and not missing, 'Reload failed: ' + '; '.join(errors + missing))
+                    evidence.append({'viewport': viewport, 'url': url, 'runtime_errors': errors, 'missing_assets': missing,
+                                     'reload': 'passed', 'screenshot': screenshot, 'boot_ms': boot_ms,
+                                     'reload_ms': round((time.monotonic() - reload_started) * 1000), 'screenshot_ms': screenshot_ms})
                 except Exception:
                     try:
-                        page.screenshot(path=str(output / f"failed-{viewport['width']}.png"), timeout=5000)
+                        if page is not None:
+                            page.screenshot(path=str(output / f"failed-{viewport['width']}.png"), timeout=5000)
                     except Exception:
                         pass
                     raise
@@ -97,9 +103,30 @@ def check(url: str, config: dict, output: Path) -> dict:
                     context.close()
         finally:
             browser.close()
-    report = {'scope': 'startup, declared UI steps, prefix assets and cached reload; screenshots are optional evidence, not a WebGL serving requirement; not full gameplay or physical-device certification', 'browser': 'Chromium', 'checks': evidence}
+    report = {'scope': 'startup, declared UI steps, same-subpath assets and cached reload; optional screenshots; not full gameplay or physical-device certification', 'browser': 'Chromium', 'checks': evidence}
     (output / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
     return report
+
+
+def check_routes(url: str, config: dict, output: Path) -> dict:
+    output.mkdir(parents=True, exist_ok=True)
+    report = {'schema': 'axioms-web-smoke/v2', 'status': 'running', 'checks': [],
+              'scope': 'actual Chromium startup, declared input, engine console errors, subpath assets and reload; not full gameplay or physical-device certification'}
+    started = time.monotonic()
+    try:
+        for name, address, options in plan(url, config):
+            report['active_route'] = name
+            result = check(address, options, output / name)
+            report['checks'].extend(dict(item, route=name) for item in result['checks'])
+        report['status'] = 'passed'
+        return report
+    except Exception as error:
+        report['status'] = 'failed'
+        report['error'] = str(error)
+        raise
+    finally:
+        report['duration_ms'] = round((time.monotonic() - started) * 1000)
+        (output / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
 
 
 def main():
@@ -114,7 +141,7 @@ def main():
     candidate = read_json(args.candidate)
     config = candidate.get('smoke', {})
     if args.url:
-        print(json.dumps(check(args.url, config, args.output)))
+        print(json.dumps(check_routes(args.url, config, args.output)))
         return
     require(args.payload is not None, 'Need a payload or public URL')
     with tempfile.TemporaryDirectory(prefix='axioms-prefix-') as temp:
@@ -124,7 +151,7 @@ def main():
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
         try:
-            print(json.dumps(check(f'http://127.0.0.1:{server.server_port}/web/{args.site}/', config, args.output)))
+            print(json.dumps(check_routes(f'http://127.0.0.1:{server.server_port}/web/{args.site}/', config, args.output)))
         finally:
             server.shutdown()
             server.server_close()

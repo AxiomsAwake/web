@@ -35,6 +35,17 @@ outputs:
 runs:
   using: composite
   steps:
+    - name: Require publication credentials before expensive work
+      shell: bash
+      env:
+        APP_ID: ${{ inputs.app-id }}
+        APP_KEY: ${{ inputs.app-private-key }}
+        TOKEN: ${{ inputs.token }}
+      run: |
+        if [[ -z "$TOKEN" && ( -z "$APP_ID" || -z "$APP_KEY" ) ]]; then
+          echo 'Configure WEB_PUBLISH_APP_ID + WEB_PUBLISH_APP_PRIVATE_KEY, or PUBLIC_RELEASE_TOKEN (Contents write on AxiomsAwake/web). No package was downloaded.' >&2
+          exit 1
+        fi
     - name: Allocate isolated publication workspace
       id: work
       shell: bash
@@ -100,27 +111,22 @@ runs:
         WORK: ${{ steps.work.outputs.path }}
         ACTION_ROOT: ${{ github.action_path }}
       run: python3 "$ACTION_ROOT/../../../tools/publish.py" stage --candidate "$WORK/candidate.json" --artifact "$WORK/incoming" --payload "$WORK/payload"
-    - name: Prepare isolated browser checker
+    - name: Reuse the pinned isolated browser checker
+      id: browser
       shell: bash
       env:
         WORK: ${{ steps.work.outputs.path }}
         RUNNER_ENVIRONMENT: ${{ runner.environment }}
-      run: |
-        set -euo pipefail
-        python3 -m venv "$WORK/venv"
-        "$WORK/venv/bin/python" -m pip install --disable-pip-version-check --no-input playwright==1.57.0
-        if [[ "$RUNNER_ENVIRONMENT" == github-hosted ]]; then
-          "$WORK/venv/bin/python" -m playwright install --with-deps chromium
-        else
-          "$WORK/venv/bin/python" -m playwright install chromium
-        fi
+        ACTION_ROOT: ${{ github.action_path }}
+      run: python3 "$ACTION_ROOT/../../../tools/browser_env.py" --work "$WORK"
     - name: Check final sub-site prefix and declared interactions without publishing credentials
       shell: bash
       env:
         WORK: ${{ steps.work.outputs.path }}
         ACTION_ROOT: ${{ github.action_path }}
         SITE_ID: ${{ inputs.site }}
-      run: '"$WORK/venv/bin/python" "$ACTION_ROOT/../../../tools/smoke.py" --site "$SITE_ID" --payload "$WORK/payload" --candidate "$WORK/candidate.json" --output "$WORK/evidence"'
+        BROWSER_PYTHON: ${{ steps.browser.outputs.python }}
+      run: '"$BROWSER_PYTHON" "$ACTION_ROOT/../../../tools/smoke.py" --site "$SITE_ID" --payload "$WORK/payload" --candidate "$WORK/candidate.json" --output "$WORK/evidence"'
     - name: Retain private browser evidence
       if: always() && steps.work.outputs.path != '' && steps.resolve.outputs.package_kind != 'release-asset'
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -129,16 +135,19 @@ runs:
         path: ${{ steps.work.outputs.path }}/evidence/
         if-no-files-found: ignore
         retention-days: 7
-    - name: Require publication credentials
+    - name: Retain release-asset smoke evidence before temporary cleanup
+      if: always() && steps.work.outputs.path != '' && steps.resolve.outputs.package_kind == 'release-asset'
       shell: bash
       env:
-        APP_ID: ${{ inputs.app-id }}
-        APP_KEY: ${{ inputs.app-private-key }}
-        TOKEN: ${{ inputs.token }}
+        WORK: ${{ steps.work.outputs.path }}
+        SITE_ID: ${{ inputs.site }}
       run: |
-        if [[ -z "$TOKEN" && ( -z "$APP_ID" || -z "$APP_KEY" ) ]]; then
-          echo 'Configure WEB_PUBLISH_APP_ID + WEB_PUBLISH_APP_PRIVATE_KEY, or PUBLIC_RELEASE_TOKEN (Contents write on AxiomsAwake/web). Never paste secrets into chat.' >&2
-          exit 1
+        if test -d "$WORK/evidence"; then
+          destination="$RUNNER_TOOL_CACHE/axioms-evidence/$GITHUB_REPOSITORY/publication/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/$SITE_ID"
+          mkdir -p "$destination"
+          cp -R "$WORK/evidence/." "$destination/"
+          echo "Browser evidence retained for $SITE_ID; run $GITHUB_RUN_ID attempt ${GITHUB_RUN_ATTEMPT:-1}."
+          if test -s "$WORK/evidence/report.json"; then cat "$WORK/evidence/report.json"; fi
         fi
     - name: Mint token restricted to the public destination
       id: app
@@ -161,7 +170,7 @@ runs:
         SITE_ID: ${{ inputs.site }}
         WEB_BASE_URL: ${{ inputs.base-url }}
       run: python3 "$ACTION_ROOT/../../../tools/publish.py" promote --site "$SITE_ID" --candidate "$WORK/candidate.json" --payload "$WORK/payload"
-    - name: Remove this job's temporary payload and virtual environment
+    - name: Remove this job's temporary payload
       if: always() && steps.work.outputs.path != ''
       shell: bash
       env:

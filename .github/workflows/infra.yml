@@ -29,32 +29,49 @@ jobs:
           from contract import write_json
           p = payload(Path('fixture'))
           c = candidate(p)
-          c['smoke'] = {'ready_selector': '#play', 'steps': [{'click': '#play'}], 'assert_selector': 'body[data-played="yes"]', 'touch': True}
+          c['smoke'] = {'ready_selector': '#play', 'steps': [{'click': '#play'}], 'assert_selector': 'body[data-played="yes"]', 'touch': True,
+                        'routes': [{'name': 'alternate', 'query': {'mode': 'alternate'}, 'steps': [{'click': '#play'}]}]}
           write_json(Path('fixture-candidate.json'), c)
           PY
-      - name: Prepare browser runner
+      - name: Prepare reusable pinned browser runner
+        id: browser
         env:
           RUNNER_ENVIRONMENT: ${{ runner.environment }}
         run: |
           set -euo pipefail
-          python3 -m venv "$RUNNER_TEMP/infra-python"
-          "$RUNNER_TEMP/infra-python/bin/python" -m pip install --disable-pip-version-check --no-input playwright==1.57.0
-          if [[ "$RUNNER_ENVIRONMENT" == github-hosted ]]; then
-            "$RUNNER_TEMP/infra-python/bin/python" -m playwright install --with-deps chromium
-          else
-            : "${RUNNER_TOOL_CACHE:?Set the ordinary-user runner tool cache}"
-            export PLAYWRIGHT_BROWSERS_PATH="$RUNNER_TOOL_CACHE/axioms-web/playwright"
-            echo "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH" >> "$GITHUB_ENV"
-            "$RUNNER_TEMP/infra-python/bin/python" -m playwright install chromium
+          export PLAYWRIGHT_BROWSERS_PATH="$RUNNER_TOOL_CACHE/axioms-web/playwright"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH" >> "$GITHUB_ENV"
+          python3 tools/browser_env.py --work "$RUNNER_TEMP/infra-python"
+      - name: Verify browser-environment reuse
+        env:
+          RUNNER_ENVIRONMENT: ${{ runner.environment }}
+        run: python3 tools/browser_env.py --work "$RUNNER_TEMP/infra-python" | tee browser-cache.log && grep -q 'Browser checker reused' browser-cache.log
+      - name: Verify desktop and touch-sized subpath routes, interaction and reload
+        env:
+          BROWSER_PYTHON: ${{ steps.browser.outputs.python }}
+        run: '"$BROWSER_PYTHON" tools/smoke.py --site alpha --payload fixture --candidate fixture-candidate.json --output evidence'
+      - name: Prove console errors fail even with a visible ready canvas
+        env:
+          BROWSER_PYTHON: ${{ steps.browser.outputs.python }}
+        run: |
+          echo "console.error('SCRIPT ERROR: intentional regression fixture');" >> fixture/app.js
+          if "$BROWSER_PYTHON" tools/smoke.py --site alpha --payload fixture --candidate fixture-candidate.json --output negative-evidence; then
+            echo 'Smoke incorrectly accepted an engine console error.' >&2
+            exit 1
           fi
-      - name: Verify desktop and touch-sized subpath interaction and reload
-        run: '"$RUNNER_TEMP/infra-python/bin/python" tools/smoke.py --site alpha --payload fixture --candidate fixture-candidate.json --output evidence'
+          python3 - <<'PY'
+          import json
+          with open('negative-evidence/report.json') as stream:
+              report = json.load(stream)
+          assert report['status'] == 'failed' and 'intentional regression fixture' in report['error']
+          PY
       - name: Retain browser evidence on the self-hosted runner
         if: always()
         run: |
-          if test -d evidence; then
-            destination="$RUNNER_TOOL_CACHE/axioms-evidence/web/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/publishing-infrastructure"
-            mkdir -p "$destination"
-            cp -R evidence/. "$destination/"
-            echo "Retained runner-local evidence at $destination"
-          fi
+          for folder in evidence negative-evidence; do
+            if test -d "$folder"; then
+              destination="$RUNNER_TOOL_CACHE/axioms-evidence/web/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/publishing-infrastructure/$folder"
+              mkdir -p "$destination"
+              cp -R "$folder/." "$destination/"
+            fi
+          done
