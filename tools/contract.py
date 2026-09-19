@@ -10,7 +10,9 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 SCHEMA = 1
-MAX_FILE = 90 * 1024 * 1024
+# Full upstream editors can exceed 90 MiB. Retain headroom below GitHub's
+# 100 MiB per-file rejection; site and assembled-site budgets are unchanged.
+MAX_FILE = 99 * 1024 * 1024
 MAX_SITE = 250 * 1024 * 1024
 MAX_TOTAL = 900 * 1024 * 1024
 ID = re.compile(r"[a-z][a-z0-9-]{0,47}\Z")
@@ -40,7 +42,11 @@ def safe_name(name: str) -> str:
     require(not any(c in name for c in ("\\", "\x00", "\n", "\r", ":", "?", "#", "%")), "Unsafe path characters")
     p = PurePosixPath(name)
     require(not p.is_absolute() and all(x not in ("", ".", "..") for x in name.split("/")), "Path escapes publication")
-    require(not any(x.startswith(".") and x != ".nojekyll" for x in p.parts), "Hidden files are not public by default")
+    # A native Godot import sentinel is an explicitly allowed file basename,
+    # never an escape hatch for hidden directories, .env or other source files.
+    require(not any(x.startswith(".") and x != ".nojekyll" and
+                    not (i == len(p.parts) - 1 and x == ".gdignore")
+                    for i, x in enumerate(p.parts)), "Hidden files are not public by default")
     require(not any(x.lower() in {"node_modules", "__pycache__"} for x in p.parts), "Development cache is not public")
     require(p.suffix.lower() not in {".pem", ".key", ".p12", ".pfx", ".map"}, "Secret/source-map extension is not public")
     require(name not in RESERVED, "Reserved publisher filename")
@@ -60,7 +66,7 @@ def rows(root: Path) -> list[dict]:
             continue
         require(p.is_file(), "Special files are forbidden")
         size = p.stat().st_size
-        require(size <= MAX_FILE, f"File exceeds 90 MiB: {name}; do not use LFS pointers for Pages")
+        require(size <= MAX_FILE, f"File exceeds {MAX_FILE // (1024 * 1024)} MiB: {name}; do not use LFS pointers for Pages")
         total += size
         require(total <= MAX_SITE and len(out) < 5000, "Site exceeds publication budget")
         data = p.read_bytes()
