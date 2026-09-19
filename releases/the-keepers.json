@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:f140481bbfee50b32d14dd049fb330057e2afe55c6df8edaa0380dc7ff51f06a",
-  "digest": "42a6b5f19c0fee4c507d66b8d8db8a724e98a1939338c738d0f300796fc174e9",
+  "artifact_digest": "sha256:08e6e6cf50f3a5034a3d11dc100036f08bff22fefde833c90ea6d93c49c75eec",
+  "digest": "3bb912e9a4b0bd27be48f666aed5de94f9530a016024e1465620c56b02826bda",
   "files": [
     {
       "bytes": 11358,
@@ -21,7 +21,7 @@
     {
       "bytes": 201,
       "path": "build.json",
-      "sha256": "0d47b0ebe66b53042f28d90f35fcf896677c907c923adcaac23f3fddff9e0ae0"
+      "sha256": "14a835b63d76f5408696863ef38bccac474cf3d875102e01b46643adc1d586c1"
     },
     {
       "bytes": 11944,
@@ -56,7 +56,7 @@
     {
       "bytes": 279992,
       "path": "index.pck",
-      "sha256": "6113c54910292060719872a38faa1640c3438dd47543846a6c65fa7db6cfbf35"
+      "sha256": "857450ed845c4181a87e3875df93859e7c96b2d08d3d5f71e2d3f361b89eff05"
     },
     {
       "bytes": 21443,
@@ -86,18 +86,18 @@
     {
       "bytes": 458,
       "path": "web-export-metrics.json",
-      "sha256": "92ebae2e7a97b62c7a4e823206775cdaa33769bbfb1f180d7a5cd87f4fb14ed0"
+      "sha256": "0a8d7726df76a2a16480b25e6e08cf1762a9c7e64f2ce5f56806e72d752ee242"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 572951063,
-  "release_asset_name": "TheKeepers-v0.1.0-demo.16-web.zip",
-  "release_asset_size": 10486529,
-  "release_id": 391600176,
-  "release_tag": "v0.1.0-demo.16",
+  "release_asset_id": 575332079,
+  "release_asset_name": "TheKeepers-v0.1.0-demo.19-web.zip",
+  "release_asset_size": 10485975,
+  "release_id": 392184682,
+  "release_tag": "v0.1.0-demo.19",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 35365187093,
+  "run_id": 35463229214,
   "schema": 1,
   "site": "the-keepers",
   "smoke": {
@@ -121,7 +121,7 @@
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "3a810ff0821dfe21d189809d6afaecdcf42d846b",
+  "source_sha": "534677ea66b0f5bb55ee7175b768a1e3c5de95ea",
   "suspended": false,
-  "watermark": "3a810ff0821dfe21d189809d6afaecdcf42d846b"
+  "watermark": "534677ea66b0f5bb55ee7175b768a1e3c5de95ea"
 }
