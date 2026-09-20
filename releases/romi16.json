@@ -1,8 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:6f9c5e0499c8af4c697865c0d42ba07c8a76692a3e0316720e68c1e37f3628a6",
-  "artifact_id": 10269506538,
-  "digest": "e59eac0782661a9db8d5ac3e07f841faade3e089843437f8f7bf7953a01bb8e5",
+  "artifact_digest": "sha256:fdbfed5e14f1cf56070410eb12300b745c05a778b082335a74c12d90a46a31bf",
+  "digest": "82186ac7d68c0baf6a559e48cf1909d65a1e324465cfd4c86df38302612e4fd4",
   "files": [
     {
       "bytes": 0,
@@ -30,9 +29,9 @@
       "sha256": "7742b7a674174f7816b7292e3102963f66ef3f474740547e597d7c9079fad702"
     },
     {
-      "bytes": 608139,
-      "path": "assets/index-DvrQyFQ5.js",
-      "sha256": "0b4a4a53ff0b8e483f670f0c7228c075f60bf90cb9a81ad4a17d0162d0163f84"
+      "bytes": 610214,
+      "path": "assets/index-DcWaQx_M.js",
+      "sha256": "a81dd0de4e61d448c91aa68709717a03799fe11eda5593a3ef49866a3fd61503"
     },
     {
       "bytes": 59687,
@@ -247,17 +246,23 @@
     {
       "bytes": 185,
       "path": "build-info.json",
-      "sha256": "157874b3f447bc691ca0b8c6b85326867f4ac75c07ccd64ede6f0532ffaea1e3"
+      "sha256": "b72c2914d06e377b6ba49381726cdea773e8cc1b147c81046eb8d69ecd7295fd"
     },
     {
       "bytes": 2348,
       "path": "index.html",
-      "sha256": "a73738c188ea9b787388f27feaf949d0e0ee27340bb78eb926fe3204244155bf"
+      "sha256": "0c8677a32cddf23be4dafdb926a5b40859d248968edeb3cda90869a421d2eafc"
     }
   ],
+  "package_kind": "release-asset",
+  "release_asset_id": 577260316,
+  "release_asset_name": "romi16-e893447b3dbca71411f798031b1b7666ee52ba72.zip",
+  "release_asset_size": 1444190,
+  "release_id": 392517626,
+  "release_tag": "web-e893447b3dbca71411f798031b1b7666ee52ba72",
   "retain_hashed_assets": true,
   "retained": [],
-  "run_id": 34613656402,
+  "run_id": 35522085325,
   "schema": 1,
   "site": "romi16",
   "smoke": {
@@ -271,7 +276,7 @@
     "touch": false
   },
   "source": "AxiomsAwake/Romi16",
-  "source_sha": "4140f28490fc245c5881232d97de398939b0c40b",
+  "source_sha": "e893447b3dbca71411f798031b1b7666ee52ba72",
   "suspended": false,
-  "watermark": "4140f28490fc245c5881232d97de398939b0c40b"
+  "watermark": "e893447b3dbca71411f798031b1b7666ee52ba72"
 }
