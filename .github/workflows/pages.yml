@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, romik-desktop, io-heavy]
     timeout-minutes: 15
     permissions:
       contents: read
