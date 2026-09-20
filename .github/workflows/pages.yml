@@ -47,7 +47,7 @@ jobs:
           WEB_BASE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           echo "LIVE_IDENTITY_BEGIN snapshot=$(git rev-parse HEAD)"
-          timeout --kill-after=5s 240s python3 -u tools/publish.py check-live --output _site
+          timeout --kill-after=5s 240s python3 -u tools/live_check.py --output _site
       - name: Diagnose serving failure without replacing acceptance
         if: failure() && steps.live.outcome == 'failure'
         timeout-minutes: 2

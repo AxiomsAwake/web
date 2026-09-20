@@ -56,10 +56,11 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--base-url', required=True)
     args = parser.parse_args()
-    from publish import public_json
+    from live_check import public_json
     from contract import read_json
     expected = read_json(args.output / 'deployment.json')
-    diagnose(expected, args.base_url, public_json, lambda line: print(line, flush=True))
+    diagnose(expected, args.base_url, lambda url: public_json(url, timeout=8),
+             lambda line: print(line, flush=True))
 
 
 if __name__ == '__main__':
