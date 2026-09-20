@@ -1,10 +1,10 @@
 {
   "game": "the-keepers",
-  "version": "0.1.0-demo.16",
-  "source_revision": "3a810ff0821dfe21d189809d6afaecdcf42d846b",
-  "built_at": "2026-09-18T15:54:47.725634Z",
+  "version": "0.1.0-demo.26",
+  "source_revision": "487bdb567c40bf4c65b10a54ca79b2d8951bc023",
+  "built_at": "2026-09-20T15:46:20.826521Z",
   "target": "suite-web",
   "profile": "public-local-studio",
-  "content_identity": "sha256:5d6d89c6d4430e1dc4a1a0cb76433dda6cb60d3c45718fc1e3b3a8c4d006ac67",
-  "law_identity": "3a810ff0821dfe21d189809d6afaecdcf42d846b"
+  "content_identity": "sha256:634b623a19e40fb258a57e95ab17c93749107f800db87983597f4cfd8a413428",
+  "law_identity": "487bdb567c40bf4c65b10a54ca79b2d8951bc023"
 }

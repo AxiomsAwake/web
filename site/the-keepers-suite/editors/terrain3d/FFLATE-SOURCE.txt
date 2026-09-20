@@ -1,0 +1,4 @@
+fflate 0.8.2 (MIT)
+Source: https://github.com/101arrowz/fflate/tree/d3243651cb142e3e04f3e4bc037b9e985878f444
+Package: https://registry.npmjs.org/fflate/-/fflate-0.8.2.tgz
+SHA512: cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==

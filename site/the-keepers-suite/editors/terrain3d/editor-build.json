@@ -1,0 +1,39 @@
+{
+  "inputs": {
+    "engine": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "sdk": "e4fe26ef59168ff44f4c23c466e497bf60b3411e",
+    "emscripten": "4.0.20",
+    "flags": [
+      "platform=web",
+      "target=editor",
+      "dlink_enabled=yes",
+      "threads=yes",
+      "lto=none",
+      "optimize=size",
+      "debug_symbols=no",
+      "progress=no"
+    ],
+    "platform_patch": "web-editor-help-and-external-ide-servers-v3",
+    "patch_recipe_sha256": "98cb51c8cee332f11e9153e108493e90cda1e9ee18d57e59aff81a15ee52c084",
+    "builder_sha256": "886efc6f7cf8ffcf536224c53e187dbd5f9c36ee8fb9cf88c8ede6409acd7093"
+  },
+  "sha256": "8d61a7263deb3e6dbb9daad95ffc352c1ef214e36ea7adc5faaa16683f571c8f",
+  "bytes": 55714838,
+  "patched_source_sha256": "b506dd6d7176fbd0284009fcebc79679ef003e6ce133e300bb38648fed52a91b",
+  "terrain3d_ui_modifications": 0,
+  "files": {
+    "godot.editor.js": 5722704,
+    "godot.editor.wasm": 1605758,
+    "godot.editor.audio.worklet.js": 7298,
+    "godot.editor.audio.position.worklet.js": 2973,
+    "godot.editor.side.wasm": 100728711,
+    "godot.editor.html": 24393,
+    "logo.svg": 14496,
+    "favicon.png": 7567,
+    "service.worker.js": 5868,
+    "manifest.json": 415,
+    "offline.html": 1082,
+    "inter-regular.woff2": 111268,
+    "inter-bold.woff2": 114840
+  }
+}

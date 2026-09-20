@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:3853d530d994a2681399feaf80a99f90abf90602ea082c817d93f411a4f82170",
-  "digest": "36817c0c2cd1590813bd96e488875233a8929637952079f8aeb11f3ddad15a6b",
+  "artifact_digest": "sha256:fa192a5e3b4bea59b1a94e57bbd36f4af74c60d8d02f195f6f806670f99229aa",
+  "digest": "c5644af4af8c9f40eb03f815958c49edb9791ee5d50c851994ad8ee1729d9785",
   "files": [
     {
       "bytes": 11358,
@@ -14,9 +14,9 @@
       "sha256": "a7b1750731af893610cac513a5bd72f294b037b30293690e212bf1ce76077b1e"
     },
     {
-      "bytes": 2055,
+      "bytes": 2195,
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "72d65cf02196caf6b931fa930a17e60c69ef9610b25e2a25cd4ebe2f65e562b6"
+      "sha256": "c857f086cc02555e04aea66b8e242ed60281fa5a87aa1441ae303eba681b8c9f"
     },
     {
       "bytes": 7406,
@@ -26,7 +26,7 @@
     {
       "bytes": 388,
       "path": "build.json",
-      "sha256": "6013dbe3203cc6433af26938cae275aa6c774211d67d70f6117dc3f6b5139f4d"
+      "sha256": "6e9b05c8fbc872bb20914adfd672cc0bc5eb0f9320c393a85e45ad394d298c33"
     },
     {
       "bytes": 35148,
@@ -251,7 +251,7 @@
     {
       "bytes": 11215504,
       "path": "editors/blockbench/corresponding-source.zip",
-      "sha256": "2264c871fc5cf140b9581215ef745a27aeaae7461fa11d1d0f91097fa1cd0210"
+      "sha256": "bcc95ff3b4b30bdc7171bb3b5a30f0148f92b72faf5baa8738ceaca003f6f6ad"
     },
     {
       "bytes": 59937,
@@ -431,7 +431,1127 @@
     {
       "bytes": 7840,
       "path": "editors/blockbench/upstream.json",
-      "sha256": "98636771ccf7d0ad04f419bfa521ec4d77a4669fa41ad9760b9cf6624989e4d1"
+      "sha256": "75bbdc421a9c3a0b3ec6faee4ed7a7ae3e228c007faebc2f3bb8df33774e26cb"
+    },
+    {
+      "bytes": 1069,
+      "path": "editors/terrain3d/FFLATE-LICENSE.txt",
+      "sha256": "805f6cb28bb8b6d3a0badd83c93bccd9671fa01a3b4b92b7042b0743325ac243"
+    },
+    {
+      "bytes": 268,
+      "path": "editors/terrain3d/FFLATE-SOURCE.txt",
+      "sha256": "12de6714f494d4ab9beb1e66c2913c55510cab8060adcdf72416cdb3cbb1b930"
+    },
+    {
+      "bytes": 724,
+      "path": "editors/terrain3d/SOURCES.md",
+      "sha256": "850d1c3bdfa106991aa6b21eb324259db73516e78c233a401f389a78a93a7d7b"
+    },
+    {
+      "bytes": 4074,
+      "path": "editors/terrain3d/capture-guard.js",
+      "sha256": "6f7d86f1c478787d0bb75a4f0f4323f7b7ad99b82655b41b71c8aa40858be965"
+    },
+    {
+      "bytes": 1298,
+      "path": "editors/terrain3d/editor-build.json",
+      "sha256": "216faaf3d5b675a134d686f579ac37d89c22e276de445892d8a95e5591b14cac"
+    },
+    {
+      "bytes": 7567,
+      "path": "editors/terrain3d/favicon.png",
+      "sha256": "4c7157447b020ecb1a0cb755fe0569620247bf5def9f7c4409f063ac479509a9"
+    },
+    {
+      "bytes": 32665,
+      "path": "editors/terrain3d/fflate.js",
+      "sha256": "c3b34f2e9f5e74d4d7d64e01cac7a0c01954c6c406414d42185c7b53d6875ddf"
+    },
+    {
+      "bytes": 36665,
+      "path": "editors/terrain3d/full-editor-package.json",
+      "sha256": "198896b0d718b8cf6c144a68c8b7f4f229ae553c2b741545a6b1053a9dc75f9c"
+    },
+    {
+      "bytes": 2973,
+      "path": "editors/terrain3d/godot.editor.audio.position.worklet.js",
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    {
+      "bytes": 7298,
+      "path": "editors/terrain3d/godot.editor.audio.worklet.js",
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    {
+      "bytes": 24393,
+      "path": "editors/terrain3d/godot.editor.html",
+      "sha256": "3e6267d8a3bc59e474f0eefd08034aa1b9f28b34f5216a7e7da70af28cca7be7"
+    },
+    {
+      "bytes": 5722704,
+      "path": "editors/terrain3d/godot.editor.js",
+      "sha256": "9015474e1522b86516c8ff409c7030ec9804cb3d09fb6770631ad0ba65fc8bf4"
+    },
+    {
+      "bytes": 100728711,
+      "path": "editors/terrain3d/godot.editor.side.wasm",
+      "sha256": "3480e8e2959d36339980c42458cc1b0c898f4384ab178675a2cedaf530ad31c4"
+    },
+    {
+      "bytes": 1605758,
+      "path": "editors/terrain3d/godot.editor.wasm",
+      "sha256": "20def79f2ffc0bc8fd59cfbc023cf19a98bf3dcd5ff0a07e24fa14fcd2e44371"
+    },
+    {
+      "bytes": 1881,
+      "path": "editors/terrain3d/handoff/godot_project_provider.js",
+      "sha256": "dc642b4f504348ce14d6ad3b0517a931adc94ac79a7d6810a4f66d9fcc18820a"
+    },
+    {
+      "bytes": 1466,
+      "path": "editors/terrain3d/handoff/project_host.js",
+      "sha256": "e38dd18794227caf57f8f7913745076d18c5e8d5deed105e279d7167e32a8305"
+    },
+    {
+      "bytes": 13159,
+      "path": "editors/terrain3d/host.js",
+      "sha256": "34984faa8bfd8aff706037c0a83131c3cb3490a3843ecb301fc6ea1fea684adf"
+    },
+    {
+      "bytes": 1981,
+      "path": "editors/terrain3d/index.html",
+      "sha256": "1ad6c8d28c441e62624a2c7830a0f1bf8c4ddf30a2b2f5ca30ea9acb85dd9363"
+    },
+    {
+      "bytes": 114840,
+      "path": "editors/terrain3d/inter-bold.woff2",
+      "sha256": "fa888127b6da015b65569f0351f3b5c391ad928904951f1c20e9f8462a8d95ea"
+    },
+    {
+      "bytes": 111268,
+      "path": "editors/terrain3d/inter-regular.woff2",
+      "sha256": "e06f6b1bc553aaea4e4668023ed0ab0a147129c3107f511bc7d03d361b0ae085"
+    },
+    {
+      "bytes": 2337,
+      "path": "editors/terrain3d/isolation.js",
+      "sha256": "341f473e37446d89780190d557e2f20631991d7f49db51488adc31622539c10c"
+    },
+    {
+      "bytes": 10948,
+      "path": "editors/terrain3d/legal/GODOT_AUTHORS.md",
+      "sha256": "6ca51d335b9de108ea53c5621e820c187d98c6faf92e14c8413ddb946b5e56cf"
+    },
+    {
+      "bytes": 100108,
+      "path": "editors/terrain3d/legal/GODOT_COPYRIGHT.txt",
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    },
+    {
+      "bytes": 1149,
+      "path": "editors/terrain3d/legal/GODOT_LICENSE.txt",
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+    },
+    {
+      "bytes": 1110,
+      "path": "editors/terrain3d/legal/TERRAIN3D_LICENSE.txt",
+      "sha256": "4dbcfc70ae9005d11bd82e45cab93d8ed7e3dbb804f123e71c72abd3e95ae678"
+    },
+    {
+      "bytes": 2124609,
+      "path": "editors/terrain3d/libterrain.web.debug.wasm32.wasm",
+      "sha256": "23da1c04ab9b48b07452340525e3c76d595c3de11a8c10510cc19d8046d95b26"
+    },
+    {
+      "bytes": 14496,
+      "path": "editors/terrain3d/logo.svg",
+      "sha256": "c69cdce4d95be3cbe9581bec95bb2c6134c0b7ddd6fd1fdddf47777c8b00d990"
+    },
+    {
+      "bytes": 415,
+      "path": "editors/terrain3d/manifest.json",
+      "sha256": "4d375440dfba37c5cd6f7b1235d0e06e3ccf2eae545523d294a28f2f8fb559de"
+    },
+    {
+      "bytes": 3164,
+      "path": "editors/terrain3d/moments-panel.css",
+      "sha256": "e5fc2accb921f6234e9023385706663744b66a8e87081662be8c79c334d62a9d"
+    },
+    {
+      "bytes": 8159,
+      "path": "editors/terrain3d/moments-panel.js",
+      "sha256": "e35728c4dfc4c38974a0773c6893d626397bd5374c3d5db8a5422f936feaf94f"
+    },
+    {
+      "bytes": 1047,
+      "path": "editors/terrain3d/native-moment-journey.js",
+      "sha256": "5551afc97b2ba033742acb7b8f1cdba6482b1bb87bacfa55ea5add210d116a32"
+    },
+    {
+      "bytes": 7363,
+      "path": "editors/terrain3d/native-moments.js",
+      "sha256": "d46fb0827199e7dfc3df1e32bb95b529e07b1cccf8c9d8ca094d7defd77452be"
+    },
+    {
+      "bytes": 1082,
+      "path": "editors/terrain3d/offline.html",
+      "sha256": "b4037ffedec1eb1bb6bfbbb9cbdb46be3616512dd40166c8b358631aec054df9"
+    },
+    {
+      "bytes": 1769,
+      "path": "editors/terrain3d/progress.js",
+      "sha256": "501a7fd18d834fb3300176569bd5b870b68a1ccde65e7279be53add676073d14"
+    },
+    {
+      "bytes": 4872,
+      "path": "editors/terrain3d/project-io.js",
+      "sha256": "fbf5b32ec462104e352f73ed85efbfd9f6df7c989a9b0e38cad734ec3a63f7bd"
+    },
+    {
+      "bytes": 44514,
+      "path": "editors/terrain3d/project-manifest.json",
+      "sha256": "a9e1472c162efb4350e917f0d7ba4cd08c8eeb11280ffe62c4441b0a97182797"
+    },
+    {
+      "bytes": 1198,
+      "path": "editors/terrain3d/project/README.md",
+      "sha256": "034b6ae3ffc153c3d0da0cbc5b2c7481ebf39e072dbbfeb96eb932613ac7c211"
+    },
+    {
+      "bytes": 4017,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/editor_probe.gd",
+      "sha256": "8f27ca1c9f088b074aa71ffc6ceda28369e288254de37b7de5fadc2608f105ce"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/editor_probe.gd.uid",
+      "sha256": "133f435536d4eb0889e491c6792250fb81cba7dea192bb5cc519cad2b5bc263d"
+    },
+    {
+      "bytes": 1453,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/instance_fingerprint.gd",
+      "sha256": "51511cbe01f27d948cef60bb0c26293f27d56eedf01da83e50cab72f2f9c9ff9"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/instance_fingerprint.gd.uid",
+      "sha256": "b05e55d3e83c22fbe97a50ed86f9b721859ab372b968fd5cb93f9de5eea9db6a"
+    },
+    {
+      "bytes": 189,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/plugin.cfg",
+      "sha256": "b2c95f920469a4cb662d616d872158b19cc36fcd9fbaef4a106effff7171e624"
+    },
+    {
+      "bytes": 6291,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/plugin.gd",
+      "sha256": "bff3636e7066b5eb595f9d54a9f540bdc5ab49e4698aa011fb9e2a9e4d1e0f9b"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/plugin.gd.uid",
+      "sha256": "30a4f8cf08ad4e0159172496e01684a66b4331fa71a7e9b086f562e71a02ce35"
+    },
+    {
+      "bytes": 6237,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/project_archive.gd",
+      "sha256": "552aed5f7bf35727d5ffcf71ab0723a41d2cafd40e5706515b49056e06168d02"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/axioms_project_exchange/project_archive.gd.uid",
+      "sha256": "d3e61ea887d110fa270dd47f3512a60a484de5d650ca6a7937a8915821ce4493"
+    },
+    {
+      "bytes": 1110,
+      "path": "editors/terrain3d/project/addons/terrain_3d/LICENSE.txt",
+      "sha256": "4dbcfc70ae9005d11bd82e45cab93d8ed7e3dbb804f123e71c72abd3e95ae678"
+    },
+    {
+      "bytes": 3867,
+      "path": "editors/terrain3d/project/addons/terrain_3d/README.md",
+      "sha256": "fed83e7f26ae341f4456a7c1be57c1d5827aa35ff2a44b68cc519d81f8a69774"
+    },
+    {
+      "bytes": 2124609,
+      "path": "editors/terrain3d/project/addons/terrain_3d/bin/libterrain.web.debug.wasm32.wasm",
+      "sha256": "23da1c04ab9b48b07452340525e3c76d595c3de11a8c10510cc19d8046d95b26"
+    },
+    {
+      "bytes": 2124609,
+      "path": "editors/terrain3d/project/addons/terrain_3d/bin/libterrain.web.release.wasm32.wasm",
+      "sha256": "23da1c04ab9b48b07452340525e3c76d595c3de11a8c10510cc19d8046d95b26"
+    },
+    {
+      "bytes": 12881,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/acrylic1.exr",
+      "sha256": "05a2540c03a8ef04d52cfcf660db5b46c62b3a329ab4f235561675bbfcefc26f"
+    },
+    {
+      "bytes": 214156,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/circle0.exr",
+      "sha256": "f6a042bd1355b2dfdc18876953ff3e4e89422fa4dea2c4a0cc05b66dbcc80162"
+    },
+    {
+      "bytes": 11022,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/circle1.exr",
+      "sha256": "66ce2dd510af03434f3c13dee1cacbfd37011f7296206db40efad5dc86585142"
+    },
+    {
+      "bytes": 17380,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/circle2.exr",
+      "sha256": "0d4aacba5f570e9d3d7109c39fc09ecd52733e61cf97d582e32ec87264a3363e"
+    },
+    {
+      "bytes": 10895,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/circle3.exr",
+      "sha256": "b29884867c994fc54b025681da37512a97699f3916dbcc08f96d2db21e0f18a2"
+    },
+    {
+      "bytes": 8906,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/circle4.exr",
+      "sha256": "0d474e34e381e91f56477424838b8e66387c9ad0bd1c6295db7a09df0e71eaa1"
+    },
+    {
+      "bytes": 198208,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/hill1.exr",
+      "sha256": "9850fadcb9f3a56de2a01574756986f50cce2a0a579b82d18d4ce0b5c1c440f1"
+    },
+    {
+      "bytes": 266517,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/hill2.exr",
+      "sha256": "cba0712c8c1251fb94e36d2cfbab0396448cec0201621325e95b7ed2d2cf97e6"
+    },
+    {
+      "bytes": 266517,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/mountain1.exr",
+      "sha256": "b746b6bb473589610ce153266914e39e5a2986bb13a0eb7ed8db58d26c5ff98c"
+    },
+    {
+      "bytes": 266517,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/mountain2.exr",
+      "sha256": "0e0f9c7191ab3c08a4de0bd8a62d08651338f01ccd83e09c88f32871168fa19f"
+    },
+    {
+      "bytes": 266517,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/mountain3.exr",
+      "sha256": "5a4c4f72c9df1ec6484fd64d90635ca0354a4d91f1a2db06fe8ac79c4d5cb4ba"
+    },
+    {
+      "bytes": 181277,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/mountain4.exr",
+      "sha256": "00e31f2e5a58e2e88c3a55fb0d1e9e8ce79a98add735eab6aafda8969765e698"
+    },
+    {
+      "bytes": 25254,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/peak1.exr",
+      "sha256": "943c29c39f2e1a0202b54339398334e81cff2b74e40c5e36d5c60a3abfa1c658"
+    },
+    {
+      "bytes": 280242,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/peak2.exr",
+      "sha256": "5fd4bf3d24f99626b8b283b0add562b066064530d62f1bd2d08d55ed3775331d"
+    },
+    {
+      "bytes": 290239,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/peak3.exr",
+      "sha256": "c09c65d5902ec7aef0fe5f60bf1bb5cc460837517b4ad528699c9d0f09d7b998"
+    },
+    {
+      "bytes": 82316,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/ring1.exr",
+      "sha256": "fc87e2fa34ba49640272a5a4f7002b13cb2351a55b5b903f5ae513696cce795e"
+    },
+    {
+      "bytes": 10348,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/smoke.exr",
+      "sha256": "4197b317e862839b0688ed27789328df7cdaa4bae05c11c41679fc585f84d0d9"
+    },
+    {
+      "bytes": 2321,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/square1.exr",
+      "sha256": "ea8219b978a807d3fc5bc68772f973416754df9fa920cde65eaa10cfc2a45b0a"
+    },
+    {
+      "bytes": 2973,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/square2.exr",
+      "sha256": "112e11aa860dff8db76402b17b8d576c69b08dc0718c5dda0e658185c0c1f344"
+    },
+    {
+      "bytes": 4264,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/square3.exr",
+      "sha256": "791c4ca40043d820e12ffabb4b462d88a934f4fda593e7ffb89d7f1286c2af9b"
+    },
+    {
+      "bytes": 7498,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/square4.exr",
+      "sha256": "e427e18e1481260f745e03f2c16710233e2d3e7873bf400899d5000bec522890"
+    },
+    {
+      "bytes": 11564,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/square5.exr",
+      "sha256": "f834ffef340ae67255680d8b3343d657b93b260e8f0ef48136ae96937f2833f1"
+    },
+    {
+      "bytes": 1581369,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/stones.exr",
+      "sha256": "6689002b57220fdce93842d0f9d49596cacf40004ad261efcd4e3d4cd6a4f681"
+    },
+    {
+      "bytes": 303941,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/terrain1.exr",
+      "sha256": "c195ece6608eb19d7a02f9360ec6345f0b9af131dfb52d157f05e976e567f4d0"
+    },
+    {
+      "bytes": 339271,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/terrain2.exr",
+      "sha256": "a4d9228ab669f94192e38fe9307362dd11bafa99e0c801ad9dbab255dfd899b1"
+    },
+    {
+      "bytes": 314338,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/terrain3.exr",
+      "sha256": "dc1f04426e455e3825ed250fb177f980a88a19380f158b24f44d757a500b63cb"
+    },
+    {
+      "bytes": 341265,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/terrain4.exr",
+      "sha256": "04a6d75dbe86c3438f96b89eafbd19503cde0591c77f9aa46d45c6325f7346a2"
+    },
+    {
+      "bytes": 302296,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/terrain5.exr",
+      "sha256": "ac9ce32027bbff7d0b06c5a30776d868630cb8d89e85ea567cf1b7e0bf5416af"
+    },
+    {
+      "bytes": 236240,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/terrain6.exr",
+      "sha256": "b914bea697b9004876667490cad22f9998fcdc12aa683ebdf1a984f6ab571ed3"
+    },
+    {
+      "bytes": 17201,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/texture1.exr",
+      "sha256": "fd463b107493266c747184e85714175a0e6dea2fcb88d846f176b8b17970551a"
+    },
+    {
+      "bytes": 872793,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/texture2.exr",
+      "sha256": "d961ee2ac4f1c7c4d4571a0fb750470d5fe4898b8746135b62d8917e9948c9f4"
+    },
+    {
+      "bytes": 1581369,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/texture3.exr",
+      "sha256": "274b864866585b80107cce2e845192b8d0a6ba997e152b961335e0fd6d18c292"
+    },
+    {
+      "bytes": 1581369,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/texture4.exr",
+      "sha256": "2d89409bc0d85a5896ff80187a8879133319a189b5228fc0a59fbec3d51b1ffb"
+    },
+    {
+      "bytes": 1581369,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/texture5.exr",
+      "sha256": "81d216c7d40edfa9b9995d0225ce9b8194d31073dc2e3bf41e70a6f60198d9b2"
+    },
+    {
+      "bytes": 12597,
+      "path": "editors/terrain3d/project/addons/terrain_3d/brushes/vegetation1.exr",
+      "sha256": "cbc1c1ea247327208a57407dc848284199d56cf473f4ab5fde9bf01c5e24bcf3"
+    },
+    {
+      "bytes": 1832,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/3rd_party/import_sgt.gd",
+      "sha256": "bda41456d114b977482e159f9ceedcc8a9a3d5112d6c4a1e4538bdadd2890296"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/3rd_party/import_sgt.gd.uid",
+      "sha256": "4778b6e529a7287c6d2413babb53f266b8b5e7a8d1505e19dcc4ac51f9507cb1"
+    },
+    {
+      "bytes": 4857,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/3rd_party/project_on_terrain3d.gd",
+      "sha256": "e33ad2d4d1764b9d2c975c64ce956b999b11adc3efced951ce18f7bb788c844e"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/3rd_party/project_on_terrain3d.gd.uid",
+      "sha256": "2d217fa0eaf770161d9f20e1686155c92da959576dd6e286b574b7f9d793bbf6"
+    },
+    {
+      "bytes": 1004,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/Terrain3DParticles.tscn",
+      "sha256": "6b10c42168b1e37f14ac25aa5883a9da8253bcdafe2d78c961f031c13532ccf5"
+    },
+    {
+      "bytes": 2455,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/grass.gdshader",
+      "sha256": "5aed0f7cc91ee2eda9ff088bad850cfe0fced8a16e06a257d9b0ab5d79560b2e"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/grass.gdshader.uid",
+      "sha256": "b383940d0778887f47b43a1e47ce478c1e49de71aa6399cb83dad2cbdf4d15a7"
+    },
+    {
+      "bytes": 334,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/grass_material.tres",
+      "sha256": "01d21c33e794e16de4d0c29df85d90a6139c1f4baadda217a43c245e03299e74"
+    },
+    {
+      "bytes": 10280,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/particles.gdshader",
+      "sha256": "2855ec4e3dfd44df9bcd735ea7a34860560e0c851536f3caec8b75f8ed8708fb"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/particles.gdshader.uid",
+      "sha256": "fa094b4944c1921fd5fe69cde54e5983c23203a6c4bf9de51944ece2285548fb"
+    },
+    {
+      "bytes": 11210,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/process_material.tres",
+      "sha256": "1212883321f6e6a72cc656d8b06582a22130a021db10ca561c13dec005e962b2"
+    },
+    {
+      "bytes": 7966,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/terrain_3D_particles.gd",
+      "sha256": "0ab9ae1a5f66aaafa15faca37dc05bd8ccffe66ed039ada71f2582208971e63c"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/particle_example/terrain_3D_particles.gd.uid",
+      "sha256": "c99f179da0c7e0f408ca3ad3c7481a97937923b81389c308d38989d6c6f4004e"
+    },
+    {
+      "bytes": 2139,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/shaders/hex_grid.gdshaderinc",
+      "sha256": "16d2920c3073220e7ed77f96a781fd0a61479e3114c0c96ca2ca89676989dc5e"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/shaders/hex_grid.gdshaderinc.uid",
+      "sha256": "5efd20c4f63f2e59da34d7ea9ec8a2d1a124865eec092ff9d4b70997c190b502"
+    },
+    {
+      "bytes": 15416,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/shaders/lightweight.gdshader",
+      "sha256": "0920913bf382c3320a5e8c729d424966ba0d5f487165e71052307c044bfb963b"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/shaders/lightweight.gdshader.uid",
+      "sha256": "ba40122a3cbea26ef238eb33c2e32e693c90ce8758266a82879a77a2fef9dd33"
+    },
+    {
+      "bytes": 8856,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/shaders/minimum.gdshader",
+      "sha256": "d00dd00050ff35ae20386295243373b48908865e1ea75d8f9f932988683881d6"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/addons/terrain_3d/extras/shaders/minimum.gdshader.uid",
+      "sha256": "d1f1af1c041d7b2154d5f8e49a05b93a338077482c6a536ff9eb64d571f1dddc"
+    },
+    {
+      "bytes": 6187,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/autoshader.svg",
+      "sha256": "a23ff96b29264580ec351f6fab02093cb0c233b993d8b03ba3c5629ae60fa7bd"
+    },
+    {
+      "bytes": 1082,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/autoshader.svg.import",
+      "sha256": "0fc62d327bc79042af6b66702e25c5d5de0f7206c40e99645c3f1d8cdfd7f352"
+    },
+    {
+      "bytes": 5914,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/color_paint.svg",
+      "sha256": "6c6b2bc21449022727eee41d9e154da080eb088203c2c856d505f7f9808c03fa"
+    },
+    {
+      "bytes": 1084,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/color_paint.svg.import",
+      "sha256": "06cf8e85cda12449b065ef359a065dff72c4b7ee4667bc50ba0e3de5e13e179c"
+    },
+    {
+      "bytes": 3210,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_add.svg",
+      "sha256": "b0a2ef9807154bbd703eb7f4883dc1f1d9fc303dfed785b53178d5e311cee51e"
+    },
+    {
+      "bytes": 1082,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_add.svg.import",
+      "sha256": "a342ebc322a21d47f6d055fb054be61ab496a515540faa88191c609219d30f3d"
+    },
+    {
+      "bytes": 6477,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_div.svg",
+      "sha256": "2905464b91c6045617da5d4e2922c31594beb07a1ab9f0061c5dac1a0f506207"
+    },
+    {
+      "bytes": 1082,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_div.svg.import",
+      "sha256": "05baf752be5a631c272010ed39ad1d6ad75bee066d7c0b50b783240d1c47a142"
+    },
+    {
+      "bytes": 3228,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_flat.svg",
+      "sha256": "0b878f2c7704f7ce7200bd1bfe0f5c7df27e53e824ef24b9bd05ab84ece9c8b2"
+    },
+    {
+      "bytes": 1085,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_flat.svg.import",
+      "sha256": "8c63a5ebb28ed2c23d1bc1ae49d1773df7f3648ad861150179f005ed2192ca0e"
+    },
+    {
+      "bytes": 6628,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_mul.svg",
+      "sha256": "1b0781838d88e7584444c82403864f26239d475d81459488ef4a201eaacc3777"
+    },
+    {
+      "bytes": 1082,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_mul.svg.import",
+      "sha256": "9478c41b91267390382431f9ead3c52975ac2d88686b4f84f9401a7405284513"
+    },
+    {
+      "bytes": 3204,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_slope.svg",
+      "sha256": "0940ecc3c9a840c36cac610819ce50bf5e8b86689dbefafa1b44df8182c836c6"
+    },
+    {
+      "bytes": 1087,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_slope.svg.import",
+      "sha256": "29e71cb880b3e19d2eb0b4ece2bc26ef92d572822d0f6a308af9479cf7750761"
+    },
+    {
+      "bytes": 1716,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_smooth.svg",
+      "sha256": "3702b62c1d01d883c0ef46e521d2093988ba427e04eebe2a026cc5e3473d5a67"
+    },
+    {
+      "bytes": 1091,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_smooth.svg.import",
+      "sha256": "38bd67c586886131a08faad423bbc2d19dcbd248d29c80c1a1eb003c2febde44"
+    },
+    {
+      "bytes": 3242,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_sub.svg",
+      "sha256": "314ad73fb58adfeaa69bd23a11ea269628169a1c4353d8ff77a880439c633f02"
+    },
+    {
+      "bytes": 1081,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/height_sub.svg.import",
+      "sha256": "4cf576e1db6e64682a6648a1785a1004d1ed1fa3f66f882f02725951c59383ce"
+    },
+    {
+      "bytes": 1105,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/holes.svg",
+      "sha256": "e5d9d165a8e6c23d3f4382749fb9cacad775d47ae3ad7dea2986010c6cbe2063"
+    },
+    {
+      "bytes": 1067,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/holes.svg.import",
+      "sha256": "5108ed40aa3c1de99851c0f09945676c8edf9841d66a4cf9f7a142f52e26b1f2"
+    },
+    {
+      "bytes": 3639,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/layers.svg",
+      "sha256": "b015ca7387460feefb35e533b28c2bf92b2ff310a79ad23f940bc6b3ee759723"
+    },
+    {
+      "bytes": 1070,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/layers.svg.import",
+      "sha256": "f39f860f9480617c8c4f807070e7611d0a097f7afb7e6429c4944f1514d93e62"
+    },
+    {
+      "bytes": 1785,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/multimesh.svg",
+      "sha256": "9380807f1df0bc015659de440e9aaa3b600150540a8abffd8e403392e4ad11a2"
+    },
+    {
+      "bytes": 1079,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/multimesh.svg.import",
+      "sha256": "5029fd8fef9b7a1ea2988cee487acc00b1d6a8ec6bb4a551c2ebd1b9ced01012"
+    },
+    {
+      "bytes": 3003,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/navigation.svg",
+      "sha256": "7f7aa860f52a50621e004f4e45b2e0fcd90a81c2ba196b7b19460a20876dccd2"
+    },
+    {
+      "bytes": 1081,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/navigation.svg.import",
+      "sha256": "dab6f8629e69ef8a5f91252942eae397cf5867f93b8dfb094dbbcb1aa204b5fe"
+    },
+    {
+      "bytes": 1580,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/picker_checked.svg",
+      "sha256": "d49df2ea5fed39eb09fb98c91cc31905d97911d470f3b32ccdb65d284123acc4"
+    },
+    {
+      "bytes": 1094,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/picker_checked.svg.import",
+      "sha256": "43f449abdf522b868b918a3afb7d2d4edf70be6c0ae528937f87007d9525ddb3"
+    },
+    {
+      "bytes": 3637,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/region_add.svg",
+      "sha256": "f4ec558e96a4e0c1592da11d380e638c59b38e14e9b50947ff7bba3b336d2e7f"
+    },
+    {
+      "bytes": 1082,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/region_add.svg.import",
+      "sha256": "3b8c207e64fe606b3566a5d30184d0fb8686615202c246930a7eebec58198c89"
+    },
+    {
+      "bytes": 3704,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/region_remove.svg",
+      "sha256": "c2a63e3f25e25a86b5f7d8098280f8f402ce69071684c5599e9a4367b274a953"
+    },
+    {
+      "bytes": 1091,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/region_remove.svg.import",
+      "sha256": "13e4f38bf41d5b8dc2d725abe46af3fa61aba6b46fa0f05af834b795ef329baa"
+    },
+    {
+      "bytes": 4860,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/terrain3d.svg",
+      "sha256": "8b96b39a96324435aa2e405ad12ace94f0b801e2658bb455280cdd85ca5cce54"
+    },
+    {
+      "bytes": 1079,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/terrain3d.svg.import",
+      "sha256": "1f2859d825f27f7df6774feaba7bc81db10df4a5e803d40aa20930b103f5f96e"
+    },
+    {
+      "bytes": 5559,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/texture_paint.svg",
+      "sha256": "527002ef714d9ad883525e329c654dcab744c47463c8e0fe7e2b9d51c21b7aaa"
+    },
+    {
+      "bytes": 1091,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/texture_paint.svg.import",
+      "sha256": "188abc3c149e09445e67621f17b2814cee6a6825c5b2c6a4bb276782e632a67c"
+    },
+    {
+      "bytes": 5832,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/texture_spray.svg",
+      "sha256": "32156eb91883fa1e7bb1858b205aaa42a413c0c200b3c0bc474f9ebf232a3d5f"
+    },
+    {
+      "bytes": 1090,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/texture_spray.svg.import",
+      "sha256": "53e761e145f2a8b909aeacfba3618f9c94b6db0cc12dab9b61ecf61d02cd0b30"
+    },
+    {
+      "bytes": 4666,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/wetness.svg",
+      "sha256": "c396780c33d5293d8ced909d74c6a3041ce1c60f9d4297b62ad019cf4bd0c07a"
+    },
+    {
+      "bytes": 1073,
+      "path": "editors/terrain3d/project/addons/terrain_3d/icons/wetness.svg.import",
+      "sha256": "15052c470f7ffc381437eaef61d4786a0976d3bf0cfd8fb7269164b0c1ef6a06"
+    },
+    {
+      "bytes": 789,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/bake_lod_dialog.gd",
+      "sha256": "8c69c53c2d32bc50a6e6a10cbc74b6acf442a3bc5470aa27efe76def094a6a08"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/bake_lod_dialog.gd.uid",
+      "sha256": "8054b9c583646a21ed65e710d0a9f138ccbd18f2730dc0816acafd31d82851bc"
+    },
+    {
+      "bytes": 1345,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/bake_lod_dialog.tscn",
+      "sha256": "8e76009fe0641162885e2117daadf453292f73d89d8fcee72b325e41b58ded0a"
+    },
+    {
+      "bytes": 15975,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/baker.gd",
+      "sha256": "c41b3de78f2f2f4c32505c3cd74cd3634d6c4e854e2dbb4296e140290ad43a28"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/baker.gd.uid",
+      "sha256": "b4a6db7cb4bee5535f951e4e86735cf1a62a8e080af0466a5c8b60cace0d2566"
+    },
+    {
+      "bytes": 18460,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/channel_packer.gd",
+      "sha256": "1bae51790cd933718aad8d1a6bd4d31481a59b6f22664b4a54e064ae01278389"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/channel_packer.gd.uid",
+      "sha256": "e1f78e36544bf46ae5177bee97423c40cc1ccb2588fab40e37248a66a6af3fbb"
+    },
+    {
+      "bytes": 23513,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/channel_packer.tscn",
+      "sha256": "e0e8bcb9cd6c122904904904a6753104dd7526ec2d7140d423643fb54adae5fd"
+    },
+    {
+      "bytes": 508,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/channel_packer_dragdrop.gd",
+      "sha256": "ce46d0ffd1ff37727a591164e78bd955f560073c5b040d872bee2f119780f00f"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/channel_packer_dragdrop.gd.uid",
+      "sha256": "ba001fe32408cc4cab43450b0c943d04f4b37f144ff7b67d780021314ee8eb67"
+    },
+    {
+      "bytes": 612,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/channel_packer_import_template.txt",
+      "sha256": "6c1dd411d2651d0986c4f89f3a83451056a776727426bf70399f535e0d8d8ed3"
+    },
+    {
+      "bytes": 2736,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/directory_setup.gd",
+      "sha256": "f01c333bf27175645e153b339b5f15c59ba5bbad9a5ccbc9c1ad496649271597"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/directory_setup.gd.uid",
+      "sha256": "ef3c0422c91c99eb97942352b1782411c9015d0c6440dce563b1574a6290659a"
+    },
+    {
+      "bytes": 1678,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/directory_setup.tscn",
+      "sha256": "e0cf59599c8b878da27bd10bab9b68eef214943b7aa566a6319b98d42c20eaaa"
+    },
+    {
+      "bytes": 3230,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/terrain_menu.gd",
+      "sha256": "60a77d2c3e6d99e4e5a0af6299fe2596b9a49eaeede374f9dfff031f2ac6b076"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/addons/terrain_3d/menu/terrain_menu.gd.uid",
+      "sha256": "20982cb2571cfe22d3ec548592b398cea8caf0dc5ea986db43bfbd69a716c34a"
+    },
+    {
+      "bytes": 185,
+      "path": "editors/terrain3d/project/addons/terrain_3d/plugin.cfg",
+      "sha256": "4abed84e508aaa19e21e70778b3e3bb58f61c4080444005981f9911e71ebd305"
+    },
+    {
+      "bytes": 28846,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/asset_dock.gd",
+      "sha256": "14ddb533589c8b57e39b5f177f45e6cb1dd579403d17170ed4858f45b229d699"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/asset_dock.gd.uid",
+      "sha256": "7b58d4e189212c701a6f597186b699a218976c0a77e3a59db94ff824ad86f7b1"
+    },
+    {
+      "bytes": 2316,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/asset_dock.tscn",
+      "sha256": "74a7e013e81f601875b0a7927cf959324cf42b9bfc1c7c672bf5291a450ba283"
+    },
+    {
+      "bytes": 27999,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/asset_dock_45.gd",
+      "sha256": "0840b3335681f85c1f515167cfafcc7759feacd2651f8054b13f2c31c940cddf"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/asset_dock_45.gd.uid",
+      "sha256": "a251a9bb156245a0b4c85304c53668aa8a1f0d71320e2dc4a3108f301ffe5a33"
+    },
+    {
+      "bytes": 2445,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/asset_dock_45.tscn",
+      "sha256": "142ff3778df0ee82edab44dd60aba8fd2d899e0b6ec6e387ab229d3a41e47485"
+    },
+    {
+      "bytes": 4363,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/double_slider.gd",
+      "sha256": "888c8382c719cc89fedb1c159d9272bb613cd4737b17140e214a6834c56df6ee"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/double_slider.gd.uid",
+      "sha256": "a38da4a5d395684b054714ebc87ceb16f0134a60f7de18fa8a1607e238dfa9a4"
+    },
+    {
+      "bytes": 15949,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/editor_plugin.gd",
+      "sha256": "d8e2872e876e9442b6d5ccb2ea86803ecc5b61675e6a4262860330ddc75d008f"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/editor_plugin.gd.uid",
+      "sha256": "9f0d75d00214d6c68b22b3d8f29670beb76f5a6abeafd15d85ba417245f0ca71"
+    },
+    {
+      "bytes": 1518,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/gradient_operation_builder.gd",
+      "sha256": "4e722036ed2392ab7394415c3530ee7769159985d17754d6a50331c15c132f02"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/gradient_operation_builder.gd.uid",
+      "sha256": "5e7f632d22451780dac4337816d3c75c8ebfa5c0f75ee5c827d15639aea4f836"
+    },
+    {
+      "bytes": 1942,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/multi_picker.gd",
+      "sha256": "583b29825a772c31e3ffc792cc36d93429e7b23464a70f099f20f7f1fd7e4ff9"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/multi_picker.gd.uid",
+      "sha256": "c508639f080db311bbf84c8ddee98f11a1bb7596a040e96c74dc1972657d1a31"
+    },
+    {
+      "bytes": 528,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/operation_builder.gd",
+      "sha256": "0588a355d02b84805f75bb7febd113b2114e66e367fdc92b4804e93e6c8690c3"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/operation_builder.gd.uid",
+      "sha256": "33b950e164f3750d2285a1528f086f40f0770f7670ba168a47d85da64a7c2dd6"
+    },
+    {
+      "bytes": 2249,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/region_gizmo.gd",
+      "sha256": "465ee2431029b1d422f3621bc346ca5ce38a638143dc8503c4b76a3aeddb2a52"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/region_gizmo.gd.uid",
+      "sha256": "bb5d8ce1f399f344b85c17d475827ffd52c9b7045e408f0f4465874c63994e49"
+    },
+    {
+      "bytes": 27173,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/tool_settings.gd",
+      "sha256": "1bb71acc1ba77aaab910cf0aee2e9d2be4f66eeff311686a7737afb64d76e398"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/tool_settings.gd.uid",
+      "sha256": "d2269da3189625627d0debdad4d32cd01e13e56d265099d03f71175f4055c22e"
+    },
+    {
+      "bytes": 6904,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/toolbar.gd",
+      "sha256": "ccf59f9e886763ed0c6c418ae783bfc5c299ee761e7881ede3bcc6729840381b"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/toolbar.gd.uid",
+      "sha256": "76ecc703c788f38ee8a3bfb320762c6ab662effaa328baae201f22d0551917bf"
+    },
+    {
+      "bytes": 21451,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/ui.gd",
+      "sha256": "f3680be0162a01e893faf938f72cb0c0277617d029680f640e9920eed4d24c32"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/src/ui.gd.uid",
+      "sha256": "9faeb441b436c528d524b141c0d3c273e0a068d524b55d3e3a74b5c0eceab7cf"
+    },
+    {
+      "bytes": 1501,
+      "path": "editors/terrain3d/project/addons/terrain_3d/terrain.gdextension",
+      "sha256": "93d2f783ff7a62733ce6176746725a07750321b83bfb59feabf8f28ba76829db"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/terrain.gdextension.uid",
+      "sha256": "1d0ea8752c673b1cc4212ce7eddea5b2c8f4f2c6fc80bbf523377485d6dd363a"
+    },
+    {
+      "bytes": 3730,
+      "path": "editors/terrain3d/project/addons/terrain_3d/tools/importer.gd",
+      "sha256": "0ed388e613e5e8ef3c8f5ef6592fef77cfba95a5999f6cfa4134e4857bd7a30c"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/tools/importer.gd.uid",
+      "sha256": "ff18e81083bea723ccddb164c08b13d6b0b918f086d5a0e080a72653adf24f13"
+    },
+    {
+      "bytes": 1970,
+      "path": "editors/terrain3d/project/addons/terrain_3d/tools/importer.tscn",
+      "sha256": "c357e98de6472917e5b047fd5c7aeefb3c8ea9a141ba6c9cb1e637ac8024ee1e"
+    },
+    {
+      "bytes": 1787,
+      "path": "editors/terrain3d/project/addons/terrain_3d/tools/region_mover.gd",
+      "sha256": "fb3f7b59abb4ced14f9b948f3f85debfb708cb54af045042a6d85cbd72ec6f7a"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/tools/region_mover.gd.uid",
+      "sha256": "40cade8b3cee60ed48254ba9e73eabdd599408264d68194e886f7e53ed7dcb9d"
+    },
+    {
+      "bytes": 6725,
+      "path": "editors/terrain3d/project/addons/terrain_3d/utils/terrain_3d_objects.gd",
+      "sha256": "9742a9583676f3ca6691555b554cf6e91d55a1f09ba24e35542d1517dffd42f8"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/utils/terrain_3d_objects.gd.uid",
+      "sha256": "da82247c282269dae5cb783fafc4b6c918b3f47a63889cdb8e724bc17183de91"
+    },
+    {
+      "bytes": 363,
+      "path": "editors/terrain3d/project/addons/terrain_3d/utils/transform_changed_notifier.gd",
+      "sha256": "ee5e098a23e116fe2f1fcfbc663456038b5f3c13921669029a89c2a0f18f9b23"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/addons/terrain_3d/utils/transform_changed_notifier.gd.uid",
+      "sha256": "dc17da28dd55d788a1bacb727a5cfccad7ecb39708b547e268886041c7a28376"
+    },
+    {
+      "bytes": 627,
+      "path": "editors/terrain3d/project/archive_hash_tests.gd",
+      "sha256": "4e38bf40807a5676679d1597b2dc06f277de08dfc2d7a5f7264d4e897fc377ed"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/archive_hash_tests.gd.uid",
+      "sha256": "686abe7a4b2292c0db421c9a461cb021f69ad9a1393740e67afd2148ff934a35"
+    },
+    {
+      "bytes": 87845,
+      "path": "editors/terrain3d/project/assets/normal_0.res",
+      "sha256": "8c32f1c161a75ee81ce60d3ee06fa005db90c4983220859572a3f4965194c353"
+    },
+    {
+      "bytes": 87845,
+      "path": "editors/terrain3d/project/assets/normal_1.res",
+      "sha256": "8f72a22d939f963ca0c4803167880cdd23db7c6091adb45978574e54ea7751b0"
+    },
+    {
+      "bytes": 87845,
+      "path": "editors/terrain3d/project/assets/normal_2.res",
+      "sha256": "fdbf22a2c65a315174c1413228e81f6837a158e3eadd6fe4d759311d05659cd1"
+    },
+    {
+      "bytes": 438,
+      "path": "editors/terrain3d/project/assets/rock.tscn",
+      "sha256": "e00ad808b313de720f1edfec69b619d6a10589a34662e0402836af90909e919b"
+    },
+    {
+      "bytes": 87846,
+      "path": "editors/terrain3d/project/assets/surface_0.res",
+      "sha256": "e7da1f8718b71689af5a124025e78d8a4ae2e9291a6f53ac162e3d00060918db"
+    },
+    {
+      "bytes": 87846,
+      "path": "editors/terrain3d/project/assets/surface_1.res",
+      "sha256": "4071125de8495b41785b6593d9b83a2309740f308ef6443fadcbdb152c4b7f1c"
+    },
+    {
+      "bytes": 87846,
+      "path": "editors/terrain3d/project/assets/surface_2.res",
+      "sha256": "568e2abb845fc8a4ed8a953bc7d976e487b2d7a0778a62ec1cc411a89eb697e7"
+    },
+    {
+      "bytes": 2528815,
+      "path": "editors/terrain3d/project/assets/terrain_assets.tres",
+      "sha256": "3941b13d037e7968712f611896f3b10e5f1ab1facfb7860b5183b3b9b633371f"
+    },
+    {
+      "bytes": 1299,
+      "path": "editors/terrain3d/project/assets/terrain_material.tres",
+      "sha256": "34d5e0c32c41492b51834e765abe717cc3aaee67576c8f7d0a396910032fce73"
+    },
+    {
+      "bytes": 5743,
+      "path": "editors/terrain3d/project/generate.gd",
+      "sha256": "8957428a03f8f1653cb4eb6aeeb1c9ffbe201722e0cfed95ffd14a50e3be4ea9"
+    },
+    {
+      "bytes": 19,
+      "path": "editors/terrain3d/project/generate.gd.uid",
+      "sha256": "fd6ee587444097ee13bd30bd999c2faf0970dad14c9f939c47c7d970c9e35ab0"
+    },
+    {
+      "bytes": 5432,
+      "path": "editors/terrain3d/project/install_terrain3d.py",
+      "sha256": "f272fda532ab0298f437d4f64a22c049dcdaa7aa3f42f21c21e759d586211e26"
+    },
+    {
+      "bytes": 2396,
+      "path": "editors/terrain3d/project/instance_fingerprint_tests.gd",
+      "sha256": "8b42eb1bc10ac6ebf16d2f70c3b20c0a2fa55050f8a8f6116a2b5599960432f5"
+    },
+    {
+      "bytes": 20,
+      "path": "editors/terrain3d/project/instance_fingerprint_tests.gd.uid",
+      "sha256": "39693c46ff18ed99c1953d08786be3aafb6b30105e11435be802fd88566b94d2"
+    },
+    {
+      "bytes": 0,
+      "path": "editors/terrain3d/project/native-preload/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 562,
+      "path": "editors/terrain3d/project/project.godot",
+      "sha256": "5a0acdd9ff5ea19d797ef953ce346ffa58af2de45932390792edc4086d9851f7"
+    },
+    {
+      "bytes": 2222,
+      "path": "editors/terrain3d/project/setup_native.py",
+      "sha256": "11ba9ae1e4ca78729e4aacb03d835001e813d2c8f9aea8073fadebe5089ef2ab"
+    },
+    {
+      "bytes": 86,
+      "path": "editors/terrain3d/project/studio-project.json",
+      "sha256": "0cc23c175146d4f7e5a89d01d6ea34de1369b51b9c09f9f2ae0257294b6e3de2"
+    },
+    {
+      "bytes": 62896,
+      "path": "editors/terrain3d/project/terrain/terrain3d-01-01.res",
+      "sha256": "f43eacbfe30ef5738bbd0dae914c760a3af9b5aea65a7733bdd5aea2a4dc6f4d"
+    },
+    {
+      "bytes": 62912,
+      "path": "editors/terrain3d/project/terrain/terrain3d-01_00.res",
+      "sha256": "06b87328f772bab7640248be1ca72107d438bbb37bfa2a97a4c674af738b400c"
+    },
+    {
+      "bytes": 62808,
+      "path": "editors/terrain3d/project/terrain/terrain3d_00-01.res",
+      "sha256": "7257ad499348776d92a08ffb556cfb8aa1a0fb850251955601d036621e99f7e8"
+    },
+    {
+      "bytes": 62832,
+      "path": "editors/terrain3d/project/terrain/terrain3d_00_00.res",
+      "sha256": "8c8fcf43c410580e9fc8847388d6bd0ed2731e23d606935b92b51fa7ac39ed7b"
+    },
+    {
+      "bytes": 2531298,
+      "path": "editors/terrain3d/project/world.tscn",
+      "sha256": "a5516f52d66245ee2154f2e2c52333d8b65ddfb488474af2472cb078d09acbef"
+    },
+    {
+      "bytes": 5868,
+      "path": "editors/terrain3d/service.worker.js",
+      "sha256": "cbc0701ab9953a1b89c9eb24567f14b0a3f4fd8e35c6a1c3072b47f326d1c6a8"
+    },
+    {
+      "bytes": 480,
+      "path": "editors/terrain3d/terrain-editor-build.json",
+      "sha256": "c930266cb34cd499763dec333c29b85eac310a72b693823fee1f3c1790a23e98"
+    },
+    {
+      "bytes": 134,
+      "path": "full-editor-host.js",
+      "sha256": "6a2ebc701c4b8f553cc6ba33bce45659c00ff7a946c334d64fff2941b51b0eb5"
     },
     {
       "bytes": 11944,
@@ -449,9 +1569,9 @@
       "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
     },
     {
-      "bytes": 5525,
+      "bytes": 5814,
       "path": "index.html",
-      "sha256": "fb5326dd8381d583790a4f3ce3db7d3e2a68ab5f7d23cb55884026c54c9e0c8e"
+      "sha256": "9bf78bc253564d5524c484c9248852c8fc5ea5e2fa9cdcbf2a8f4cb97a437ce3"
     },
     {
       "bytes": 5700,
@@ -464,9 +1584,9 @@
       "sha256": "631bbecee5e5136b5f29ed7dedb31a5d022d65da4b639b6e52a48d0c5e3d3154"
     },
     {
-      "bytes": 310536,
+      "bytes": 393844,
       "path": "index.pck",
-      "sha256": "307bb390e8303d739932a578a4f64b7337002f11abadb3a9c0d491534a0ff354"
+      "sha256": "bffcc83e72f702553517766f163590ccce3a6a3e96277fe37651eeeb7d6bcd3e"
     },
     {
       "bytes": 21443,
@@ -499,20 +1619,25 @@
       "sha256": "9fee4397a806567f476eb2c4e7017c0e415ea8af03aab48021378e82cf64ac63"
     },
     {
-      "bytes": 15939,
+      "bytes": 56836,
       "path": "package.json",
-      "sha256": "49fe1e1b6d72b88759b9d27959322eb7d4d9c3d5169576f267cffa7e9154a560"
+      "sha256": "1cd80c674ae38744354d2c088771b3badf61edb99c0396096fb7bdac35ef615f"
+    },
+    {
+      "bytes": 293,
+      "path": "studio-full-editor.json",
+      "sha256": "5273983b05645b1417d4b0b456c18721a52b8dfc6c971550f87e8af8ee3d01c1"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 572951202,
-  "release_asset_name": "TheKeepers-v0.1.0-demo.16-suite-web.zip",
-  "release_asset_size": 27859444,
-  "release_id": 391600176,
-  "release_tag": "v0.1.0-demo.16",
+  "release_asset_id": 577100058,
+  "release_asset_name": "TheKeepers-v0.1.0-demo.26-suite-web.zip",
+  "release_asset_size": 90772549,
+  "release_id": 392482280,
+  "release_tag": "v0.1.0-demo.26",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 35365187093,
+  "run_id": 35520601269,
   "schema": 1,
   "site": "the-keepers-suite",
   "smoke": {
@@ -524,44 +1649,28 @@
         "query": {
           "workspace": "unit-appearance"
         },
-        "steps": [
-          {
-            "click": "#canvas"
-          }
-        ]
+        "steps": []
       },
       {
         "name": "terrain",
         "query": {
           "workspace": "terrain"
         },
-        "steps": [
-          {
-            "click": "#canvas"
-          }
-        ]
+        "steps": []
       },
       {
         "name": "design-scale",
         "query": {
           "workspace": "design-scale"
         },
-        "steps": [
-          {
-            "click": "#canvas"
-          }
-        ]
+        "steps": []
       },
       {
         "name": "capabilities",
         "query": {
           "workspace": "capabilities"
         },
-        "steps": [
-          {
-            "click": "#canvas"
-          }
-        ]
+        "steps": []
       }
     ],
     "steps": [
@@ -579,7 +1688,7 @@
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "3a810ff0821dfe21d189809d6afaecdcf42d846b",
+  "source_sha": "487bdb567c40bf4c65b10a54ca79b2d8951bc023",
   "suspended": false,
-  "watermark": "3a810ff0821dfe21d189809d6afaecdcf42d846b"
+  "watermark": "487bdb567c40bf4c65b10a54ca79b2d8951bc023"
 }

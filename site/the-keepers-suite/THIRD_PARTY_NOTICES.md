@@ -17,4 +17,4 @@ The game's own Apache 2.0 LICENSE and NOTICE accompany the export. This file pre
 
 ## Studio authoring dependencies
 
-Terrain3D 1.0.2 (MIT): legal/TERRAIN3D_LICENSE.txt. Blockbench is a separately bundled GPL-3.0-or-later editor: editors/blockbench/LICENSE.MD and SOURCES.md. Its exact corresponding source and integration build instructions are in editors/blockbench/corresponding-source.zip.
+Terrain3D 1.0.2 (MIT): legal/TERRAIN3D_LICENSE.txt. Blockbench is a separately bundled GPL-3.0-or-later editor: editors/blockbench/LICENSE.MD and SOURCES.md. Its exact corresponding source and integration build instructions are in editors/blockbench/corresponding-source.zip. The complete Godot/Terrain3D editor retains its notices and source identities in editors/terrain3d/legal/ and editors/terrain3d/SOURCES.md.
