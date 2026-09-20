@@ -11,5 +11,5 @@ height = 1.4
 radial_segments = 12
 rings = 6
 
-[node name="Rock_LOD0" type="MeshInstance3D" unique_id=1667179877]
+[node name="Rock_LOD0" type="MeshInstance3D" unique_id=1021621158]
 mesh = SubResource("SphereMesh_6i1sm")

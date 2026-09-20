@@ -2,10 +2,10 @@
   "schema": "keepers-suite-package/v1",
   "profile": "public-local-studio",
   "target": "suite-web",
-  "source_revision": "3e178ad0ad7096ca13e515c8e325f72684bbb10e",
-  "version": "0.1.0-demo.29",
-  "content_identity": "sha256:5def50e334479e27e2c537bea1f6aa3d56506b7874bbe9abf43f7c81d78ecc97",
-  "law_identity": "3e178ad0ad7096ca13e515c8e325f72684bbb10e",
+  "source_revision": "6365adb10c52ad52569873851cc35418c77b44e7",
+  "version": "0.1.0-demo.30",
+  "content_identity": "sha256:97486f2a64e8c1d20e94d4a1a008b4bd33f67b7a534eaaa509ee0883553e1eb7",
+  "law_identity": "6365adb10c52ad52569873851cc35418c77b44e7",
   "main_scene": "res://suite/boot.tscn",
   "files": {
     "LICENSE": {
@@ -26,7 +26,7 @@
     },
     "build.json": {
       "bytes": 388,
-      "sha256": "d623108091af85bb989d6e0353ae29d65e01915f671c125f63a462689b53371b"
+      "sha256": "2b7b06fb09833f0299e2d23755ea2a80fdfa8bc3e5e21af93630f66c3cd16990"
     },
     "editors/blockbench/LICENSE.MD": {
       "bytes": 35148,
@@ -206,7 +206,7 @@
     },
     "editors/blockbench/corresponding-source.zip": {
       "bytes": 11215504,
-      "sha256": "823d7133443b16a955b74a8782480a7e14e89b6911735a747543e5641b60624e"
+      "sha256": "00afe2b6eba47f48b481b1c60c5aa763174f7c34c98ef18cfad1b18ce9f87cb9"
     },
     "editors/blockbench/css/dialogs.css": {
       "bytes": 59937,
@@ -350,7 +350,7 @@
     },
     "editors/blockbench/upstream.json": {
       "bytes": 7840,
-      "sha256": "b0eacd6342d3673e3484bdb718ae694add7076d77bbe5e71f5ad78f8387f9dd5"
+      "sha256": "12807a7bb43f0d166c260e0ff65366fa99dc8b7f4c68605521f118b217a1a693"
     },
     "editors/terrain3d/FFLATE-LICENSE.txt": {
       "bytes": 1069,
@@ -382,7 +382,7 @@
     },
     "editors/terrain3d/full-editor-package.json": {
       "bytes": 36665,
-      "sha256": "a4bcfdd9b185c9e862d097a65bbf36974087da15fd876efaebdc424cb99c55c5"
+      "sha256": "cd652bb8ba1499bd6b1222ae27ae068f162fb8a1f362635493534e738b1eac33"
     },
     "editors/terrain3d/godot.editor.audio.position.worklet.js": {
       "bytes": 2973,
@@ -1150,7 +1150,7 @@
     },
     "editors/terrain3d/project/assets/rock.tscn": {
       "bytes": 439,
-      "sha256": "1038d543445289e3fd5248f8c8243dd41da64b45336f8cfd5d1b1562b3f4819d"
+      "sha256": "bb8ad3d7ba3450a81773b1e2474a4822491848bdcebf2f2ce5eeeadc8bcc8866"
     },
     "editors/terrain3d/project/assets/surface_0.res": {
       "bytes": 87846,
@@ -1166,7 +1166,7 @@
     },
     "editors/terrain3d/project/assets/terrain_assets.tres": {
       "bytes": 2528816,
-      "sha256": "814b2158b53aca47c957f72cc61d32b99c3c1cd6bfdbcd318d72ab8196442ba6"
+      "sha256": "85f824e1fe9b25be5097d1dfe50962ea71d0801ec501803092d99cfaaa5af0ac"
     },
     "editors/terrain3d/project/assets/terrain_material.tres": {
       "bytes": 1299,
@@ -1225,8 +1225,8 @@
       "sha256": "8c8fcf43c410580e9fc8847388d6bd0ed2731e23d606935b92b51fa7ac39ed7b"
     },
     "editors/terrain3d/project/world.tscn": {
-      "bytes": 2531302,
-      "sha256": "69765f502665645d00cfcf57454f8af069d2960a846fae3f09e746e91dcbe154"
+      "bytes": 2531300,
+      "sha256": "ed418990ca65607ae1afc777d099e9cc9284132874327b4a8982a11464084b8c"
     },
     "editors/terrain3d/project-io.js": {
       "bytes": 4872,
@@ -1234,7 +1234,7 @@
     },
     "editors/terrain3d/project-manifest.json": {
       "bytes": 44514,
-      "sha256": "6f5692ab0392de56bea0b9ea5a7003f936a968761ce0154a643d354d6ed60ab3"
+      "sha256": "0cf90947fb330f0b02f7f86cccbf2913a22915690e53ef5a6cfd2e12a45f925b"
     },
     "editors/terrain3d/service.worker.js": {
       "bytes": 5868,
@@ -1274,7 +1274,7 @@
     },
     "index.pck": {
       "bytes": 447052,
-      "sha256": "b52acc8259e423fc93bdac8995b07cd44d3dccdd5a431e0de8bbb3244f0b3f80"
+      "sha256": "34cc948f44f97418a962a29d75ff6a8feeb0a15227cc99ad36ba57a87b5a05ae"
     },
     "index.png": {
       "bytes": 21443,
@@ -1302,7 +1302,7 @@
     },
     "studio-full-editor.json": {
       "bytes": 293,
-      "sha256": "68ee7b31c930a8aa3c634895e5e437702fe22ab233dbf03ca08455b2ecbf2a70"
+      "sha256": "a011e616445890de2760358d976545211d4b3330af50fa9a2816801eae4c120a"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:cc111f88a5ed3b21a131507358495e294df83313c39929ba0e12ebc34b47ba24",
-  "digest": "c80fb78025cdceb9d322ac99c376af9e8dff35463485f06c4151b1b73456b879",
+  "artifact_digest": "sha256:d037e6ec26dd05bec91c78d276b7abee1167bd63a938a40f9bef7d57f8bd05bc",
+  "digest": "bfea563516f3ab904768054f3336964e0f97d200a691d3e550a43fecffe5876f",
   "files": [
     {
       "bytes": 11358,
@@ -26,7 +26,7 @@
     {
       "bytes": 388,
       "path": "build.json",
-      "sha256": "d623108091af85bb989d6e0353ae29d65e01915f671c125f63a462689b53371b"
+      "sha256": "2b7b06fb09833f0299e2d23755ea2a80fdfa8bc3e5e21af93630f66c3cd16990"
     },
     {
       "bytes": 35148,
@@ -251,7 +251,7 @@
     {
       "bytes": 11215504,
       "path": "editors/blockbench/corresponding-source.zip",
-      "sha256": "823d7133443b16a955b74a8782480a7e14e89b6911735a747543e5641b60624e"
+      "sha256": "00afe2b6eba47f48b481b1c60c5aa763174f7c34c98ef18cfad1b18ce9f87cb9"
     },
     {
       "bytes": 59937,
@@ -431,7 +431,7 @@
     {
       "bytes": 7840,
       "path": "editors/blockbench/upstream.json",
-      "sha256": "b0eacd6342d3673e3484bdb718ae694add7076d77bbe5e71f5ad78f8387f9dd5"
+      "sha256": "12807a7bb43f0d166c260e0ff65366fa99dc8b7f4c68605521f118b217a1a693"
     },
     {
       "bytes": 1069,
@@ -471,7 +471,7 @@
     {
       "bytes": 36665,
       "path": "editors/terrain3d/full-editor-package.json",
-      "sha256": "a4bcfdd9b185c9e862d097a65bbf36974087da15fd876efaebdc424cb99c55c5"
+      "sha256": "cd652bb8ba1499bd6b1222ae27ae068f162fb8a1f362635493534e738b1eac33"
     },
     {
       "bytes": 2973,
@@ -611,7 +611,7 @@
     {
       "bytes": 44514,
       "path": "editors/terrain3d/project-manifest.json",
-      "sha256": "6f5692ab0392de56bea0b9ea5a7003f936a968761ce0154a643d354d6ed60ab3"
+      "sha256": "0cf90947fb330f0b02f7f86cccbf2913a22915690e53ef5a6cfd2e12a45f925b"
     },
     {
       "bytes": 1198,
@@ -1441,7 +1441,7 @@
     {
       "bytes": 439,
       "path": "editors/terrain3d/project/assets/rock.tscn",
-      "sha256": "1038d543445289e3fd5248f8c8243dd41da64b45336f8cfd5d1b1562b3f4819d"
+      "sha256": "bb8ad3d7ba3450a81773b1e2474a4822491848bdcebf2f2ce5eeeadc8bcc8866"
     },
     {
       "bytes": 87846,
@@ -1461,7 +1461,7 @@
     {
       "bytes": 2528816,
       "path": "editors/terrain3d/project/assets/terrain_assets.tres",
-      "sha256": "814b2158b53aca47c957f72cc61d32b99c3c1cd6bfdbcd318d72ab8196442ba6"
+      "sha256": "85f824e1fe9b25be5097d1dfe50962ea71d0801ec501803092d99cfaaa5af0ac"
     },
     {
       "bytes": 1299,
@@ -1534,9 +1534,9 @@
       "sha256": "8c8fcf43c410580e9fc8847388d6bd0ed2731e23d606935b92b51fa7ac39ed7b"
     },
     {
-      "bytes": 2531302,
+      "bytes": 2531300,
       "path": "editors/terrain3d/project/world.tscn",
-      "sha256": "69765f502665645d00cfcf57454f8af069d2960a846fae3f09e746e91dcbe154"
+      "sha256": "ed418990ca65607ae1afc777d099e9cc9284132874327b4a8982a11464084b8c"
     },
     {
       "bytes": 5868,
@@ -1586,7 +1586,7 @@
     {
       "bytes": 447052,
       "path": "index.pck",
-      "sha256": "b52acc8259e423fc93bdac8995b07cd44d3dccdd5a431e0de8bbb3244f0b3f80"
+      "sha256": "34cc948f44f97418a962a29d75ff6a8feeb0a15227cc99ad36ba57a87b5a05ae"
     },
     {
       "bytes": 21443,
@@ -1621,23 +1621,23 @@
     {
       "bytes": 56836,
       "path": "package.json",
-      "sha256": "97cc32bce573cfe64f9d487259659ddaaf76bd35b71ff7a0cc20ae1c4ba3b92b"
+      "sha256": "3361c50073ed21f702d924df65699c4a5bb352b1c1f306111e57a57d25856045"
     },
     {
       "bytes": 293,
       "path": "studio-full-editor.json",
-      "sha256": "68ee7b31c930a8aa3c634895e5e437702fe22ab233dbf03ca08455b2ecbf2a70"
+      "sha256": "a011e616445890de2760358d976545211d4b3330af50fa9a2816801eae4c120a"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 577550323,
-  "release_asset_name": "TheKeepers-v0.1.0-demo.29-suite-web.zip",
-  "release_asset_size": 90823152,
-  "release_id": 392567507,
-  "release_tag": "v0.1.0-demo.29",
+  "release_asset_id": 577591133,
+  "release_asset_name": "TheKeepers-v0.1.0-demo.30-suite-web.zip",
+  "release_asset_size": 90823154,
+  "release_id": 392574246,
+  "release_tag": "v0.1.0-demo.30",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 35536233071,
+  "run_id": 35537646154,
   "schema": 1,
   "site": "the-keepers-suite",
   "smoke": {
@@ -1688,7 +1688,7 @@
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "3e178ad0ad7096ca13e515c8e325f72684bbb10e",
+  "source_sha": "6365adb10c52ad52569873851cc35418c77b44e7",
   "suspended": false,
-  "watermark": "3e178ad0ad7096ca13e515c8e325f72684bbb10e"
+  "watermark": "6365adb10c52ad52569873851cc35418c77b44e7"
 }
