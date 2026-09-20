@@ -41,9 +41,19 @@ jobs:
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
       - name: Verify live deployment and sub-site identities
+        id: live
+        timeout-minutes: 5
         env:
           WEB_BASE_URL: ${{ steps.deployment.outputs.page_url }}
-        run: python3 tools/publish.py check-live --output _site
+        run: |
+          echo "LIVE_IDENTITY_BEGIN snapshot=$(git rev-parse HEAD)"
+          timeout --kill-after=5s 240s python3 -u tools/publish.py check-live --output _site
+      - name: Diagnose serving failure without replacing acceptance
+        if: failure() && steps.live.outcome == 'failure'
+        timeout-minutes: 2
+        env:
+          WEB_BASE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: timeout --kill-after=5s 90s python3 -u tools/live_diagnostics.py --output _site --base-url "$WEB_BASE_URL"
       - name: Report verified deployment
         run: |
           echo '## Public site deployed and identity-checked' >> "$GITHUB_STEP_SUMMARY"
