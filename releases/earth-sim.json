@@ -75,14 +75,14 @@
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 577153433,
-  "release_asset_name": "earth-sim-4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84.zip",
+  "release_asset_id": 577330820,
+  "release_asset_name": "earth-sim-e89e5126a81a7396a04df8d08c6ce461fb9e5edf.zip",
   "release_asset_size": 30475,
-  "release_id": 392497608,
-  "release_tag": "web-4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84",
+  "release_id": 392531269,
+  "release_tag": "web-e89e5126a81a7396a04df8d08c6ce461fb9e5edf",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 35522064862,
+  "run_id": 35529140152,
   "schema": 1,
   "site": "earth-sim",
   "smoke": {
@@ -99,7 +99,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/CompBioEarthSim",
-  "source_sha": "4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84",
+  "source_sha": "e89e5126a81a7396a04df8d08c6ce461fb9e5edf",
   "suspended": false,
-  "watermark": "4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84"
+  "watermark": "e89e5126a81a7396a04df8d08c6ce461fb9e5edf"
 }
