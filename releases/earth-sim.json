@@ -1,8 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:c3413b84847e8d832c07f9e8d89a9944869475ea6e28f98deb3b8a3a489e72f6",
-  "artifact_id": 10269850678,
-  "digest": "6776ff13efaf3f65e33f83bb0ba724163bbc5dad152a522faa58997441825409",
+  "artifact_digest": "sha256:ddde82ea7f181b29e843c13f4c449739482af7e531c4cd938bfac4ab51f71c1a",
+  "digest": "a53d57ecea4854a1a13b4aa38d67a2bd46b75f846ea34e5f3b152a79734095b3",
   "files": [
     {
       "bytes": 860,
@@ -25,9 +24,9 @@
       "sha256": "9fb20abe8ded1cb6e156dee26b798cac390a0d0774651c7f7975621a229f4c5e"
     },
     {
-      "bytes": 1714,
+      "bytes": 1774,
       "path": "js/player-feedback.js",
-      "sha256": "b38f5c114fe7ec73273d3f7d5a83226c484c6a8fe0c11f7fe990db29787f8f71"
+      "sha256": "d256814a4a360ba24fa8d2c92d3a0e2c7a8b58321d1ef8806c6e4b874380ac64"
     },
     {
       "bytes": 1466,
@@ -60,9 +59,9 @@
       "sha256": "cca1a7812bd33febf223ea0820859bbe32979e5cba9ae8d1c0f0366df3e812d1"
     },
     {
-      "bytes": 6857,
+      "bytes": 9956,
       "path": "js/vendor/axioms/player-feedback.js",
-      "sha256": "08948c80988921921a8001061b1ce95dd970cd43fe4eb16ee3c812040f4091bb"
+      "sha256": "240dc473f87f71109da157eb6e93a83e20fe5d387eeadfb11460132f2f0db752"
     },
     {
       "bytes": 937,
@@ -75,9 +74,15 @@
       "sha256": "f1071ea8e87d4a9dd107a75ea48a5bac33ad1d28ce1cb02d378f0a252dd10abf"
     }
   ],
+  "package_kind": "release-asset",
+  "release_asset_id": 577153433,
+  "release_asset_name": "earth-sim-4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84.zip",
+  "release_asset_size": 30475,
+  "release_id": 392497608,
+  "release_tag": "web-4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 34613560630,
+  "run_id": 35522064862,
   "schema": 1,
   "site": "earth-sim",
   "smoke": {
@@ -94,7 +99,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/CompBioEarthSim",
-  "source_sha": "d6ce1178b8be5c4c8b60db9bf7c454da2500b95d",
+  "source_sha": "4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84",
   "suspended": false,
-  "watermark": "d6ce1178b8be5c4c8b60db9bf7c454da2500b95d"
+  "watermark": "4eb3a2eff0bcde8bbaa0ec3516f0196bd4d90c84"
 }

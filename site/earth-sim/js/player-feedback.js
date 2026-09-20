@@ -27,6 +27,7 @@ function collectState(){
 }
 const host=document.querySelector('.secondary-actions');
 if(host)feedback.installFeedbackButton({
-  game:'EarthSim',site:'earth-sim',host,className:'button button-quiet',build:'v2.2.0',buildInfoUrl:false,getState:collectState
+  game:'EarthSim',site:'earth-sim',issueUrl:'https://github.com/AxiomsAwake/web/issues/new',
+  host,className:'button button-quiet',build:'v2.2.0',buildInfoUrl:false,getState:collectState
 });
 })();

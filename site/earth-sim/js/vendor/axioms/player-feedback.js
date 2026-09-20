@@ -1,11 +1,21 @@
-/* Shared browser player-feedback composer. No credentials; opens a public issue draft for review. */
+/* Shared browser player-feedback composer. No credentials; opens a consumer-supplied issue draft for review. */
 (function(root,factory){
   const api=factory(root);
   if(typeof module==='object'&&module.exports) module.exports=api;
   else root.AxiomsPlayerFeedback=api;
 })(typeof globalThis!=='undefined'?globalThis:this,function(root){
   'use strict';
-  const DEFAULT_ISSUE_URL='https://github.com/AxiomsAwake/web/issues/new';
+  const DRAFT_KEY='axioms:last-feedback-draft/v1';
+  let lastDraft=null;
+
+  function requireIssueUrl(issueUrl){
+    const value=typeof issueUrl==='string'?issueUrl.trim():'';
+    if(!value) throw new TypeError('issueUrl is required.');
+    let url;
+    try{url=new URL(value);}catch(_){throw new TypeError('issueUrl must be an absolute http(s) URL.');}
+    if(url.protocol!=='https:'&&url.protocol!=='http:') throw new TypeError('issueUrl must be an absolute http(s) URL.');
+    return url;
+  }
 
   function textValue(value){
     if(value===null||value===undefined||value==='') return '—';
@@ -19,25 +29,51 @@
   function inputDescription(env){
     const nav=env.navigator||{};
     const parts=[];
-    if((nav.maxTouchPoints||0)>0) parts.push(`touch (${nav.maxTouchPoints})`);
+    if((nav.maxTouchPoints||0)>0) parts.push(`touch (${Math.min(16,Number(nav.maxTouchPoints)||0)})`);
     try{parts.push(env.matchMedia?.('(pointer: coarse)')?.matches?'coarse pointer':'fine pointer');}catch(_){}
+    try{if(env.matchMedia?.('(hover: hover)')?.matches) parts.push('hover');}catch(_){}
     return parts.length?parts.join(', '):'unknown';
+  }
+  function browserDescription(nav){
+    const brands=nav?.userAgentData?.brands;
+    if(!Array.isArray(brands)) return 'unknown';
+    const safe=brands
+      .filter(item=>item&&typeof item.brand==='string'&&!/^Not(?:\s|_)?A/i.test(item.brand))
+      .slice(0,3)
+      .map(item=>`${item.brand.slice(0,32)} ${String(item.version||'').slice(0,16)}`.trim());
+    return safe.length?safe.join(', '):'unknown';
+  }
+  function reducedMotion(env){
+    try{return env.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches?'reduce':'no-preference';}catch(_){return 'unknown';}
+  }
+  function webglDescription(env){
+    try{
+      const canvas=env.document?.createElement?.('canvas');
+      const gl=canvas?.getContext?.('webgl2',{powerPreference:'default'})||canvas?.getContext?.('webgl',{powerPreference:'default'});
+      if(!gl) return 'unavailable';
+      const vendor=String(gl.getParameter(gl.VENDOR)||'unknown').slice(0,80);
+      const renderer=String(gl.getParameter(gl.RENDERER)||'unknown').slice(0,120);
+      const version=String(gl.getParameter(gl.VERSION)||'unknown').slice(0,80);
+      return `${vendor} · ${renderer} · ${version}`;
+    }catch(_){return 'unknown';}
   }
   function collectEnvironment(env=root){
     const nav=env.navigator||{};
-    const scr=env.screen||{};
-    let orientation='unknown';
-    try{orientation=scr.orientation?.type||(env.matchMedia?.('(orientation: portrait)')?.matches?'portrait':'landscape');}catch(_){}
+    const width=Number(env.innerWidth)||0;
+    const height=Number(env.innerHeight)||0;
+    const dpr=Math.max(0.1,Math.min(8,Number(env.devicePixelRatio)||1));
+    const cpu=Number(nav.hardwareConcurrency);
+    const memory=Number(nav.deviceMemory);
     return {
-      Page: env.location?.href||'unknown',
-      Captured: new Date().toISOString(),
-      Viewport: `${env.innerWidth||'?'}×${env.innerHeight||'?'} @ ${env.devicePixelRatio||1}x DPR`,
-      Screen: `${scr.width||'?'}×${scr.height||'?'} · ${orientation}`,
-      Input: inputDescription(env),
-      Language: nav.language||'unknown',
-      Online: nav.onLine===false?'no':'yes',
-      Hardware: `${nav.hardwareConcurrency||'unknown'} logical CPU threads${nav.deviceMemory?` · ${nav.deviceMemory} GiB reported memory`:''}`,
-      'User agent': nav.userAgent||'unknown'
+      Captured:new Date().toISOString(),
+      Browser:browserDescription(nav),
+      Viewport:`${width||'?'}×${height||'?'}`,
+      'Device pixel ratio':Number(dpr.toFixed(2)),
+      Input:inputDescription(env),
+      'Reduced motion':reducedMotion(env),
+      'Logical CPU threads':Number.isFinite(cpu)&&cpu>0?Math.min(256,Math.round(cpu)):'unknown',
+      'Reported device memory GiB':Number.isFinite(memory)&&memory>0?Math.min(128,memory):'unknown',
+      WebGL:webglDescription(env)
     };
   }
   async function fetchBuildInfo(url='build-info.json',env=root){
@@ -63,7 +99,7 @@
     const lines=[
       '## Player feedback','',message,'','---','',
       '<details>',`<summary>Automatic ${game} diagnostics</summary>`,'',
-      'These details were added automatically so the report can be reproduced. They contain game/device state, not account credentials or cookies.','',
+      'These bounded capability details were added automatically so the report can be reproduced. They exclude page URLs/query strings, cookies, account identity, geolocation, browsing history and the full User-Agent string.','',
       `- Game: **${game}** (\`${site}\`)`
     ];
     if(build) lines.push(`- Build: \`${String(build).replace(/`/g,"'")}\``);
@@ -71,39 +107,64 @@
       if(value===undefined||value===null||value==='') continue;
       lines.push(`- ${safeLabel(key)}: ${textValue(value)}`);
     }
-    for(const [key,value] of Object.entries(environment)){
-      lines.push(`- ${key}: ${key==='User agent'?`\`${textValue(value).replace(/`/g,"'")}\``:textValue(value)}`);
-    }
+    for(const [key,value] of Object.entries(environment)) lines.push(`- ${key}: ${textValue(value)}`);
     lines.push('','</details>');
     return lines.join('\n');
   }
-  function buildIssueUrl({issueUrl=DEFAULT_ISSUE_URL,message,game,site,build,state,environment}){
+  function buildIssueDraft({issueUrl,message,game,site,build,state={},environment={}}){
+    const url=requireIssueUrl(issueUrl);
     const clean=String(message||'').trim();
     if(!clean) throw new TypeError('Feedback message is required.');
     const summary=clean.replace(/\s+/g,' ');
-    const url=new URL(issueUrl);
-    url.searchParams.set('title',`[${game}] ${summary.slice(0,72)}${summary.length>72?'…':''}`);
-    url.searchParams.set('body',buildIssueBody({message:clean,game,site,build,state,environment}));
-    return url.toString();
+    const title=`[${game}] ${summary.slice(0,72)}${summary.length>72?'…':''}`;
+    const body=buildIssueBody({message:clean,game,site,build,state,environment});
+    url.searchParams.set('title',title);
+    url.searchParams.set('body',body);
+    return {
+      schema:'axioms-feedback-draft/v1',
+      feedback:clean,
+      game,site,build:build||null,
+      state,environment,
+      issue:{title,body,url:url.toString()}
+    };
   }
-  async function prepareFeedback(options){
+  function buildIssueUrl(options){return buildIssueDraft(options).issue.url;}
+  async function prepareFeedbackDraft(options){
+    requireIssueUrl(options.issueUrl);
     const env=options.env||root;
     const state=await Promise.resolve(options.getState?.()||{});
     let info=null;
     if(options.getBuild) info=await Promise.resolve(options.getBuild());
     else if(options.buildInfoUrl!==false) info=await fetchBuildInfo(options.buildInfoUrl||'build-info.json',env);
     const build=options.build||buildSummary(info);
-    return buildIssueUrl({
-      issueUrl:options.issueUrl||DEFAULT_ISSUE_URL,
+    return buildIssueDraft({
+      issueUrl:options.issueUrl,
       message:options.message,
       game:options.game,
       site:options.site,
-      build,
-      state,
+      build,state,
       environment:collectEnvironment(env)
     });
   }
+  async function prepareFeedback(options){return (await prepareFeedbackDraft(options)).issue.url;}
+  function persistFeedbackDraft(draft,env=root){
+    lastDraft=draft;
+    try{env.sessionStorage?.setItem(DRAFT_KEY,JSON.stringify(draft));}catch(_){}
+    return draft;
+  }
+  function getLastFeedbackDraft(env=root){
+    if(lastDraft) return lastDraft;
+    try{
+      const raw=env.sessionStorage?.getItem(DRAFT_KEY);
+      if(raw){
+        const parsed=JSON.parse(raw);
+        if(parsed&&parsed.schema==='axioms-feedback-draft/v1') return parsed;
+      }
+    }catch(_){}
+    return null;
+  }
   function installFeedbackButton(options){
+    requireIssueUrl(options.issueUrl);
     const env=options.env||root;
     const doc=env.document;
     if(!doc) throw new TypeError('A browser document is required.');
@@ -127,10 +188,16 @@
       const original=button.textContent;
       button.disabled=true;
       button.textContent=options.preparingLabel||'Preparing…';
+      let draft=null;
       try{
-        const url=await prepareFeedback({...options,message,env});
-        if(options.navigate) options.navigate(url);
-        else env.location.assign(url);
+        draft=await prepareFeedbackDraft({...options,message,env});
+        persistFeedbackDraft(draft,env);
+        if(options.navigate) await options.navigate(draft.issue.url,draft);
+        else env.location.assign(draft.issue.url);
+      }catch(error){
+        button.title='Feedback draft saved locally; the filing target could not be opened.';
+        if(options.onFilingError) options.onFilingError(error,draft);
+        else env.console?.error?.('Feedback filing target failed; draft remains retrievable.',error);
       }finally{
         button.disabled=false;
         button.textContent=original;
@@ -139,5 +206,5 @@
     host.appendChild(button);
     return button;
   }
-  return {collectEnvironment,fetchBuildInfo,buildSummary,buildIssueBody,buildIssueUrl,prepareFeedback,installFeedbackButton};
+  return {collectEnvironment,fetchBuildInfo,buildSummary,buildIssueBody,buildIssueDraft,buildIssueUrl,prepareFeedbackDraft,prepareFeedback,persistFeedbackDraft,getLastFeedbackDraft,installFeedbackButton};
 });
