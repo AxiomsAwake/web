@@ -33,10 +33,13 @@ jobs:
       - name: Upload one complete static site
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
         with:
+          name: github-pages-${{ github.run_attempt }}
           path: _site
       - name: Deploy exact assembled snapshot
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
       - name: Verify live deployment and sub-site identities
         env:
           WEB_BASE_URL: ${{ steps.deployment.outputs.page_url }}
