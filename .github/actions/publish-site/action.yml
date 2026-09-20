@@ -58,8 +58,9 @@ runs:
         python3 -c 'import sys; assert sys.version_info >= (3,10), "Python 3.10+ required"'
         if [[ "$RUNNER_ENVIRONMENT" == self-hosted ]]; then
           [[ "$(id -u)" != 0 ]] || { echo 'Use an ordinary-user runner, not root.' >&2; exit 1; }
-          : "${RUNNER_TOOL_CACHE:?Set the ordinary-user runner tool cache}"
-          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TOOL_CACHE/axioms-web/playwright" >> "$GITHUB_ENV"
+          cache_root="${CI_SHARED_CACHE:-${RUNNER_TOOL_CACHE:-}}"
+          : "${cache_root:?Set CI_SHARED_CACHE or the runner tool cache}"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$cache_root/playwright" >> "$GITHUB_ENV"
         else
           echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/axioms-web-playwright" >> "$GITHUB_ENV"
         fi
@@ -143,7 +144,8 @@ runs:
         SITE_ID: ${{ inputs.site }}
       run: |
         if test -d "$WORK/evidence"; then
-          destination="$RUNNER_TOOL_CACHE/axioms-evidence/$GITHUB_REPOSITORY/publication/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/$SITE_ID"
+          evidence_root="${CI_SHARED_EVIDENCE:-${RUNNER_TOOL_CACHE}/axioms-evidence}"
+          destination="$evidence_root/$GITHUB_REPOSITORY/publication/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/$SITE_ID"
           mkdir -p "$destination"
           cp -R "$WORK/evidence/." "$destination/"
           echo "Browser evidence retained for $SITE_ID; run $GITHUB_RUN_ID attempt ${GITHUB_RUN_ATTEMPT:-1}."
