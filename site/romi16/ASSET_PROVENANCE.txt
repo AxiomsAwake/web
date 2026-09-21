@@ -1,0 +1,52 @@
+Romi16 — legacy asset provenance status
+Updated 21 September 2026
+
+Evidence: Michael K's first-hand correction, 7 September 2026:
+https://github.com/AxiomsAwake/Romi16-play/issues/1
+
+This record distinguishes use in the original game from original authorship.
+It is an attribution record, not proof of redistribution clearance. Exact
+legacy authors, source packages and permissions remain unresolved where noted.
+No public-domain, royalty-free or Creative Commons status is inferred.
+
+Reported original contributions by Michael K
+- World 3D model: maze and upper level (converted at runtime to world.json.gz).
+- Lava, skydome and map textures: textures/lava.png, textures/Sky.jpg,
+  textures/Map.jpg are the corresponding browser-runtime representations.
+- Texts, writing/script and main source code, excluding third-party libraries.
+
+Probable but unconfirmed authorship
+- textures/SwitchON.jpg and textures/SwitchOFF.jpg: Michael believes he probably
+  created the switch textures but does not remember for certain.
+
+Reported third-party material
+- All tiling textures, including marble and metal, were adopted from resources
+  available in 2001. Exact per-file authors/source packages remain unresolved.
+- All original sounds (sounds/*.wav) and music (music/*.mid) were adopted from
+  third-party resources. Exact authors/source packages/permissions unresolved.
+- textures/lamp-off.png represents a third-party image; the lamp-on image was
+  modified from it. Original-source identity and applicable permissions unresolved.
+- Other legacy images must not be assigned an individual author merely from a
+  filename or presence in the original archive. Per-file provenance unresolved.
+
+Modern derivatives
+- refreshed/Marble1.webp and refreshed/Marble2.webp were generated in 2026 using
+  the original-game marble textures as references. Those references are reported
+  third-party material. Generation and re-encoding do not establish their rights.
+
+Separate modern dependencies
+- three.js and webaudio-tinysynth retain their own notices and licenses in
+  THIRD_PARTY_NOTICES.txt. Those notices are not licenses for the legacy media.
+
+Limits and follow-through
+Michael reports that the 2001 game was personal, non-commercial and not publicly
+distributed. That history and the later free-play notice do not establish the
+missing legacy permissions. Continue asset-by-asset provenance work: identify
+source packages/authors, preserve actual notices or permissions, and distinguish
+confirmed evidence from guesses. Unresolved material requires an explicit
+rights/retention decision; this record does not silently remove or replace the
+original game, claim new permissions, or certify a completed rights audit.
+
+The current browser release is published only through AxiomsAwake/web/romi16/.
+Romi16-play is retained as the source of the historical issue, not a publishing
+destination. CREDITS.txt and LICENSE state the corrected contribution boundaries.

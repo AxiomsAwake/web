@@ -1,15 +1,21 @@
 Romi16 Free-to-Play License
-Version 1.1 — 5 September 2026 (attribution clarification)
+Version 1.1 — 5 September 2026
+Attribution corrected 21 September 2026; free-play terms retained.
 
-Original Romi16 game and all original game materials:
+Michael K's original contributions to the 2001 Romi16 game:
 Copyright (c) 2001 Michael K. All rights reserved except as granted below.
 
-Michael K created the original game entirely himself, including its code, design,
-world, graphics, music, sounds, and writing. Romi K guided the modern conversion,
-verification, and publication. OpenAI Codex generated the new WebGL code through
-AI translation and adaptation of Michael K's original implementation. These are
-contribution credits, not a transfer of rights or a copyright claim by the AI.
-See CREDITS.txt for the complete attribution record.
+Michael K designed and programmed the original game, including the world model,
+lava, skydome and map textures, texts, writing/script, and main source code
+(excluding third-party libraries). Switch-texture authorship is probable but
+unconfirmed. Most remaining assets, including tiling textures, sounds and music,
+came from third-party resources. Their copyright belongs to their respective
+holders. The lamp-on image was modified from a third-party lamp-off image.
+
+Romi K guided the modern conversion, verification, and publication. OpenAI Codex
+generated the new WebGL code through AI translation and adaptation of the
+original implementation. These are contribution credits, not a transfer of
+rights or a copyright claim by the AI. See CREDITS.txt and ASSET_PROVENANCE.txt.
 
 1. Free play
 
@@ -35,6 +41,14 @@ Third-party components remain governed by their own licenses. In particular,
 three.js is licensed under MIT and webaudio-tinysynth under Apache-2.0. Their
 notices and license texts are included in THIRD_PARTY_NOTICES.txt. The limits
 above do not restrict permissions those licenses independently grant.
+
+This also distinguishes the legacy third-party textures, sounds, music and
+lamp imagery from Michael K's original work. Their exact sources and permissions
+remain unresolved in the current records; modern library notices do not cover
+them. This document speaks only for rights its contributors are authorized to
+grant and does not establish permission from unidentified third-party holders.
+Optional generated derivatives do not resolve the rights of their references.
+See ASSET_PROVENANCE.txt for the evidence and the limits of this correction.
 
 4. No warranty
 

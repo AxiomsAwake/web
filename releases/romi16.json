@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:0cb710187664d56f235b56caf9bb79aa6d5f67b5d0369fa91d01a4b5c2f7362f",
-  "digest": "c558419c52309f2a66644b92324b57db5e87efdd0db96ceaccc49174a8b43e8f",
+  "artifact_digest": "sha256:07372b8c75e98957fe82d5ca25a6dc3ae2ea5cb9d4ec82c946d10c26c3b17670",
+  "digest": "97854ee3e84813344cc4528b2306a44c7ff1210361321ecd035fefc471c23f72",
   "files": [
     {
       "bytes": 0,
@@ -9,14 +9,19 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "bytes": 1650,
-      "path": "CREDITS.txt",
-      "sha256": "9017bf2cd4572a89b24bd1d187612b35f1dd8b65d82c3986f8667c24ace85f46"
+      "bytes": 2950,
+      "path": "ASSET_PROVENANCE.txt",
+      "sha256": "723acec4636b4c42a873affda7a3de8e32be269e01f71df0852563497480290a"
     },
     {
-      "bytes": 2388,
+      "bytes": 2666,
+      "path": "CREDITS.txt",
+      "sha256": "2561ecd89b5e3bbea8e781d322a9a6426a666988f34cc8f2eb7b5a8b718003f4"
+    },
+    {
+      "bytes": 3301,
       "path": "LICENSE",
-      "sha256": "f40ef1aaf6e1f8aab0946e1f1c0568af8ee175372f3cf795410f867de27f91f7"
+      "sha256": "5a6c5aae25819c3d887790e2bff4a8189ae97fcabdffe5d824c2dabea8b8b762"
     },
     {
       "bytes": 13195,
@@ -246,7 +251,7 @@
     {
       "bytes": 185,
       "path": "build-info.json",
-      "sha256": "2455b63b77d5963accb8e31494fda6fb4ac57f73ddf3e627d92b9aa00711b52e"
+      "sha256": "231e386618f5e3c7289f6db4147800a687646249c04a115154b3b976265ca992"
     },
     {
       "bytes": 2348,
@@ -255,14 +260,14 @@
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 579461590,
-  "release_asset_name": "romi16-4bc42e4df6b3808ba79867bf1d0c391b30f648c0.zip",
-  "release_asset_size": 1445641,
-  "release_id": 393135412,
-  "release_tag": "web-4bc42e4df6b3808ba79867bf1d0c391b30f648c0",
+  "release_asset_id": 579491738,
+  "release_asset_name": "romi16-8af3ad950db0bae17be5e4c92c7d2c14f1bfdde1.zip",
+  "release_asset_size": 1448043,
+  "release_id": 393145965,
+  "release_tag": "web-8af3ad950db0bae17be5e4c92c7d2c14f1bfdde1",
   "retain_hashed_assets": true,
   "retained": [],
-  "run_id": 35626441420,
+  "run_id": 35630119282,
   "schema": 1,
   "site": "romi16",
   "smoke": {
@@ -276,7 +281,7 @@
     "touch": false
   },
   "source": "AxiomsAwake/Romi16",
-  "source_sha": "4bc42e4df6b3808ba79867bf1d0c391b30f648c0",
+  "source_sha": "8af3ad950db0bae17be5e4c92c7d2c14f1bfdde1",
   "suspended": false,
-  "watermark": "4bc42e4df6b3808ba79867bf1d0c391b30f648c0"
+  "watermark": "8af3ad950db0bae17be5e4c92c7d2c14f1bfdde1"
 }
