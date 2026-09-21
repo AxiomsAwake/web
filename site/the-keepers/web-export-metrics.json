@@ -2,8 +2,8 @@
   "schema": "keepers-web-export-metrics/v1",
   "files": {
     "index.html": {
-      "raw_bytes": 5563,
-      "gzip_bytes": 2232
+      "raw_bytes": 5564,
+      "gzip_bytes": 2234
     },
     "index.js": {
       "raw_bytes": 279815,
@@ -14,12 +14,12 @@
       "gzip_bytes": 10054758
     },
     "index.pck": {
-      "raw_bytes": 292996,
-      "gzip_bytes": 260302
+      "raw_bytes": 1456528,
+      "gzip_bytes": 1401723
     }
   },
   "totals": {
-    "raw_bytes": 40093128,
-    "gzip_bytes": 10385763
+    "raw_bytes": 41256661,
+    "gzip_bytes": 11527186
   }
 }
