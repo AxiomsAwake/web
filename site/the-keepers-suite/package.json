@@ -2,10 +2,10 @@
   "schema": "keepers-suite-package/v1",
   "profile": "public-local-studio",
   "target": "suite-web",
-  "source_revision": "768c33ead0753392a5118430b95771c022c34db6",
-  "version": "0.1.0-demo.43",
-  "content_identity": "sha256:f225be57e8e04728d29fcd370eb2ccd9e41471fe897b22fde9953d0dc45ad8d0",
-  "law_identity": "768c33ead0753392a5118430b95771c022c34db6",
+  "source_revision": "eef0c26cfb3d0e8cfb4947e2e60831c48c95b056",
+  "version": "0.1.0-demo.44",
+  "content_identity": "sha256:09645cdbb3a3fbf336a0ef6e1d3fa2447865a37bb82b85cd3d92da189922f2f3",
+  "law_identity": "eef0c26cfb3d0e8cfb4947e2e60831c48c95b056",
   "main_scene": "res://suite/unit_studio.tscn",
   "files": {
     "LICENSE": {
@@ -26,7 +26,7 @@
     },
     "build.json": {
       "bytes": 388,
-      "sha256": "7f693018a7a4cc78299948153a8975f103a40d1e3b06a7bf3fdfc88adf742566"
+      "sha256": "b95ddd7db73b65405ec413313af59ec17eeb8ed6890541291c724c728d72a049"
     },
     "editors/blockbench/LICENSE.MD": {
       "bytes": 35148,
@@ -206,7 +206,7 @@
     },
     "editors/blockbench/corresponding-source.zip": {
       "bytes": 11215504,
-      "sha256": "422fca2b6394a240f48782a36c4603032635c4ebf47db6374ea09a018d822361"
+      "sha256": "a43b3d79972e3c25b780532894a763966f2ce1a826bebf34d81728ddbe82f5d3"
     },
     "editors/blockbench/css/dialogs.css": {
       "bytes": 59937,
@@ -350,7 +350,7 @@
     },
     "editors/blockbench/upstream.json": {
       "bytes": 7840,
-      "sha256": "667cb134992be03f047f8c4a289b14d986f2ccb5e1af1f7e72c4744e41927805"
+      "sha256": "602a407450a58050def11811c674f4fd81b5ee751b95887b51f20bd63f9b588f"
     },
     "editors/terrain3d/FFLATE-LICENSE.txt": {
       "bytes": 1069,
@@ -382,7 +382,7 @@
     },
     "editors/terrain3d/full-editor-package.json": {
       "bytes": 36665,
-      "sha256": "0b6defc132564648ef6ba98f2bbd4e59af8d45536cf4f0730ccea35edf85c46a"
+      "sha256": "503344c4613cdb8c902d8a97882b07fda09d9834a145bff381ceeed417cc962b"
     },
     "editors/terrain3d/godot.editor.audio.position.worklet.js": {
       "bytes": 2973,
@@ -1150,7 +1150,7 @@
     },
     "editors/terrain3d/project/assets/rock.tscn": {
       "bytes": 438,
-      "sha256": "0c15c7afb892c3cc6d70518042d21946524ad96843b84c4a4f9127903c5aca8e"
+      "sha256": "c410664797f2a8d040160bf854bae28d07df2a59053a30f342e4f402c8bf3f62"
     },
     "editors/terrain3d/project/assets/surface_0.res": {
       "bytes": 87846,
@@ -1166,7 +1166,7 @@
     },
     "editors/terrain3d/project/assets/terrain_assets.tres": {
       "bytes": 2528815,
-      "sha256": "57c3e8b55ab571dbc6e4c131a25886370bd42898d5b4960d1365d42f310109f8"
+      "sha256": "9953be6b5871d227c53cc70d5f234c1e97cb848e85cc35c7ca1c2dedbda976f9"
     },
     "editors/terrain3d/project/assets/terrain_material.tres": {
       "bytes": 1299,
@@ -1226,7 +1226,7 @@
     },
     "editors/terrain3d/project/world.tscn": {
       "bytes": 2531300,
-      "sha256": "b687df6b3da1b824e4ccb11e46939f55811102f849dda89476a3705aa2f30577"
+      "sha256": "c6fd612b0d533b603690a6fe34d151c8c7e07c0a50b8416a5b2f06e565ee7414"
     },
     "editors/terrain3d/project-io.js": {
       "bytes": 4872,
@@ -1234,7 +1234,7 @@
     },
     "editors/terrain3d/project-manifest.json": {
       "bytes": 44514,
-      "sha256": "4628139d4896243181fc777abc07c48c339ba31a5254f9618d6a64ae88f6dfd3"
+      "sha256": "ab8a4ba0c02937f79c3660aa0251af01ca646df00d4799528a9fa6e00b5104a6"
     },
     "editors/terrain3d/service.worker.js": {
       "bytes": 5868,
@@ -1274,7 +1274,7 @@
     },
     "index.pck": {
       "bytes": 487732,
-      "sha256": "84bd31357fa67c84ae8ba92f98a0d7801e51fadf35aa47e138a0b67dac3bf1f8"
+      "sha256": "299ec5fa05b9b6a5f7def9effbb27d00196fa668a04695382dbb5afb9d90da51"
     },
     "index.png": {
       "bytes": 21443,
@@ -1302,7 +1302,7 @@
     },
     "studio-full-editor.json": {
       "bytes": 293,
-      "sha256": "0a0f41d7124b72a7ffc9dcc03079b9841479f5fc565095548058b5d32c97315a"
+      "sha256": "d61057bea3d38f70d48cae8712006166db457661936bff398f16ab927798d2fb"
     }
   }
 }
