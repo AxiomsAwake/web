@@ -89,7 +89,11 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
                 break
         require(len(releases) == 1, 'Expected exactly one published release targeting the tested SHA')
         release = releases[0]
-        release_channel = entry.get('release_channel', 'prerelease')
+        accepted_release_channels = entry.get('accepted_release_channels', ['prerelease'])
+        require(isinstance(release.get('prerelease'), bool), 'Release prerelease flag must be explicit')
+        release_channel = 'prerelease' if release.get('prerelease') is True else 'stable'
+        require(release_channel in accepted_release_channels,
+                f'Registered source package does not accept {release_channel} releases')
         require(release.get('prerelease') is (release_channel == 'prerelease'),
                 f'Registered source package must be a {release_channel} release')
         tag = release.get('tag_name', '')
@@ -97,7 +101,7 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
         if 'release_manifest_path' in entry:
             release_manifest = json.loads(source_file(source, sha, entry['release_manifest_path']))
             require(release_manifest.get('channel') == release_channel,
-                    'Source release manifest channel does not match registry')
+                    'Source release manifest channel does not match release flag')
             version = release_manifest.get('version')
             require(isinstance(version, str) and tag == f'v{version}',
                     'Source release manifest version does not match release tag')

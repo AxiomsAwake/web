@@ -97,9 +97,12 @@ def registry(repo: Path) -> dict:
         require(len(package_names) == 1, "Choose exactly one source package kind")
         package_name = entry[package_names[0]]
         require(isinstance(package_name, str) and bool(package_name) and all(c not in package_name for c in "\r\n/\\"), "Invalid source package name")
-        if "release_channel" in entry:
-            require(package_names == ["release_asset"], "Release channel requires a release asset")
-            require(entry["release_channel"] in ("prerelease", "stable"), "Invalid release channel")
+        if "accepted_release_channels" in entry:
+            require(package_names == ["release_asset"], "Release channels require a release asset")
+            channels = entry["accepted_release_channels"]
+            require(isinstance(channels, list) and bool(channels) and
+                    all(channel in ("prerelease", "stable") for channel in channels) and
+                    len(channels) == len(set(channels)), "Invalid accepted release channels")
         if "release_manifest_path" in entry:
             require(package_names == ["release_asset"], "Release manifest requires a release asset")
             release_manifest_path = entry["release_manifest_path"]

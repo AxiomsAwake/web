@@ -295,7 +295,7 @@ class ResolutionTests(unittest.TestCase):
     def test_registered_stable_release_is_bound_to_source_manifest(self):
         catalog = read_json(self.root / 'catalog/sites.json')
         catalog['sites']['alpha'].pop('artifact')
-        catalog['sites']['alpha'].update(release_asset='Game-{tag}-web.zip', release_channel='stable',
+        catalog['sites']['alpha'].update(release_asset='Game-{tag}-web.zip', accepted_release_channels=['prerelease', 'stable'],
                                          release_manifest_path='release/manifest.json')
         write_json(self.root / 'catalog/sites.json', catalog)
         run = {
@@ -331,7 +331,7 @@ class ResolutionTests(unittest.TestCase):
     def test_registered_stable_release_rejects_manifest_version_mismatch(self):
         catalog = read_json(self.root / 'catalog/sites.json')
         catalog['sites']['alpha'].pop('artifact')
-        catalog['sites']['alpha'].update(release_asset='Game-{tag}-web.zip', release_channel='stable',
+        catalog['sites']['alpha'].update(release_asset='Game-{tag}-web.zip', accepted_release_channels=['prerelease', 'stable'],
                                          release_manifest_path='release/manifest.json')
         write_json(self.root / 'catalog/sites.json', catalog)
         run = {
