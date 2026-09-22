@@ -89,9 +89,18 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
                 break
         require(len(releases) == 1, 'Expected exactly one published release targeting the tested SHA')
         release = releases[0]
-        require(release.get('prerelease') is True, 'Registered source package must be a prerelease')
+        release_channel = entry.get('release_channel', 'prerelease')
+        require(release.get('prerelease') is (release_channel == 'prerelease'),
+                f'Registered source package must be a {release_channel} release')
         tag = release.get('tag_name', '')
         require(bool(tag) and '\n' not in tag and '\r' not in tag, 'Invalid release tag')
+        if 'release_manifest_path' in entry:
+            release_manifest = json.loads(source_file(source, sha, entry['release_manifest_path']))
+            require(release_manifest.get('channel') == release_channel,
+                    'Source release manifest channel does not match registry')
+            version = release_manifest.get('version')
+            require(isinstance(version, str) and tag == f'v{version}',
+                    'Source release manifest version does not match release tag')
         ref = api(f'{source}/git/ref/tags/{urllib.parse.quote(tag, safe="")}')['object']
         if ref.get('type') == 'tag':
             ref = api(f'{source}/git/tags/{ref["sha"]}')['object']

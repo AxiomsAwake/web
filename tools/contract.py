@@ -97,6 +97,14 @@ def registry(repo: Path) -> dict:
         require(len(package_names) == 1, "Choose exactly one source package kind")
         package_name = entry[package_names[0]]
         require(isinstance(package_name, str) and bool(package_name) and all(c not in package_name for c in "\r\n/\\"), "Invalid source package name")
+        if "release_channel" in entry:
+            require(package_names == ["release_asset"], "Release channel requires a release asset")
+            require(entry["release_channel"] in ("prerelease", "stable"), "Invalid release channel")
+        if "release_manifest_path" in entry:
+            require(package_names == ["release_asset"], "Release manifest requires a release asset")
+            release_manifest_path = entry["release_manifest_path"]
+            safe_name(release_manifest_path)
+            require(PurePosixPath(release_manifest_path).suffix.lower() == ".json", "Release manifest must be JSON")
     return sites
 
 

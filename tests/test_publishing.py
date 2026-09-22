@@ -292,6 +292,72 @@ class ResolutionTests(unittest.TestCase):
         self.assertEqual(resolved['package_kind'], 'release-asset')
         self.assertEqual((resolved['source_sha'], resolved['release_tag'], resolved['release_asset_id']), (A, 'v1', 9))
 
+    def test_registered_stable_release_is_bound_to_source_manifest(self):
+        catalog = read_json(self.root / 'catalog/sites.json')
+        catalog['sites']['alpha'].pop('artifact')
+        catalog['sites']['alpha'].update(release_asset='Game-{tag}-web.zip', release_channel='stable',
+                                         release_manifest_path='release/manifest.json')
+        write_json(self.root / 'catalog/sites.json', catalog)
+        run = {
+            'conclusion': 'success', 'status': 'completed', 'event': 'workflow_dispatch',
+            'head_branch': 'main', 'head_sha': A, 'path': '.github/workflows/verify.yml@refs/heads/main',
+            'repository': {'full_name': 'OtherOrg/alpha'}, 'head_repository': {'full_name': 'OtherOrg/alpha'},
+            'run_started_at': '2026-01-01T00:00:00Z', 'updated_at': '2026-01-01T00:10:00Z',
+        }
+        release = {
+            'id': 5, 'target_commitish': A, 'draft': False, 'prerelease': False,
+            'tag_name': 'v1.2.3', 'published_at': '2026-01-01T00:05:00Z',
+            'assets': [{'id': 9, 'name': 'Game-v1.2.3-web.zip', 'size': 12,
+                        'digest': 'sha256:' + '1' * 64,
+                        'created_at': '2026-01-01T00:06:00Z', 'updated_at': '2026-01-01T00:06:01Z'}],
+        }
+        def fake_api(path):
+            if '/actions/runs/17' in path: return run
+            if '/git/ref/heads/main' in path: return {'object': {'sha': A}}
+            if '/compare/' in path: return {'status': 'identical'}
+            if '/releases?' in path: return [release]
+            if '/git/ref/tags/v1.2.3' in path: return {'object': {'type': 'commit', 'sha': A}}
+            raise AssertionError(path)
+        def bound_source_file(source, sha, path):
+            self.assertEqual((source, sha), ('OtherOrg/alpha', A))
+            return json.dumps(config() if path == 'web-publish.json' else
+                              {'version': '1.2.3', 'channel': 'stable'}).encode()
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=fake_api), \
+             patch('publish.source_file', side_effect=bound_source_file):
+            resolved = resolve(self.root, 'alpha', '17', self.root / 'candidate.json')
+        self.assertEqual((resolved['release_tag'], resolved['source_sha']), ('v1.2.3', A))
+
+    def test_registered_stable_release_rejects_manifest_version_mismatch(self):
+        catalog = read_json(self.root / 'catalog/sites.json')
+        catalog['sites']['alpha'].pop('artifact')
+        catalog['sites']['alpha'].update(release_asset='Game-{tag}-web.zip', release_channel='stable',
+                                         release_manifest_path='release/manifest.json')
+        write_json(self.root / 'catalog/sites.json', catalog)
+        run = {
+            'conclusion': 'success', 'status': 'completed', 'event': 'workflow_dispatch',
+            'head_branch': 'main', 'head_sha': A, 'path': '.github/workflows/verify.yml',
+            'repository': {'full_name': 'OtherOrg/alpha'}, 'head_repository': {'full_name': 'OtherOrg/alpha'},
+            'run_started_at': '2026-01-01T00:00:00Z', 'updated_at': '2026-01-01T00:10:00Z',
+        }
+        release = {'id': 5, 'target_commitish': A, 'draft': False, 'prerelease': False,
+                   'tag_name': 'v1.2.3', 'published_at': '2026-01-01T00:05:00Z', 'assets': []}
+        def fake_api(path):
+            if '/actions/runs/17' in path: return run
+            if '/git/ref/heads/main' in path: return {'object': {'sha': A}}
+            if '/compare/' in path: return {'status': 'identical'}
+            if '/releases?' in path: return [release]
+            raise AssertionError(path)
+        def bound_source_file(source, sha, path):
+            self.assertEqual((source, sha), ('OtherOrg/alpha', A))
+            return json.dumps(config() if path == 'web-publish.json' else
+                              {'version': '1.2.4', 'channel': 'stable'}).encode()
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=fake_api), \
+             patch('publish.source_file', side_effect=bound_source_file):
+            with self.assertRaisesRegex(ValueError, 'manifest version'):
+                resolve(self.root, 'alpha', '17', self.root / 'candidate.json')
+
     def test_release_tag_must_resolve_to_tested_sha(self):
         catalog = read_json(self.root / 'catalog/sites.json')
         catalog['sites']['alpha'].pop('artifact')
