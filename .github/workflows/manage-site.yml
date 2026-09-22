@@ -1,4 +1,5 @@
 name: Manage one public sub-site
+run-name: Manage ${{ inputs.site }} · ${{ inputs.operation }} · ${{ github.sha }}
 on:
   workflow_dispatch:
     inputs:
@@ -19,6 +20,7 @@ permissions:
   contents: read
 jobs:
   manage:
+    name: Manage ${{ inputs.site }} · ${{ inputs.operation }} · ${{ github.sha }}
     if: github.ref == 'refs/heads/main'
     runs-on: [self-hosted, romik-desktop, io-heavy]
     timeout-minutes: 10

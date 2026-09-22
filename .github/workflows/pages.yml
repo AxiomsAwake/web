@@ -1,4 +1,5 @@
 name: Deploy all public sub-sites
+run-name: Deploy public sites · requested snapshot ${{ github.sha }}
 on:
   push:
     branches: [main]
@@ -11,6 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    name: Assemble, deploy and verify current main · request ${{ github.sha }}
     runs-on: [self-hosted, romik-desktop, io-heavy]
     timeout-minutes: 15
     permissions:
@@ -59,3 +61,14 @@ jobs:
           echo '## Public site deployed and identity-checked' >> "$GITHUB_STEP_SUMMARY"
           echo "Source snapshot: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
           echo 'This checks serving identity, not full gameplay or physical-device compatibility.' >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<'PYTHON'
+          import json, os
+          from pathlib import Path
+          deployment = json.loads(Path('_site/deployment.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('\n| Site | Release | Verified source |\n| --- | --- | --- |\n')
+              for site, identity in sorted(deployment['sites'].items()):
+                  state = json.loads((Path('releases') / (site + '.json')).read_text())
+                  tag = state.get('release_tag') or 'Unversioned source build'
+                  summary.write(f"| {site} | {tag} | `{identity['source_sha']}` |\n")
+          PYTHON

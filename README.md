@@ -23,8 +23,8 @@ The credential is restricted to this repository, but **GitHub does not grant Con
 | `romi16` | `AxiomsAwake/Romi16` | `ci-cd.yml` | `romi16-site-<sha>` |
 | `earth-sim` | `AxiomsAwake/CompBioEarthSim` | `ci.yml` | `compbio-earth-sim-<sha>` |
 | `crispery-room` | `AxiomsAwake/CrisperyRoom` | `game.yml` | Selected player/model from `reusable-escape-room-v3` |
-| `the-keepers` | `AxiomsAwake/TheKeepers` | `release.yml` (`Playable prerelease`) | `TheKeepers-<tag>-web.zip` GitHub Release asset |
-| `the-keepers-suite` | `AxiomsAwake/TheKeepers` | `release.yml` (`Playable prerelease`) | `TheKeepers-<tag>-suite-web.zip` GitHub Release asset, selected by `web-publish-suite.json` |
+| `the-keepers` | `AxiomsAwake/TheKeepers` | `release.yml` (`Playable release`) | `TheKeepers-<tag>-web.zip` GitHub Release asset |
+| `the-keepers-suite` | `AxiomsAwake/TheKeepers` | `release.yml` (`Playable release`) | `TheKeepers-<tag>-suite-web.zip` GitHub Release asset, selected by `web-publish-suite.json` |
 | `living-worlds` | `AxiomsAwake/LivingWorlds` | Reserved, disabled | Requires a dedicated approved `public-web` package |
 
 Only accepted active releases appear in the catalogue. A registry entry is not a claim of a live release. LivingWorlds' private concept handbook/source archive is deliberately not published.

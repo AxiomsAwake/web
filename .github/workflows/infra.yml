@@ -1,4 +1,5 @@
 name: Publishing infrastructure
+run-name: Validate publishing infrastructure · ${{ github.sha }}
 on:
   push:
     branches: [main]
@@ -11,6 +12,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   verify:
+    name: Test publishing contracts and browser smoke · ${{ github.sha }}
     runs-on: [self-hosted, romik-desktop, general]
     timeout-minutes: 10
     steps:
