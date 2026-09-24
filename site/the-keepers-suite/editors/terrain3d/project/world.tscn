@@ -66,7 +66,7 @@ _bundled = {
 "id_paths": [],
 "names": PackedStringArray("Rock_LOD0", "mesh", "MeshInstance3D"),
 "node_count": 1,
-"node_ids": PackedInt32Array(1365247117),
+"node_ids": PackedInt32Array(96772410),
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0),
 "variants": [SubResource("SphereMesh_6i1sm")],
@@ -184,24 +184,24 @@ ambient_light_source = 2
 ambient_light_color = Color(0.72, 0.81, 0.91, 1)
 ambient_light_energy = 0.45
 
-[node name="World" type="Node3D" unique_id=644514068]
+[node name="World" type="Node3D" unique_id=1853574551]
 
-[node name="PreviewCamera" type="Camera3D" parent="." unique_id=772165532]
+[node name="PreviewCamera" type="Camera3D" parent="." unique_id=287813744]
 transform = Transform3D(0.7186021, -0.38797474, 0.5771366, 0, 0.8299091, 0.5578987, -0.69542146, -0.4009072, 0.59637445, 150, 145, 155)
 current = true
 far = 2000.0
 
-[node name="Terrain" type="Terrain3D" parent="." unique_id=1760717699]
+[node name="Terrain" type="Terrain3D" parent="." unique_id=831384503]
 data_directory = "res://terrain"
 material = SubResource("Terrain3DMaterial_gv5m4")
 assets = SubResource("Terrain3DAssets_pkg7o")
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Environment" type="WorldEnvironment" parent="." unique_id=1002596985]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=1740714075]
 environment = SubResource("Environment_gbfbk")
 
-[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1028744595]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=2119130714]
 transform = Transform3D(0.81915206, 0.4262504, -0.38379753, 0, 0.66913056, 0.74314487, 0.57357645, -0.6087487, 0.54811966, 0, 0, 0)
 light_energy = 1.05
 shadow_enabled = true
