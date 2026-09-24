@@ -1,1 +1,0 @@
-(function(e){const o=typeof module=="object"&&module.exports?require("./vendor/axioms/geospatial/providers/stride.js"):e.AxiomsStride;typeof module=="object"&&module.exports?module.exports=o:e.LittleLinesGPS=o})(globalThis);
