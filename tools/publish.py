@@ -62,6 +62,18 @@ def outputs(**values) -> None:
                 stream.write(f'{key}={text}\n')
 
 
+def release_assets(source: str, release_id: int, expected_name: str) -> list[dict]:
+    """Read the asset collection itself; release-list embeds can lag upload completion."""
+    matches = []
+    for page in range(1, 21):
+        items = api(f'{source}/releases/{release_id}/assets?per_page=100&page={page}')
+        require(isinstance(items, list), 'Release asset listing is invalid')
+        matches.extend(item for item in items if item.get('name') == expected_name)
+        if len(items) < 100:
+            break
+    return matches
+
+
 def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
     entry = registry(repo)[site_id]
     source = os.environ.get('GITHUB_REPOSITORY', '')
@@ -111,7 +123,7 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
         require(ref.get('type') == 'commit' and ref.get('sha') == sha, 'Release tag does not resolve to tested SHA')
         require(release.get('target_commitish') == sha, 'Release target does not equal tested SHA')
         name = entry['release_asset'].replace('{tag}', tag).replace('{sha}', sha)
-        matches = [x for x in release.get('assets', []) if x.get('name') == name]
+        matches = release_assets(source, release['id'], name)
         require(len(matches) == 1, f'Expected exactly one release asset named {name}')
         asset = matches[0]
         asset_digest = asset.get('digest', '')

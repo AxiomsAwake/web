@@ -277,11 +277,16 @@ class ResolutionTests(unittest.TestCase):
                         'digest': 'sha256:' + '1' * 64,
                         'created_at': '2026-01-01T00:06:00Z', 'updated_at': '2026-01-01T00:06:01Z'}],
         }
+        # The releases listing may omit a freshly uploaded asset even when the
+        # dedicated collection already has it. The collection is authoritative.
+        assets = release['assets']
+        release['assets'] = []
         def fake_api(path):
             if '/actions/runs/17' in path: return run
             if '/git/ref/heads/main' in path: return {'object': {'sha': A}}
             if '/compare/' in path: return {'status': 'identical'}
             if '/releases?' in path: return [release]
+            if '/releases/5/assets?' in path: return assets
             if '/git/ref/tags/v1' in path: return {'object': {'type': 'commit', 'sha': A}}
             raise AssertionError(path)
         output = self.root / 'candidate.json'
@@ -291,6 +296,12 @@ class ResolutionTests(unittest.TestCase):
             resolved = resolve(self.root, 'alpha', '17', output)
         self.assertEqual(resolved['package_kind'], 'release-asset')
         self.assertEqual((resolved['source_sha'], resolved['release_tag'], resolved['release_asset_id']), (A, 'v1', 9))
+        assets.append(dict(assets[0], id=10))
+        with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'OtherOrg/alpha'}), \
+             patch('publish.api', side_effect=fake_api), \
+             patch('publish.source_file', return_value=json.dumps(config()).encode()):
+            with self.assertRaisesRegex(ValueError, 'Expected exactly one release asset'):
+                resolve(self.root, 'alpha', '17', self.root / 'duplicate.json')
 
     def test_registered_stable_release_is_bound_to_source_manifest(self):
         catalog = read_json(self.root / 'catalog/sites.json')
@@ -316,6 +327,7 @@ class ResolutionTests(unittest.TestCase):
             if '/git/ref/heads/main' in path: return {'object': {'sha': A}}
             if '/compare/' in path: return {'status': 'identical'}
             if '/releases?' in path: return [release]
+            if '/releases/5/assets?' in path: return release['assets']
             if '/git/ref/tags/v1.2.3' in path: return {'object': {'type': 'commit', 'sha': A}}
             raise AssertionError(path)
         def bound_source_file(source, sha, path):
