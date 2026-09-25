@@ -19,7 +19,7 @@ _bundled = {
 "id_paths": [],
 "names": PackedStringArray("Rock_LOD0", "mesh", "MeshInstance3D"),
 "node_count": 1,
-"node_ids": PackedInt32Array(1809179153),
+"node_ids": PackedInt32Array(1956746918),
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0),
 "variants": [SubResource("SphereMesh_6i1sm")],
