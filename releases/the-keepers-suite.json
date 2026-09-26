@@ -1,12 +1,12 @@
 {
   "active": true,
-  "artifact_digest": "sha256:5724a2f02686574069a29c981b90e37a77122c7da380aa817a391eb48825b103",
-  "digest": "0ec5d53be6be854db5d8b80a1f678bd7328a7ce23ce3c9deaf0e773c89ce1f88",
+  "artifact_digest": "sha256:a1c459beba01dd62a09b1ddd0f374bd81da9d283d68afbfe54b06841140afa7d",
+  "digest": "56693b6979fb9830b7c576a94aca56e9412d15dfb62c7eedf8319d9521538623",
   "files": [
     {
       "bytes": 5726,
       "path": "404.html",
-      "sha256": "45b0a536ea8a32826fb0633d73e275ceed276ac3a3b1896e0f40f41d2f5f1336"
+      "sha256": "7509ece2762b1a023b0a87ab1e58a3f8d7e809090c13e5107135cd144ba62cf6"
     },
     {
       "bytes": 11358,
@@ -31,7 +31,7 @@
     {
       "bytes": 387,
       "path": "build.json",
-      "sha256": "a7fb1ce45ad2f43e14f8c752294616e6444f75fdc033ec9d86e4c9b06eb64148"
+      "sha256": "d777d564ec7f6da8b86b85773f82f088daba65b2fd84ac39b8f8185663c121f3"
     },
     {
       "bytes": 35148,
@@ -256,7 +256,7 @@
     {
       "bytes": 11215504,
       "path": "editors/blockbench/corresponding-source.zip",
-      "sha256": "fca74160295caa89e78fe89bf2b47dd1e8f572bdf06d9ee3494256ce7d86e661"
+      "sha256": "3fb20bb4d5f867afd68cb26c7b9a0fa1dc894e83961480c1ff6498906ea4690e"
     },
     {
       "bytes": 59937,
@@ -436,7 +436,7 @@
     {
       "bytes": 7840,
       "path": "editors/blockbench/upstream.json",
-      "sha256": "e51de33f30691bd6d882f8687a42563ea356a5df0485eb53cb5dfbc1829b73f7"
+      "sha256": "7c82fc7bccf26c9bd807424547d38270ae156be3a1272578ddfc402646aca92d"
     },
     {
       "bytes": 1069,
@@ -476,7 +476,7 @@
     {
       "bytes": 36665,
       "path": "editors/terrain3d/full-editor-package.json",
-      "sha256": "cbbec3428dce31617c73228ff634ce307364837fb0b11531766d5888ac82e95d"
+      "sha256": "15f6bee67864d789fd2eddd893ef748e0779564b73334cb30165d48413718382"
     },
     {
       "bytes": 2973,
@@ -616,7 +616,7 @@
     {
       "bytes": 44514,
       "path": "editors/terrain3d/project-manifest.json",
-      "sha256": "5d0a9cdade3e4efda634c621e8866c9285cc10580760b19245cd111121345741"
+      "sha256": "31ff3958880de952045f3d9fd25278cac7452d46cb588b45300b3451c60e63f7"
     },
     {
       "bytes": 1198,
@@ -1444,9 +1444,9 @@
       "sha256": "fdbf22a2c65a315174c1413228e81f6837a158e3eadd6fe4d759311d05659cd1"
     },
     {
-      "bytes": 439,
+      "bytes": 437,
       "path": "editors/terrain3d/project/assets/rock.tscn",
-      "sha256": "da91550d11276bab3e351025f1dffacaeb3197c9a18f057a26010e72595109bd"
+      "sha256": "96244b8ae633392319607e8708db96ae89e73ba3ecedd627176c4c35b176562c"
     },
     {
       "bytes": 87846,
@@ -1464,9 +1464,9 @@
       "sha256": "568e2abb845fc8a4ed8a953bc7d976e487b2d7a0778a62ec1cc411a89eb697e7"
     },
     {
-      "bytes": 2528816,
+      "bytes": 2528814,
       "path": "editors/terrain3d/project/assets/terrain_assets.tres",
-      "sha256": "f9107f8ed12ddd06fe72095aa5ed772e4d36354a7e5aba37e4c4e849e286706e"
+      "sha256": "1f8931eb898868bd1c1b04865948851bf6d35a95411b32f0b7e2e9e9cd4e3110"
     },
     {
       "bytes": 1299,
@@ -1541,7 +1541,7 @@
     {
       "bytes": 2531299,
       "path": "editors/terrain3d/project/world.tscn",
-      "sha256": "362a544d64724f0ccb0c3d9dbe891bfc632df43a89b570913d5e07a2428e3948"
+      "sha256": "ec087be7125389d91fbe3658e1ecbf14ce86ad96920826c668199b09dfc6b220"
     },
     {
       "bytes": 5868,
@@ -1576,7 +1576,7 @@
     {
       "bytes": 6015,
       "path": "index.html",
-      "sha256": "ddde16fa47d907089eb486c88d8166ed74038a59fe93360b7c6e0738f12e7bfd"
+      "sha256": "695a33ab0b35aea6c923a5551643443cf226d58d0bb52d9786d16434b66eafbc"
     },
     {
       "bytes": 5700,
@@ -1589,9 +1589,9 @@
       "sha256": "631bbecee5e5136b5f29ed7dedb31a5d022d65da4b639b6e52a48d0c5e3d3154"
     },
     {
-      "bytes": 1812768,
+      "bytes": 1837988,
       "path": "index.pck",
-      "sha256": "0d7b582509be6d0bf11c6631046c16c353c11848f9bdec4c885b445d33c99728"
+      "sha256": "cf1d9f89b0526edba937279041d3210d003f60b5b6e743e6d7a7eb62cae36de7"
     },
     {
       "bytes": 21443,
@@ -1626,23 +1626,23 @@
     {
       "bytes": 56973,
       "path": "package.json",
-      "sha256": "7f91596d4ea0334b5485593b7ab41daa791010aacd6a2ca76de1e01468fdda0c"
+      "sha256": "3ce0a7bba2cb548b592aabaa557bffb5c6a5eb0126951f0726d982c4129c5d92"
     },
     {
       "bytes": 293,
       "path": "studio-full-editor.json",
-      "sha256": "7939a856920df7852ef1b52462d4c24f1f13bd5de45bb7c0545b253501b7d75a"
+      "sha256": "64e571c880b76578c77758f73d11f6a6353458fd1853f504f75760a2437b25dc"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 590392282,
-  "release_asset_name": "TheKeepers-v0.7.3-demo.1-suite-web.zip",
-  "release_asset_size": 92147258,
-  "release_id": 397171964,
-  "release_tag": "v0.7.3-demo.1",
+  "release_asset_id": 591048649,
+  "release_asset_name": "TheKeepers-v0.8.3-demo.1-suite-web.zip",
+  "release_asset_size": 92171585,
+  "release_id": 397311002,
+  "release_tag": "v0.8.3-demo.1",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 36232657789,
+  "run_id": 36255585081,
   "schema": 1,
   "site": "the-keepers-suite",
   "smoke": {
@@ -1693,7 +1693,7 @@
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "f99a063effe3cd892b251bcda45def5a6212a008",
+  "source_sha": "ae40781982cb8b0b48ce37919e835f6af336e38f",
   "suspended": false,
-  "watermark": "f99a063effe3cd892b251bcda45def5a6212a008"
+  "watermark": "ae40781982cb8b0b48ce37919e835f6af336e38f"
 }
