@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:813379a0c876b9e4515ef3d1d5dac6742aad0d324172f1d1e4684f95c7e7900e",
-  "digest": "dd9d9ebf60ae108c22adbdd6e555523487866033d700d3af80ac91b00e82cdcb",
+  "artifact_digest": "sha256:6519fd6671934f27fdcd913ba737cdc696a9d9e65507588f707baeeec4d25cff",
+  "digest": "3f55e1a527cfc2e110c2a67a570e96fc28307ea6b1f1db93acba100a6c470bc3",
   "files": [
     {
       "bytes": 11358,
@@ -19,9 +19,9 @@
       "sha256": "194ff99bc0be8a3f88a9d57a40229d1a211630af06480739fc37b3eb7ebffef0"
     },
     {
-      "bytes": 193,
+      "bytes": 200,
       "path": "build.json",
-      "sha256": "b213ae7794e9d7e436d95dd1c767899b897ff6708c444623806a37951d8ab1bd"
+      "sha256": "78bceb04ab07f5b79d67941b3f2bda8d6f50526cf237755fdf658fe13dca3b30"
     },
     {
       "bytes": 11944,
@@ -41,7 +41,7 @@
     {
       "bytes": 5564,
       "path": "index.html",
-      "sha256": "8f71cbb0ceead4cff7cc3ab53b056307c5b420c806f4e607865dd4073992d065"
+      "sha256": "f562c5286ee0920131414524b8d127ad81e58f78f74cd2f0a4c307a0461e7963"
     },
     {
       "bytes": 5700,
@@ -54,9 +54,9 @@
       "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
     },
     {
-      "bytes": 1613824,
+      "bytes": 1693412,
       "path": "index.pck",
-      "sha256": "093c30ba8b9cae682e2e977a6729663c6bf976882f1eb7097360c1eddcaac394"
+      "sha256": "cc1a341a29b8b2a092b682e64110551a43caa50fd38228b9d4290d6c3e184658"
     },
     {
       "bytes": 21443,
@@ -86,18 +86,18 @@
     {
       "bytes": 460,
       "path": "web-export-metrics.json",
-      "sha256": "ad59bae760a705011cf088682d224c6801f5d2f1d6a2994f5687bc0c56f56740"
+      "sha256": "36ea9ae00c2dda6b44fcfb9fecbd4a23b8005c623afde23064c34aa642b69f2c"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 587820195,
-  "release_asset_name": "TheKeepers-v0.6.2-web.zip",
-  "release_asset_size": 11783319,
-  "release_id": 396388804,
-  "release_tag": "v0.6.2",
+  "release_asset_id": 590392224,
+  "release_asset_name": "TheKeepers-v0.7.3-demo.1-web.zip",
+  "release_asset_size": 11855688,
+  "release_id": 397171964,
+  "release_tag": "v0.7.3-demo.1",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 36106707042,
+  "run_id": 36232657789,
   "schema": 1,
   "site": "the-keepers",
   "smoke": {
@@ -121,7 +121,7 @@
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "d833ec8cd6750a83134a1b38394493aaccba481c",
+  "source_sha": "f99a063effe3cd892b251bcda45def5a6212a008",
   "suspended": false,
-  "watermark": "d833ec8cd6750a83134a1b38394493aaccba481c"
+  "watermark": "f99a063effe3cd892b251bcda45def5a6212a008"
 }
