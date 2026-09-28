@@ -3,8 +3,14 @@ run-name: Deploy public sites · requested snapshot ${{ github.sha }}
 on:
   push:
     branches: [main]
-    paths: ['site/**', 'releases/**', 'catalog/**', 'tools/**', 'tests/**', '.github/workflows/pages.yml']
+    # Tests validate infrastructure but never cause a site upload on their own.
+    paths: ['site/**', 'releases/**', 'catalog/**', 'tools/contract.py', 'tools/publish.py', 'tools/pages_plan.py', '.github/workflows/pages.yml']
   workflow_dispatch:
+    inputs:
+      force:
+        description: Deliberately redeploy even when verified live content is identical
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -19,30 +25,52 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    outputs:
+      source: ${{ steps.source.outputs.commit }}
+      artifact_id: ${{ steps.upload.outputs.artifact_id }}
+      verified: ${{ steps.live.outcome == 'success' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      WEB_BASE_URL: https://axiomsawake.github.io/web/
     steps:
       - name: Resolve current main after acquiring the deployment slot
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: main
           persist-credentials: false
+      - name: Record the actual checkout identity
+        id: source
+        run: echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Verify publication contract and collision regressions
         run: python3 -m unittest discover -s tests -v
       - name: Assemble every accepted output without rebuilding any game
         run: python3 tools/publish.py assemble --output _site --commit "$(git rev-parse HEAD)"
+      - name: Compare actual content with verified live state before upload
+        id: plan
+        env:
+          FORCE_REDEPLOY: ${{ inputs.force == true }}
+        run: |
+          args=()
+          if [ "$FORCE_REDEPLOY" = true ]; then args+=(--force); fi
+          python3 tools/pages_plan.py --output _site --base-url "$WEB_BASE_URL" --report "$RUNNER_TEMP/pages-plan-$GITHUB_RUN_ID.json" "${args[@]}"
       - name: Upload one complete static site
+        if: steps.plan.outputs.deploy == 'true'
+        id: upload
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
         with:
           name: github-pages-${{ github.run_attempt }}
           path: _site
+          retention-days: 1
       - name: Deploy exact assembled snapshot
+        if: steps.plan.outputs.deploy == 'true'
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
       - name: Verify live deployment and sub-site identities
+        if: steps.plan.outputs.deploy == 'true'
         id: live
         timeout-minutes: 5
         env:
@@ -57,6 +85,7 @@ jobs:
           WEB_BASE_URL: ${{ steps.deployment.outputs.page_url }}
         run: timeout --kill-after=5s 90s python3 -u tools/live_diagnostics.py --output _site --base-url "$WEB_BASE_URL"
       - name: Report verified deployment
+        if: steps.live.outcome == 'success'
         run: |
           echo '## Public site deployed and identity-checked' >> "$GITHUB_STEP_SUMMARY"
           echo "Source snapshot: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
@@ -72,3 +101,29 @@ jobs:
                   tag = state.get('release_tag') or 'Unversioned source build'
                   summary.write(f"| {site} | {tag} | `{identity['source_sha']}` |\n")
           PYTHON
+  cleanup:
+    name: Remove verified Pages transport, not release assets
+    needs: deploy
+    if: needs.deploy.outputs.verified == 'true' && needs.deploy.outputs.artifact_id != ''
+    runs-on: [self-hosted, romik-desktop, io-heavy]
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.deploy.outputs.source }}
+          persist-credentials: false
+      - name: Delete only this run's exact successfully deployed artifact
+        id: cleanup
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_ID: ${{ needs.deploy.outputs.artifact_id }}
+          PAGES_LIVE_VERIFIED: ${{ needs.deploy.outputs.verified }}
+        run: python3 tools/pages_cleanup.py
+      - name: Preserve serving success and explain cleanup failure
+        if: steps.cleanup.outcome == 'failure'
+        run: |
+          echo '::warning::Serving passed but exact-ID transport cleanup failed; artifact expires after one day. Do not rebuild the game to retry cleanup.'
