@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import random
+import re
 import shutil
 import subprocess
 import tempfile
@@ -115,7 +116,17 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
             require(release_manifest.get('channel') == release_channel,
                     'Source release manifest channel does not match release flag')
             version = release_manifest.get('version')
-            require(isinstance(version, str) and tag == f'v{version}',
+            require(isinstance(version, str) and bool(version), 'Source release manifest version is invalid')
+            expected_tag = f'v{version}'
+            if 'release_tag' in release_manifest:
+                build_tag = release_manifest['release_tag']
+                require(release_channel == 'prerelease' and
+                        bool(re.fullmatch(r'\d+\.\d+\.\d+-demo\.[1-9]\d*', version)) and
+                        isinstance(build_tag, str) and
+                        bool(re.fullmatch(rf'{re.escape(expected_tag)}-build\.[1-9]\d*', build_tag)),
+                        'Source release manifest build tag is invalid')
+                expected_tag = build_tag
+            require(tag == expected_tag,
                     'Source release manifest version does not match release tag')
         ref = api(f'{source}/git/ref/tags/{urllib.parse.quote(tag, safe="")}')['object']
         if ref.get('type') == 'tag':
