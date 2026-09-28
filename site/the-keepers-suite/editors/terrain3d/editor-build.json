@@ -17,8 +17,8 @@
     "patch_recipe_sha256": "98cb51c8cee332f11e9153e108493e90cda1e9ee18d57e59aff81a15ee52c084",
     "builder_sha256": "886efc6f7cf8ffcf536224c53e187dbd5f9c36ee8fb9cf88c8ede6409acd7093"
   },
-  "sha256": "8d61a7263deb3e6dbb9daad95ffc352c1ef214e36ea7adc5faaa16683f571c8f",
-  "bytes": 55714838,
+  "sha256": "e35d59ada354c580217cee1dcc8e6303cb6eaf1f16304f4be2eaac3a6702e436",
+  "bytes": 55714842,
   "patched_source_sha256": "b506dd6d7176fbd0284009fcebc79679ef003e6ce133e300bb38648fed52a91b",
   "terrain3d_ui_modifications": 0,
   "files": {

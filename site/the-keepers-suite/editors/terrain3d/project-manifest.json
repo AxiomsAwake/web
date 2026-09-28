@@ -80,14 +80,14 @@
     {
       "path": "addons/terrain_3d/bin/libterrain.web.debug.wasm32.wasm",
       "url": "project/addons/terrain_3d/bin/libterrain.web.debug.wasm32.wasm",
-      "bytes": 2124609,
-      "sha256": "23da1c04ab9b48b07452340525e3c76d595c3de11a8c10510cc19d8046d95b26"
+      "bytes": 2124596,
+      "sha256": "ab97ad35d115238d8fa69fa461972fb94d93916c44540f3caba14a0c0fc70f91"
     },
     {
       "path": "addons/terrain_3d/bin/libterrain.web.release.wasm32.wasm",
       "url": "project/addons/terrain_3d/bin/libterrain.web.release.wasm32.wasm",
-      "bytes": 2124609,
-      "sha256": "23da1c04ab9b48b07452340525e3c76d595c3de11a8c10510cc19d8046d95b26"
+      "bytes": 2124596,
+      "sha256": "ab97ad35d115238d8fa69fa461972fb94d93916c44540f3caba14a0c0fc70f91"
     },
     {
       "path": "addons/terrain_3d/brushes/.gdignore",
@@ -1005,7 +1005,7 @@
       "path": "assets/rock.tscn",
       "url": "project/assets/rock.tscn",
       "bytes": 437,
-      "sha256": "96244b8ae633392319607e8708db96ae89e73ba3ecedd627176c4c35b176562c"
+      "sha256": "bceda98f8614145506ce73d9c481f6d2495afd25cedcc7a2353dc6d72e113eee"
     },
     {
       "path": "assets/surface_0.res",
@@ -1029,7 +1029,7 @@
       "path": "assets/terrain_assets.tres",
       "url": "project/assets/terrain_assets.tres",
       "bytes": 2528814,
-      "sha256": "1f8931eb898868bd1c1b04865948851bf6d35a95411b32f0b7e2e9e9cd4e3110"
+      "sha256": "6e44a04599df88a7b67d2f070a80e96102546118b0365e6c58ff335a4ea25a46"
     },
     {
       "path": "assets/terrain_material.tres",
@@ -1113,7 +1113,7 @@
       "path": "world.tscn",
       "url": "project/world.tscn",
       "bytes": 2531299,
-      "sha256": "ec087be7125389d91fbe3658e1ecbf14ce86ad96920826c668199b09dfc6b220"
+      "sha256": "3d1f6e9f3a61f0e0071e0d9e253ff0c5162d3c69323c9760910e313a82c3126c"
     }
   ]
 }
