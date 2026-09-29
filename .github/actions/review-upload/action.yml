@@ -1,0 +1,60 @@
+name: Bounded optional review transfer
+description: Quota-independent tests; explicit small diagnostic transfers only.
+inputs:
+  enabled:
+    description: Manual opt-in; CI_REVIEW_UPLOADS_ENABLED must also equal true
+    default: 'false'
+  directory:
+    description: Existing report subdirectory in this job workspace or RUNNER_TEMP; preserve originals before calling
+    required: true
+  patterns:
+    description: Relative diagnostic globs, one per line; no packages or source archives
+    required: true
+  name:
+    description: Diagnostic artifact label, not a release or approval
+    required: true
+outputs:
+  artifact-id:
+    description: Set only after a successful transfer
+    value: ${{ steps.transfer.outputs.artifact-id }}
+  outcome:
+    description: Transport result only, never a test or inspection verdict
+    value: ${{ steps.transfer.outcome }}
+runs:
+  using: composite
+  steps:
+    - name: Stage exact requested files within 16 MiB and 96 files
+      id: stage
+      if: always() && github.event_name == 'workflow_dispatch' && inputs.enabled == 'true' && vars.CI_REVIEW_UPLOADS_ENABLED == 'true'
+      shell: bash
+      env:
+        REVIEW_DIRECTORY: ${{ inputs.directory }}
+        REVIEW_PATTERNS: ${{ inputs.patterns }}
+        TRANSFER_TOOL: ${{ github.action_path }}/../../../tools/review_transfer.py
+      run: python3 "$TRANSFER_TOOL"
+    - name: Attempt one optional private artifact transfer
+      id: transfer
+      if: always() && steps.stage.outcome == 'success' && steps.stage.outputs.ready == 'true'
+      continue-on-error: true
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      with:
+        name: ${{ inputs.name }}-${{ github.run_id }}-${{ github.run_attempt }}
+        path: ${{ steps.stage.outputs.directory }}/
+        retention-days: 1
+        compression-level: 6
+        if-no-files-found: error
+    - name: Report transport separately and remove its disposable staging copy
+      if: always()
+      shell: bash
+      env:
+        STAGE_OUTCOME: ${{ steps.stage.outcome }}
+        TRANSFER_OUTCOME: ${{ steps.transfer.outcome }}
+        STAGED_DIRECTORY: ${{ steps.stage.outputs.directory }}
+        TRANSFER_TOOL: ${{ github.action_path }}/../../../tools/review_transfer.py
+      run: |
+        printf 'REVIEW_ARTIFACT_TRANSPORT stage=%s transfer=%s\n' "$STAGE_OUTCOME" "$TRANSFER_OUTCOME"
+        if [ "$TRANSFER_OUTCOME" = failure ]; then
+          echo '::warning::Optional transfer failed; do not rerun tests to retry an upload. Original runner evidence is separate.'
+        fi
+        printf '\nOptional review transfer: **%s** (stage: %s). Not a test or visual verdict.\n' "${TRANSFER_OUTCOME:-skipped}" "${STAGE_OUTCOME:-skipped}" >> "$GITHUB_STEP_SUMMARY"
+        if [ -n "$STAGED_DIRECTORY" ]; then python3 "$TRANSFER_TOOL" --cleanup "$STAGED_DIRECTORY"; fi
