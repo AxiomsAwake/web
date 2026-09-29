@@ -1,6 +1,6 @@
 # Optional private diagnostic transfer
 
-Use this action pinned to a reviewed full commit. It runs in the caller's repository: public helper code does not make private diagnostics public. It creates no service, release, deployment or alternate storage account.
+This self-contained action runs in the caller's repository. It creates no service, release, deployment or alternate storage account. To avoid a shared-repository download in each test job, vendor its two executable files (`action.yml` and `review_transfer.py`) at a reviewed full commit, record that source and their SHA-256 hashes, and call the local action. Validate those hashes in the consumer. Do not fork the implementation silently. A publisher already loading this repository can also use an exact remote action pin.
 
 The caller retains originals on its trusted runner before calling. Pass `directory` for a report subdirectory under the job workspace or `RUNNER_TEMP`, 1–16 relative `patterns`, a diagnostic `name`, and `enabled` bound to an explicit default-false manual input. The action additionally requires `github.event_name == workflow_dispatch` and the caller's repository variable `CI_REVIEW_UPLOADS_ENABLED=true`. An absent variable disables transfer. Routine pushes, failed tests and a new billing month do not enable it.
 

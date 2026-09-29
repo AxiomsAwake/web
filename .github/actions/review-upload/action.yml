@@ -30,7 +30,7 @@ runs:
       env:
         REVIEW_DIRECTORY: ${{ inputs.directory }}
         REVIEW_PATTERNS: ${{ inputs.patterns }}
-        TRANSFER_TOOL: ${{ github.action_path }}/../../../tools/review_transfer.py
+        TRANSFER_TOOL: ${{ github.action_path }}/review_transfer.py
       run: python3 "$TRANSFER_TOOL"
     - name: Attempt one optional private artifact transfer
       id: transfer
@@ -50,7 +50,7 @@ runs:
         STAGE_OUTCOME: ${{ steps.stage.outcome }}
         TRANSFER_OUTCOME: ${{ steps.transfer.outcome }}
         STAGED_DIRECTORY: ${{ steps.stage.outputs.directory }}
-        TRANSFER_TOOL: ${{ github.action_path }}/../../../tools/review_transfer.py
+        TRANSFER_TOOL: ${{ github.action_path }}/review_transfer.py
       run: |
         printf 'REVIEW_ARTIFACT_TRANSPORT stage=%s transfer=%s\n' "$STAGE_OUTCOME" "$TRANSFER_OUTCOME"
         if [ "$TRANSFER_OUTCOME" = failure ]; then

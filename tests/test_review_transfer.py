@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-SPEC = importlib.util.spec_from_file_location('review_transfer', Path(__file__).resolve().parents[1] / 'tools/review_transfer.py')
+SPEC = importlib.util.spec_from_file_location('review_transfer', Path(__file__).resolve().parents[1] / '.github/actions/review-upload/review_transfer.py')
 transfer = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(transfer)
 
