@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:327bab5071f9c055a506ef0463bbd68f76b36e3081cc59f7f4d91beb4b8d7320",
-  "digest": "c0309109a9510fad27c75bb2073c2d9bb829bb95df5521f0daf4c8eb0f6891e6",
+  "artifact_digest": "sha256:1054c0a7937c337323bde41b4b40814a235ec31e04b89636923b75a0a15953ba",
+  "digest": "099b21f09c4aeda57ab8db281198240260e8b39c930af82691a88a62f9261366",
   "files": [
     {
       "bytes": 293,
@@ -9,9 +9,9 @@
       "sha256": "920d47da777f6bf775357dbda234fb8f2dc80c93d4e1537374c4e28a8b3d2181"
     },
     {
-      "bytes": 216350,
-      "path": "assets/application.615dd51fe724b4bbb43c.js",
-      "sha256": "615dd51fe724b4bbb43ca5191588248d91f4fc1bb7885dad27d8f330d54182bd"
+      "bytes": 218243,
+      "path": "assets/application.51fc4c7544d12145eac4.js",
+      "sha256": "51fc4c7544d12145eac416d02b8062ff7246f06d4c45c5b2bb54d4190a1dda99"
     },
     {
       "bytes": 440,
@@ -76,34 +76,29 @@
     {
       "bytes": 12488,
       "path": "index.html",
-      "sha256": "d31642613364a9c9b811f57217df8962ffeda3715935baa0d77d0236ee7a2e8d"
+      "sha256": "06f0df127192f2ff47c8681005d4398396ab496907c41bfce815707215c6bbb1"
     },
     {
       "bytes": 3954,
       "path": "release.json",
-      "sha256": "5b2f60603a9864b1ce57df8e19bd5f824211aec8b464eec0fbaad67a022cff7e"
+      "sha256": "ac5999b6ef887cf307e3abea8283973a55dced50977ac93738d3f0c3770ea59b"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 598466892,
-  "release_asset_name": "little-lines-b42c10dd0818187b86e36532a90871187f376860.zip",
-  "release_asset_size": 138463,
-  "release_id": 399250257,
-  "release_tag": "web-b42c10dd0818187b86e36532a90871187f376860",
+  "release_asset_id": 598612682,
+  "release_asset_name": "little-lines-994ae2ab42686035abf72e9fd40284c1883c829f.zip",
+  "release_asset_size": 139086,
+  "release_id": 399309628,
+  "release_tag": "web-994ae2ab42686035abf72e9fd40284c1883c829f",
   "retain_hashed_assets": true,
   "retained": [
     {
-      "bytes": 211524,
-      "path": "assets/application.0833911767a108bd5c69.js",
-      "sha256": "0833911767a108bd5c698cc5d5f8528a0c24e26229eed99fc1c34bde9320daf5"
-    },
-    {
-      "bytes": 31615,
-      "path": "assets/data.0b6373d53a9e3cf6ea1d.js",
-      "sha256": "0b6373d53a9e3cf6ea1d75183c629ee93b08f8bc024700f9930cd01a2578ed02"
+      "bytes": 216350,
+      "path": "assets/application.615dd51fe724b4bbb43c.js",
+      "sha256": "615dd51fe724b4bbb43ca5191588248d91f4fc1bb7885dad27d8f330d54182bd"
     }
   ],
-  "run_id": 36580981999,
+  "run_id": 36590258375,
   "schema": 1,
   "site": "little-lines",
   "smoke": {
@@ -120,7 +115,7 @@
     "wait_hidden": "#loading"
   },
   "source": "AxiomsAwake/LittleLines",
-  "source_sha": "b42c10dd0818187b86e36532a90871187f376860",
+  "source_sha": "994ae2ab42686035abf72e9fd40284c1883c829f",
   "suspended": false,
-  "watermark": "b42c10dd0818187b86e36532a90871187f376860"
+  "watermark": "994ae2ab42686035abf72e9fd40284c1883c829f"
 }
