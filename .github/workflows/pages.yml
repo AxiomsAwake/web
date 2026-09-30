@@ -22,7 +22,7 @@ concurrency:
 jobs:
   deploy:
     name: Assemble, deploy and verify current main · request ${{ github.sha }}
-    runs-on: [self-hosted, romik-desktop, io-heavy]
+    runs-on: [self-hosted, romik-desktop, general]
     timeout-minutes: 15
     permissions:
       contents: read
@@ -108,7 +108,7 @@ jobs:
     name: Remove verified Pages transport, not release assets
     needs: deploy
     if: needs.deploy.outputs.verified == 'true' && needs.deploy.outputs.artifact_id != ''
-    runs-on: [self-hosted, romik-desktop, io-heavy]
+    runs-on: [self-hosted, romik-desktop, general]
     timeout-minutes: 3
     permissions:
       contents: read
