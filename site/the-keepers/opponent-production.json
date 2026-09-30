@@ -1,7 +1,12 @@
 {
-  "schema": "keepers-opponent-production/v1",
-  "id": "ordinary_reinforcements_v1",
-  "interval_ticks": [80, 55, 40],
-  "role_cycle": ["guardian", "scout", "scout"],
-  "when": {"fact": "force_deficit", "op": "gt", "value": 0}
+  "schema": "keepers-opponent-production/v2",
+  "id": "ordinary_economy_v2",
+  "decision_interval_ticks": 10,
+  "max_pending_deploys": 1,
+  "reserve_nanomass": 0,
+  "role_cycle": [
+    "guardian",
+    "scout",
+    "scout"
+  ]
 }
