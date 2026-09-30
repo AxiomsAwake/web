@@ -14,12 +14,12 @@
       "gzip_bytes": 10054758
     },
     "index.pck": {
-      "raw_bytes": 1842592,
-      "gzip_bytes": 1756376
+      "raw_bytes": 1845296,
+      "gzip_bytes": 1759167
     }
   },
   "totals": {
-    "raw_bytes": 41642725,
-    "gzip_bytes": 11881839
+    "raw_bytes": 41645429,
+    "gzip_bytes": 11884630
   }
 }
