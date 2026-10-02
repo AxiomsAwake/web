@@ -1,10 +1,173 @@
 {
   "game": "the-keepers",
-  "version": "0.8.3-demo.12",
-  "source_revision": "0a72c724cbdfea5bc8eb70406f5f23d91505c15c",
-  "built_at": "2026-09-30T10:52:44.981113Z",
+  "version": "0.8.3-demo.13",
+  "source_revision": "c3c6de3a55993ec09e49b66775ffb102e0564e2e",
+  "built_at": "2026-10-02T06:03:52.559609Z",
   "target": "suite-web",
+  "packaged_features": {
+    "schema": "keepers-packaged-features/v1",
+    "sha256": "f1a7bb16c7ac60c9e6b67a0f4295c7868f636d961f8c7d44ed3446c250277e93",
+    "features": [
+      {
+        "id": "accuracy-damage",
+        "implementation_revision": "unavailable",
+        "readiness": "experimental",
+        "availability": "unavailable",
+        "default_enabled": false,
+        "lifecycle": "new_battle",
+        "dependencies": [],
+        "parameters": {
+          "accuracy": 0.8,
+          "damage-variation": 0.1
+        },
+        "quality": {}
+      },
+      {
+        "id": "camera-impact",
+        "implementation_revision": "camera-impact-v1",
+        "readiness": "experimental",
+        "availability": "implemented",
+        "default_enabled": false,
+        "lifecycle": "live",
+        "dependencies": [],
+        "parameters": {
+          "magnitude": 1,
+          "unit-reach": 70,
+          "structure-reach": 190
+        },
+        "quality": {
+          "impulse-limit": 8
+        }
+      },
+      {
+        "id": "explosion-appearance",
+        "implementation_revision": "explosion-appearance-v1",
+        "readiness": "experimental",
+        "availability": "implemented",
+        "default_enabled": false,
+        "lifecycle": "live",
+        "dependencies": [],
+        "parameters": {
+          "envelope-scale": 1.25,
+          "variation": 0.18,
+          "duration": 1,
+          "light": 0.75,
+          "smoke-seconds": 1.6
+        },
+        "quality": {
+          "volume-limit": 4,
+          "light-limit": 2,
+          "smoke-limit": 8
+        }
+      },
+      {
+        "id": "fuel-ammunition-consequences",
+        "implementation_revision": "unavailable",
+        "readiness": "experimental",
+        "availability": "unavailable",
+        "default_enabled": false,
+        "lifecycle": "new_battle",
+        "dependencies": [],
+        "parameters": {
+          "ignition-threshold": 0.75
+        },
+        "quality": {}
+      },
+      {
+        "id": "movement-efficiency",
+        "implementation_revision": "unavailable",
+        "readiness": "experimental",
+        "availability": "unavailable",
+        "default_enabled": false,
+        "lifecycle": "new_battle",
+        "dependencies": [],
+        "parameters": {
+          "efficiency": 1
+        },
+        "quality": {}
+      },
+      {
+        "id": "procedural-machines",
+        "implementation_revision": "unavailable",
+        "readiness": "experimental",
+        "availability": "unavailable",
+        "default_enabled": false,
+        "lifecycle": "live",
+        "dependencies": [],
+        "parameters": {
+          "visual-variation": 1
+        },
+        "quality": {
+          "part-limit": 24
+        }
+      },
+      {
+        "id": "shooting-fire-variation",
+        "implementation_revision": "shooting-fire-variation-v1",
+        "readiness": "experimental",
+        "availability": "implemented",
+        "default_enabled": false,
+        "lifecycle": "live",
+        "dependencies": [],
+        "parameters": {
+          "variation": 0.18,
+          "muzzle-scale": 1,
+          "tracer-width-scale": 1,
+          "impact-scale": 1,
+          "burning-variation": 0.15
+        },
+        "quality": {
+          "spark-limit": 9
+        }
+      },
+      {
+        "id": "structural-breakup",
+        "implementation_revision": "unavailable",
+        "readiness": "experimental",
+        "availability": "unavailable",
+        "default_enabled": false,
+        "lifecycle": "live",
+        "dependencies": [],
+        "parameters": {
+          "fragment-scale": 1
+        },
+        "quality": {
+          "fragment-limit": 32
+        }
+      },
+      {
+        "id": "terrain-aftermath",
+        "implementation_revision": "unavailable",
+        "readiness": "experimental",
+        "availability": "unavailable",
+        "default_enabled": false,
+        "lifecycle": "new_battle",
+        "dependencies": [],
+        "parameters": {
+          "crater-depth": 0.5
+        },
+        "quality": {
+          "scorch-limit": 64
+        }
+      },
+      {
+        "id": "wreck-lifecycle",
+        "implementation_revision": "unavailable",
+        "readiness": "experimental",
+        "availability": "unavailable",
+        "default_enabled": false,
+        "lifecycle": "live",
+        "dependencies": [],
+        "parameters": {
+          "decay-seconds": 30
+        },
+        "quality": {
+          "wreck-limit": 32
+        }
+      }
+    ]
+  },
   "profile": "public-local-studio",
-  "content_identity": "sha256:4223b610420c20f842d0c2bdb5253237aff9e903dff467f873da45604f22df94",
-  "law_identity": "0a72c724cbdfea5bc8eb70406f5f23d91505c15c"
+  "content_identity": "sha256:e42cd07939aea551cefc2c77f06a5d51c07c7f6340e3424bd23885d59685d933",
+  "law_identity": "c3c6de3a55993ec09e49b66775ffb102e0564e2e"
 }
