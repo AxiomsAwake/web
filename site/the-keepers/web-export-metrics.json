@@ -3,7 +3,7 @@
   "files": {
     "index.html": {
       "raw_bytes": 5564,
-      "gzip_bytes": 2233
+      "gzip_bytes": 2232
     },
     "index.js": {
       "raw_bytes": 279815,
@@ -14,12 +14,12 @@
       "gzip_bytes": 10054758
     },
     "index.pck": {
-      "raw_bytes": 2018696,
-      "gzip_bytes": 1916735
+      "raw_bytes": 2023828,
+      "gzip_bytes": 1921735
     }
   },
   "totals": {
-    "raw_bytes": 41818829,
-    "gzip_bytes": 12042197
+    "raw_bytes": 41823961,
+    "gzip_bytes": 12047196
   }
 }
