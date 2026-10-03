@@ -1,12 +1,12 @@
 {
   "game": "the-keepers",
-  "version": "0.8.3-demo.23",
-  "source_revision": "7bf43c18857107a4b7e77f44e81332b5504dbab7",
-  "built_at": "2026-10-03T10:08:31.456955Z",
+  "version": "0.8.3-demo.24",
+  "source_revision": "d35f35b42985c650f0760a13ef627d56c17c3fb4",
+  "built_at": "2026-10-03T16:58:26.683279Z",
   "target": "suite-web",
   "packaged_features": {
     "schema": "keepers-packaged-features/v1",
-    "sha256": "f1a7bb16c7ac60c9e6b67a0f4295c7868f636d961f8c7d44ed3446c250277e93",
+    "sha256": "8470b3f75bbcd5d3f2c8e42e2d89a0a652fbfe22c15cec75533de3b15478227b",
     "features": [
       {
         "id": "accuracy-damage",
@@ -152,9 +152,9 @@
       },
       {
         "id": "wreck-lifecycle",
-        "implementation_revision": "unavailable",
+        "implementation_revision": "wreck-lifecycle-v1",
         "readiness": "experimental",
-        "availability": "unavailable",
+        "availability": "implemented",
         "default_enabled": false,
         "lifecycle": "live",
         "dependencies": [],
@@ -168,6 +168,6 @@
     ]
   },
   "profile": "public-local-studio",
-  "content_identity": "sha256:79799e4d8a5032761a6df6c9eb8bc2238202d8499fd92c99cac1e8c2dd7682dc",
-  "law_identity": "7bf43c18857107a4b7e77f44e81332b5504dbab7"
+  "content_identity": "sha256:1e4d0e4f1a11c1108504dbb93777ce39dc92978fe7a176eeaa948576d7ce5911",
+  "law_identity": "d35f35b42985c650f0760a13ef627d56c17c3fb4"
 }
