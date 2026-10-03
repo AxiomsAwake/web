@@ -799,7 +799,7 @@
     },
     "project/assets/rock.tscn": {
       "bytes": 439,
-      "sha256": "bdda56d248f3719997a6bd70e87f401468f85b4243f17e5eb7f0f8351affc8e1"
+      "sha256": "c2a9b89e7e1d10815776f38942fedf5cfc641511b632038b8e3cf978adc89327"
     },
     "project/assets/surface_0.res": {
       "bytes": 87846,
@@ -815,7 +815,7 @@
     },
     "project/assets/terrain_assets.tres": {
       "bytes": 2528816,
-      "sha256": "f9758f33eb9797f3984771b36beda098d5073de0182ee98cb7488bfd274a6f88"
+      "sha256": "a6a88dc46deadde2bb53152781e8ba4183f42fd14c65ddbef125c1befa3e8f1f"
     },
     "project/assets/terrain_material.tres": {
       "bytes": 1299,
@@ -875,7 +875,7 @@
     },
     "project/world.tscn": {
       "bytes": 2531301,
-      "sha256": "036bf87502bfdf3c5d4a3d6a2da5621a088deada31b349e9b5099d5a6386e192"
+      "sha256": "8950e7201c6b19e1130bfcb8b7e0cbec7945cf641266f9dc992fdb965fdf8a0b"
     },
     "project-io.js": {
       "bytes": 4872,
@@ -883,7 +883,7 @@
     },
     "project-manifest.json": {
       "bytes": 44514,
-      "sha256": "a7f380423a0d56151d70002ad5aa4537458c5c71cd30e75807dd15ad5460bae9"
+      "sha256": "cc835318c575282c9dc596936fa38229562369d9e8eb86e6101302461d5336d7"
     },
     "service.worker.js": {
       "bytes": 5868,
