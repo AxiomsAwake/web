@@ -1,12 +1,12 @@
 {
   "game": "the-keepers",
-  "version": "0.8.3-demo.24",
-  "source_revision": "d35f35b42985c650f0760a13ef627d56c17c3fb4",
-  "built_at": "2026-10-03T16:58:26.683279Z",
+  "version": "0.8.3-demo.25",
+  "source_revision": "874ff44e6f69e7844b1c884e53028b9e0e6b0003",
+  "built_at": "2026-10-05T19:09:09.947050Z",
   "target": "source-prerelease",
   "packaged_features": {
     "schema": "keepers-packaged-features/v1",
-    "sha256": "8470b3f75bbcd5d3f2c8e42e2d89a0a652fbfe22c15cec75533de3b15478227b",
+    "sha256": "dfaab0629e31ebfc40d7a80dfb6fbca56e856eb9a1343bcf77f284d3042cde20",
     "features": [
       {
         "id": "accuracy-damage",
@@ -88,9 +88,9 @@
       },
       {
         "id": "procedural-machines",
-        "implementation_revision": "unavailable",
+        "implementation_revision": "procedural-machines-v1",
         "readiness": "experimental",
-        "availability": "unavailable",
+        "availability": "implemented",
         "default_enabled": false,
         "lifecycle": "live",
         "dependencies": [],
@@ -122,9 +122,9 @@
       },
       {
         "id": "structural-breakup",
-        "implementation_revision": "unavailable",
+        "implementation_revision": "structural-breakup-v1",
         "readiness": "experimental",
-        "availability": "unavailable",
+        "availability": "implemented",
         "default_enabled": false,
         "lifecycle": "live",
         "dependencies": [],
@@ -137,9 +137,9 @@
       },
       {
         "id": "terrain-aftermath",
-        "implementation_revision": "unavailable",
+        "implementation_revision": "terrain-aftermath-v1",
         "readiness": "experimental",
-        "availability": "unavailable",
+        "availability": "implemented",
         "default_enabled": false,
         "lifecycle": "new_battle",
         "dependencies": [],
