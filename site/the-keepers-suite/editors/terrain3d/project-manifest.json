@@ -1004,8 +1004,8 @@
     {
       "path": "assets/rock.tscn",
       "url": "project/assets/rock.tscn",
-      "bytes": 438,
-      "sha256": "c3e9c3a19c3bd200ad2627035ce727cf3314a6438ba22c48f0d367030025b7e6"
+      "bytes": 439,
+      "sha256": "3ed9d0be370b4669eab43391a7c7c4dd443ecbce364ca77adea557547ace726e"
     },
     {
       "path": "assets/surface_0.res",
@@ -1028,8 +1028,8 @@
     {
       "path": "assets/terrain_assets.tres",
       "url": "project/assets/terrain_assets.tres",
-      "bytes": 2528815,
-      "sha256": "e47ab55e548d4c187ebf6245d9166350bf85cb9f3f61fb139970f84b14ab555b"
+      "bytes": 2528816,
+      "sha256": "6e9d09c6c7871081ed812b72ea3b441d7600d5258a3e09219e65151cd0f77282"
     },
     {
       "path": "assets/terrain_material.tres",
@@ -1112,8 +1112,8 @@
     {
       "path": "world.tscn",
       "url": "project/world.tscn",
-      "bytes": 2531299,
-      "sha256": "6ab3ac5f001372fa9741ff85d9f7b87ffd0f0fdd860ea07a010ee8cf33d7d307"
+      "bytes": 2531302,
+      "sha256": "0e0c384d00fd7128baff4cc4494fc3e097cf755c60c8d546dfb853c4dac97375"
     }
   ]
 }
