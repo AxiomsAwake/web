@@ -2,10 +2,10 @@
   "schema": "keepers-suite-package/v1",
   "profile": "public-local-studio",
   "target": "suite-web",
-  "source_revision": "53218672d84f8f462979187a7c1a3b730c798635",
-  "version": "0.8.3-demo.31",
-  "content_identity": "sha256:84bcd16309ea5ec789d1881da4048244c72365001a9d517d747f6e53138905ef",
-  "law_identity": "53218672d84f8f462979187a7c1a3b730c798635",
+  "source_revision": "10584af38c2f7c6ea902b763d84e73867273ea29",
+  "version": "0.8.3-demo.33",
+  "content_identity": "sha256:9bd1570dd3a5367a59a1bc97c5684cfefe438f0221e6075c4c192216dfdc5c9c",
+  "law_identity": "10584af38c2f7c6ea902b763d84e73867273ea29",
   "main_scene": "res://suite/unit_studio.tscn",
   "files": {
     "404.html": {
@@ -30,7 +30,7 @@
     },
     "build.json": {
       "bytes": 4892,
-      "sha256": "b71c89c26d5509b061d61e26e454fae02812b49d4f6e5da0c0973985b7f379a2"
+      "sha256": "0725d08df3bad1ca5ec092bfa57af24e7ceee8b692f9a61eca45d4d8799625fa"
     },
     "editors/blockbench/LICENSE.MD": {
       "bytes": 35148,
@@ -209,8 +209,8 @@
       "sha256": "8b05b032cfc3e9ea8b23bceec7558891990869995eed69718c2c98a111596eea"
     },
     "editors/blockbench/corresponding-source.zip": {
-      "bytes": 11215487,
-      "sha256": "55deec56bf7035684029dbf2da279690a4b340470b8c0be46059d6554da511ed"
+      "bytes": 11215488,
+      "sha256": "79a36b1d71b485db7eaf08cd4430563b4152389647ff94fef7e3a8d66a4903d9"
     },
     "editors/blockbench/css/dialogs.css": {
       "bytes": 59937,
@@ -354,7 +354,7 @@
     },
     "editors/blockbench/upstream.json": {
       "bytes": 7840,
-      "sha256": "209bf52fbf22c3f7554d9e9e5c986e06eaa83ffa113fb1c60c06da45aa0ba42a"
+      "sha256": "96b0d371929e8f897fef544964b7870451bc28ccfbe159ad05bb753dc034c5fc"
     },
     "editors/terrain3d/FFLATE-LICENSE.txt": {
       "bytes": 1069,
@@ -386,7 +386,7 @@
     },
     "editors/terrain3d/full-editor-package.json": {
       "bytes": 36665,
-      "sha256": "7e2b017e01c4dc26eebc87b4103cc818ac502aa4dc7a20362182760a1aeb9f38"
+      "sha256": "de82d30f1d9444b2781d31404ccea9f4aa037db37db2efc58259ab5d2df4e585"
     },
     "editors/terrain3d/godot.editor.audio.position.worklet.js": {
       "bytes": 2973,
@@ -1153,8 +1153,8 @@
       "sha256": "fdbf22a2c65a315174c1413228e81f6837a158e3eadd6fe4d759311d05659cd1"
     },
     "editors/terrain3d/project/assets/rock.tscn": {
-      "bytes": 438,
-      "sha256": "7d39213907e0552c168e773b6871cbc5822456338fa362d6c564f0130f43e1e8"
+      "bytes": 439,
+      "sha256": "c2965ff4b9fa2100a69380382b9f588bb170fb659930db0af99a7799b92cb99b"
     },
     "editors/terrain3d/project/assets/surface_0.res": {
       "bytes": 87846,
@@ -1169,8 +1169,8 @@
       "sha256": "568e2abb845fc8a4ed8a953bc7d976e487b2d7a0778a62ec1cc411a89eb697e7"
     },
     "editors/terrain3d/project/assets/terrain_assets.tres": {
-      "bytes": 2528815,
-      "sha256": "949aa68b6626c4f2fc49543e3b9e9f8cbd58cd1b3000a1515cf2ba80a64f221b"
+      "bytes": 2528816,
+      "sha256": "177cd98724efb514773fc8070ce750193bb5712a5ff6245087f24c9b70ed6157"
     },
     "editors/terrain3d/project/assets/terrain_material.tres": {
       "bytes": 1299,
@@ -1229,8 +1229,8 @@
       "sha256": "8c8fcf43c410580e9fc8847388d6bd0ed2731e23d606935b92b51fa7ac39ed7b"
     },
     "editors/terrain3d/project/world.tscn": {
-      "bytes": 2531297,
-      "sha256": "7109ebbbf9e9f39bca9b2c9e87ff96c11d328768633983bf1de071feb1ed9a35"
+      "bytes": 2531300,
+      "sha256": "e3b5e24fe29c31baffc6cb25ef8385d30d7eae88d0061676ec2b35e38a762c00"
     },
     "editors/terrain3d/project-io.js": {
       "bytes": 4872,
@@ -1238,7 +1238,7 @@
     },
     "editors/terrain3d/project-manifest.json": {
       "bytes": 44514,
-      "sha256": "730c965905803fa0f5002416cbc30bc1d018110ffb92ecf2ba0800682e93cc83"
+      "sha256": "42e3e00103e5a548371740190f5388ad06988347339370f5f474a21ecab17bdb"
     },
     "editors/terrain3d/service.worker.js": {
       "bytes": 5868,
@@ -1278,7 +1278,7 @@
     },
     "index.pck": {
       "bytes": 2230940,
-      "sha256": "48c5882b0dc19cefd2b9d9938eed536f432f67dee8ef0dca9b3f9e6ab7708d21"
+      "sha256": "c3b56a5b43952e42233884feb965e76179fba39e50921a61e3dda5ed6f162a8a"
     },
     "index.png": {
       "bytes": 21443,
@@ -1306,7 +1306,7 @@
     },
     "studio-full-editor.json": {
       "bytes": 293,
-      "sha256": "d841f41edbbe9add41c1387368b69d047259b6363c7cd0a162c759653816eb15"
+      "sha256": "ed27b3fe6729024c2ab7bec90904e072239daa52e08e2ea21e6121d71eaa28a1"
     }
   }
 }
