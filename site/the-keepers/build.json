@@ -1,8 +1,8 @@
 {
   "game": "the-keepers",
-  "version": "0.8.3-demo.30",
-  "source_revision": "2d640365f9631181a906c7e4483231b927620235",
-  "built_at": "2026-10-08T18:35:46.849083Z",
+  "version": "0.8.3-demo.31",
+  "source_revision": "53218672d84f8f462979187a7c1a3b730c798635",
+  "built_at": "2026-10-09T08:11:17.782879Z",
   "target": "source-prerelease",
   "packaged_features": {
     "schema": "keepers-packaged-features/v1",
