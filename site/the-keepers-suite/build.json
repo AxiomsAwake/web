@@ -1,8 +1,8 @@
 {
   "game": "the-keepers",
-  "version": "0.8.4-demo.2",
-  "source_revision": "573b22af2dbef9945972e4c93fa024b5daca2f64",
-  "built_at": "2026-10-10T14:44:37.536324Z",
+  "version": "0.8.4-demo.3",
+  "source_revision": "e7b3e206fb92d03f41bce0df114472b061b6faf2",
+  "built_at": "2026-10-11T06:40:32.339386Z",
   "target": "suite-web",
   "packaged_features": {
     "schema": "keepers-packaged-features/v1",
@@ -168,6 +168,6 @@
     ]
   },
   "profile": "public-local-studio",
-  "content_identity": "sha256:92ee39957a19bf998d5c08efd5c09a99cc686b947b5d76b7973ddd405d3d45b0",
-  "law_identity": "573b22af2dbef9945972e4c93fa024b5daca2f64"
+  "content_identity": "sha256:6b64c9e5840e31c4ac5fdef67179303c459d0dc3958c4363f9c1b1779d78f2d8",
+  "law_identity": "e7b3e206fb92d03f41bce0df114472b061b6faf2"
 }
