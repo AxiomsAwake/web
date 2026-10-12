@@ -3,7 +3,7 @@
   "provider": "godot-terrain3d-full-editor",
   "shared_revision": "82d3471ba8621c69359cdf19aeb1dcb335b831d2",
   "native_format": "godot-native-project",
-  "bytes": 132748503,
+  "bytes": 132748499,
   "files": {
     "FFLATE-LICENSE.txt": {
       "bytes": 1069,
@@ -799,7 +799,7 @@
     },
     "project/assets/rock.tscn": {
       "bytes": 439,
-      "sha256": "da1eca8e57ee706cff8b968aa061c986708e03aaa22572554b174ed2eea7af05"
+      "sha256": "55a742990fce19febcda6e89195b2ea217d47d4a57ac9056d37e7e06e6662685"
     },
     "project/assets/surface_0.res": {
       "bytes": 87846,
@@ -815,7 +815,7 @@
     },
     "project/assets/terrain_assets.tres": {
       "bytes": 2528816,
-      "sha256": "f75f4694870f1871ac5535ee1b7728a76c44bf7d9bdc0b222778182cd45d3f7c"
+      "sha256": "4ae04337213cf0926a9b39073543f3e7e80bf1f8dff299a43a670f107f9f0feb"
     },
     "project/assets/terrain_material.tres": {
       "bytes": 1299,
@@ -874,8 +874,8 @@
       "sha256": "8c8fcf43c410580e9fc8847388d6bd0ed2731e23d606935b92b51fa7ac39ed7b"
     },
     "project/world.tscn": {
-      "bytes": 2531302,
-      "sha256": "3276536b8d1b9e9a29f2a8b84b67c0f1220ec2a198a81b39c8a0275ba10d94bc"
+      "bytes": 2531298,
+      "sha256": "4c4f6017965290323cec30c53250b9b5c303ea5481f8024b64210c7b111a2411"
     },
     "project-io.js": {
       "bytes": 4872,
@@ -883,7 +883,7 @@
     },
     "project-manifest.json": {
       "bytes": 44514,
-      "sha256": "ed870d792ce03155b352429a2d16984b95d827157d0c7cf5a2b0d448390eea26"
+      "sha256": "2aabac8315965f54b6b82868bf5181fb5b58f59c23309b0fb9ac592d40f0bfb6"
     },
     "service.worker.js": {
       "bytes": 5868,
