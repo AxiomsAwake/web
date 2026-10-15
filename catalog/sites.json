@@ -69,6 +69,15 @@
       "kind": "Strategy studio",
       "description": "Edit unit candidates and test command battles in a browser workspace."
     },
+    "gamedev": {
+      "producer": "AxiomsAwake/GameDev",
+      "enabled": true,
+      "workflow": ".github/workflows/verify-web.yml",
+      "title": "GameDev Capability Studio",
+      "kind": "Game development studio",
+      "description": "Explore runnable Godot examples for game design, implementation and evaluation.",
+      "artifact": "gamedev-{sha}"
+    },
     "living-worlds": {
       "producer": "AxiomsAwake/LivingWorlds",
       "enabled": false,
