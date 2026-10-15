@@ -25,7 +25,7 @@
       "workflow": ".github/workflows/ci-cd.yml",
       "title": "Romi16",
       "kind": "Restored adventure",
-      "description": "Michael K’s original 2001 game, restored for the browser.",
+      "description": "Michael K\u2019s original 2001 game, restored for the browser.",
       "release_asset": "romi16-{sha}.zip"
     },
     "earth-sim": {
@@ -50,7 +50,10 @@
       "producer": "AxiomsAwake/TheKeepers",
       "enabled": true,
       "workflow": ".github/workflows/release.yml",
-      "accepted_release_channels": ["prerelease", "stable"],
+      "accepted_release_channels": [
+        "prerelease",
+        "stable"
+      ],
       "release_manifest_path": "release/manifest.json",
       "release_asset": "TheKeepers-{tag}-web.zip",
       "title": "The Keepers",
@@ -62,7 +65,10 @@
       "enabled": true,
       "workflow": ".github/workflows/release.yml",
       "manifest_path": "web-publish-suite.json",
-      "accepted_release_channels": ["prerelease", "stable"],
+      "accepted_release_channels": [
+        "prerelease",
+        "stable"
+      ],
       "release_manifest_path": "release/manifest.json",
       "release_asset": "TheKeepers-{tag}-suite-web.zip",
       "title": "The Keepers Command Studio",
@@ -76,7 +82,7 @@
       "title": "GameDev Capability Studio",
       "kind": "Game development studio",
       "description": "Explore runnable Godot examples for game design, implementation and evaluation.",
-      "artifact": "gamedev-{sha}"
+      "release_asset": "gamedev-{sha}.zip"
     },
     "living-worlds": {
       "producer": "AxiomsAwake/LivingWorlds",
