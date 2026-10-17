@@ -1,0 +1,35 @@
+{
+  "asset": "Concrete Floor Painted",
+  "author": "Rob Tuytel",
+  "source": "https://polyhaven.com/a/concrete_floor_painted",
+  "license": "CC0-1.0",
+  "license_source": "https://polyhaven.com/license",
+  "api_source": "https://api.polyhaven.com/files/concrete_floor_painted",
+  "retrieved": "2026-10-15",
+  "width_m": 2.0,
+  "resolution": "1k",
+  "changes": "Original JPG bytes; no image modification. Native scene-local surface composition only.",
+  "files": [
+    {
+      "path": "albedo.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_floor_painted/concrete_floor_painted_diff_1k.jpg",
+      "bytes": 665654,
+      "upstream_md5": "07cee8ac8966a2f84fd7bc2ecb416de9",
+      "sha256": "f99ff99ed191e924d3bcbf4f345bb9973467ae18dceddee34bc013f01702c358"
+    },
+    {
+      "path": "normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_floor_painted/concrete_floor_painted_nor_gl_1k.jpg",
+      "bytes": 855350,
+      "upstream_md5": "95eeeb46f335e3b4ba76340193dc1b7d",
+      "sha256": "b32425acf0b2aefca1c6bf7eed08d988f5c27a21eb75bd26ab1fd2b64903d4c6"
+    },
+    {
+      "path": "roughness.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_floor_painted/concrete_floor_painted_rough_1k.jpg",
+      "bytes": 478481,
+      "upstream_md5": "5af13a648433a32f7b3b4d6ac51a4b4c",
+      "sha256": "2bd547b54210fa2ffd48d212c0d461c8b0f7bd6fb57797c2f114dc5ca552fee9"
+    }
+  ]
+}

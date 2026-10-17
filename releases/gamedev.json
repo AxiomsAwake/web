@@ -1,0 +1,207 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:40e31e5a36f2f2149526380e42a4de5ba09f0b354b1094e8224388eb5287f444",
+  "digest": "ddb89bebe6781e1c2d43c5a4740266c5adc93ac96f649935f96a6354be66298d",
+  "files": [
+    {
+      "bytes": 6474,
+      "path": "CREDITS.md",
+      "sha256": "4fa86ae1ace2fcbdd402aa3c2bba278c4e838e20be08d365821e2f4db5c1092f"
+    },
+    {
+      "bytes": 159,
+      "path": "alpaca/AUTHORS.txt",
+      "sha256": "9e7495f4a81758c8bd51317d5e399d69742706f09ca7bded2d78ddaca2389b17"
+    },
+    {
+      "bytes": 5461,
+      "path": "app.html",
+      "sha256": "a881deeddac27de91c8c2a4a043572b0f1fbfd306390f4ba7fafee061840beba"
+    },
+    {
+      "bytes": 276,
+      "path": "audio/README.md",
+      "sha256": "0d38bcde5fda34045f67e55750b29f5d2828d6de9674bb67e15a09c19100af51"
+    },
+    {
+      "bytes": 4043,
+      "path": "build.json",
+      "sha256": "d040a59fdd20195989f888ad4428611160c2fc264104d8eb925131a5536c71cb"
+    },
+    {
+      "bytes": 5340,
+      "path": "credits.html",
+      "sha256": "b454312b0e96d7ec281854bab39ca8fd2e8b8fd1f396895a2791aaba3cc6c103"
+    },
+    {
+      "bytes": 2622,
+      "path": "environment/README.md",
+      "sha256": "4e8aa58dba467ecf037a53b8c7755dd7918306e1843485eec15175134c97717c"
+    },
+    {
+      "bytes": 1401,
+      "path": "environment/bark-brown-01/SOURCE.json",
+      "sha256": "6aa7565db9f91519c1541cbc035d1afcdd841e0671c96dfb66f0185ea0b558d8"
+    },
+    {
+      "bytes": 1456,
+      "path": "environment/brown-mud-leaves-01/SOURCE.json",
+      "sha256": "f10c7611ff324c7af1ad3e36f4d5eed5a6b7ca02618a92c29b2912f1b240cc7a"
+    },
+    {
+      "bytes": 1480,
+      "path": "environment/concrete-floor-painted/SOURCE.json",
+      "sha256": "75224851031fd0572612156d53f3c9e5f1c8e903665bf3869ef625bab17ea300"
+    },
+    {
+      "bytes": 819,
+      "path": "environment/nature-reserve-forest/SOURCE.json",
+      "sha256": "6a6caaf9bdea5e2f3556595d14b68849b9a0f0527de9fa50322c0f388fea4a0b"
+    },
+    {
+      "bytes": 1061,
+      "path": "fox-LICENSE.md",
+      "sha256": "9ddaa2edd6a8f72117eec9709d38cd7d284f61f77752d342c32c828e61f78eae"
+    },
+    {
+      "bytes": 1430,
+      "path": "fox-metadata.json",
+      "sha256": "1d888d832b5eb2a32a461ae6d5e2bc00f925e3a571c1447842466d2061800604"
+    },
+    {
+      "bytes": 8982,
+      "path": "fox-wildlife-authoring.json",
+      "sha256": "7ed7d863324ded87d099b4ca9346d6a6a96e75283cf46240f4076470b607b0d6"
+    },
+    {
+      "bytes": 2983,
+      "path": "fox-wildlife-fur-v1.json",
+      "sha256": "da08992182a457b540477a44b48073a45a04bfc13300d3232e2b292d6c713155"
+    },
+    {
+      "bytes": 3118,
+      "path": "fox-wildlife-refinement.json",
+      "sha256": "2679bc83d71f18e69c0f9ca37eb3734f49785d757eeab6372c8f1f4e164c18b8"
+    },
+    {
+      "bytes": 11358,
+      "path": "game-libs-LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "bytes": 948,
+      "path": "game-libs-NOTICE.md",
+      "sha256": "a2bc7a52f2a761402b8b227803e2407c1eefdec03b0d2e87432261693ebfeb77"
+    },
+    {
+      "bytes": 5930,
+      "path": "help.html",
+      "sha256": "af3a0e4d8051751e4e247198d2d39f25ca12941b038520b55722fc83a7a05e22"
+    },
+    {
+      "bytes": 11944,
+      "path": "index.apple-touch-icon.png",
+      "sha256": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5"
+    },
+    {
+      "bytes": 2973,
+      "path": "index.audio.position.worklet.js",
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    {
+      "bytes": 7298,
+      "path": "index.audio.worklet.js",
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    {
+      "bytes": 7740,
+      "path": "index.html",
+      "sha256": "3f0dea48fc8a6863cbe080138757d1343a466da171ffba875d807cd8dcc6539a"
+    },
+    {
+      "bytes": 5700,
+      "path": "index.icon.png",
+      "sha256": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5"
+    },
+    {
+      "bytes": 279815,
+      "path": "index.js",
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+    },
+    {
+      "bytes": 34198456,
+      "path": "index.pck",
+      "sha256": "0ee513cc77a8a4dc159094949f373498e4a06645a8d0d62086b79d58c4cc4d0c"
+    },
+    {
+      "bytes": 21443,
+      "path": "index.png",
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    {
+      "bytes": 39514754,
+      "path": "index.wasm",
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+    },
+    {
+      "bytes": 13394,
+      "path": "manifest.json",
+      "sha256": "62929c29a6d6583dbee29f9f7c168a7e41a3db7fd03f0d739f3f708245b5fd4e"
+    },
+    {
+      "bytes": 503,
+      "path": "presentation-LICENSE.txt",
+      "sha256": "63bf36f04a9ca6ba15dc0f96817c96acc9ab2932882524cd6b0914753f71d570"
+    },
+    {
+      "bytes": 586,
+      "path": "presentation-NOTICE.txt",
+      "sha256": "4cf340658080bfc699340b01c7ca2ffe566273c6013255884982848bf1b37d53"
+    },
+    {
+      "bytes": 127610,
+      "path": "previews/diorama-stage.png",
+      "sha256": "77bf03aace221892809b938594cb3edec14423db6b83b9090aef414a27ac4c4a"
+    },
+    {
+      "bytes": 344365,
+      "path": "previews/laboratory-stage.png",
+      "sha256": "45e5dae41a9b1a86f50364ae6735a709b3d711598efe4d07e19307fe958ce5d3"
+    },
+    {
+      "bytes": 620437,
+      "path": "previews/wildlife-stage.png",
+      "sha256": "749c20e518e9b64591574d67f6ead1276de698b3549687830b78ea26180a5957"
+    },
+    {
+      "bytes": 364,
+      "path": "robot-README.md",
+      "sha256": "14687ac4a51d5e013b0fbc5486dabc743f76c1e37b7ca872af74cfb93115b4b2"
+    }
+  ],
+  "package_kind": "release-asset",
+  "release_asset_id": 650345167,
+  "release_asset_name": "gamedev-67ed66fd82839ee841ef4e50eb39889791fceee6.zip",
+  "release_asset_size": 43980511,
+  "release_id": 415775919,
+  "release_tag": "studio-67ed66fd82839ee841ef4e50eb39889791fceee6",
+  "retain_hashed_assets": false,
+  "retained": [],
+  "run_id": 39028952199,
+  "schema": 1,
+  "site": "gamedev",
+  "smoke": {
+    "assert_selector": "canvas",
+    "ready_selector": "body",
+    "steps": [
+      {
+        "click": "#launch-studio"
+      }
+    ],
+    "touch": true
+  },
+  "source": "AxiomsAwake/GameDev",
+  "source_sha": "67ed66fd82839ee841ef4e50eb39889791fceee6",
+  "suspended": false,
+  "watermark": "67ed66fd82839ee841ef4e50eb39889791fceee6"
+}

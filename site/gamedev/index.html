@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 48 48%27%3E%3Crect width=%2748%27 height=%2748%27 rx=%2712%27 fill=%27%23101a1b%27/%3E%3Cpath d=%27M32 15H20l-6 9 6 9h12V23H23v5h4v1h-5l-4-5 4-5h10z%27 fill=%27%23a4e1cf%27/%3E%3C/svg%3E">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a1b">
+  <meta name="description" content="Explore fourteen playable Godot worlds, edit their native settings, and compare game presentation in the Capability Studio.">
+  <title>GameDev · Capability Studio</title>
+  <style>
+    :root{color-scheme:dark;--ink:#101a1b;--panel:#192526;--line:#334344;--paper:#f2efe6;--muted:#aab9b3;--mint:#a4e1cf;--gold:#f2cf91}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#28413c 0,transparent 50%),var(--ink);color:var(--paper);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:inherit}a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}.brand{font-size:.84rem;letter-spacing:.16em;font-weight:750}.brand span{color:var(--mint)}nav{display:flex;gap:22px;font-size:.9rem;color:var(--muted)}nav a{text-decoration:none}nav a:hover{color:var(--paper)}
+    .hero{padding:82px 0 55px;display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center}.eyebrow{color:var(--mint);font-size:.8rem;font-weight:750;letter-spacing:.15em;text-transform:uppercase}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2.7rem,6vw,5.2rem);line-height:.99;letter-spacing:-.055em;margin:16px 0 22px;max-width:700px}.hero p{max-width:610px;color:var(--muted);font-size:1.12rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 18px;border:1px solid var(--mint);border-radius:7px;text-decoration:none;font-weight:750}.button.primary{background:var(--mint);color:#10201e}.button.secondary{border-color:var(--line);color:var(--paper)}.button:hover{filter:brightness(1.08)}
+    .hero-preview{display:block;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--panel);box-shadow:0 22px 70px #0005;text-decoration:none}.hero-preview img{display:block;width:100%;aspect-ratio:1.55;object-fit:cover}.hero-preview span{display:block;padding:14px 18px;color:var(--mint);font-weight:700}
+    .gallery{padding:25px 0 78px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.section-head h2{font-size:1.8rem;letter-spacing:-.025em;margin-bottom:4px}.section-head p{color:var(--muted);margin-bottom:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:10px}.card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#1d2929;border-bottom:1px solid var(--line)}.card-body{padding:18px}.card h3{font-size:1.12rem;margin-bottom:7px}.card p{color:var(--muted);font-size:.92rem;min-height:4.4em;margin-bottom:15px}.card a{color:var(--mint);font-weight:700;text-decoration:none}.card a:hover{text-decoration:underline}.caption{font-size:.78rem;color:#82938d;margin-top:12px}
+    .how{border-top:1px solid var(--line);padding:30px 0 64px;display:grid;grid-template-columns:1fr 1fr;gap:28px}.how h2{font-size:1.45rem}.how p{color:var(--muted)}.how a{color:var(--mint)}footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:.84rem;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;padding:54px 0 34px}.cards{grid-template-columns:1fr}.card p{min-height:0}.section-head{display:block}.section-head p{margin-top:8px}.how{grid-template-columns:1fr}nav{gap:13px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="./" aria-label="GameDev Capability Studio home">GAMEDEV <span>·</span> CAPABILITY STUDIO</a>
+    <nav aria-label="Page links"><a href="help.html">How to explore</a><a href="credits.html">Credits</a></nav>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="title">
+      <div>
+        <div class="eyebrow">Fourteen playable worlds · one studio</div>
+        <h1 id="title">Explore a world.<br>Make it your own.</h1>
+        <p>Move through a living meadow, build a settlement, explore a laboratory, or try a different kind of world. Open Edit world to change its settings, apply your ideas, and save a draft.</p>
+        <div class="actions"><a class="button primary" id="launch-studio" href="app.html">Explore playable worlds</a><a class="button secondary" href="help.html">See how it works</a></div>
+      </div>
+      <a class="hero-preview" href="app.html?gamedev-suite=1&amp;setting=diorama" aria-label="Try the living diorama comparison">
+        <img src="previews/diorama-stage.png" alt="An animated alpaca in a sunlit miniature meadow">
+        <span>Compare presentation in the living diorama →</span>
+      </a>
+    </section>
+    <section class="gallery wrap" aria-labelledby="gallery-title">
+      <div class="section-head"><div><h2 id="gallery-title">Compare presentation, too</h2><p>Three focused comparison settings complement the playable world gallery.</p></div></div>
+      <div class="cards">
+        <article class="card"><img src="previews/diorama-stage.png" alt="Animated alpaca in a warm miniature meadow"><div class="card-body"><h3>Living diorama</h3><p>Expressive creature motion, warm materials and playful action cues in a miniature meadow.</p><a href="app.html?gamedev-suite=1&amp;setting=diorama">Explore this setting →</a></div></article>
+        <article class="card"><img src="previews/wildlife-stage.png" alt="Animated red fox in a riverbank clearing"><div class="card-body"><h3>Wildlife</h3><p>Study grounding, movement and restrained feedback in a wooded riverbank clearing.</p><a href="app.html?gamedev-suite=1&amp;setting=wildlife">Explore this setting →</a></div></article>
+        <article class="card"><img src="previews/laboratory-stage.png" alt="Articulated yellow robot in a futuristic testing bay"><div class="card-body"><h3>Future laboratory</h3><p>Tune mechanical timing, emissive materials and precise framing in a robot testing bay.</p><a href="app.html?gamedev-suite=1&amp;setting=laboratory">Explore this setting →</a></div></article>
+      </div>
+      <p class="caption">Actual rendered scenes. Choose a setting to start exploring, then compare your candidate with the reference.</p>
+    </section>
+    <section class="how wrap" aria-label="Studio overview">
+      <div><h2>Make a controlled comparison</h2><p>Choose a setting and capability, then compare Reference, Candidate, Reduced, or Stress at the same seed. Replay resets the action so you can inspect the change again.</p></div>
+      <div><h2>Keep the work in your hands</h2><p>Presets use bounded JSON for browser save and reload. The Studio needs no account or backend. Read the <a href="help.html">quick guide</a> and <a href="credits.html">asset credits</a> before exploring.</p></div>
+    </section>
+  </main>
+  <footer class="wrap"><span>GameDev Capability Studio · Godot Web</span><span><a href="help.html">Help</a> · <a href="credits.html">Credits and licenses</a></span></footer>
+</body>
+</html>

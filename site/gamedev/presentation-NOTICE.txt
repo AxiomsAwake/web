@@ -1,0 +1,11 @@
+Godot presentation composition
+
+The selected vendor/entity_views.gd, vendor/orbit_viewport.gd and
+vendor/mesh_kit.gd are unchanged copies of game-libs runtime/godot-views.
+Their extraction source is TheKeepers game/presentation/battlefield_3d.gd
+at 5ec2770b91314b44695a26d84e2e5fa0ba4e1d59.
+Copyright 2002-2026 Romi Kuntsman and The Keepers contributors.
+Licensed under Apache License 2.0. Names/identity are not trademark grants.
+
+The new lifecycle, material composition and Resource adapters are original
+private source. No original artwork, sound, dialogue or game rules are copied.

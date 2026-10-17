@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "AxiomsAwake/GameDev",
+  "sourceRevision": "67ed66fd82839ee841ef4e50eb39889791fceee6",
+  "sourceDigest": "88cefc056667ab20780ab2cfe521da2068ab284c877a6fccbd8b947b962c9799",
+  "files": {
+    "CREDITS.md": "4fa86ae1ace2fcbdd402aa3c2bba278c4e838e20be08d365821e2f4db5c1092f",
+    "alpaca/AUTHORS.txt": "9e7495f4a81758c8bd51317d5e399d69742706f09ca7bded2d78ddaca2389b17",
+    "app.html": "a881deeddac27de91c8c2a4a043572b0f1fbfd306390f4ba7fafee061840beba",
+    "audio/README.md": "0d38bcde5fda34045f67e55750b29f5d2828d6de9674bb67e15a09c19100af51",
+    "credits.html": "b454312b0e96d7ec281854bab39ca8fd2e8b8fd1f396895a2791aaba3cc6c103",
+    "environment/README.md": "4e8aa58dba467ecf037a53b8c7755dd7918306e1843485eec15175134c97717c",
+    "environment/bark-brown-01/SOURCE.json": "6aa7565db9f91519c1541cbc035d1afcdd841e0671c96dfb66f0185ea0b558d8",
+    "environment/brown-mud-leaves-01/SOURCE.json": "f10c7611ff324c7af1ad3e36f4d5eed5a6b7ca02618a92c29b2912f1b240cc7a",
+    "environment/concrete-floor-painted/SOURCE.json": "75224851031fd0572612156d53f3c9e5f1c8e903665bf3869ef625bab17ea300",
+    "environment/nature-reserve-forest/SOURCE.json": "6a6caaf9bdea5e2f3556595d14b68849b9a0f0527de9fa50322c0f388fea4a0b",
+    "fox-LICENSE.md": "9ddaa2edd6a8f72117eec9709d38cd7d284f61f77752d342c32c828e61f78eae",
+    "fox-metadata.json": "1d888d832b5eb2a32a461ae6d5e2bc00f925e3a571c1447842466d2061800604",
+    "fox-wildlife-authoring.json": "7ed7d863324ded87d099b4ca9346d6a6a96e75283cf46240f4076470b607b0d6",
+    "fox-wildlife-fur-v1.json": "da08992182a457b540477a44b48073a45a04bfc13300d3232e2b292d6c713155",
+    "fox-wildlife-refinement.json": "2679bc83d71f18e69c0f9ca37eb3734f49785d757eeab6372c8f1f4e164c18b8",
+    "game-libs-LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "game-libs-NOTICE.md": "a2bc7a52f2a761402b8b227803e2407c1eefdec03b0d2e87432261693ebfeb77",
+    "help.html": "af3a0e4d8051751e4e247198d2d39f25ca12941b038520b55722fc83a7a05e22",
+    "index.apple-touch-icon.png": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5",
+    "index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+    "index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+    "index.html": "3f0dea48fc8a6863cbe080138757d1343a466da171ffba875d807cd8dcc6539a",
+    "index.icon.png": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5",
+    "index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+    "index.pck": "0ee513cc77a8a4dc159094949f373498e4a06645a8d0d62086b79d58c4cc4d0c",
+    "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+    "index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+    "manifest.json": "62929c29a6d6583dbee29f9f7c168a7e41a3db7fd03f0d739f3f708245b5fd4e",
+    "presentation-LICENSE.txt": "63bf36f04a9ca6ba15dc0f96817c96acc9ab2932882524cd6b0914753f71d570",
+    "presentation-NOTICE.txt": "4cf340658080bfc699340b01c7ca2ffe566273c6013255884982848bf1b37d53",
+    "previews/diorama-stage.png": "77bf03aace221892809b938594cb3edec14423db6b83b9090aef414a27ac4c4a",
+    "previews/laboratory-stage.png": "45e5dae41a9b1a86f50364ae6735a709b3d711598efe4d07e19307fe958ce5d3",
+    "previews/wildlife-stage.png": "749c20e518e9b64591574d67f6ead1276de698b3549687830b78ea26180a5957",
+    "robot-README.md": "14687ac4a51d5e013b0fbc5486dabc743f76c1e37b7ca872af74cfb93115b4b2"
+  },
+  "previews": {
+    "diorama": {
+      "path": "previews/diorama-stage.png",
+      "sha256": "77bf03aace221892809b938594cb3edec14423db6b83b9090aef414a27ac4c4a"
+    },
+    "wildlife": {
+      "path": "previews/wildlife-stage.png",
+      "sha256": "749c20e518e9b64591574d67f6ead1276de698b3549687830b78ea26180a5957"
+    },
+    "laboratory": {
+      "path": "previews/laboratory-stage.png",
+      "sha256": "45e5dae41a9b1a86f50364ae6735a709b3d711598efe4d07e19307fe958ce5d3"
+    }
+  },
+  "publication": "public_web"
+}

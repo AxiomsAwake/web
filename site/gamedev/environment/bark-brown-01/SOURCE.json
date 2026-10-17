@@ -1,0 +1,35 @@
+{
+  "asset": "Bark Brown 01",
+  "author": "Rob Tuytel",
+  "source": "https://polyhaven.com/a/bark_brown_01",
+  "license": "CC0-1.0",
+  "license_source": "https://polyhaven.com/license",
+  "api_source": "https://api.polyhaven.com/files/bark_brown_01",
+  "retrieved": "2026-10-15",
+  "width_m": 1.0,
+  "resolution": "1k",
+  "changes": "Original JPG bytes; native cylindrical material composition only. No image modification.",
+  "files": [
+    {
+      "path": "albedo.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_01/bark_brown_01_diff_1k.jpg",
+      "bytes": 729893,
+      "upstream_md5": "b6d5dcde10b7cd1b36d70cd33a34724a",
+      "sha256": "4213441aebcb72b9911f5a860e9ce74a61a8f6ce3b9c23d1f204173e7e7f6066"
+    },
+    {
+      "path": "normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_01/bark_brown_01_nor_gl_1k.jpg",
+      "bytes": 1226534,
+      "upstream_md5": "8ae9907be7ce562c11aab619615d30d4",
+      "sha256": "9d1537b3429579436a62890bb7c5050a0172a15ce768787eacde81c5ccefc9cc"
+    },
+    {
+      "path": "roughness.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_01/bark_brown_01_rough_1k.jpg",
+      "bytes": 201307,
+      "upstream_md5": "b7a1aa42ecf0b30aba7f587769d13910",
+      "sha256": "4e7f62508cf77faebfeee15ffb571ff02c45c18d5174aa19fcb8b98506359c5c"
+    }
+  ]
+}

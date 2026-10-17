@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "candidate; UV seams, ordinary-distance material and normal-speed deformation inspection pending",
+  "source": "fox_0.png",
+  "source_sha256": "61c8b109ee7f8bf262791933380fafb1465f7b51cbe6472c2d21eff0b31f83a1",
+  "source_model": "fox.glb",
+  "source_model_sha256": "d97044e701822bac5a62696459b27d7b375aada5de8574ed4362edbba94771f7",
+  "derived": "fox-wildlife-fur-v1.png",
+  "derived_sha256": "15a84f3242d106fcede1c311cfc703b6e0e34ed568ffd980f91697c79cf1a82c",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "method": {
+    "tool": "built-in image_gen",
+    "mode": "edit",
+    "date": "2026-10-15",
+    "prompt": "Use case: precise-object-edit.\nAsset type: a 1024x1024 base-color UV texture atlas for the existing animated Khronos red fox 3D mesh.\nInput image 1 is the exact edit target, NOT a drawing reference. Keep the square canvas, all UV islands, every island silhouette, positions, gaps, orientation, proportions, black nose pixels, eye pixels, and the existing orange/cream/dark-brown marking boundaries registered exactly to this original image. Do not draw a fox, a scene, labels, a UV wireframe, padding, or a border.\nChange only the flat surface appearance inside the existing colored islands to believable red fox fur: subtle densely packed fine rust and ochre guard hairs over soft underfur in orange regions; warm ivory short fur in cream regions; dark charcoal-brown dense fur on paws and ears. Keep the same overall color masses and rough matte material. Add low-contrast natural directional fiber variation at a fine scale, not large spots or stripes. The two large body-side islands flow from nose at their outside edge toward hindquarters; leg fur follows the long direction of each small upper island. Preserve dark olive unused background exactly. This is an unlit albedo map: no cast shadows, specular lighting, ambient occlusion, baked highlights or 3D perspective. Technical UV correspondence matters more than decorative detail. Output a single opaque square texture."
+  },
+  "source_rights": "CC0-1.0 AND CC-BY-4.0",
+  "attribution": "Model/atlas: PixelMannen; rigging and animation: tomkranis; glTF conversion: @AsoboStudio and @scurest; generated fur surface edit: AxiomsAwake contributors using built-in image_gen (2026).",
+  "retained_rights": [
+    "fox-LICENSE.md",
+    "fox-metadata.json",
+    "fox-source.json"
+  ],
+  "notes": [
+    "Original GLB, embedded texture and refined GLB bytes remain unchanged; the native setting composes this external albedo override on independent per-actor materials.",
+    "Generated output is 1254 square rather than requested 1024; normalized UV coordinates are unchanged.",
+    "Coarse 4px normalized sampling places 29713 of 30160 original orange/cream samples in the same broad marking category; this approximate classifier is not proof of seamless texture correspondence.",
+    "Image generation adds surface detail; it does not prove anatomical or motion quality."
+  ]
+}

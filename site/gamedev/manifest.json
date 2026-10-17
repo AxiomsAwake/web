@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "retrieved": "2026-10-15",
+  "assets": [
+    {
+      "id": "alpaca",
+      "files": [
+        "alpaca/Alpaca.gltf",
+        "alpaca/Alpaca.bin"
+      ],
+      "source": {
+        "repository": "castle-engine/castle-engine",
+        "commit": "0c21dcbc42ba9d9d2b605f518cc962068bcf2030",
+        "path": "examples/viewport_and_scenes/shadow_volumes_whole_scene_manifold/data/quaternius_animals/"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Quaternius (Tom\u00e1s Laulh\u00e9)",
+      "license_source": "alpaca/AUTHORS.txt",
+      "changes": "No asset byte changes; instance scaled 0.62 in authored native setting.",
+      "sha256": {
+        "alpaca/Alpaca.gltf": "572100e7237b173e874d2c14a5f69a90a4837401efc51ae073f0619e2a7f10fc",
+        "alpaca/Alpaca.bin": "ce14f9911ad649b3e874f5c0214c585489c8b598bc164db95bafe3a41e5d09f3"
+      }
+    },
+    {
+      "id": "fox",
+      "files": [
+        "fox.glb"
+      ],
+      "source": {
+        "repository": "KhronosGroup/glTF-Sample-Assets",
+        "commit": "edc7c9e67c639d230715049ee31f9a96a6babbbe"
+      },
+      "license": "CC0-1.0 AND CC-BY-4.0",
+      "attribution": "Model: PixelMannen; rigging and animation: tomkranis; glTF conversion: @AsoboStudio and @scurest.",
+      "license_source": "fox-LICENSE.md",
+      "changes": "No asset byte changes; instance scaled 0.022 in authored native setting.",
+      "sha256": {
+        "fox.glb": "d97044e701822bac5a62696459b27d7b375aada5de8574ed4362edbba94771f7"
+      }
+    },
+    {
+      "id": "fox-wildlife-refined",
+      "files": [
+        "fox-wildlife-refined.glb",
+        "fox-wildlife-refinement.json"
+      ],
+      "source": {
+        "kind": "derived",
+        "original": "fox.glb",
+        "original_sha256": "d97044e701822bac5a62696459b27d7b375aada5de8574ed4362edbba94771f7",
+        "generator": "scripts/refine-wildlife-fox.py",
+        "generator_sha256": "3e8862832fa457c3ea222ecc44b59de3fd3f7dc3d3aae91deb97155b89b177a7"
+      },
+      "license": "CC0-1.0 AND CC-BY-4.0",
+      "attribution": "Model: PixelMannen; rigging and animation: tomkranis; glTF conversion: @AsoboStudio and @scurest; mesh refinement: AxiomsAwake contributors (2026).",
+      "license_source": "fox-LICENSE.md",
+      "changes": "Two constrained subdivision rounds and smooth normals; original rig, clips and embedded markings retained. Rendered anatomy/motion quality remains pending. See fox-wildlife-refinement.json.",
+      "sha256": {
+        "fox-wildlife-refined.glb": "48d16c8003ef601be02565fca627e943c599914821f489beb842a6301719bc5f",
+        "fox-wildlife-refinement.json": "2679bc83d71f18e69c0f9ca37eb3734f49785d757eeab6372c8f1f4e164c18b8"
+      }
+    },
+    {
+      "id": "fox-wildlife-authored",
+      "files": [
+        "fox-wildlife-authored.glb",
+        "fox-wildlife-authoring.json"
+      ],
+      "source": {
+        "kind": "derived",
+        "original": "fox-wildlife-refined.glb",
+        "original_sha256": "48d16c8003ef601be02565fca627e943c599914821f489beb842a6301719bc5f",
+        "generator": "scripts/author-wildlife-fox.py",
+        "generator_sha256": "c04aab20501b2fee0d543d09c505dcc221e167eff5946d001720c7f04061f4a3"
+      },
+      "license": "CC0-1.0 AND CC-BY-4.0",
+      "attribution": "Model: PixelMannen; rigging and animation: tomkranis; glTF conversion: @AsoboStudio and @scurest; mesh refinement and rest-shape authoring: AxiomsAwake contributors (2026).",
+      "license_source": "fox-LICENSE.md",
+      "changes": "Bounded joint-masked rest-shape authoring of cheek, shoulder, haunch, limbs, paws and tail. Only new POSITION/NORMAL streams appended; original/refined source bytes, rig, weights, UVs and clips preserved. Rendered anatomy and motion acceptance pending.",
+      "sha256": {
+        "fox-wildlife-authored.glb": "4b5c57d470eb791374f655068af24c5f67653d4f575e789d4f7ec5c3abcf3966",
+        "fox-wildlife-authoring.json": "7ed7d863324ded87d099b4ca9346d6a6a96e75283cf46240f4076470b607b0d6"
+      }
+    },
+    {
+      "id": "fox-wildlife-fur-v1",
+      "files": [
+        "fox-wildlife-fur-v1.png",
+        "fox-wildlife-fur-v1.json"
+      ],
+      "source": {
+        "kind": "derived",
+        "original": "fox_0.png",
+        "original_sha256": "61c8b109ee7f8bf262791933380fafb1465f7b51cbe6472c2d21eff0b31f83a1",
+        "tool": "built-in image_gen",
+        "prompt_and_derivation": "fox-wildlife-fur-v1.json"
+      },
+      "license": "CC0-1.0 AND CC-BY-4.0",
+      "attribution": "Model/atlas: PixelMannen; rigging and animation: tomkranis; glTF conversion: @AsoboStudio and @scurest; generated surface edit: AxiomsAwake contributors using built-in image_gen (2026).",
+      "license_source": "fox-LICENSE.md",
+      "changes": "Generated fine fur detail over the original atlas layout, composed as a native per-actor albedo override. Original source/refined GLBs and embedded texture bytes remain unchanged. UV seams and material quality require rendered review.",
+      "sha256": {
+        "fox-wildlife-fur-v1.png": "15a84f3242d106fcede1c311cfc703b6e0e34ed568ffd980f91697c79cf1a82c",
+        "fox-wildlife-fur-v1.json": "da08992182a457b540477a44b48073a45a04bfc13300d3232e2b292d6c713155"
+      }
+    },
+    {
+      "id": "robot",
+      "files": [
+        "robot.glb"
+      ],
+      "source": {
+        "repository": "mrdoob/three.js",
+        "commit": "e38bc18ad719622c497de07c5f0cef847aca4bf5"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Tom\u00e1s Laulh\u00e9 (Quaternius); facial morph targets and glTF conversion/modifications by Don McCurdy.",
+      "license_source": "robot-README.md",
+      "changes": "No asset byte changes; instance scaled 0.48 in authored native setting.",
+      "sha256": {
+        "robot.glb": "047f5e5fb3bb6d378bd1df16ca6137f2a596c99b3a1b5690b4020c05aaf6f319"
+      }
+    },
+    {
+      "id": "studio-audio",
+      "files": [
+        "audio/diorama-block.wav",
+        "audio/diorama-command.wav",
+        "audio/diorama-hit.wav",
+        "audio/diorama-miss.wav",
+        "audio/diorama-placement.wav",
+        "audio/diorama-repair.wav",
+        "audio/laboratory-block.wav",
+        "audio/laboratory-command.wav",
+        "audio/laboratory-hit.wav",
+        "audio/laboratory-miss.wav",
+        "audio/laboratory-placement.wav",
+        "audio/laboratory-repair.wav",
+        "audio/wildlife-block.wav",
+        "audio/wildlife-command.wav",
+        "audio/wildlife-hit.wav",
+        "audio/wildlife-miss.wav",
+        "audio/wildlife-placement.wav",
+        "audio/wildlife-repair.wav"
+      ],
+      "source": {
+        "kind": "original",
+        "seed": 4107,
+        "author": "AxiomsAwake contributors",
+        "year": 2026
+      },
+      "license": "CC0-1.0",
+      "attribution": "AxiomsAwake contributors",
+      "license_source": "audio/README.md",
+      "sha256": {
+        "audio/diorama-block.wav": "7882574eddf959314064a151f6e49eee0403bf3c4818348e0db4966e9b88fd3e",
+        "audio/diorama-command.wav": "495fb36a21a9040d74bd7251e75db4be28f5823387e16fb7950f2debbb354849",
+        "audio/diorama-hit.wav": "2fade932cf1bf7f8f7c51f838a23779951214dbe5b621ad20493d140613f75fa",
+        "audio/diorama-miss.wav": "e5fa0ea9090576d31b0b1a9a67ffafdce3fc9c15a49c3663069772ac9739bb9c",
+        "audio/diorama-placement.wav": "d260927a31beed727a6914a63e33b2e95e270b6e4c96e28901caa75ff36fcb27",
+        "audio/diorama-repair.wav": "76c32334a6972de8ad427c7c6b77f2b0720e45095c96722823cc7efa82cb20f7",
+        "audio/laboratory-block.wav": "0b91b0f6db5450cf39cc888e68131240537a9da11dbbf33467f4155b79e8b8fd",
+        "audio/laboratory-command.wav": "982c4fb45af3d443a884ee784d8694149cac777afc9beeaa3922b0c09a6b9307",
+        "audio/laboratory-hit.wav": "765db931d63d0455450ec3015f33426c50e455c993d2352505069c6284b39d84",
+        "audio/laboratory-miss.wav": "c47fcac97a8c500ef708840adf256280a777b211b76e43e191500817b1d38259",
+        "audio/laboratory-placement.wav": "93aafff81c20d868b31c1253aa56b4922805c9933a8127e50adf28a9a68e565a",
+        "audio/laboratory-repair.wav": "37e90b262665fc44158fba04bf24b27caf232da57da0e8776991d5a0e95cc2fe",
+        "audio/wildlife-block.wav": "2e4d61cb5b547255c04d3d9e736343aa64e91007276fa80ddcdfa030b32c88bd",
+        "audio/wildlife-command.wav": "9da13b79c8a6ece26b47b1e1580a71f4e789cb45469ed8f13bec928d06df00c4",
+        "audio/wildlife-hit.wav": "2f2642986e54f56bbfedf6be7a9e653db3420066c1d7e7e70cfaca01cd8be184",
+        "audio/wildlife-miss.wav": "2c1363bc32366cc93dfd5365930e17cdc1383a2c71b305bf093586817594f73e",
+        "audio/wildlife-placement.wav": "55849285ac673af67a8cbe7cfb4ca9ba23eadd26fe43a36ed54d8def1bbfa509",
+        "audio/wildlife-repair.wav": "7b9f31fdb29506c9b3f29e314c2e03690d376cf46c9b93ae10eccbcd82256987"
+      }
+    },
+    {
+      "id": "woodland-soil-scan",
+      "files": [
+        "environment/brown-mud-leaves-01/albedo.jpg",
+        "environment/brown-mud-leaves-01/normal.jpg",
+        "environment/brown-mud-leaves-01/roughness.jpg",
+        "environment/brown-mud-leaves-01/SOURCE.json"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/brown_mud_leaves_01",
+        "api": "https://api.polyhaven.com/files/brown_mud_leaves_01",
+        "retrieved": "2026-10-15"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Rob Tuytel / Poly Haven",
+      "license_source": "environment/README.md",
+      "changes": "Original 1K JPEG bytes, source sizes and MD5 checked; world-space native soil material composition only.",
+      "sha256": {
+        "environment/brown-mud-leaves-01/albedo.jpg": "c598c555f13cd5328409fd5e2a45496a26e319e52299e3959042f1449c2f1b06",
+        "environment/brown-mud-leaves-01/normal.jpg": "8dd5166ddcc293cefd331d491ce6b9162bc9202ddd999ac1e4141697560d38e0",
+        "environment/brown-mud-leaves-01/roughness.jpg": "9f84b7e7b5fdd2ff9798645fdec243b994fced05e543692761994b793211b5d0",
+        "environment/brown-mud-leaves-01/SOURCE.json": "f10c7611ff324c7af1ad3e36f4d5eed5a6b7ca02618a92c29b2912f1b240cc7a"
+      }
+    },
+    {
+      "id": "laboratory-floor-scan",
+      "files": [
+        "environment/concrete-floor-painted/albedo.jpg",
+        "environment/concrete-floor-painted/normal.jpg",
+        "environment/concrete-floor-painted/roughness.jpg",
+        "environment/concrete-floor-painted/SOURCE.json"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/concrete_floor_painted",
+        "api": "https://api.polyhaven.com/files/concrete_floor_painted",
+        "retrieved": "2026-10-15"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Rob Tuytel / Poly Haven",
+      "license_source": "environment/README.md",
+      "changes": "Original JPG bytes; no image modification. Native scene-local surface composition only.",
+      "sha256": {
+        "environment/concrete-floor-painted/albedo.jpg": "f99ff99ed191e924d3bcbf4f345bb9973467ae18dceddee34bc013f01702c358",
+        "environment/concrete-floor-painted/normal.jpg": "b32425acf0b2aefca1c6bf7eed08d988f5c27a21eb75bd26ab1fd2b64903d4c6",
+        "environment/concrete-floor-painted/roughness.jpg": "2bd547b54210fa2ffd48d212c0d461c8b0f7bd6fb57797c2f114dc5ca552fee9",
+        "environment/concrete-floor-painted/SOURCE.json": "75224851031fd0572612156d53f3c9e5f1c8e903665bf3869ef625bab17ea300"
+      }
+    },
+    {
+      "id": "woodland-environment",
+      "files": [
+        "environment/nature-reserve-forest/forest.hdr",
+        "environment/nature-reserve-forest/SOURCE.json"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/nature_reserve_forest",
+        "api": "https://api.polyhaven.com/files/nature_reserve_forest",
+        "retrieved": "2026-10-15"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Dimitrios Savva (photography), Jarod Guest (processing) / Poly Haven",
+      "license_source": "environment/README.md",
+      "changes": "Original Radiance HDR bytes; native PanoramaSkyMaterial lighting and distant background only. No image edits.",
+      "sha256": {
+        "environment/nature-reserve-forest/forest.hdr": "82f0bc12d7e5b8c2bc76652dd0275f9bb45f1c1962ddb4343cdf5abd7777e1bd",
+        "environment/nature-reserve-forest/SOURCE.json": "6a6caaf9bdea5e2f3556595d14b68849b9a0f0527de9fa50322c0f388fea4a0b"
+      }
+    },
+    {
+      "id": "bark-brown-01",
+      "files": [
+        "environment/bark-brown-01/albedo.jpg",
+        "environment/bark-brown-01/normal.jpg",
+        "environment/bark-brown-01/roughness.jpg",
+        "environment/bark-brown-01/SOURCE.json"
+      ],
+      "source": {
+        "kind": "original_scan",
+        "url": "https://polyhaven.com/a/bark_brown_01",
+        "download_and_hash_record": "environment/bark-brown-01/SOURCE.json"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Rob Tuytel / Poly Haven",
+      "license_source": "https://polyhaven.com/license",
+      "changes": "Original JPG bytes; native cylindrical material composition only. No image modification.",
+      "sha256": {
+        "environment/bark-brown-01/albedo.jpg": "4213441aebcb72b9911f5a860e9ce74a61a8f6ce3b9c23d1f204173e7e7f6066",
+        "environment/bark-brown-01/normal.jpg": "9d1537b3429579436a62890bb7c5050a0172a15ce768787eacde81c5ccefc9cc",
+        "environment/bark-brown-01/roughness.jpg": "4e7f62508cf77faebfeee15ffb571ff02c45c18d5174aa19fcb8b98506359c5c",
+        "environment/bark-brown-01/SOURCE.json": "6aa7565db9f91519c1541cbc035d1afcdd841e0671c96dfb66f0185ea0b558d8"
+      }
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "schema": "wildlife-fox-authoring/v1",
+  "status": "anatomical deformation candidate; production render and normal-speed motion review pending",
+  "source": "fox.glb",
+  "source_sha256": "d97044e701822bac5a62696459b27d7b375aada5de8574ed4362edbba94771f7",
+  "base": "fox-wildlife-refined.glb",
+  "base_sha256": "48d16c8003ef601be02565fca627e943c599914821f489beb842a6301719bc5f",
+  "derived": "fox-wildlife-authored.glb",
+  "derived_sha256": "4b5c57d470eb791374f655068af24c5f67653d4f575e789d4f7ec5c3abcf3966",
+  "generator": "scripts/author-wildlife-fox.py",
+  "generator_sha256": "c04aab20501b2fee0d543d09c505dcc221e167eff5946d001720c7f04061f4a3",
+  "helper": "scripts/refine-wildlife-fox.py",
+  "helper_sha256": "3e8862832fa457c3ea222ecc44b59de3fd3f7dc3d3aae91deb97155b89b177a7",
+  "method": "Bounded joint-masked rest-space anatomical deformation; no new topology or subdivision. Only POSITION/NORMAL streams appended; normals area weighted across exact original geometric seams.",
+  "native_data_checks": "passed: original verifier unchanged on base; exact base buffer prefix and all original JSON except two attribute references and appended buffers/accessors; finite attributes, normalized weights/normals, seam continuity, nondegenerate triangles, bounded local face rotation/stretch, protected landmarks, bounded displacement/volume",
+  "vertices": 5162,
+  "triangles": 9216,
+  "before_bounds": [
+    [
+      -12.592718124389648,
+      12.592718124389648
+    ],
+    [
+      -0.12174476683139801,
+      78.90718841552734
+    ],
+    [
+      -88.09500122070312,
+      66.62486267089844
+    ]
+  ],
+  "after_bounds": [
+    [
+      -12.592718124389648,
+      12.592718124389648
+    ],
+    [
+      -0.12174476683139801,
+      78.90718841552734
+    ],
+    [
+      -88.09500122070312,
+      66.62486267089844
+    ]
+  ],
+  "max_rest_displacement": 1.9210797196291345,
+  "max_rest_displacement_at_setting_scale": 0.04226375383184096,
+  "before_signed_volume": 64290.418397946116,
+  "after_signed_volume": 66103.52061352874,
+  "rest_volume_ratio": 1.028201748577212,
+  "triangle_area_ratio_range": [
+    0.7966868367686555,
+    1.4535096114191062
+  ],
+  "minimum_face_normal_alignment": 0.8373263878838687,
+  "regions": {
+    "cheek_muzzle": {
+      "selected_stream_vertices": 536,
+      "max_field_displacement": 1.0338044313831967,
+      "max_total_displacement_in_region": 1.0338048934936523,
+      "before_bounds": [
+        [
+          -11.414636611938477,
+          11.414636611938477
+        ],
+        [
+          47.2623176574707,
+          71.8984146118164
+        ],
+        [
+          38.18147659301758,
+          63.53535079956055
+        ]
+      ],
+      "after_bounds": [
+        [
+          -11.282175064086914,
+          11.282175064086914
+        ],
+        [
+          47.2623176574707,
+          71.8984146118164
+        ],
+        [
+          38.18147659301758,
+          63.53535079956055
+        ]
+      ],
+      "before_weighted_signed_volume_contribution": 4812.1822131166955,
+      "after_weighted_signed_volume_contribution": 4359.8712026297535
+    },
+    "shoulder_haunch_back": {
+      "selected_stream_vertices": 1886,
+      "max_field_displacement": 1.8061508257666392,
+      "max_total_displacement_in_region": 1.8061492918834254,
+      "before_bounds": [
+        [
+          -11.245512962341309,
+          11.228739738464355
+        ],
+        [
+          21.603992462158203,
+          72.57283020019531
+        ],
+        [
+          -44.11738967895508,
+          39.23954391479492
+        ]
+      ],
+      "after_bounds": [
+        [
+          -11.452056884765625,
+          11.462821006774902
+        ],
+        [
+          21.603992462158203,
+          72.41384887695312
+        ],
+        [
+          -44.11738967895508,
+          39.23954391479492
+        ]
+      ],
+      "before_weighted_signed_volume_contribution": 28430.63591023431,
+      "after_weighted_signed_volume_contribution": 28258.034140726122
+    },
+    "lower_limbs": {
+      "selected_stream_vertices": 784,
+      "max_field_displacement": 0.6357134539938025,
+      "max_total_displacement_in_region": 0.7240083502858077,
+      "before_bounds": [
+        [
+          -9.98580551147461,
+          9.980734825134277
+        ],
+        [
+          3.300614595413208,
+          26.514516830444336
+        ],
+        [
+          -40.04890823364258,
+          22.18524742126465
+        ]
+      ],
+      "after_bounds": [
+        [
+          -10.025333404541016,
+          10.026582717895508
+        ],
+        [
+          3.300614595413208,
+          26.514516830444336
+        ],
+        [
+          -40.08637237548828,
+          22.440521240234375
+        ]
+      ],
+      "before_weighted_signed_volume_contribution": 124.40032596384187,
+      "after_weighted_signed_volume_contribution": 239.47680820725313
+    },
+    "upper_hind_transition": {
+      "selected_stream_vertices": 430,
+      "max_field_displacement": 0.3692434633258906,
+      "max_total_displacement_in_region": 0.3692424380644524,
+      "before_bounds": [
+        [
+          -11.213844299316406,
+          11.213847160339355
+        ],
+        [
+          19.925094604492188,
+          38.17051315307617
+        ],
+        [
+          -38.8648796081543,
+          -16.116727828979492
+        ]
+      ],
+      "after_bounds": [
+        [
+          -11.391804695129395,
+          11.391807556152344
+        ],
+        [
+          19.925094604492188,
+          38.17051315307617
+        ],
+        [
+          -38.92620086669922,
+          -16.04172706604004
+        ]
+      ],
+      "before_weighted_signed_volume_contribution": 379.64893091861455,
+      "after_weighted_signed_volume_contribution": 431.1349311019394
+    },
+    "paws": {
+      "selected_stream_vertices": 468,
+      "max_field_displacement": 0.8311582314859488,
+      "max_total_displacement_in_region": 0.8311573760106443,
+      "before_bounds": [
+        [
+          -9.366525650024414,
+          9.366554260253906
+        ],
+        [
+          0.4810110330581665,
+          9.169962882995605
+        ],
+        [
+          -37.33263397216797,
+          24.350784301757812
+        ]
+      ],
+      "after_bounds": [
+        [
+          -9.941691398620605,
+          9.941727638244629
+        ],
+        [
+          0.4810110330581665,
+          9.169962882995605
+        ],
+        [
+          -37.362728118896484,
+          24.695602416992188
+        ]
+      ],
+      "before_weighted_signed_volume_contribution": 263.88160165873177,
+      "after_weighted_signed_volume_contribution": 320.9383077308898
+    },
+    "tail_brush": {
+      "selected_stream_vertices": 422,
+      "max_field_displacement": 1.921079595118084,
+      "max_total_displacement_in_region": 1.9210797196291345,
+      "before_bounds": [
+        [
+          -7.870081901550293,
+          7.83674955368042
+        ],
+        [
+          14.099220275878906,
+          51.18745422363281
+        ],
+        [
+          -83.88456726074219,
+          -45.585845947265625
+        ]
+      ],
+      "after_bounds": [
+        [
+          -9.286696434020996,
+          9.247364044189453
+        ],
+        [
+          13.623748779296875,
+          51.33080291748047
+        ],
+        [
+          -83.88456726074219,
+          -45.585845947265625
+        ]
+      ],
+      "before_weighted_signed_volume_contribution": 8681.910682493268,
+      "after_weighted_signed_volume_contribution": 11053.041361219299
+    }
+  },
+  "regional_volume_semantics": "Weighted oriented tetrahedral contributions about the original rest origin; regions overlap and are not closed solids. These values are diagnostics, not independent anatomical volumes.",
+  "attribution": {
+    "model": "PixelMannen (CC0-1.0)",
+    "rigging_and_animation": "tomkranis (CC-BY-4.0)",
+    "gltf_conversion": "@AsoboStudio and @scurest (CC-BY-4.0)",
+    "derivation": "AxiomsAwake contributors (2026): constrained subdivision, smooth normals and bounded anatomical rest-shape authoring",
+    "license": "CC0-1.0 AND CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "retained_rights": [
+      "fox-LICENSE.md",
+      "fox-metadata.json",
+      "fox-source.json"
+    ],
+    "pinned_upstream": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/Fox"
+  },
+  "limitations": [
+    "No naturalistic-quality verdict; generated woodland concept is direction only, not measured biological evidence.",
+    "Original rig, inverse bind matrices and Survey/Walk/Run animation bytes are unchanged, but changed rest shape still needs normal-speed deformation and ground-contact inspection.",
+    "UV coordinates and texture bytes are unchanged; changed surface area can stretch markings or the external fur material.",
+    "No new eyes, mouth, toes, hair geometry or fine anatomical structures; the low-detail source limits the attainable result.",
+    "No engine, GPU, integrated rendering or performance check performed by this generator."
+  ]
+}

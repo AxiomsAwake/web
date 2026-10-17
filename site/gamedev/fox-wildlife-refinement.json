@@ -1,0 +1,79 @@
+{
+  "native_data_checks": "passed: finite aligned attributes, closed source topology, nondegenerate derived triangles, normalized weights/normals, joint indices, UV domain, protected scene/rig/clip/texture data and anatomical corners, retained original UV/skin corners, bounded rest displacement/volume",
+  "source_triangles": 576,
+  "derived_triangles": 9216,
+  "derived_vertices": 5162,
+  "rest_bounds": [
+    [
+      -12.592718124389648,
+      12.592718124389648
+    ],
+    [
+      -0.12174476683139801,
+      78.90718841552734
+    ],
+    [
+      -88.09500122070312,
+      66.62486267089844
+    ]
+  ],
+  "source_rest_bounds": [
+    [
+      -12.592718124389648,
+      12.592718124389648
+    ],
+    [
+      -0.12174476683139801,
+      78.90718841552734
+    ],
+    [
+      -88.09500122070312,
+      66.62486267089844
+    ]
+  ],
+  "max_original_corner_displacement": 5.047136621221937,
+  "max_original_corner_displacement_at_setting_scale": 0.11103700566688261,
+  "rest_volume_ratio": 0.9669513881213194,
+  "clips": [
+    "Survey",
+    "Walk",
+    "Run"
+  ],
+  "joints": 24,
+  "schema": "wildlife-fox-refinement/v1",
+  "status": "candidate; rendered anatomy, surface and normal-speed motion review pending",
+  "source": "fox.glb",
+  "source_sha256": "d97044e701822bac5a62696459b27d7b375aada5de8574ed4362edbba94771f7",
+  "derived": "fox-wildlife-refined.glb",
+  "derived_sha256": "48d16c8003ef601be02565fca627e943c599914821f489beb842a6301719bc5f",
+  "generator": "scripts/refine-wildlife-fox.py",
+  "generator_sha256": "3e8862832fa457c3ea222ecc44b59de3fd3f7dc3d3aae91deb97155b89b177a7",
+  "method": {
+    "name": "two constrained Loop subdivision rounds",
+    "position_weld": "exact position only; UV and skin corner seams retained",
+    "mask": "Source-joint and rest-position mask: torso/tail rounding, reduced upper-leg/head smoothing, fixed paws/ears/nose/tail endpoint",
+    "new_weights": "endpoint interpolation, no influence discarded",
+    "existing_weights": "retained unchanged",
+    "normals": "area-weighted smooth normals on geometric topology",
+    "surface": "Original embedded flat-color markings texture retained byte-for-byte; no fur texture invented"
+  },
+  "attribution": {
+    "model": "PixelMannen (CC0-1.0)",
+    "rigging_and_animation": "tomkranis (CC-BY-4.0)",
+    "gltf_conversion": "@AsoboStudio and @scurest (CC-BY-4.0)",
+    "derivation": "AxiomsAwake contributors (2026): constrained subdivision and smooth normals",
+    "license": "CC0-1.0 AND CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "retained_rights": [
+      "fox-LICENSE.md",
+      "fox-metadata.json",
+      "fox-source.json"
+    ],
+    "pinned_upstream": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/Fox"
+  },
+  "limitations": [
+    "Smoothing cannot author missing anatomical detail or fur; naturalistic target is not accepted.",
+    "Original Survey/Walk/Run timing, tracks and rig semantics are unchanged.",
+    "20-actor performance and silhouette/deformation require new CI pixels and normal-speed motion inspection."
+  ]
+}

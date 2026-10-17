@@ -1,0 +1,10 @@
+Source-specific terms
+
+Original presentation.gd, rig_binding.gd, feedback_recipe.gd,
+feedback_handle.gd and material_layers.gd: Copyright 2026 Romi Kuntsman
+and Axioms Awake contributors. Private source; no public source license
+has been selected. This file does not authorize public redistribution.
+
+vendor/entity_views.gd, vendor/orbit_viewport.gd and vendor/mesh_kit.gd:
+Apache License 2.0. See vendor/APACHE-2.0.txt and NOTICE.
+These source-specific terms do not change any repository-wide license.

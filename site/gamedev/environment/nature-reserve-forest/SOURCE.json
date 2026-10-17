@@ -1,0 +1,20 @@
+{
+  "asset": "Nature Reserve Forest",
+  "author": "Dimitrios Savva (photography), Jarod Guest (processing)",
+  "source": "https://polyhaven.com/a/nature_reserve_forest",
+  "license": "CC0-1.0",
+  "license_source": "https://polyhaven.com/license",
+  "api_source": "https://api.polyhaven.com/files/nature_reserve_forest",
+  "retrieved": "2026-10-15",
+  "resolution": "2k",
+  "changes": "Original Radiance HDR bytes; native PanoramaSkyMaterial lighting and distant background only. No image edits.",
+  "files": [
+    {
+      "path": "forest.hdr",
+      "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/nature_reserve_forest_2k.hdr",
+      "bytes": 7457457,
+      "upstream_md5": "e6fa4231d1674e763c791e42f52cd924",
+      "sha256": "82f0bc12d7e5b8c2bc76652dd0275f9bb45f1c1962ddb4343cdf5abd7777e1bd"
+    }
+  ]
+}
