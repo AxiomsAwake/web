@@ -21,6 +21,8 @@ jobs:
           persist-credentials: false
       - name: Test independent and racing publications with real Git repositories
         run: python3 -m unittest discover -s tests -v
+      - name: Test bounded runner evidence lifecycle
+        run: python3 -B -m unittest discover -s .github/actions/publish-site -p 'test_runner_evidence.py' -v
       - name: Create an isolated browser fixture
         run: |
           python3 - <<'PY'
@@ -70,10 +72,5 @@ jobs:
       - name: Retain browser evidence on the self-hosted runner
         if: always()
         run: |
-          for folder in evidence negative-evidence; do
-            if test -d "$folder"; then
-              destination="$RUNNER_TOOL_CACHE/axioms-evidence/web/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/publishing-infrastructure/$folder"
-              mkdir -p "$destination"
-              cp -R "$folder/." "$destination/"
-            fi
-          done
+          python3 .github/actions/publish-site/runner_evidence.py . --channel publishing-infrastructure \
+            --include evidence --include negative-evidence

@@ -142,12 +142,12 @@ runs:
       env:
         WORK: ${{ steps.work.outputs.path }}
         SITE_ID: ${{ inputs.site }}
+        ACTION_ROOT: ${{ github.action_path }}
       run: |
         if test -d "$WORK/evidence"; then
           evidence_root="${CI_SHARED_EVIDENCE:-${RUNNER_TOOL_CACHE}/axioms-evidence}"
-          destination="$evidence_root/$GITHUB_REPOSITORY/publication/$GITHUB_RUN_ID-${GITHUB_RUN_ATTEMPT:-1}/$SITE_ID"
-          mkdir -p "$destination"
-          cp -R "$WORK/evidence/." "$destination/"
+          python3 "$ACTION_ROOT/runner_evidence.py" "$WORK/evidence" \
+            --evidence-root "$evidence_root" --channel "publication-$SITE_ID"
           echo "Browser evidence retained for $SITE_ID; run $GITHUB_RUN_ID attempt ${GITHUB_RUN_ATTEMPT:-1}."
           if test -s "$WORK/evidence/report.json"; then cat "$WORK/evidence/report.json"; fi
         fi
