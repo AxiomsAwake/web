@@ -210,7 +210,7 @@ def publish_locked(args, source, owner):
         size += (stage / MARK).stat().st_size
         require(size <= args.max_run_bytes, 'run limit includes marker')
         # Count/quota pressure never shortens the declared minimum evidence lifetime.
-        ordered = sorted(outputs, key=lambda item: item[1]['created'], reverse=True)
+        ordered = sorted(outputs, key=lambda item: (item[1]['created'], int(item[1]['run']), int(item[1]['attempt'])), reverse=True)
         keep = {p.name for p, _, _ in ordered[:args.keep_previous]} | set(args.pin) | {current}
         eligible = [(p, d, n) for p, d, n in reversed(ordered) if p.name not in args.pin and now > d['expires'] and now - d['created'] > grace]
         total = sum(n for _, _, n in outputs) + protected_staging_bytes + size

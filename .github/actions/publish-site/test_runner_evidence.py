@@ -73,6 +73,17 @@ class RetentionTest(unittest.TestCase):
         self.assertFalse((self.owner / '2-1').exists())
         self.assertEqual(list(self.owner.glob('.staging.*')), [])
 
+    def test_equal_creation_times_keep_newest_run_independent_of_directory_order(self):
+        self.publish(1)
+        self.publish(2)
+        original_iterdir = Path.iterdir
+        def lexical_entries(path):
+            return iter(sorted(original_iterdir(path), key=lambda item: item.name))
+        with patch.object(Path, 'iterdir', lexical_entries):
+            self.publish(3, now=2000000)
+        self.assertFalse((self.owner / '1-1').exists())
+        self.assertTrue((self.owner / '2-1').exists())
+
     def test_expired_quota_eviction(self):
         self.publish(1)
         self.args.max_total_bytes = 600
