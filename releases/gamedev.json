@@ -1,12 +1,12 @@
 {
   "active": true,
-  "artifact_digest": "sha256:40e31e5a36f2f2149526380e42a4de5ba09f0b354b1094e8224388eb5287f444",
-  "digest": "ddb89bebe6781e1c2d43c5a4740266c5adc93ac96f649935f96a6354be66298d",
+  "artifact_digest": "sha256:3ff653d4e9d77a2997b7a6748e396c0410a47126c458ec467efe4baf0e6c8aba",
+  "digest": "33f7827d8867a7529c895bd3ffcacfd153d2918dcd43887ddf20cf571aadd04d",
   "files": [
     {
-      "bytes": 6474,
+      "bytes": 7498,
       "path": "CREDITS.md",
-      "sha256": "4fa86ae1ace2fcbdd402aa3c2bba278c4e838e20be08d365821e2f4db5c1092f"
+      "sha256": "78373fa2b2b24a9915422143cdd95ca81a51f061a5bc2e41ca119f6c3847786a"
     },
     {
       "bytes": 159,
@@ -16,7 +16,7 @@
     {
       "bytes": 5461,
       "path": "app.html",
-      "sha256": "a881deeddac27de91c8c2a4a043572b0f1fbfd306390f4ba7fafee061840beba"
+      "sha256": "3fb3f6a07be236bbe82b82a26550469eb87032b4c1108c528c674a01790dcb6b"
     },
     {
       "bytes": 276,
@@ -24,9 +24,9 @@
       "sha256": "0d38bcde5fda34045f67e55750b29f5d2828d6de9674bb67e15a09c19100af51"
     },
     {
-      "bytes": 4043,
+      "bytes": 6713,
       "path": "build.json",
-      "sha256": "d040a59fdd20195989f888ad4428611160c2fc264104d8eb925131a5536c71cb"
+      "sha256": "8df6cdf5d6a53e6efabff49b77cdbe33a95a5bff7285c27f44bf8fd336befde1"
     },
     {
       "bytes": 5340,
@@ -94,9 +94,9 @@
       "sha256": "a2bc7a52f2a761402b8b227803e2407c1eefdec03b0d2e87432261693ebfeb77"
     },
     {
-      "bytes": 5930,
+      "bytes": 6225,
       "path": "help.html",
-      "sha256": "af3a0e4d8051751e4e247198d2d39f25ca12941b038520b55722fc83a7a05e22"
+      "sha256": "d6d9f9eec8f726727d6ae2eb08bf38903fa6bd638e7d60e30f26a2a063267107"
     },
     {
       "bytes": 11944,
@@ -114,9 +114,9 @@
       "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
     },
     {
-      "bytes": 7740,
+      "bytes": 16358,
       "path": "index.html",
-      "sha256": "3f0dea48fc8a6863cbe080138757d1343a466da171ffba875d807cd8dcc6539a"
+      "sha256": "1d2cbbee76b4083fe38e513c7e3080ff0c615308fe95b76e205f0b9d43e35ec2"
     },
     {
       "bytes": 5700,
@@ -129,9 +129,9 @@
       "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
     },
     {
-      "bytes": 34198456,
+      "bytes": 83720820,
       "path": "index.pck",
-      "sha256": "0ee513cc77a8a4dc159094949f373498e4a06645a8d0d62086b79d58c4cc4d0c"
+      "sha256": "fb6f02dd9b4dd2c4c12605b88605f3b6faeb92e7bc9b937d091efdd195afa85e"
     },
     {
       "bytes": 21443,
@@ -144,9 +144,9 @@
       "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
     },
     {
-      "bytes": 13394,
+      "bytes": 58655,
       "path": "manifest.json",
-      "sha256": "62929c29a6d6583dbee29f9f7c168a7e41a3db7fd03f0d739f3f708245b5fd4e"
+      "sha256": "e3aced975db3d269b850901243c22c6db350d1e446d08f57c9823cc5b7c220ca"
     },
     {
       "bytes": 503,
@@ -154,24 +154,54 @@
       "sha256": "63bf36f04a9ca6ba15dc0f96817c96acc9ab2932882524cd6b0914753f71d570"
     },
     {
-      "bytes": 586,
+      "bytes": 814,
       "path": "presentation-NOTICE.txt",
-      "sha256": "4cf340658080bfc699340b01c7ca2ffe566273c6013255884982848bf1b37d53"
+      "sha256": "f01fef7af05199f411a1f9686c0f70946d5c89f347f6f6682adcd627c8c04d8d"
     },
     {
-      "bytes": 127610,
+      "bytes": 378592,
+      "path": "previews/architecture-world.png",
+      "sha256": "1f26490b7fb50b1fc43a39f826005ec3c190fd8f9b82706acb1866d4ec01a50c"
+    },
+    {
+      "bytes": 127053,
       "path": "previews/diorama-stage.png",
-      "sha256": "77bf03aace221892809b938594cb3edec14423db6b83b9090aef414a27ac4c4a"
+      "sha256": "b87b97eb24aad3e12f6603fc49e6f6023c647b98d2a7c08495f163a912949b78"
     },
     {
-      "bytes": 344365,
+      "bytes": 343402,
       "path": "previews/laboratory-stage.png",
-      "sha256": "45e5dae41a9b1a86f50364ae6735a709b3d711598efe4d07e19307fe958ce5d3"
+      "sha256": "e89ecc3237798f6edbd836a8c1db51ef495629c44b162b51ed6e921b75e6fdf1"
     },
     {
-      "bytes": 620437,
+      "bytes": 342135,
+      "path": "previews/laboratory-world.png",
+      "sha256": "19ee7cb727a075e0e4313cd97bbc3421b81fc9a8e46e60801aa80a757ae90dbc"
+    },
+    {
+      "bytes": 550083,
+      "path": "previews/meadow-world.png",
+      "sha256": "44597ec9d9af84ff95623ba20d684c29fb1aea79594a0400283e0429e3a48a5d"
+    },
+    {
+      "bytes": 461874,
+      "path": "previews/platformer-world.png",
+      "sha256": "6cb9bb5789af1881520b3dcab1e23c6622c57324fb22a0f401039c13c20fe717"
+    },
+    {
+      "bytes": 275809,
+      "path": "previews/settlement-world.png",
+      "sha256": "d83a47e51c14e10cf7a3ab1daf77a1eb345e9a159bd8afe690389641a359601a"
+    },
+    {
+      "bytes": 618496,
       "path": "previews/wildlife-stage.png",
-      "sha256": "749c20e518e9b64591574d67f6ead1276de698b3549687830b78ea26180a5957"
+      "sha256": "4728f29d75e1184a49ba973f0559df7ef1e29dc4a0f36ab616a97c298cd7edde"
+    },
+    {
+      "bytes": 847068,
+      "path": "previews/woodland-world.png",
+      "sha256": "1328d47bd4cf40e07d8f226158f9984529c05576eb4cd69538c14bfd585d96fe"
     },
     {
       "bytes": 364,
@@ -180,14 +210,14 @@
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 650345167,
-  "release_asset_name": "gamedev-67ed66fd82839ee841ef4e50eb39889791fceee6.zip",
-  "release_asset_size": 43980511,
-  "release_id": 415775919,
-  "release_tag": "studio-67ed66fd82839ee841ef4e50eb39889791fceee6",
+  "release_asset_id": 658654899,
+  "release_asset_name": "gamedev-7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1.zip",
+  "release_asset_size": 95234639,
+  "release_id": 418133723,
+  "release_tag": "studio-7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 39028952199,
+  "run_id": 39386155916,
   "schema": 1,
   "site": "gamedev",
   "smoke": {
@@ -201,7 +231,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/GameDev",
-  "source_sha": "67ed66fd82839ee841ef4e50eb39889791fceee6",
+  "source_sha": "7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1",
   "suspended": false,
-  "watermark": "67ed66fd82839ee841ef4e50eb39889791fceee6"
+  "watermark": "7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1"
 }

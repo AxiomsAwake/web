@@ -9,3 +9,7 @@ Licensed under Apache License 2.0. Names/identity are not trademark grants.
 
 The new lifecycle, material composition and Resource adapters are original
 private source. No original artwork, sound, dialogue or game rules are copied.
+
+The experimental vendor/sofluffy/shell.gdshader derives from Max Muermann's
+SO FLUFFY at 09af7e68c17db7b85a4780220b28dc015da28a91, MIT licensed.
+Copyright (c) 2024 Max Muermann. See vendor/sofluffy/LICENSE.txt and SOURCE.json.

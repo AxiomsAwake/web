@@ -72,7 +72,25 @@ Quaternius original pack: https://quaternius.com/packs/ultimateanimatedanimals.h
 
 RobotExpressive rights follow the model's own README, which identifies CC0 1.0, rather than the three.js code license.
 
+On 2026-10-17 the same pinned public Castle Engine mirror also supplied the
+original `Alpaca.blend` (SHA-256
+`3dbace84446b7ea70fb1b927028816fb85dfd7885b4e49a3b6a0f1793413dfdb`).
+It is now retained with its original public-domain notice under `alpaca/masters/`.
+The earlier Google Drive quota failure remains historical evidence; native-master
+access is no longer blocked. The runtime glTF is unchanged and Meadow's art/motion
+admission remains open.
+
 `manifest.json` provides machine-readable sources, rights and byte identities. Audio mood strings in settings describe intended direction only; they are not shipped recordings or listening evidence.
+
+## Open model collection
+
+The [ten selected open models](open-models/README.md) are **CC0-1.0** from
+Poly Haven's named artists and Quaternius. Per-asset original license notices,
+author credits, public source/download URLs, complete source packages, conversion
+recipes and hashes are retained in the existing asset manifest and production
+records. Rendered previews were produced from the delivered files. No Poly Haven
+website preview or logo is republished. These are acquired/imported candidates;
+their presence does not establish finished world or motion acceptance.
 
 ## Woodland material scan
 

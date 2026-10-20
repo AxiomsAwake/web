@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "sourceRepository": "AxiomsAwake/GameDev",
-  "sourceRevision": "67ed66fd82839ee841ef4e50eb39889791fceee6",
-  "sourceDigest": "88cefc056667ab20780ab2cfe521da2068ab284c877a6fccbd8b947b962c9799",
+  "sourceRevision": "7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1",
+  "sourceDigest": "82ba4626dd420d6e2e5d8013b18e685ddb87c13cab1c64478be3c4c022b16812",
   "files": {
-    "CREDITS.md": "4fa86ae1ace2fcbdd402aa3c2bba278c4e838e20be08d365821e2f4db5c1092f",
+    "CREDITS.md": "78373fa2b2b24a9915422143cdd95ca81a51f061a5bc2e41ca119f6c3847786a",
     "alpaca/AUTHORS.txt": "9e7495f4a81758c8bd51317d5e399d69742706f09ca7bded2d78ddaca2389b17",
-    "app.html": "a881deeddac27de91c8c2a4a043572b0f1fbfd306390f4ba7fafee061840beba",
+    "app.html": "3fb3f6a07be236bbe82b82a26550469eb87032b4c1108c528c674a01790dcb6b",
     "audio/README.md": "0d38bcde5fda34045f67e55750b29f5d2828d6de9674bb67e15a09c19100af51",
     "credits.html": "b454312b0e96d7ec281854bab39ca8fd2e8b8fd1f396895a2791aaba3cc6c103",
     "environment/README.md": "4e8aa58dba467ecf037a53b8c7755dd7918306e1843485eec15175134c97717c",
@@ -21,36 +21,92 @@
     "fox-wildlife-refinement.json": "2679bc83d71f18e69c0f9ca37eb3734f49785d757eeab6372c8f1f4e164c18b8",
     "game-libs-LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "game-libs-NOTICE.md": "a2bc7a52f2a761402b8b227803e2407c1eefdec03b0d2e87432261693ebfeb77",
-    "help.html": "af3a0e4d8051751e4e247198d2d39f25ca12941b038520b55722fc83a7a05e22",
+    "help.html": "d6d9f9eec8f726727d6ae2eb08bf38903fa6bd638e7d60e30f26a2a063267107",
     "index.apple-touch-icon.png": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5",
     "index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
     "index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
-    "index.html": "3f0dea48fc8a6863cbe080138757d1343a466da171ffba875d807cd8dcc6539a",
+    "index.html": "1d2cbbee76b4083fe38e513c7e3080ff0c615308fe95b76e205f0b9d43e35ec2",
     "index.icon.png": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5",
     "index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
-    "index.pck": "0ee513cc77a8a4dc159094949f373498e4a06645a8d0d62086b79d58c4cc4d0c",
+    "index.pck": "fb6f02dd9b4dd2c4c12605b88605f3b6faeb92e7bc9b937d091efdd195afa85e",
     "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
     "index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
-    "manifest.json": "62929c29a6d6583dbee29f9f7c168a7e41a3db7fd03f0d739f3f708245b5fd4e",
+    "manifest.json": "e3aced975db3d269b850901243c22c6db350d1e446d08f57c9823cc5b7c220ca",
     "presentation-LICENSE.txt": "63bf36f04a9ca6ba15dc0f96817c96acc9ab2932882524cd6b0914753f71d570",
-    "presentation-NOTICE.txt": "4cf340658080bfc699340b01c7ca2ffe566273c6013255884982848bf1b37d53",
-    "previews/diorama-stage.png": "77bf03aace221892809b938594cb3edec14423db6b83b9090aef414a27ac4c4a",
-    "previews/laboratory-stage.png": "45e5dae41a9b1a86f50364ae6735a709b3d711598efe4d07e19307fe958ce5d3",
-    "previews/wildlife-stage.png": "749c20e518e9b64591574d67f6ead1276de698b3549687830b78ea26180a5957",
+    "presentation-NOTICE.txt": "f01fef7af05199f411a1f9686c0f70946d5c89f347f6f6682adcd627c8c04d8d",
+    "previews/architecture-world.png": "1f26490b7fb50b1fc43a39f826005ec3c190fd8f9b82706acb1866d4ec01a50c",
+    "previews/diorama-stage.png": "b87b97eb24aad3e12f6603fc49e6f6023c647b98d2a7c08495f163a912949b78",
+    "previews/laboratory-stage.png": "e89ecc3237798f6edbd836a8c1db51ef495629c44b162b51ed6e921b75e6fdf1",
+    "previews/laboratory-world.png": "19ee7cb727a075e0e4313cd97bbc3421b81fc9a8e46e60801aa80a757ae90dbc",
+    "previews/meadow-world.png": "44597ec9d9af84ff95623ba20d684c29fb1aea79594a0400283e0429e3a48a5d",
+    "previews/platformer-world.png": "6cb9bb5789af1881520b3dcab1e23c6622c57324fb22a0f401039c13c20fe717",
+    "previews/settlement-world.png": "d83a47e51c14e10cf7a3ab1daf77a1eb345e9a159bd8afe690389641a359601a",
+    "previews/wildlife-stage.png": "4728f29d75e1184a49ba973f0559df7ef1e29dc4a0f36ab616a97c298cd7edde",
+    "previews/woodland-world.png": "1328d47bd4cf40e07d8f226158f9984529c05576eb4cd69538c14bfd585d96fe",
     "robot-README.md": "14687ac4a51d5e013b0fbc5486dabc743f76c1e37b7ca872af74cfb93115b4b2"
   },
   "previews": {
     "diorama": {
       "path": "previews/diorama-stage.png",
-      "sha256": "77bf03aace221892809b938594cb3edec14423db6b83b9090aef414a27ac4c4a"
+      "sha256": "b87b97eb24aad3e12f6603fc49e6f6023c647b98d2a7c08495f163a912949b78"
     },
     "wildlife": {
       "path": "previews/wildlife-stage.png",
-      "sha256": "749c20e518e9b64591574d67f6ead1276de698b3549687830b78ea26180a5957"
+      "sha256": "4728f29d75e1184a49ba973f0559df7ef1e29dc4a0f36ab616a97c298cd7edde"
     },
     "laboratory": {
       "path": "previews/laboratory-stage.png",
-      "sha256": "45e5dae41a9b1a86f50364ae6735a709b3d711598efe4d07e19307fe958ce5d3"
+      "sha256": "e89ecc3237798f6edbd836a8c1db51ef495629c44b162b51ed6e921b75e6fdf1"
+    }
+  },
+  "worlds": {
+    "woodland": {
+      "path": "previews/woodland-world.png",
+      "sha256": "1328d47bd4cf40e07d8f226158f9984529c05576eb4cd69538c14bfd585d96fe",
+      "width": 1001,
+      "height": 485,
+      "definitionSource": "4d0b4f432242b334151b406ee31a50093e7a6377dc1746c90a36fca68254c233",
+      "scope": "default-world-initial-still"
+    },
+    "laboratory": {
+      "path": "previews/laboratory-world.png",
+      "sha256": "19ee7cb727a075e0e4313cd97bbc3421b81fc9a8e46e60801aa80a757ae90dbc",
+      "width": 1001,
+      "height": 485,
+      "definitionSource": "66020cdd26f0fe183c3212e4466370a659b9a1ba40162ae99196dc481d364bb5",
+      "scope": "default-world-initial-still"
+    },
+    "meadow": {
+      "path": "previews/meadow-world.png",
+      "sha256": "44597ec9d9af84ff95623ba20d684c29fb1aea79594a0400283e0429e3a48a5d",
+      "width": 1001,
+      "height": 485,
+      "definitionSource": "bb04d87b25a7eab8d964bbb6ac112ebafec8793119430f1597415dddd5006a08",
+      "scope": "default-world-initial-still"
+    },
+    "architecture": {
+      "path": "previews/architecture-world.png",
+      "sha256": "1f26490b7fb50b1fc43a39f826005ec3c190fd8f9b82706acb1866d4ec01a50c",
+      "width": 1001,
+      "height": 485,
+      "definitionSource": "6b0af10145cc8502771370e7b6238905145ca8f99f14252a62961d035e261b81",
+      "scope": "default-world-initial-still"
+    },
+    "platformer": {
+      "path": "previews/platformer-world.png",
+      "sha256": "6cb9bb5789af1881520b3dcab1e23c6622c57324fb22a0f401039c13c20fe717",
+      "width": 1001,
+      "height": 485,
+      "definitionSource": "d0d6ff4782bd26c7f740eba33be5fc5bfbbe182c7ccdd226c2618bd535c88733",
+      "scope": "default-world-initial-still"
+    },
+    "settlement": {
+      "path": "previews/settlement-world.png",
+      "sha256": "d83a47e51c14e10cf7a3ab1daf77a1eb345e9a159bd8afe690389641a359601a",
+      "width": 1001,
+      "height": 485,
+      "definitionSource": "c52fa6c9654b16445edd2f730bfa8782598722a1786a472c06ba083a83e2a098",
+      "scope": "default-world-initial-still"
     }
   },
   "publication": "public_web"

@@ -6,20 +6,33 @@
       "id": "alpaca",
       "files": [
         "alpaca/Alpaca.gltf",
-        "alpaca/Alpaca.bin"
+        "alpaca/Alpaca.bin",
+        "alpaca/Alpaca.json",
+        "alpaca/source.json",
+        "alpaca/masters/SOURCE.json",
+        "alpaca/masters/Alpaca.blend",
+        "alpaca/masters/AUTHORS.txt"
       ],
       "source": {
         "repository": "castle-engine/castle-engine",
         "commit": "0c21dcbc42ba9d9d2b605f518cc962068bcf2030",
-        "path": "examples/viewport_and_scenes/shadow_volumes_whole_scene_manifold/data/quaternius_animals/"
+        "path": "examples/viewport_and_scenes/shadow_volumes_whole_scene_manifold/data/quaternius_animals/",
+        "website": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+        "download": "https://raw.githubusercontent.com/castle-engine/castle-engine/0c21dcbc42ba9d9d2b605f518cc962068bcf2030/examples/viewport_and_scenes/shadow_volumes_whole_scene_manifold/data/quaternius_animals/Alpaca.blend",
+        "publisher_download": "https://drive.google.com/file/d/1Ze3dbyu_kv30kwt1XoxRWBM78NphsigD/view"
       },
       "license": "CC0-1.0",
-      "attribution": "Quaternius (Tom\u00e1s Laulh\u00e9)",
+      "attribution": "Quaternius (Tomás Laulhé)",
       "license_source": "alpaca/AUTHORS.txt",
-      "changes": "No asset byte changes; instance scaled 0.62 in authored native setting.",
+      "changes": "Native Alpaca.blend recovered byte-exact from pinned public CC0 mirror on 2026-10-17. Mesh, rig and action inventory inspected; no hidden surface/geometry craft found. Q48 composed route remains rejected; runtime glTF unchanged.",
       "sha256": {
         "alpaca/Alpaca.gltf": "572100e7237b173e874d2c14a5f69a90a4837401efc51ae073f0619e2a7f10fc",
-        "alpaca/Alpaca.bin": "ce14f9911ad649b3e874f5c0214c585489c8b598bc164db95bafe3a41e5d09f3"
+        "alpaca/Alpaca.bin": "ce14f9911ad649b3e874f5c0214c585489c8b598bc164db95bafe3a41e5d09f3",
+        "alpaca/Alpaca.json": "975571e8baec9d7ee1b09f6e5b0447619e34359b72c8669fd789965f50b143e0",
+        "alpaca/source.json": "88f6f0d0eafee72af67da534c0282710319dd08ba94280470579edf798abdaf9",
+        "alpaca/masters/SOURCE.json": "bc18e10a365d32c1d3434836ad041ed4e0ae08ac38f54661f5beeb42cb3e1fe5",
+        "alpaca/masters/Alpaca.blend": "3dbace84446b7ea70fb1b927028816fb85dfd7885b4e49a3b6a0f1793413dfdb",
+        "alpaca/masters/AUTHORS.txt": "9e7495f4a81758c8bd51317d5e399d69742706f09ca7bded2d78ddaca2389b17"
       }
     },
     {
@@ -115,7 +128,7 @@
         "commit": "e38bc18ad719622c497de07c5f0cef847aca4bf5"
       },
       "license": "CC0-1.0",
-      "attribution": "Tom\u00e1s Laulh\u00e9 (Quaternius); facial morph targets and glTF conversion/modifications by Don McCurdy.",
+      "attribution": "Tomás Laulhé (Quaternius); facial morph targets and glTF conversion/modifications by Don McCurdy.",
       "license_source": "robot-README.md",
       "changes": "No asset byte changes; instance scaled 0.48 in authored native setting.",
       "sha256": {
@@ -264,6 +277,622 @@
         "environment/bark-brown-01/normal.jpg": "9d1537b3429579436a62890bb7c5050a0172a15ce768787eacde81c5ccefc9cc",
         "environment/bark-brown-01/roughness.jpg": "4e7f62508cf77faebfeee15ffb571ff02c45c18d5174aa19fcb8b98506359c5c",
         "environment/bark-brown-01/SOURCE.json": "6aa7565db9f91519c1541cbc035d1afcdd841e0671c96dfb66f0185ea0b558d8"
+      }
+    },
+    {
+      "id": "open-nettle-plant",
+      "files": [
+        "open-models/nettle-plant/masters/LICENSE.txt",
+        "open-models/nettle-plant/masters/SOURCE.json",
+        "open-models/nettle-plant/masters/preview.png",
+        "open-models/nettle-plant/masters/recipe.json",
+        "open-models/nettle-plant/masters/source.zip",
+        "open-models/nettle-plant/nettle-plant.gltf",
+        "open-models/nettle-plant/nettle-plant.json",
+        "open-models/nettle-plant/nettle_plant.bin",
+        "open-models/nettle-plant/textures/nettle_plant_arm_1k.jpg",
+        "open-models/nettle-plant/textures/nettle_plant_diff_1k.jpg",
+        "open-models/nettle-plant/textures/nettle_plant_nor_gl_1k.jpg"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/nettle_plant",
+        "api": "https://api.polyhaven.com/files/nettle_plant",
+        "license_url": "https://polyhaven.com/license",
+        "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/nettle_plant/nettle_plant_1k.gltf",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Rob Tuytel (Photography); Rico Cilliers (modeling) / Poly Haven",
+      "license_source": "open-models/nettle-plant/masters/LICENSE.txt",
+      "changes": "Original publisher bytes; cooked glTF renamed only. Native master and external dependencies preserved without resaving.",
+      "sha256": {
+        "open-models/nettle-plant/masters/LICENSE.txt": "fd21d0ef77b8dd7e205495fb7be644ae7fddc170106cc8665b08842fe5e51ce9",
+        "open-models/nettle-plant/masters/SOURCE.json": "0823045c9bc52ef7d88a12dd758541492125b05eb8b24499290782684a96443a",
+        "open-models/nettle-plant/masters/preview.png": "32c7001b0172d3096e4601fd37718558dfb200f38a85b0d5b8486153d0294b52",
+        "open-models/nettle-plant/masters/recipe.json": "e03705b25977978b0a025d5d0ed427d826f3eca2a5adcd81a60f34998b7ceba2",
+        "open-models/nettle-plant/masters/source.zip": "d129b90ce25287ade061693a567fd2f50c75c2720b81d25e21b8444c7fb68908",
+        "open-models/nettle-plant/nettle-plant.gltf": "45baafa16feb0017e6a46712e2aa7afe7841fd00905075ead8316a5fc8314b0e",
+        "open-models/nettle-plant/nettle-plant.json": "aedfb0db7a18d3e9fa1c2a615f0316b439a6f0ee1d080783da86d25231a633dd",
+        "open-models/nettle-plant/nettle_plant.bin": "24810f9d80b5fafdd71e1599b0cc81afa3eb9b744cfa8bf388c5e9f30271ba46",
+        "open-models/nettle-plant/textures/nettle_plant_arm_1k.jpg": "8fb33e5e939b4e089f08c867bf449d9e27aa32af94990c3cad1a89dcabd44f14",
+        "open-models/nettle-plant/textures/nettle_plant_diff_1k.jpg": "7172a9971818a18a7cb7ebaa144d9d2313b83d2a6180c9582000f7260542ea7b",
+        "open-models/nettle-plant/textures/nettle_plant_nor_gl_1k.jpg": "ab5d0cdc9a487a8874b6e9a11bf67ef90319f02bbd74579576198aca90b0fa85"
+      }
+    },
+    {
+      "id": "open-periwinkle-plant",
+      "files": [
+        "open-models/periwinkle-plant/masters/LICENSE.txt",
+        "open-models/periwinkle-plant/masters/SOURCE.json",
+        "open-models/periwinkle-plant/masters/preview.png",
+        "open-models/periwinkle-plant/masters/recipe.json",
+        "open-models/periwinkle-plant/masters/source.zip",
+        "open-models/periwinkle-plant/periwinkle-plant.gltf",
+        "open-models/periwinkle-plant/periwinkle-plant.json",
+        "open-models/periwinkle-plant/periwinkle_plant.bin",
+        "open-models/periwinkle-plant/textures/periwinkle_plant_arm_1k.jpg",
+        "open-models/periwinkle-plant/textures/periwinkle_plant_diff_1k.jpg",
+        "open-models/periwinkle-plant/textures/periwinkle_plant_nor_gl_1k.jpg"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/periwinkle_plant",
+        "api": "https://api.polyhaven.com/files/periwinkle_plant",
+        "license_url": "https://polyhaven.com/license",
+        "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/periwinkle_plant/periwinkle_plant_1k.gltf",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Amal Kumar (All) / Poly Haven",
+      "license_source": "open-models/periwinkle-plant/masters/LICENSE.txt",
+      "changes": "Original publisher bytes; cooked glTF renamed only. Native master and external dependencies preserved without resaving.",
+      "sha256": {
+        "open-models/periwinkle-plant/masters/LICENSE.txt": "d1f4891f21b2953b54504a6a41ec9e1d15ca5d9e9185603cd5242156e080961d",
+        "open-models/periwinkle-plant/masters/SOURCE.json": "7236834b12307914a034a1246d35c098d07206e7d5bb18649530d17d4f2a15f1",
+        "open-models/periwinkle-plant/masters/preview.png": "cfba06cd3e2ec920f523963d0383694bafcf9f3ecca08ecf34c487f94d339ff7",
+        "open-models/periwinkle-plant/masters/recipe.json": "b0b308608e9d88acad76648a2942b4ab15aa513c9022febfe31cf6094859423b",
+        "open-models/periwinkle-plant/masters/source.zip": "4739e5a8a7a009a339ac9b8c18c9fab8154ef9de2c9b60bb95a56141975938ba",
+        "open-models/periwinkle-plant/periwinkle-plant.gltf": "df781eea76123fc6eee97e6e8d466743e3a5fb08e1a2c3f5025a57e090d2cc55",
+        "open-models/periwinkle-plant/periwinkle-plant.json": "35f94da249eac0602dd470d913b8ad0bc927b09b8563d04aca673306323ab1b4",
+        "open-models/periwinkle-plant/periwinkle_plant.bin": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+        "open-models/periwinkle-plant/textures/periwinkle_plant_arm_1k.jpg": "d964e2e1118c2ca88c137b45590f48d83d3471fef48e913cbd57bf7122bbe4a3",
+        "open-models/periwinkle-plant/textures/periwinkle_plant_diff_1k.jpg": "32d61084e6c07fa3ca8e03b35b347a12717f971efc90e8fe1185931ee2298c56",
+        "open-models/periwinkle-plant/textures/periwinkle_plant_nor_gl_1k.jpg": "36d2464e7500f741500228b955c1fb0f26d954e869bd26f93dd25c0fafc5087d"
+      }
+    },
+    {
+      "id": "open-moss-rocks",
+      "files": [
+        "open-models/moss-rocks/masters/LICENSE.txt",
+        "open-models/moss-rocks/masters/SOURCE.json",
+        "open-models/moss-rocks/masters/preview.png",
+        "open-models/moss-rocks/masters/recipe.json",
+        "open-models/moss-rocks/masters/source.zip",
+        "open-models/moss-rocks/moss-rocks.gltf",
+        "open-models/moss-rocks/moss-rocks.json",
+        "open-models/moss-rocks/rock_moss_set_01.bin",
+        "open-models/moss-rocks/textures/rock_moss_set_01_diff_1k.jpg",
+        "open-models/moss-rocks/textures/rock_moss_set_01_nor_gl_1k.jpg",
+        "open-models/moss-rocks/textures/rock_moss_set_01_rough_1k.jpg"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/rock_moss_set_01",
+        "api": "https://api.polyhaven.com/files/rock_moss_set_01",
+        "license_url": "https://polyhaven.com/license",
+        "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/rock_moss_set_01/rock_moss_set_01_1k.gltf",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kless Gyzen (All) / Poly Haven",
+      "license_source": "open-models/moss-rocks/masters/LICENSE.txt",
+      "changes": "Original publisher bytes; cooked glTF renamed only. Native master and external dependencies preserved without resaving.",
+      "sha256": {
+        "open-models/moss-rocks/masters/LICENSE.txt": "7c1fa5561a06ea7e344b691bbcaa209fa9021bd9c5ca01c8eedc271d9d335670",
+        "open-models/moss-rocks/masters/SOURCE.json": "a165355a43116d30cafb3a0af49a2a95fcf46380d58a28996a66bfba2b20978e",
+        "open-models/moss-rocks/masters/preview.png": "576239380a1791238586bb772243222a46e8f5b0f3f67657ba543b94b5486978",
+        "open-models/moss-rocks/masters/recipe.json": "d0265fa87c18f32723dc34c08bcbb37a338f7b0d21d682925fad1f8ac7dfa391",
+        "open-models/moss-rocks/masters/source.zip": "399f7b37eed67b8cefe123e4012782aa710dce1c1db3914127dd393ac769d383",
+        "open-models/moss-rocks/moss-rocks.gltf": "c36675aca9c6b2be7785c2534cf413b03ec82a5a2a5407a2b1c0cdb0346c9727",
+        "open-models/moss-rocks/moss-rocks.json": "84d6d5341f7d48666293066518e9948cdbc335db92e70da202fd67a48cc14d1d",
+        "open-models/moss-rocks/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+        "open-models/moss-rocks/textures/rock_moss_set_01_diff_1k.jpg": "40cea65d8aa4ee73a93b04af19963834d061eee9779c3fc2c1cba76eef812ccc",
+        "open-models/moss-rocks/textures/rock_moss_set_01_nor_gl_1k.jpg": "eb4aad3f207f1dc5b624d74ae240372171626a66912bd71adf7bd3e518181d6e",
+        "open-models/moss-rocks/textures/rock_moss_set_01_rough_1k.jpg": "4d6ec46623abd8e2cdb855f59c7ce31873ad61b36b60e4de579e9e776a497c6b"
+      }
+    },
+    {
+      "id": "open-painted-bench",
+      "files": [
+        "open-models/painted-bench/masters/LICENSE.txt",
+        "open-models/painted-bench/masters/SOURCE.json",
+        "open-models/painted-bench/masters/packed-default.png",
+        "open-models/painted-bench/masters/packed-profile.json",
+        "open-models/painted-bench/masters/packed-profile.zip",
+        "open-models/painted-bench/masters/packed-wide.png",
+        "open-models/painted-bench/masters/preview.png",
+        "open-models/painted-bench/masters/recipe.json",
+        "open-models/painted-bench/masters/source.zip",
+        "open-models/painted-bench/painted-bench.gltf",
+        "open-models/painted-bench/painted-bench.json",
+        "open-models/painted-bench/painted_wooden_bench.bin",
+        "open-models/painted-bench/textures/painted_wooden_bench_arm_1k.jpg",
+        "open-models/painted-bench/textures/painted_wooden_bench_diff_1k.jpg",
+        "open-models/painted-bench/textures/painted_wooden_bench_nor_gl_1k.jpg"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/painted_wooden_bench",
+        "api": "https://api.polyhaven.com/files/painted_wooden_bench",
+        "license_url": "https://polyhaven.com/license",
+        "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/painted_wooden_bench/painted_wooden_bench_1k.gltf",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kirill Sannikov (All) / Poly Haven",
+      "license_source": "open-models/painted-bench/masters/LICENSE.txt",
+      "changes": "Original publisher source retained. The separate packed working source qualifies material/UV/image preservation and object scaling only; it does not regenerate joinery or establish procedural freedom. See masters/packed-profile.json.",
+      "sha256": {
+        "open-models/painted-bench/masters/LICENSE.txt": "b8faf3b8c3fa0c165aaa1b2bb2541fc9ec64c132abf47aef2c2023c4eb14cb06",
+        "open-models/painted-bench/masters/SOURCE.json": "30f6c33dc9ed49fcfaa52277c7340cd1cb26903a2b98a7d53bd0d9329a6e19c3",
+        "open-models/painted-bench/masters/packed-default.png": "6ebb432a0751764d6a60b3d8a72e33a06f7362089e643fa37ce764d8ba3f8e0e",
+        "open-models/painted-bench/masters/packed-profile.json": "aea2d3fb2cd71172c57d047b62b70c3424c245500e104d83917341a359dc9bf4",
+        "open-models/painted-bench/masters/packed-profile.zip": "06ecb594b0133693dc5ab226d03a3c2b4bdfd6f1a98f858108e563706ff29282",
+        "open-models/painted-bench/masters/packed-wide.png": "e53b0f4e533c13ab3a0184f35799ea975a34823ffe8bef5b86f04f098c639018",
+        "open-models/painted-bench/masters/preview.png": "e9e1aafd1abbcc7018a229ddabb313f4577faffd69811a0aeba7686c252451bb",
+        "open-models/painted-bench/masters/recipe.json": "55d912f92655bed32bc6a3ec687a74eb319d98f81280d367ec8a20ead56f2db2",
+        "open-models/painted-bench/masters/source.zip": "f2e842bebe8231dcd15f4f146fb721e41999abf019c0f664aebc95ee6934624c",
+        "open-models/painted-bench/painted-bench.gltf": "2289ab82f3fe3045bf18f7b9541743d2c65b9f071cb34bbe424d2bc998f3e507",
+        "open-models/painted-bench/painted-bench.json": "213e51dfa4e0537048f732db088daee686d2c314a62d24698b8cfd5af78306ce",
+        "open-models/painted-bench/painted_wooden_bench.bin": "5799bcb20924105cccd6424de8cdb8e67eb57fddc19c395befeac634a7b2e013",
+        "open-models/painted-bench/textures/painted_wooden_bench_arm_1k.jpg": "878785565eeff706b8f1e4db7e3d794a544e9cf0e56cee424d9a271ab4ead47e",
+        "open-models/painted-bench/textures/painted_wooden_bench_diff_1k.jpg": "9bc533313091ee71eaca5fa6334b71d27935d9d75311f64df6a53c28a67c435c",
+        "open-models/painted-bench/textures/painted_wooden_bench_nor_gl_1k.jpg": "a0f53740d77fc61aac01de0b7e1ae6109445d1756839f739ae31fdf10c9911f2"
+      }
+    },
+    {
+      "id": "open-portable-searchlight",
+      "files": [
+        "open-models/portable-searchlight/masters/LICENSE.txt",
+        "open-models/portable-searchlight/masters/SOURCE.json",
+        "open-models/portable-searchlight/masters/preview.png",
+        "open-models/portable-searchlight/masters/recipe.json",
+        "open-models/portable-searchlight/masters/source.zip",
+        "open-models/portable-searchlight/portable-searchlight.gltf",
+        "open-models/portable-searchlight/portable-searchlight.json",
+        "open-models/portable-searchlight/portable_searchlight.bin",
+        "open-models/portable-searchlight/textures/portable_searchlight_arm_1k.jpg",
+        "open-models/portable-searchlight/textures/portable_searchlight_diff_1k.jpg",
+        "open-models/portable-searchlight/textures/portable_searchlight_nor_gl_1k.jpg"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/portable_searchlight",
+        "api": "https://api.polyhaven.com/files/portable_searchlight",
+        "license_url": "https://polyhaven.com/license",
+        "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/portable_searchlight/portable_searchlight_1k.gltf",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Elijah Cragg (All) / Poly Haven",
+      "license_source": "open-models/portable-searchlight/masters/LICENSE.txt",
+      "changes": "Original publisher bytes; cooked glTF renamed only. Native master and external dependencies preserved without resaving.",
+      "sha256": {
+        "open-models/portable-searchlight/masters/LICENSE.txt": "36e41a332d0628f6f80b9065d4a00c56d44b7bfee4c70e9ec661d7849452cfb0",
+        "open-models/portable-searchlight/masters/SOURCE.json": "f8b9fbb8b7d7989c8da31291706afdab1103581464123c9ca72d58f6116b8cad",
+        "open-models/portable-searchlight/masters/preview.png": "0fd70ddd064013dfb1bc5075de4fbbc816b3f1e5bcd6fea9783830bebad40dd2",
+        "open-models/portable-searchlight/masters/recipe.json": "bffd68c9b6c8f2a776ed6f9c450c2999f755176a13fd95f57acb2e61315285f2",
+        "open-models/portable-searchlight/masters/source.zip": "2fd15deea436791f069f5f4efbd1a2f2ee00275cd35763fac36cf71f173f77bc",
+        "open-models/portable-searchlight/portable-searchlight.gltf": "8c38799e55ce0c1627e0e82e99cb25ccf24feea2ac7db7681d38042ea8a1ac96",
+        "open-models/portable-searchlight/portable-searchlight.json": "86c4816d26835caa5ba00fd0bc24b9d651cdd4d9004cd6633b11a64b0d8fc453",
+        "open-models/portable-searchlight/portable_searchlight.bin": "e4ac4b5f936dfb24c54edc3baeba5a71f794bdf83482e6d78e3317db0ea271f0",
+        "open-models/portable-searchlight/textures/portable_searchlight_arm_1k.jpg": "87e8391ca00587c1d560f71c95475b440165ec2440e237a3484fa0a514d551dc",
+        "open-models/portable-searchlight/textures/portable_searchlight_diff_1k.jpg": "48d1d9789293d65c027f26ee557e3b7dadf1c209e3efeedbe6f8933c54d54ec7",
+        "open-models/portable-searchlight/textures/portable_searchlight_nor_gl_1k.jpg": "eea44780a56d82cff8a026d8b4d4b5f3a06174a3a8e83b74b13c8f0f66c701b5"
+      }
+    },
+    {
+      "id": "open-mech-george",
+      "files": [
+        "open-models/mech-george/masters/License.txt",
+        "open-models/mech-george/masters/SOURCE.json",
+        "open-models/mech-george/masters/preview.png",
+        "open-models/mech-george/masters/recipe.json",
+        "open-models/mech-george/masters/source.zip",
+        "open-models/mech-george/mech-george.glb",
+        "open-models/mech-george/mech-george.json",
+        "open-models/mech-george/mech-george_George_Texture.png"
+      ],
+      "source": {
+        "url": "https://quaternius.com/packs/animatedmech.html",
+        "source_page": "https://opengameart.org/content/animated-mech-pack",
+        "download": "https://opengameart.org/sites/default/files/animated_mech_pack_-_march_2021.zip",
+        "archive_sha256": "14102eade586a04191fc96a4bf52bc511b91d3e90d76a87e8e621095b8d0ea26",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Quaternius (Tomás Laulhé)",
+      "license_source": "open-models/mech-george/masters/License.txt",
+      "changes": "Image-color binding adapted from Blender 2.79 Diffuse BSDF to glTF-supported Principled BSDF. Geometry, rig and action inventory unchanged; constraints baked by exporter. Original .blend retained byte-exact; working.blend is the supported shader conversion.",
+      "sha256": {
+        "open-models/mech-george/masters/License.txt": "12d80352b886d647a03f3b30d9c0869e44f91a15bf9b29d6443bc6599bb5e70d",
+        "open-models/mech-george/masters/SOURCE.json": "beb4a6d3dd8f231447a88c8e404675929ac151b0b76f232a77a2f0d6e096d7b5",
+        "open-models/mech-george/masters/preview.png": "423fcbdead9bc14707a0862b9457a1f75aac469db1d7b69e4bc7d51a53e0ca9d",
+        "open-models/mech-george/masters/recipe.json": "2dbac2e979b3ec65d44458e5bf3e8e9497ded5403e5188d7c1054303d08970ef",
+        "open-models/mech-george/masters/source.zip": "71bf669176ffea732245e9ebe3b8b8d5c9f38b6832d54839e9dfec67f8e9fb59",
+        "open-models/mech-george/mech-george.glb": "1b5a7b62438533ed40f4359d7d1c9c6c6fa650808d45961bfb26fcc64e2fca0d",
+        "open-models/mech-george/mech-george.json": "7b13ad69425318febea84afde6a2891f2c91ce484e6303382f4b72a3d5910822",
+        "open-models/mech-george/mech-george_George_Texture.png": "6a2f8ae21d007641a209bb70a094eac4f8d0e3c402cc30f48ffb370a5c609b70"
+      }
+    },
+    {
+      "id": "open-mech-leela",
+      "files": [
+        "open-models/mech-leela/masters/License.txt",
+        "open-models/mech-leela/masters/SOURCE.json",
+        "open-models/mech-leela/masters/preview.png",
+        "open-models/mech-leela/masters/recipe.json",
+        "open-models/mech-leela/masters/source.zip",
+        "open-models/mech-leela/mech-leela.glb",
+        "open-models/mech-leela/mech-leela.json",
+        "open-models/mech-leela/mech-leela_Leela_Texture.png"
+      ],
+      "source": {
+        "url": "https://quaternius.com/packs/animatedmech.html",
+        "source_page": "https://opengameart.org/content/animated-mech-pack",
+        "download": "https://opengameart.org/sites/default/files/animated_mech_pack_-_march_2021.zip",
+        "archive_sha256": "14102eade586a04191fc96a4bf52bc511b91d3e90d76a87e8e621095b8d0ea26",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Quaternius (Tomás Laulhé)",
+      "license_source": "open-models/mech-leela/masters/License.txt",
+      "changes": "Image-color binding adapted from Blender 2.79 Diffuse BSDF to glTF-supported Principled BSDF. Geometry, rig and action inventory unchanged; constraints baked by exporter. Original .blend retained byte-exact; working.blend is the supported shader conversion.",
+      "sha256": {
+        "open-models/mech-leela/masters/License.txt": "12d80352b886d647a03f3b30d9c0869e44f91a15bf9b29d6443bc6599bb5e70d",
+        "open-models/mech-leela/masters/SOURCE.json": "17f58b8f924950c58c995d211d477d334f0e3e93bf1f7b5320e6c9f7b6b954cb",
+        "open-models/mech-leela/masters/preview.png": "2eb7441cd852bd82f7f3500827a8471208754c5ec3799e30f7fb2df86d4a7202",
+        "open-models/mech-leela/masters/recipe.json": "e6da5c7464267299e87443612d7a0dc324b69efc53042172fc383b03e1aeb7ef",
+        "open-models/mech-leela/masters/source.zip": "0ddbc4238991e6f7ec2ce6d06beb830dad47c4c8ff07540eb956e6d049f6da00",
+        "open-models/mech-leela/mech-leela.glb": "8c199489572250b55d9771e8a5acea35438b782f89212e613582bdc933c40b96",
+        "open-models/mech-leela/mech-leela.json": "1742ccbf4393f738145e8ecbf68714af5dba9b3f2a6c875ca2b6e8ba1a5e55fa",
+        "open-models/mech-leela/mech-leela_Leela_Texture.png": "2ee1b71e542746c76cdb1a7cd80249660962b35855166a681937cc8e61d1517d"
+      }
+    },
+    {
+      "id": "open-bull",
+      "files": [
+        "open-models/bull/bull.gltf",
+        "open-models/bull/bull.json",
+        "open-models/bull/masters/LICENSE.txt",
+        "open-models/bull/masters/SOURCE.json",
+        "open-models/bull/masters/preview.png",
+        "open-models/bull/masters/recipe.json",
+        "open-models/bull/masters/source.zip"
+      ],
+      "source": {
+        "repository": "castle-engine/castle-engine",
+        "commit": "0c21dcbc42ba9d9d2b605f518cc962068bcf2030",
+        "path": "examples/viewport_and_scenes/shadow_volumes_whole_scene_manifold/data/quaternius_animals/Bull.gltf",
+        "website": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Quaternius (Tomás Laulhé)",
+      "license_source": "open-models/bull/masters/LICENSE.txt",
+      "changes": "Original self-contained glTF bytes retained. Native Blender master for Bull not acquired.",
+      "sha256": {
+        "open-models/bull/bull.gltf": "535da2992eb125d517725159a2eddeb520b72595bcb3021985fc43d2c84bff76",
+        "open-models/bull/bull.json": "9c5f3b545e651526540c16fa903e46119d542973c83cd2c75808bcd530cb085d",
+        "open-models/bull/masters/LICENSE.txt": "9e7495f4a81758c8bd51317d5e399d69742706f09ca7bded2d78ddaca2389b17",
+        "open-models/bull/masters/SOURCE.json": "f9f907be80fd8df7275a40b85a60a9f4a36b273d48dd2454fa4710380282da48",
+        "open-models/bull/masters/preview.png": "03a4144713250f6c7a651b2759677d23083f2441dfafc7e9856423a52ffeae17",
+        "open-models/bull/masters/recipe.json": "97f78a6d10adc52f6e392d0451d309ddb52ead1caf48da4aa808098dd4d172c1",
+        "open-models/bull/masters/source.zip": "27b75bf6a2de74b787e37b2a49db5d6f07118acfd6a983c2454c10ec092334ac"
+      }
+    },
+    {
+      "id": "open-castle-door",
+      "files": [
+        "open-models/castle-door/castle-door.gltf",
+        "open-models/castle-door/castle-door.json",
+        "open-models/castle-door/large_castle_door.bin",
+        "open-models/castle-door/masters/LICENSE.txt",
+        "open-models/castle-door/masters/SOURCE.json",
+        "open-models/castle-door/masters/preview.png",
+        "open-models/castle-door/masters/recipe.json",
+        "open-models/castle-door/masters/source.zip",
+        "open-models/castle-door/textures/large_castle_door_arm_1k.jpg",
+        "open-models/castle-door/textures/large_castle_door_diff_1k.jpg",
+        "open-models/castle-door/textures/large_castle_door_nor_gl_1k.jpg"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/large_castle_door",
+        "api": "https://api.polyhaven.com/files/large_castle_door",
+        "license_url": "https://polyhaven.com/license",
+        "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/large_castle_door/large_castle_door_1k.gltf",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Tina (All) / Poly Haven",
+      "license_source": "open-models/castle-door/masters/LICENSE.txt",
+      "changes": "Original publisher bytes; cooked glTF renamed only. Native master and dependencies preserved without resaving.",
+      "sha256": {
+        "open-models/castle-door/castle-door.gltf": "e43e0a7bf56cb4f37402a133ae8bed3a010120362ef1a52ff4e59b0d83b2d656",
+        "open-models/castle-door/castle-door.json": "f170bad9360c1b26b814aca6fd57f00d047246ed8c76f6c0ca96720dc0a66810",
+        "open-models/castle-door/large_castle_door.bin": "7db2eb9d2b81207a30c849ba5de0f2c25085add88e437bc69764ce792758ff76",
+        "open-models/castle-door/masters/LICENSE.txt": "3fcc2956e4a44d6740dc3b147d2a006ec5ea08005e5041bb4aec5dced19ac6bf",
+        "open-models/castle-door/masters/SOURCE.json": "b5e303d725dfecbd870a68a7d99f879a3852910c7cd53e9bebbb94db1485e917",
+        "open-models/castle-door/masters/preview.png": "ed08dec7053368846a73e516b42fd9436122a60a1daadc14316d3df92d354bd5",
+        "open-models/castle-door/masters/recipe.json": "dfce39fab3fa24b545c1035f9685af741e885da7382dfc54b17fd4424a0b7c90",
+        "open-models/castle-door/masters/source.zip": "1f2b21f78a6363a094799e210016e8a7245870910e027d82312331b0d6e46955",
+        "open-models/castle-door/textures/large_castle_door_arm_1k.jpg": "2b1e832840d7393ac8a4d058630f8a8378254ad56f6601da08f1135851861955",
+        "open-models/castle-door/textures/large_castle_door_diff_1k.jpg": "06b9640df9702ceee23cfd042e858ca03b8c68818a691c55d4ea2a65258db97a",
+        "open-models/castle-door/textures/large_castle_door_nor_gl_1k.jpg": "297929524f3a2e6634543ec1c6f0278369d3649a2eba888fa3bf9caf72ab2af1"
+      }
+    },
+    {
+      "id": "open-iron-gate",
+      "files": [
+        "open-models/iron-gate/iron-gate.gltf",
+        "open-models/iron-gate/iron-gate.json",
+        "open-models/iron-gate/large_iron_gate.bin",
+        "open-models/iron-gate/masters/LICENSE.txt",
+        "open-models/iron-gate/masters/SOURCE.json",
+        "open-models/iron-gate/masters/preview.png",
+        "open-models/iron-gate/masters/recipe.json",
+        "open-models/iron-gate/masters/source.zip",
+        "open-models/iron-gate/textures/large_iron_gate_arm_1k.jpg",
+        "open-models/iron-gate/textures/large_iron_gate_diff_1k.jpg",
+        "open-models/iron-gate/textures/large_iron_gate_nor_gl_1k.jpg"
+      ],
+      "source": {
+        "url": "https://polyhaven.com/a/large_iron_gate",
+        "api": "https://api.polyhaven.com/files/large_iron_gate",
+        "license_url": "https://polyhaven.com/license",
+        "download": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/large_iron_gate/large_iron_gate_1k.gltf",
+        "retrieved": "2026-10-17"
+      },
+      "license": "CC0-1.0",
+      "attribution": "Josh Dean (All) / Poly Haven",
+      "license_source": "open-models/iron-gate/masters/LICENSE.txt",
+      "changes": "Original publisher bytes; cooked glTF renamed only. Native master and dependencies preserved without resaving.",
+      "sha256": {
+        "open-models/iron-gate/iron-gate.gltf": "fd46dd0fc634c0529656dca3d275e4eb81fbfbb5105228dc9d4e215b0b4bec77",
+        "open-models/iron-gate/iron-gate.json": "cc49c80133d549959b48d50e1565cca5ed3fe036762178ae1e73aa9d843ad8c2",
+        "open-models/iron-gate/large_iron_gate.bin": "973f9f7b7e968a5b22bcf07aac03312af5b74bac125750c887934ee30d986c8f",
+        "open-models/iron-gate/masters/LICENSE.txt": "f85eb93fa34a5cfa0938a8140ee4bd0532e8a4f781b5b09aae1b0b23d42fcef0",
+        "open-models/iron-gate/masters/SOURCE.json": "4c59b7ebc0001c2d3ca831a82655704762b7127496d377bf0390430d5dcbf6d2",
+        "open-models/iron-gate/masters/preview.png": "bbd3e1a5172f8d5963d2b31d59033f3604ce033266fc2884e0eef6a9e3e98c42",
+        "open-models/iron-gate/masters/recipe.json": "d684c7dd178f60328020afab08ca85c928a1739b279aa67deef9fca49d1962b9",
+        "open-models/iron-gate/masters/source.zip": "9b72d7a64dbf0d055bd4f25e06168aa7eb49ebbe6cb5ff64c3417f00fe7ce51a",
+        "open-models/iron-gate/textures/large_iron_gate_arm_1k.jpg": "f528b46396e097324af2c14cc2f15b855b5f9b909bf6a8da9819f528e6ebde4a",
+        "open-models/iron-gate/textures/large_iron_gate_diff_1k.jpg": "422b17616829c7a48805211fcca9699c0aec63dee40a8d851f5ba81fcf329575",
+        "open-models/iron-gate/textures/large_iron_gate_nor_gl_1k.jpg": "c46a14086705f0d4bc2858c461aa8dfdd3bf7a09955c370591511612429d60fb"
+      }
+    },
+    {
+      "id": "open-kenney-wall-half-modular",
+      "files": [
+        "open-models/kenney-wall-half-modular/Textures/colormap.png",
+        "open-models/kenney-wall-half-modular/kenney-wall-half-modular.glb",
+        "open-models/kenney-wall-half-modular/kenney-wall-half-modular.json",
+        "open-models/kenney-wall-half-modular/masters/License.txt",
+        "open-models/kenney-wall-half-modular/masters/SOURCE.json",
+        "open-models/kenney-wall-half-modular/masters/preview.png",
+        "open-models/kenney-wall-half-modular/masters/recipe.json",
+        "open-models/kenney-wall-half-modular/masters/source.zip"
+      ],
+      "source": {
+        "url": "https://kenney.nl/assets/castle-kit",
+        "download": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+        "archive_sha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+        "retrieved": "2026-10-17",
+        "rightsReviewed": "2026-10-17",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "terms_url": "https://kenney.nl/terms-of-service",
+        "termsRevision": "2024-01-06",
+        "acquisition": "Previously acquired local cache reused; zero new asset download bytes; no live API integration."
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kenney (www.kenney.nl)",
+      "license_source": "open-models/kenney-wall-half-modular/masters/License.txt",
+      "changes": "Original publisher GLB and FBX/OBJ interchange alternatives preserved byte-exact; no geometry, hierarchy, materials or animation authored.",
+      "sha256": {
+        "open-models/kenney-wall-half-modular/Textures/colormap.png": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+        "open-models/kenney-wall-half-modular/kenney-wall-half-modular.glb": "2241397b813c069858987750eaf7dce4a549fca239ae2e40b30fc7e58ff82b0e",
+        "open-models/kenney-wall-half-modular/kenney-wall-half-modular.json": "00d7fb8151be01485de91de72be6002a115a288ae635ddb37c4a3c818a4c4d7c",
+        "open-models/kenney-wall-half-modular/masters/License.txt": "aac944f18106b3a3e29c6fdeec02523d4cab4c735abc01f5a8fa88a79ae173ef",
+        "open-models/kenney-wall-half-modular/masters/SOURCE.json": "0964c4e57e4328d96c2fa3aa0de6e6b831182c2948be936ea2e4daa7beba05af",
+        "open-models/kenney-wall-half-modular/masters/preview.png": "2b42a6c685685d39236a23cea0e9b3847bba1792d756a170de2128371afb5b8c",
+        "open-models/kenney-wall-half-modular/masters/recipe.json": "13561bdaaf62d76a6f9388e3bdc91a246e5379dd152fcd725f423132fd674c3f",
+        "open-models/kenney-wall-half-modular/masters/source.zip": "df8f35e4526382d59726a1033106600fa9baacdb6d140760b21f80c32165e634"
+      }
+    },
+    {
+      "id": "open-kenney-wall-corner",
+      "files": [
+        "open-models/kenney-wall-corner/Textures/colormap.png",
+        "open-models/kenney-wall-corner/kenney-wall-corner.glb",
+        "open-models/kenney-wall-corner/kenney-wall-corner.json",
+        "open-models/kenney-wall-corner/masters/License.txt",
+        "open-models/kenney-wall-corner/masters/SOURCE.json",
+        "open-models/kenney-wall-corner/masters/preview.png",
+        "open-models/kenney-wall-corner/masters/recipe.json",
+        "open-models/kenney-wall-corner/masters/source.zip"
+      ],
+      "source": {
+        "url": "https://kenney.nl/assets/castle-kit",
+        "download": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+        "archive_sha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+        "retrieved": "2026-10-17",
+        "rightsReviewed": "2026-10-17",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "terms_url": "https://kenney.nl/terms-of-service",
+        "termsRevision": "2024-01-06",
+        "acquisition": "Previously acquired local cache reused; zero new asset download bytes; no live API integration."
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kenney (www.kenney.nl)",
+      "license_source": "open-models/kenney-wall-corner/masters/License.txt",
+      "changes": "Original publisher GLB and FBX/OBJ interchange alternatives preserved byte-exact; no geometry, hierarchy, materials or animation authored.",
+      "sha256": {
+        "open-models/kenney-wall-corner/Textures/colormap.png": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+        "open-models/kenney-wall-corner/kenney-wall-corner.glb": "82d27b869162b6a9ee19b0d7480913f56928b6620708f3b3899131495803cc9a",
+        "open-models/kenney-wall-corner/kenney-wall-corner.json": "8145780c1e3f05cd4e240dcd70ce8bfe90aa1141ba645cd0d207da7237f2dc40",
+        "open-models/kenney-wall-corner/masters/License.txt": "aac944f18106b3a3e29c6fdeec02523d4cab4c735abc01f5a8fa88a79ae173ef",
+        "open-models/kenney-wall-corner/masters/SOURCE.json": "30bd4582ef09eab67dcef51c02ef2fa863d5cc40a19cc234c3cc873341d92165",
+        "open-models/kenney-wall-corner/masters/preview.png": "39037567695460a892e50c1e0a2be21da3512ae80c31ecf97bd892841ddf24f6",
+        "open-models/kenney-wall-corner/masters/recipe.json": "d1688a6654d77158d83ac1af8030f47d1f92a5ebe2d4fafd9cca91462f1cbd6e",
+        "open-models/kenney-wall-corner/masters/source.zip": "b1348d1a5ea0d46d5ab7533ef5af06c60e8750d34457ae2b757867cfbe575879"
+      }
+    },
+    {
+      "id": "open-kenney-tower-square-base",
+      "files": [
+        "open-models/kenney-tower-square-base/Textures/colormap.png",
+        "open-models/kenney-tower-square-base/kenney-tower-square-base.glb",
+        "open-models/kenney-tower-square-base/kenney-tower-square-base.json",
+        "open-models/kenney-tower-square-base/masters/License.txt",
+        "open-models/kenney-tower-square-base/masters/SOURCE.json",
+        "open-models/kenney-tower-square-base/masters/preview.png",
+        "open-models/kenney-tower-square-base/masters/recipe.json",
+        "open-models/kenney-tower-square-base/masters/source.zip"
+      ],
+      "source": {
+        "url": "https://kenney.nl/assets/castle-kit",
+        "download": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+        "archive_sha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+        "retrieved": "2026-10-17",
+        "rightsReviewed": "2026-10-17",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "terms_url": "https://kenney.nl/terms-of-service",
+        "termsRevision": "2024-01-06",
+        "acquisition": "Previously acquired local cache reused; zero new asset download bytes; no live API integration."
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kenney (www.kenney.nl)",
+      "license_source": "open-models/kenney-tower-square-base/masters/License.txt",
+      "changes": "Original publisher GLB and FBX/OBJ interchange alternatives preserved byte-exact; no geometry, hierarchy, materials or animation authored.",
+      "sha256": {
+        "open-models/kenney-tower-square-base/Textures/colormap.png": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+        "open-models/kenney-tower-square-base/kenney-tower-square-base.glb": "996887e98957eeea2ba7b5d14f0d17877c91e4e99e1c5b8ee57d87b7f7c9d5e8",
+        "open-models/kenney-tower-square-base/kenney-tower-square-base.json": "7ba2b9d9c62ef3b59f1034a2b6e82a4ec6476ab8300ec5e93c8716d47ef1ba27",
+        "open-models/kenney-tower-square-base/masters/License.txt": "aac944f18106b3a3e29c6fdeec02523d4cab4c735abc01f5a8fa88a79ae173ef",
+        "open-models/kenney-tower-square-base/masters/SOURCE.json": "2e4933cf20baf9c58f31efbaf5cace7ca7e5761772df6c97be8a3e5b15c8a2ba",
+        "open-models/kenney-tower-square-base/masters/preview.png": "79557ebd4316e6aecdf3493bf0a3cf8153ed438f2cc72416dbf959b25cf1e400",
+        "open-models/kenney-tower-square-base/masters/recipe.json": "03e18a59b4a49e43cb33136353ae7ffe5ddfedaa9996ea19a15aa28d27910ffc",
+        "open-models/kenney-tower-square-base/masters/source.zip": "41777fede51ce00fb201c16c92f858fafb525a8cfb5ac26cf721c4384a9b3f83"
+      }
+    },
+    {
+      "id": "open-kenney-tower-square-mid-windows",
+      "files": [
+        "open-models/kenney-tower-square-mid-windows/Textures/colormap.png",
+        "open-models/kenney-tower-square-mid-windows/kenney-tower-square-mid-windows.glb",
+        "open-models/kenney-tower-square-mid-windows/kenney-tower-square-mid-windows.json",
+        "open-models/kenney-tower-square-mid-windows/masters/License.txt",
+        "open-models/kenney-tower-square-mid-windows/masters/SOURCE.json",
+        "open-models/kenney-tower-square-mid-windows/masters/preview.png",
+        "open-models/kenney-tower-square-mid-windows/masters/recipe.json",
+        "open-models/kenney-tower-square-mid-windows/masters/source.zip"
+      ],
+      "source": {
+        "url": "https://kenney.nl/assets/castle-kit",
+        "download": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+        "archive_sha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+        "retrieved": "2026-10-17",
+        "rightsReviewed": "2026-10-17",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "terms_url": "https://kenney.nl/terms-of-service",
+        "termsRevision": "2024-01-06",
+        "acquisition": "Previously acquired local cache reused; zero new asset download bytes; no live API integration."
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kenney (www.kenney.nl)",
+      "license_source": "open-models/kenney-tower-square-mid-windows/masters/License.txt",
+      "changes": "Original publisher GLB and FBX/OBJ interchange alternatives preserved byte-exact; no geometry, hierarchy, materials or animation authored.",
+      "sha256": {
+        "open-models/kenney-tower-square-mid-windows/Textures/colormap.png": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+        "open-models/kenney-tower-square-mid-windows/kenney-tower-square-mid-windows.glb": "68c186f978135ba77969cdbee502a1c0d9d8f40bd01e8aa33b7cc6859a2ba766",
+        "open-models/kenney-tower-square-mid-windows/kenney-tower-square-mid-windows.json": "f154ab6275ace68b3717b9b64e9669736a988f57bbc57462d0eafd156afabf55",
+        "open-models/kenney-tower-square-mid-windows/masters/License.txt": "aac944f18106b3a3e29c6fdeec02523d4cab4c735abc01f5a8fa88a79ae173ef",
+        "open-models/kenney-tower-square-mid-windows/masters/SOURCE.json": "27c7ba47bed8669ffd3cb4f80094ad4ed0976b25b98bd68e3a60712f68d4f87a",
+        "open-models/kenney-tower-square-mid-windows/masters/preview.png": "fd11b3ace8fa27c72e72b5eb6cf6f3abb46766887740cb1974b0133ed5d82eae",
+        "open-models/kenney-tower-square-mid-windows/masters/recipe.json": "8571dfd83db1694fbdf6cc8fcf2327631f4935ed935cad22329276b1a777f334",
+        "open-models/kenney-tower-square-mid-windows/masters/source.zip": "ac40832017e63c7de5155b7a6f91d1ba54c8e0ab8bce047a9da9883ce5846aaf"
+      }
+    },
+    {
+      "id": "open-kenney-tower-square-top",
+      "files": [
+        "open-models/kenney-tower-square-top/Textures/colormap.png",
+        "open-models/kenney-tower-square-top/kenney-tower-square-top.glb",
+        "open-models/kenney-tower-square-top/kenney-tower-square-top.json",
+        "open-models/kenney-tower-square-top/masters/License.txt",
+        "open-models/kenney-tower-square-top/masters/SOURCE.json",
+        "open-models/kenney-tower-square-top/masters/preview.png",
+        "open-models/kenney-tower-square-top/masters/recipe.json",
+        "open-models/kenney-tower-square-top/masters/source.zip"
+      ],
+      "source": {
+        "url": "https://kenney.nl/assets/castle-kit",
+        "download": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+        "archive_sha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+        "retrieved": "2026-10-17",
+        "rightsReviewed": "2026-10-17",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "terms_url": "https://kenney.nl/terms-of-service",
+        "termsRevision": "2024-01-06",
+        "acquisition": "Previously acquired local cache reused; zero new asset download bytes; no live API integration."
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kenney (www.kenney.nl)",
+      "license_source": "open-models/kenney-tower-square-top/masters/License.txt",
+      "changes": "Original publisher GLB and FBX/OBJ interchange alternatives preserved byte-exact; no geometry, hierarchy, materials or animation authored.",
+      "sha256": {
+        "open-models/kenney-tower-square-top/Textures/colormap.png": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+        "open-models/kenney-tower-square-top/kenney-tower-square-top.glb": "5e98cdf2bf4d885edc3fa514719f80d63872e11c54ee629c11859223dad8489c",
+        "open-models/kenney-tower-square-top/kenney-tower-square-top.json": "dc1770eb80957c5b887ea2b871fb799b03f011ecf2ae8db72d969dd0e3609a47",
+        "open-models/kenney-tower-square-top/masters/License.txt": "aac944f18106b3a3e29c6fdeec02523d4cab4c735abc01f5a8fa88a79ae173ef",
+        "open-models/kenney-tower-square-top/masters/SOURCE.json": "79d813a9c1ef45500b041d7dd80d838cfdc665be953947222120c870cc39322f",
+        "open-models/kenney-tower-square-top/masters/preview.png": "abda9a9eef6b11fd3704aa4fe1d30a6a583349792fe5dc99aa8453a72b69a824",
+        "open-models/kenney-tower-square-top/masters/recipe.json": "1755a464f76c2047b92e4776dee651ecf8fafc02ee78e9b0fcc1b191cc5f6eb5",
+        "open-models/kenney-tower-square-top/masters/source.zip": "52d5b8067957bebf46990ccf6f1c742d8babfca2a43ab8e899aea6d669b7e686"
+      }
+    },
+    {
+      "id": "open-kenney-siege-trebuchet",
+      "files": [
+        "open-models/kenney-siege-trebuchet/Textures/colormap.png",
+        "open-models/kenney-siege-trebuchet/kenney-siege-trebuchet.glb",
+        "open-models/kenney-siege-trebuchet/kenney-siege-trebuchet.json",
+        "open-models/kenney-siege-trebuchet/masters/License.txt",
+        "open-models/kenney-siege-trebuchet/masters/SOURCE.json",
+        "open-models/kenney-siege-trebuchet/masters/preview.png",
+        "open-models/kenney-siege-trebuchet/masters/recipe.json",
+        "open-models/kenney-siege-trebuchet/masters/source.zip"
+      ],
+      "source": {
+        "url": "https://kenney.nl/assets/castle-kit",
+        "download": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+        "archive_sha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+        "retrieved": "2026-10-17",
+        "rightsReviewed": "2026-10-17",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "terms_url": "https://kenney.nl/terms-of-service",
+        "termsRevision": "2024-01-06",
+        "acquisition": "Previously acquired local cache reused; zero new asset download bytes; no live API integration."
+      },
+      "license": "CC0-1.0",
+      "attribution": "Kenney (www.kenney.nl)",
+      "license_source": "open-models/kenney-siege-trebuchet/masters/License.txt",
+      "changes": "Original publisher GLB and FBX/OBJ interchange alternatives preserved byte-exact; no geometry, hierarchy, materials or animation authored.",
+      "sha256": {
+        "open-models/kenney-siege-trebuchet/Textures/colormap.png": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+        "open-models/kenney-siege-trebuchet/kenney-siege-trebuchet.glb": "123711fd475e35d061738f648d9bf46c7f463d57681325c369977cee8954679a",
+        "open-models/kenney-siege-trebuchet/kenney-siege-trebuchet.json": "b7932d561043c831f837e81775a25a7eb209033f5b76f57b0aae060f77dacfd3",
+        "open-models/kenney-siege-trebuchet/masters/License.txt": "aac944f18106b3a3e29c6fdeec02523d4cab4c735abc01f5a8fa88a79ae173ef",
+        "open-models/kenney-siege-trebuchet/masters/SOURCE.json": "054cab6443b91bc885f591f44e9649858f83d534e13c63c17db3437d839034cc",
+        "open-models/kenney-siege-trebuchet/masters/preview.png": "3bb4809945ad6bd4d88a0125e67383c48a8e025a33690eda13643342c795a255",
+        "open-models/kenney-siege-trebuchet/masters/recipe.json": "ae4bfa3439e8a1d82ed91ba79bce5a7f9dfb772f4fabcdabdec80abe72f34f41",
+        "open-models/kenney-siege-trebuchet/masters/source.zip": "71e183d52b15b4a4592b77635ce66b914d6e38293d66fd7c32f49ea398a557f7"
       }
     }
   ]
