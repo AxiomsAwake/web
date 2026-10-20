@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:3ff653d4e9d77a2997b7a6748e396c0410a47126c458ec467efe4baf0e6c8aba",
-  "digest": "33f7827d8867a7529c895bd3ffcacfd153d2918dcd43887ddf20cf571aadd04d",
+  "artifact_digest": "sha256:0acf1275e585cda225149c37f45f99e918c210331dee31101a9710d00de889c6",
+  "digest": "584c733f3d64257e665a6a83531607f6ab573b5925e6ebc48ff8b367706338c1",
   "files": [
     {
       "bytes": 7498,
@@ -16,7 +16,7 @@
     {
       "bytes": 5461,
       "path": "app.html",
-      "sha256": "3fb3f6a07be236bbe82b82a26550469eb87032b4c1108c528c674a01790dcb6b"
+      "sha256": "24c5d03ccef4853edefb64323a30cf398be68c5456eddaa5ce0b32e712c61432"
     },
     {
       "bytes": 276,
@@ -26,7 +26,7 @@
     {
       "bytes": 6713,
       "path": "build.json",
-      "sha256": "8df6cdf5d6a53e6efabff49b77cdbe33a95a5bff7285c27f44bf8fd336befde1"
+      "sha256": "e5e6cbdef95e9e56330e946c378f43be4185a10459c83a5490c73e2955012e2c"
     },
     {
       "bytes": 5340,
@@ -129,9 +129,9 @@
       "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
     },
     {
-      "bytes": 83720820,
+      "bytes": 83730732,
       "path": "index.pck",
-      "sha256": "fb6f02dd9b4dd2c4c12605b88605f3b6faeb92e7bc9b937d091efdd195afa85e"
+      "sha256": "2ea3c8e45ef1e3eb408f1251f95ef8187be5d066f1ba8030169a9625f1f9178e"
     },
     {
       "bytes": 21443,
@@ -159,9 +159,9 @@
       "sha256": "f01fef7af05199f411a1f9686c0f70946d5c89f347f6f6682adcd627c8c04d8d"
     },
     {
-      "bytes": 378592,
+      "bytes": 378408,
       "path": "previews/architecture-world.png",
-      "sha256": "1f26490b7fb50b1fc43a39f826005ec3c190fd8f9b82706acb1866d4ec01a50c"
+      "sha256": "7d66119f8039d436aa9733d54e3811248b8dde773e46fbb0a1b6e65b57e6e026"
     },
     {
       "bytes": 127053,
@@ -174,9 +174,9 @@
       "sha256": "e89ecc3237798f6edbd836a8c1db51ef495629c44b162b51ed6e921b75e6fdf1"
     },
     {
-      "bytes": 342135,
+      "bytes": 342081,
       "path": "previews/laboratory-world.png",
-      "sha256": "19ee7cb727a075e0e4313cd97bbc3421b81fc9a8e46e60801aa80a757ae90dbc"
+      "sha256": "69c0b1796252e13799ddcb421b4f9fb16c4bf318593ce9ba79da328cae51809d"
     },
     {
       "bytes": 550083,
@@ -184,14 +184,14 @@
       "sha256": "44597ec9d9af84ff95623ba20d684c29fb1aea79594a0400283e0429e3a48a5d"
     },
     {
-      "bytes": 461874,
+      "bytes": 461872,
       "path": "previews/platformer-world.png",
-      "sha256": "6cb9bb5789af1881520b3dcab1e23c6622c57324fb22a0f401039c13c20fe717"
+      "sha256": "39667f41d0c8e5931583ce66117333a6358b7f90328f2df6cf5f2e157219c8ef"
     },
     {
-      "bytes": 275809,
+      "bytes": 275848,
       "path": "previews/settlement-world.png",
-      "sha256": "d83a47e51c14e10cf7a3ab1daf77a1eb345e9a159bd8afe690389641a359601a"
+      "sha256": "7c26f215b824a8c409577a4a37a277410813d6035cf35d61f594b7f7cea8d2ba"
     },
     {
       "bytes": 618496,
@@ -210,14 +210,14 @@
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 658654899,
-  "release_asset_name": "gamedev-7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1.zip",
-  "release_asset_size": 95234639,
-  "release_id": 418133723,
-  "release_tag": "studio-7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1",
+  "release_asset_id": 659088437,
+  "release_asset_name": "gamedev-76f45c27b4e880f01aa67ee6d394a503b735b7ea.zip",
+  "release_asset_size": 95242666,
+  "release_id": 418303488,
+  "release_tag": "studio-76f45c27b4e880f01aa67ee6d394a503b735b7ea",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 39386155916,
+  "run_id": 39408814900,
   "schema": 1,
   "site": "gamedev",
   "smoke": {
@@ -231,7 +231,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/GameDev",
-  "source_sha": "7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1",
+  "source_sha": "76f45c27b4e880f01aa67ee6d394a503b735b7ea",
   "suspended": false,
-  "watermark": "7d34fb63bc4fa3107abff9fdbf4d0c5bfa9791b1"
+  "watermark": "76f45c27b4e880f01aa67ee6d394a503b735b7ea"
 }
