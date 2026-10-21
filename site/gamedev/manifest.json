@@ -894,6 +894,45 @@
         "open-models/kenney-siege-trebuchet/masters/recipe.json": "ae4bfa3439e8a1d82ed91ba79bce5a7f9dfb772f4fabcdabdec80abe72f34f41",
         "open-models/kenney-siege-trebuchet/masters/source.zip": "71e183d52b15b4a4592b77635ce66b914d6e38293d66fd7c32f49ea398a557f7"
       }
+    },
+    {
+      "id": "quaternius-arranged-crown",
+      "files": [
+        "nature/quaternius/CommonTree_1_ArrangedCrown.glb",
+        "nature/quaternius/CommonTree_1_ArrangedCrown_Bark_NormalTree_Normal.png",
+        "nature/quaternius/CommonTree_1_ArrangedCrown_Bark_NormalTree.png",
+        "nature/quaternius/CommonTree_1_ArrangedCrown_Leaves_NormalTree_C.png",
+        "nature/quaternius/CommonTree_1_ArrangedCrown.json",
+        "nature/quaternius/masters/CrownArrangement.blend",
+        "nature/quaternius/masters/CrownArrangement.json",
+        "nature/quaternius/masters/CrownArrangement.trusted.json",
+        "nature/quaternius/masters/CrownArrangement.request.json",
+        "nature/quaternius/masters/README.md",
+        "nature/quaternius/masters/CrownArrangement-source.json"
+      ],
+      "source": {
+        "kind": "derived",
+        "original": "nature/quaternius/CommonTree_1.gltf",
+        "original_sha256": "b51cdea6545edb51d102dd6c27caafe62aa75e3c328ac8f9039f4e7bfd690bfa",
+        "production_record": "studio/assets/nature/quaternius/masters/CrownArrangement-source.json"
+      },
+      "license": "CC0-1.0 original; private authored delta (no new public license grant)",
+      "attribution": "Quaternius (original); AxiomsAwake contributors (private authored crown arrangement, 2026)",
+      "license_source": "nature/quaternius/License_Standard.txt",
+      "changes": "Optional single static source. Ordinary Godot import and actual Botanical composition qualified; promising static composition only. No default, motion, device or human acceptance.",
+      "sha256": {
+        "nature/quaternius/CommonTree_1_ArrangedCrown.glb": "da85d99bf5be1ff63b304a32d4b677d4a3e8e1c0f22fe97c6ef82d7d9d7eeea1",
+        "nature/quaternius/CommonTree_1_ArrangedCrown_Bark_NormalTree_Normal.png": "852f6155404b8c39e100e41e26970e02a6a5c81b482d3726618dab28e3ad03a2",
+        "nature/quaternius/CommonTree_1_ArrangedCrown_Bark_NormalTree.png": "f36e94fdd73255347325b998e02a0b2575fdf714b0315bfe5e8ff34bc8e13603",
+        "nature/quaternius/CommonTree_1_ArrangedCrown_Leaves_NormalTree_C.png": "998612bdf0b76a22f5f54d65cd7a457815d2842d89653fa4348a4ebb42933ad3",
+        "nature/quaternius/CommonTree_1_ArrangedCrown.json": "2ccfa7e6eda398ec6be5cc58e048108fca580ca3798b461a245e80fcd2c1f1ba",
+        "nature/quaternius/masters/CrownArrangement.blend": "47ef06b47604ee5084534f53de282c0301342065653e88a7d8f9f9d890c088da",
+        "nature/quaternius/masters/CrownArrangement.json": "2740c2ddb01438d44e83268a5e2206a897e0f320e31ff556d060110855a0bec0",
+        "nature/quaternius/masters/CrownArrangement.trusted.json": "0f6248cd475882c204180c706af291e1b2e9b38a7c0a04e74853da9a8129fa8c",
+        "nature/quaternius/masters/CrownArrangement.request.json": "c5c67edcf1fc1d43ebdfa871a6e612d73313a749705cb70830ab924cef745950",
+        "nature/quaternius/masters/README.md": "5eb9eb985da71b154fc2a38bb7f280f97c98e75cce18eed67477894124759673",
+        "nature/quaternius/masters/CrownArrangement-source.json": "adbb40486e403a9dda09a27215659781eb11deeceb93454592072a0b0abb496a"
+      }
     }
   ]
 }

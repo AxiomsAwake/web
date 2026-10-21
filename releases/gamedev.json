@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:0acf1275e585cda225149c37f45f99e918c210331dee31101a9710d00de889c6",
-  "digest": "584c733f3d64257e665a6a83531607f6ab573b5925e6ebc48ff8b367706338c1",
+  "artifact_digest": "sha256:eca98841602dd74e722069271989b1e99c428b7112ce6fea74eca5ce9f881a03",
+  "digest": "70144068c8ea83fa4b9de1392f86f6338f50c1979b8ba67a2fc133e82fd89070",
   "files": [
     {
       "bytes": 7498,
@@ -16,7 +16,7 @@
     {
       "bytes": 5461,
       "path": "app.html",
-      "sha256": "24c5d03ccef4853edefb64323a30cf398be68c5456eddaa5ce0b32e712c61432"
+      "sha256": "62cd4e9959c3d0eccda79f23811a3523fc49773da074048c1cf188fe957840bf"
     },
     {
       "bytes": 276,
@@ -24,14 +24,24 @@
       "sha256": "0d38bcde5fda34045f67e55750b29f5d2828d6de9674bb67e15a09c19100af51"
     },
     {
-      "bytes": 6713,
+      "bytes": 7007,
       "path": "build.json",
-      "sha256": "e5e6cbdef95e9e56330e946c378f43be4185a10459c83a5490c73e2955012e2c"
+      "sha256": "8b2487f02153d6b8cd6847372e7132fd79ba7cd216263cef593731044236df65"
     },
     {
       "bytes": 5340,
       "path": "credits.html",
       "sha256": "b454312b0e96d7ec281854bab39ca8fd2e8b8fd1f396895a2791aaba3cc6c103"
+    },
+    {
+      "bytes": 1740,
+      "path": "demo-notes.html",
+      "sha256": "0aeb09400411f7583150ae88669b6a97818bba01727b51dedafc19f0de001d5b"
+    },
+    {
+      "bytes": 1151,
+      "path": "demo-notes.md",
+      "sha256": "eaada454f233498295f92219b2740953b9b274f5b985270816ae8e18e28d69f3"
     },
     {
       "bytes": 2622,
@@ -114,9 +124,9 @@
       "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
     },
     {
-      "bytes": 16358,
+      "bytes": 16398,
       "path": "index.html",
-      "sha256": "1d2cbbee76b4083fe38e513c7e3080ff0c615308fe95b76e205f0b9d43e35ec2"
+      "sha256": "fe9d5a85c7075940ce943e67b257cbf1d075a63050331bc09d8a8d7190e903b1"
     },
     {
       "bytes": 5700,
@@ -129,9 +139,9 @@
       "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
     },
     {
-      "bytes": 83730732,
+      "bytes": 89996888,
       "path": "index.pck",
-      "sha256": "2ea3c8e45ef1e3eb408f1251f95ef8187be5d066f1ba8030169a9625f1f9178e"
+      "sha256": "76ca7d794e115ac537ca788b3a1ef69dd4e2953955f24333927d4d41716ef78f"
     },
     {
       "bytes": 21443,
@@ -144,54 +154,54 @@
       "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
     },
     {
-      "bytes": 58655,
+      "bytes": 61739,
       "path": "manifest.json",
-      "sha256": "e3aced975db3d269b850901243c22c6db350d1e446d08f57c9823cc5b7c220ca"
+      "sha256": "35911a1d6ddca8fa4d3f51d0cf446320d91cb99ca71e2b3f9521f5c0fece05e0"
     },
     {
-      "bytes": 503,
+      "bytes": 535,
       "path": "presentation-LICENSE.txt",
-      "sha256": "63bf36f04a9ca6ba15dc0f96817c96acc9ab2932882524cd6b0914753f71d570"
+      "sha256": "9205380e132ec1eaefdaabf4857dfb469a1025c56207d67a6a9dd7eceabd7ada"
     },
     {
-      "bytes": 814,
+      "bytes": 846,
       "path": "presentation-NOTICE.txt",
-      "sha256": "f01fef7af05199f411a1f9686c0f70946d5c89f347f6f6682adcd627c8c04d8d"
+      "sha256": "081d0340f8f91fd202481581c3dae3061fcd3802be4205c2a1610698150405f9"
     },
     {
-      "bytes": 378408,
+      "bytes": 382796,
       "path": "previews/architecture-world.png",
-      "sha256": "7d66119f8039d436aa9733d54e3811248b8dde773e46fbb0a1b6e65b57e6e026"
+      "sha256": "4bafa7b97554ca192f9d5e65657a4d05a1c066e2a5f0156be2f2e3aed2d60859"
     },
     {
-      "bytes": 127053,
+      "bytes": 128487,
       "path": "previews/diorama-stage.png",
-      "sha256": "b87b97eb24aad3e12f6603fc49e6f6023c647b98d2a7c08495f163a912949b78"
+      "sha256": "1ee567f71fd5519f84c36d4d02f543b8efab54f3f347e5b02137c2c95907c775"
     },
     {
-      "bytes": 343402,
+      "bytes": 344065,
       "path": "previews/laboratory-stage.png",
-      "sha256": "e89ecc3237798f6edbd836a8c1db51ef495629c44b162b51ed6e921b75e6fdf1"
+      "sha256": "51e6707445abe122d82f196c8001823af2d63b7d1aee8ecb5e1e1c79a2381c3b"
     },
     {
-      "bytes": 342081,
+      "bytes": 360535,
       "path": "previews/laboratory-world.png",
-      "sha256": "69c0b1796252e13799ddcb421b4f9fb16c4bf318593ce9ba79da328cae51809d"
+      "sha256": "cb6c8691fda132d1dfce0b5a20cae5f623dbc5b3cd38614c63c7a011ff58a31e"
     },
     {
-      "bytes": 550083,
+      "bytes": 545712,
       "path": "previews/meadow-world.png",
-      "sha256": "44597ec9d9af84ff95623ba20d684c29fb1aea79594a0400283e0429e3a48a5d"
+      "sha256": "dc2cbd8291d0b23836d027fa600c3eb791cb341571daf3e08db992fd94d54bee"
     },
     {
-      "bytes": 461872,
+      "bytes": 474013,
       "path": "previews/platformer-world.png",
-      "sha256": "39667f41d0c8e5931583ce66117333a6358b7f90328f2df6cf5f2e157219c8ef"
+      "sha256": "50d5fe26d2a764456a9294b191c9a12e9a793cac1826d90e270649031b49f2d5"
     },
     {
-      "bytes": 275848,
+      "bytes": 287129,
       "path": "previews/settlement-world.png",
-      "sha256": "7c26f215b824a8c409577a4a37a277410813d6035cf35d61f594b7f7cea8d2ba"
+      "sha256": "f3f0b2aa7f6d25a6a28a7b8185fdcae0a1cf39f0bc24a70371cd826175a53305"
     },
     {
       "bytes": 618496,
@@ -199,9 +209,9 @@
       "sha256": "4728f29d75e1184a49ba973f0559df7ef1e29dc4a0f36ab616a97c298cd7edde"
     },
     {
-      "bytes": 847068,
+      "bytes": 877922,
       "path": "previews/woodland-world.png",
-      "sha256": "1328d47bd4cf40e07d8f226158f9984529c05576eb4cd69538c14bfd585d96fe"
+      "sha256": "44cb7d9f4719ffd3e2949eb3301d74b98894231c05dff43cbfb39b878ac30b51"
     },
     {
       "bytes": 364,
@@ -210,14 +220,14 @@
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 659088437,
-  "release_asset_name": "gamedev-76f45c27b4e880f01aa67ee6d394a503b735b7ea.zip",
-  "release_asset_size": 95242666,
-  "release_id": 418303488,
-  "release_tag": "studio-76f45c27b4e880f01aa67ee6d394a503b735b7ea",
+  "release_asset_id": 663392459,
+  "release_asset_name": "gamedev-17468a0e293279351856f3663314acde8402df4c.zip",
+  "release_asset_size": 101474033,
+  "release_id": 419899406,
+  "release_tag": "studio-17468a0e293279351856f3663314acde8402df4c",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 39408814900,
+  "run_id": 39649945226,
   "schema": 1,
   "site": "gamedev",
   "smoke": {
@@ -231,7 +241,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/GameDev",
-  "source_sha": "76f45c27b4e880f01aa67ee6d394a503b735b7ea",
+  "source_sha": "17468a0e293279351856f3663314acde8402df4c",
   "suspended": false,
-  "watermark": "76f45c27b4e880f01aa67ee6d394a503b735b7ea"
+  "watermark": "17468a0e293279351856f3663314acde8402df4c"
 }

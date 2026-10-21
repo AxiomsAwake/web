@@ -1,14 +1,16 @@
 {
   "schemaVersion": 1,
   "sourceRepository": "AxiomsAwake/GameDev",
-  "sourceRevision": "76f45c27b4e880f01aa67ee6d394a503b735b7ea",
-  "sourceDigest": "083fc696c95d66ab0e73e74234c04a3c7af9c7d64d6fa3392ca8f2e7eeec933c",
+  "sourceRevision": "17468a0e293279351856f3663314acde8402df4c",
+  "sourceDigest": "f40047c18bae5939df73ac321c6429e43856036e5d516f1a60cf4095b51f0386",
   "files": {
     "CREDITS.md": "78373fa2b2b24a9915422143cdd95ca81a51f061a5bc2e41ca119f6c3847786a",
     "alpaca/AUTHORS.txt": "9e7495f4a81758c8bd51317d5e399d69742706f09ca7bded2d78ddaca2389b17",
-    "app.html": "24c5d03ccef4853edefb64323a30cf398be68c5456eddaa5ce0b32e712c61432",
+    "app.html": "62cd4e9959c3d0eccda79f23811a3523fc49773da074048c1cf188fe957840bf",
     "audio/README.md": "0d38bcde5fda34045f67e55750b29f5d2828d6de9674bb67e15a09c19100af51",
     "credits.html": "b454312b0e96d7ec281854bab39ca8fd2e8b8fd1f396895a2791aaba3cc6c103",
+    "demo-notes.html": "0aeb09400411f7583150ae88669b6a97818bba01727b51dedafc19f0de001d5b",
+    "demo-notes.md": "eaada454f233498295f92219b2740953b9b274f5b985270816ae8e18e28d69f3",
     "environment/README.md": "4e8aa58dba467ecf037a53b8c7755dd7918306e1843485eec15175134c97717c",
     "environment/bark-brown-01/SOURCE.json": "6aa7565db9f91519c1541cbc035d1afcdd841e0671c96dfb66f0185ea0b558d8",
     "environment/brown-mud-leaves-01/SOURCE.json": "f10c7611ff324c7af1ad3e36f4d5eed5a6b7ca02618a92c29b2912f1b240cc7a",
@@ -25,30 +27,30 @@
     "index.apple-touch-icon.png": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5",
     "index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
     "index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
-    "index.html": "1d2cbbee76b4083fe38e513c7e3080ff0c615308fe95b76e205f0b9d43e35ec2",
+    "index.html": "fe9d5a85c7075940ce943e67b257cbf1d075a63050331bc09d8a8d7190e903b1",
     "index.icon.png": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5",
     "index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
-    "index.pck": "2ea3c8e45ef1e3eb408f1251f95ef8187be5d066f1ba8030169a9625f1f9178e",
+    "index.pck": "76ca7d794e115ac537ca788b3a1ef69dd4e2953955f24333927d4d41716ef78f",
     "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
     "index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
-    "manifest.json": "e3aced975db3d269b850901243c22c6db350d1e446d08f57c9823cc5b7c220ca",
-    "presentation-LICENSE.txt": "63bf36f04a9ca6ba15dc0f96817c96acc9ab2932882524cd6b0914753f71d570",
-    "presentation-NOTICE.txt": "f01fef7af05199f411a1f9686c0f70946d5c89f347f6f6682adcd627c8c04d8d",
-    "previews/architecture-world.png": "7d66119f8039d436aa9733d54e3811248b8dde773e46fbb0a1b6e65b57e6e026",
-    "previews/diorama-stage.png": "b87b97eb24aad3e12f6603fc49e6f6023c647b98d2a7c08495f163a912949b78",
-    "previews/laboratory-stage.png": "e89ecc3237798f6edbd836a8c1db51ef495629c44b162b51ed6e921b75e6fdf1",
-    "previews/laboratory-world.png": "69c0b1796252e13799ddcb421b4f9fb16c4bf318593ce9ba79da328cae51809d",
-    "previews/meadow-world.png": "44597ec9d9af84ff95623ba20d684c29fb1aea79594a0400283e0429e3a48a5d",
-    "previews/platformer-world.png": "39667f41d0c8e5931583ce66117333a6358b7f90328f2df6cf5f2e157219c8ef",
-    "previews/settlement-world.png": "7c26f215b824a8c409577a4a37a277410813d6035cf35d61f594b7f7cea8d2ba",
+    "manifest.json": "35911a1d6ddca8fa4d3f51d0cf446320d91cb99ca71e2b3f9521f5c0fece05e0",
+    "presentation-LICENSE.txt": "9205380e132ec1eaefdaabf4857dfb469a1025c56207d67a6a9dd7eceabd7ada",
+    "presentation-NOTICE.txt": "081d0340f8f91fd202481581c3dae3061fcd3802be4205c2a1610698150405f9",
+    "previews/architecture-world.png": "4bafa7b97554ca192f9d5e65657a4d05a1c066e2a5f0156be2f2e3aed2d60859",
+    "previews/diorama-stage.png": "1ee567f71fd5519f84c36d4d02f543b8efab54f3f347e5b02137c2c95907c775",
+    "previews/laboratory-stage.png": "51e6707445abe122d82f196c8001823af2d63b7d1aee8ecb5e1e1c79a2381c3b",
+    "previews/laboratory-world.png": "cb6c8691fda132d1dfce0b5a20cae5f623dbc5b3cd38614c63c7a011ff58a31e",
+    "previews/meadow-world.png": "dc2cbd8291d0b23836d027fa600c3eb791cb341571daf3e08db992fd94d54bee",
+    "previews/platformer-world.png": "50d5fe26d2a764456a9294b191c9a12e9a793cac1826d90e270649031b49f2d5",
+    "previews/settlement-world.png": "f3f0b2aa7f6d25a6a28a7b8185fdcae0a1cf39f0bc24a70371cd826175a53305",
     "previews/wildlife-stage.png": "4728f29d75e1184a49ba973f0559df7ef1e29dc4a0f36ab616a97c298cd7edde",
-    "previews/woodland-world.png": "1328d47bd4cf40e07d8f226158f9984529c05576eb4cd69538c14bfd585d96fe",
+    "previews/woodland-world.png": "44cb7d9f4719ffd3e2949eb3301d74b98894231c05dff43cbfb39b878ac30b51",
     "robot-README.md": "14687ac4a51d5e013b0fbc5486dabc743f76c1e37b7ca872af74cfb93115b4b2"
   },
   "previews": {
     "diorama": {
       "path": "previews/diorama-stage.png",
-      "sha256": "b87b97eb24aad3e12f6603fc49e6f6023c647b98d2a7c08495f163a912949b78"
+      "sha256": "1ee567f71fd5519f84c36d4d02f543b8efab54f3f347e5b02137c2c95907c775"
     },
     "wildlife": {
       "path": "previews/wildlife-stage.png",
@@ -56,58 +58,61 @@
     },
     "laboratory": {
       "path": "previews/laboratory-stage.png",
-      "sha256": "e89ecc3237798f6edbd836a8c1db51ef495629c44b162b51ed6e921b75e6fdf1"
+      "sha256": "51e6707445abe122d82f196c8001823af2d63b7d1aee8ecb5e1e1c79a2381c3b"
     }
   },
   "worlds": {
     "woodland": {
       "path": "previews/woodland-world.png",
-      "sha256": "1328d47bd4cf40e07d8f226158f9984529c05576eb4cd69538c14bfd585d96fe",
+      "sha256": "44cb7d9f4719ffd3e2949eb3301d74b98894231c05dff43cbfb39b878ac30b51",
       "width": 1001,
-      "height": 485,
-      "definitionSource": "0d797ab090ea197f77c8016080cefb649125a0d0199643816d8a72db65894fcd",
+      "height": 503,
+      "definitionSource": "75a5d702e63297a51849ce257ae0101a79a89d0c1befe071bef2e11db95e9472",
       "scope": "default-world-initial-still"
     },
     "laboratory": {
       "path": "previews/laboratory-world.png",
-      "sha256": "69c0b1796252e13799ddcb421b4f9fb16c4bf318593ce9ba79da328cae51809d",
+      "sha256": "cb6c8691fda132d1dfce0b5a20cae5f623dbc5b3cd38614c63c7a011ff58a31e",
       "width": 1001,
-      "height": 485,
-      "definitionSource": "55b43812b2d07c7f19e6cee3070edfa5d8f6e30218e8273b81d03ae4a67ec82a",
+      "height": 503,
+      "definitionSource": "9b5d6169e5816df5ec631befcb16745db7e21ed72307b45c425205a9d642c6e3",
       "scope": "default-world-initial-still"
     },
     "meadow": {
       "path": "previews/meadow-world.png",
-      "sha256": "44597ec9d9af84ff95623ba20d684c29fb1aea79594a0400283e0429e3a48a5d",
+      "sha256": "dc2cbd8291d0b23836d027fa600c3eb791cb341571daf3e08db992fd94d54bee",
       "width": 1001,
-      "height": 485,
-      "definitionSource": "47300f3f2d1e8870c5f674f4a8e79297bb9234341bb1e53ede254d2645826d7f",
+      "height": 503,
+      "definitionSource": "0b14fccfc602c65fa83c3e914ddf70523380210d1f058075dd3c8b2046ed5f0e",
       "scope": "default-world-initial-still"
     },
     "architecture": {
       "path": "previews/architecture-world.png",
-      "sha256": "7d66119f8039d436aa9733d54e3811248b8dde773e46fbb0a1b6e65b57e6e026",
+      "sha256": "4bafa7b97554ca192f9d5e65657a4d05a1c066e2a5f0156be2f2e3aed2d60859",
       "width": 1001,
-      "height": 485,
+      "height": 503,
       "definitionSource": "6b0af10145cc8502771370e7b6238905145ca8f99f14252a62961d035e261b81",
       "scope": "default-world-initial-still"
     },
     "platformer": {
       "path": "previews/platformer-world.png",
-      "sha256": "39667f41d0c8e5931583ce66117333a6358b7f90328f2df6cf5f2e157219c8ef",
+      "sha256": "50d5fe26d2a764456a9294b191c9a12e9a793cac1826d90e270649031b49f2d5",
       "width": 1001,
-      "height": 485,
+      "height": 503,
       "definitionSource": "d0d6ff4782bd26c7f740eba33be5fc5bfbbe182c7ccdd226c2618bd535c88733",
       "scope": "default-world-initial-still"
     },
     "settlement": {
       "path": "previews/settlement-world.png",
-      "sha256": "7c26f215b824a8c409577a4a37a277410813d6035cf35d61f594b7f7cea8d2ba",
+      "sha256": "f3f0b2aa7f6d25a6a28a7b8185fdcae0a1cf39f0bc24a70371cd826175a53305",
       "width": 1001,
-      "height": 485,
+      "height": 503,
       "definitionSource": "c52fa6c9654b16445edd2f730bfa8782598722a1786a472c06ba083a83e2a098",
       "scope": "default-world-initial-still"
     }
   },
-  "publication": "public_web"
+  "publication": "public_web",
+  "channel": "development-demo",
+  "verificationScope": "demo-export-and-previews",
+  "notes": "demo-notes.html"
 }
