@@ -1,8 +1,0 @@
-{
-  "schema": "keepers-opponent-production/v3",
-  "id": "frontier_economy_v1",
-  "decision_interval_ticks": 10,
-  "max_pending_deploys": 1,
-  "reserve_nanomass": 0,
-  "role_cycle": ["guardian", "scout", "scout"]
-}

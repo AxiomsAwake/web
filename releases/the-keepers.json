@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:1c280c188c84b60fb5611bf6dd8be57d542883e28c633e37e140bae87b3ebe55",
-  "digest": "0d7dd8b4b8bd179e6c1a10680a2d807fb3b2e8181262010a05e1afacce1b7cd5",
+  "artifact_digest": "sha256:41ce45e6f1a2ed67061639d70114c885537dc90fc828e83b1d9eeac964f8ae03",
+  "digest": "601bbae6daff92ffaec719751354fc7550ea11ead8fc6faa1e4c54b2489a9016",
   "files": [
     {
       "bytes": 11358,
@@ -19,14 +19,9 @@
       "sha256": "194ff99bc0be8a3f88a9d57a40229d1a211630af06480739fc37b3eb7ebffef0"
     },
     {
-      "bytes": 4704,
+      "bytes": 69616,
       "path": "build.json",
-      "sha256": "c54f42ca5e39afef221cb1711e33385a2e49336613505bccd468a92ff7fc9d01"
-    },
-    {
-      "bytes": 11944,
-      "path": "index.apple-touch-icon.png",
-      "sha256": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5"
+      "sha256": "b5dd58bc4aa69cf482abd2bacbad14de20e62d0d1b61396371818fc315761ac5"
     },
     {
       "bytes": 2973,
@@ -39,14 +34,9 @@
       "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
     },
     {
-      "bytes": 5628,
+      "bytes": 5299,
       "path": "index.html",
-      "sha256": "c0063173d9a19690b1f80fe1593be2a6b8c4646d3c42f83f099876196e48b6a2"
-    },
-    {
-      "bytes": 5700,
-      "path": "index.icon.png",
-      "sha256": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5"
+      "sha256": "04fd968085b95ec8533c9124e8aca6cce50d17f35655e072c89efebc6fbc6872"
     },
     {
       "bytes": 279815,
@@ -54,9 +44,9 @@
       "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
     },
     {
-      "bytes": 2274160,
+      "bytes": 3517724,
       "path": "index.pck",
-      "sha256": "cbc06f3df162c01aafe030574fb454573c0194a1b89472e8a68253794bd8f9ac"
+      "sha256": "1c5edbcd4ba98185e33ff5cd10ea9fb987051b22a5fa12fb38bc4ee938fb8d87"
     },
     {
       "bytes": 21443,
@@ -74,40 +64,20 @@
       "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
     },
     {
-      "bytes": 2050,
-      "path": "opponent-production-loader.js",
-      "sha256": "0c315a0032de70e67f5bc3b65a1d5a135442ae32091feb42c949b87efc556d6c"
-    },
-    {
-      "bytes": 214,
-      "path": "opponent-production.json",
-      "sha256": "b972a8fa8b828c91cd13600c321f27e46f5cf917600235ec76ab8e058263e79e"
-    },
-    {
-      "bytes": 5837,
-      "path": "player-feedback-adapter.js",
-      "sha256": "3e7893f1433e3ffff40eb0c3dd9acd0a24da4f60db527e322951855888a832b1"
-    },
-    {
-      "bytes": 9956,
-      "path": "player-feedback.js",
-      "sha256": "240dc473f87f71109da157eb6e93a83e20fe5d387eeadfb11460132f2f0db752"
-    },
-    {
-      "bytes": 460,
-      "path": "web-export-metrics.json",
-      "sha256": "72ddf6db213c80409ce5ea361b0b031a274a14b0caba19e08a3d4a77a10e693f"
+      "bytes": 2399,
+      "path": "review.html",
+      "sha256": "10813a6d3fc7a407b9757bd35a09473f94a41b7faa05696a56b62375d177284c"
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 634605903,
-  "release_asset_name": "TheKeepers-v0.8.5-demo.5-web.zip",
-  "release_asset_size": 12402746,
-  "release_id": 410887196,
-  "release_tag": "v0.8.5-demo.5",
+  "release_asset_id": 663438433,
+  "release_asset_name": "TheKeepers-v0.10.0-demo.3-web.zip",
+  "release_asset_size": 13243837,
+  "release_id": 419911204,
+  "release_tag": "v0.10.0-demo.3",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 38290248399,
+  "run_id": 39653102984,
   "schema": 1,
   "site": "the-keepers",
   "smoke": {
@@ -131,7 +101,7 @@
     "wait_hidden": "#status"
   },
   "source": "AxiomsAwake/TheKeepers",
-  "source_sha": "b47126c465d9d969cea13789a2d9e016eb841b99",
+  "source_sha": "49cbbbf207c2552f2abd7d46414c06636c32bcce",
   "suspended": false,
-  "watermark": "b47126c465d9d969cea13789a2d9e016eb841b99"
+  "watermark": "49cbbbf207c2552f2abd7d46414c06636c32bcce"
 }
