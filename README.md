@@ -148,6 +148,39 @@ python3 tools/publish.py assemble --output _site --commit "$(git rev-parse HEAD)
 
 The regression suite uses real local Git repositories and simultaneous pushes, not a mocked claim of collision protection. Infrastructure CI also performs desktop and touch-sized Chromium fixture interactions/reload at the subpath. Initial green run: `34396933187`, commit `94c6b945b9f7e5895db2b7aa83fa2841e6882627`. Game-specific source/production acceptance must be checked separately.
 
+## Explicit local browser setup
+
+`tools/browser_env.py` owns the pinned Playwright checker setup, including copies
+selected by consumer source locks. Change this canonical helper and refresh those
+locks instead of editing a consumer's selected copy.
+
+For a bounded local verification activity with existing Chromium OS libraries and
+a usable renderer, choose browser-only setup explicitly:
+
+```bash
+python3 tools/browser_env.py --work /absolute/owned/browser-work --local-browser-only
+```
+
+This mode keeps the Python environment, setup lock and downloaded Chromium under
+the supplied work directory, even on a self-hosted runner. Each setup child receives
+`PLAYWRIGHT_BROWSERS_PATH=/absolute/owned/browser-work/browsers`; the caller's
+environment is unchanged. Use the printed `python` path for later checks and pass
+that browser-cache path in each check's environment. The helper installs no OS
+packages and launches no browser. OS libraries and rendering remain separate host
+prerequisites, and successful setup is not game or publication acceptance.
+
+The caller owns this cache for the activity's lifetime. Retain it while dependent
+processes are active; after they stop, preserve unique evidence and remove the
+owned work directory. Setup failures can leave reusable partial inputs there, so
+the same owner must reclaim them on failure or cancellation. Do not remove another
+activity's shared or active cache.
+
+Without the flag, existing behavior is unchanged: ordinary local setup includes
+`--with-deps`, while self-hosted setup uses `RUNNER_TOOL_CACHE/axioms-web` without
+system dependency installation. Both modes retain Playwright 1.57.0, existing
+timeouts and GitHub output fields. Python callers can select the explicit mode
+with `ensure(work, local_browser_only=True)`; `ensure(work)` remains compatible.
+
 ## Old publishing repositories
 
 Source automation now targets this repository. After each replacement is accepted, disable obsolete Pages serving and privately retire `Romi16-play` and `TheKeepersGame-Web`; public archiving alone is not the single-public-publisher end state. Disable EarthSim's old source-repository Pages site as well. Do not delete recovery history or change unrelated public/open-source projects. Repository visibility and old Pages settings require an authorized administrative action; this README does not claim they have already changed.
