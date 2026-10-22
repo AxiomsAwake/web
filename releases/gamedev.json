@@ -1,7 +1,7 @@
 {
   "active": true,
-  "artifact_digest": "sha256:c4b64f376941e0febca6e7f92b94e2a39c5e276a93064889025b9f6c7f172e88",
-  "digest": "664c0c2333c265bb203cbaf97e5e66615f820387d300553b846faa213c22dde0",
+  "artifact_digest": "sha256:10ae33047405888bbab92a30c7b7c585cd8d1667e7fa0aa299112fd746f8046c",
+  "digest": "53bc8327724fa36befe5ba491164507c1cee3d58f0f20a47d4a8443f0e735519",
   "files": [
     {
       "bytes": 7498,
@@ -16,7 +16,7 @@
     {
       "bytes": 5461,
       "path": "app.html",
-      "sha256": "272fbf512d578a51c862960d6a7d61214f8d381d8b39a100a619b34d30983098"
+      "sha256": "fd95adf2adedb6804b01202bcac4d4acc06a4ae1f44b7838335429a80f6bae11"
     },
     {
       "bytes": 276,
@@ -26,7 +26,7 @@
     {
       "bytes": 7007,
       "path": "build.json",
-      "sha256": "1e660daeae9d05370865486aa343861dd65b0135b46550a85b35dee1bda0cd0e"
+      "sha256": "859fe3b266b4b23f84af27ad77b147b8bedd57e29f141cba022d9f6a512f7ec5"
     },
     {
       "bytes": 5340,
@@ -34,14 +34,14 @@
       "sha256": "b454312b0e96d7ec281854bab39ca8fd2e8b8fd1f396895a2791aaba3cc6c103"
     },
     {
-      "bytes": 1661,
+      "bytes": 1718,
       "path": "demo-notes.html",
-      "sha256": "9b50a78bb13d0e9d2642d8987524c89190d250459341f36e9cec7c37b5b10977"
+      "sha256": "7a8e2dcc06ba90ccfc7d97cf98601527179d22477ad0446344facf46fdc720f0"
     },
     {
-      "bytes": 1072,
+      "bytes": 1129,
       "path": "demo-notes.md",
-      "sha256": "96a14d5edd6f812b408f04c73e57db973cae6fe6b2b145f5f9d4830a438bc07c"
+      "sha256": "f6588f5bebe34e02523b8024735624fcc9cc6ec5c12c77b86fdea0eec61bc688"
     },
     {
       "bytes": 2622,
@@ -139,9 +139,9 @@
       "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
     },
     {
-      "bytes": 90010456,
+      "bytes": 90016720,
       "path": "index.pck",
-      "sha256": "2dd54881dc5f5198b76c390176c7b11d4f48b7025f33c65b66befad35b023e76"
+      "sha256": "a48d78d9d383d86c2e0a05e94f6eca88d1b6f0f3eef5c72851310d9a0e0a9560"
     },
     {
       "bytes": 21443,
@@ -169,9 +169,9 @@
       "sha256": "081d0340f8f91fd202481581c3dae3061fcd3802be4205c2a1610698150405f9"
     },
     {
-      "bytes": 382592,
+      "bytes": 382702,
       "path": "previews/architecture-world.png",
-      "sha256": "bd4f8aef265ffa96d4783f9a9dfa8779f70ecdc8e40768cc983807be79864308"
+      "sha256": "5615b842c992302455b3a260ade5754fd80077d6c26dd8ada919ed472796c095"
     },
     {
       "bytes": 128487,
@@ -184,9 +184,9 @@
       "sha256": "51e6707445abe122d82f196c8001823af2d63b7d1aee8ecb5e1e1c79a2381c3b"
     },
     {
-      "bytes": 360810,
+      "bytes": 360490,
       "path": "previews/laboratory-world.png",
-      "sha256": "7ad36eb5826b557f6c495b1b5e653ca2d719de01d37eef86e957339d76628176"
+      "sha256": "f71b1c0d1fec0eceaafa6a848c582602110baa91aa7d68ea76c10581701c8d4e"
     },
     {
       "bytes": 545712,
@@ -199,9 +199,9 @@
       "sha256": "50d5fe26d2a764456a9294b191c9a12e9a793cac1826d90e270649031b49f2d5"
     },
     {
-      "bytes": 286942,
+      "bytes": 287134,
       "path": "previews/settlement-world.png",
-      "sha256": "abc58316308597a93b45cd2e3ff02b668a10fbbd412a1bfb7c4d1e9ec4c684bd"
+      "sha256": "d9ce3c5acd79ff56cf8920546004852e5636b236f3278ccdb857c65ecdb6ddc8"
     },
     {
       "bytes": 618496,
@@ -220,14 +220,14 @@
     }
   ],
   "package_kind": "release-asset",
-  "release_asset_id": 665333968,
-  "release_asset_name": "gamedev-702aeba4846e150dd0d7bc0d515834b2c2fd3cc3.zip",
-  "release_asset_size": 101486759,
-  "release_id": 420528928,
-  "release_tag": "studio-702aeba4846e150dd0d7bc0d515834b2c2fd3cc3",
+  "release_asset_id": 665496974,
+  "release_asset_name": "gamedev-3cf22f308a3eb0c70a011c25ae3cd8e3c5c2bbec.zip",
+  "release_asset_size": 101493605,
+  "release_id": 420584452,
+  "release_tag": "studio-3cf22f308a3eb0c70a011c25ae3cd8e3c5c2bbec",
   "retain_hashed_assets": false,
   "retained": [],
-  "run_id": 39754295940,
+  "run_id": 39762352940,
   "schema": 1,
   "site": "gamedev",
   "smoke": {
@@ -241,7 +241,7 @@
     "touch": true
   },
   "source": "AxiomsAwake/GameDev",
-  "source_sha": "702aeba4846e150dd0d7bc0d515834b2c2fd3cc3",
+  "source_sha": "3cf22f308a3eb0c70a011c25ae3cd8e3c5c2bbec",
   "suspended": false,
-  "watermark": "702aeba4846e150dd0d7bc0d515834b2c2fd3cc3"
+  "watermark": "3cf22f308a3eb0c70a011c25ae3cd8e3c5c2bbec"
 }
