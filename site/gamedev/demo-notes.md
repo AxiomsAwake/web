@@ -2,19 +2,19 @@
 
 Development demo for internal testing. Visual quality, complete gameplay, device coverage and human acceptance remain in progress. Publishing this build is not stable-release approval.
 
-Source: c357996e352927f49e0c68b7267bbe20707bc7bd
+Source: e299ebdead1ab3d997bd98b47fc6a114da822cd4
 
 ## Recent development changes
 
-- fix(studio): adopt accurate definition preparation feedback
-- fix(authoring): distinguish prepared definitions from activated sessions
-- docs: continue from qualified authored lifecycle consumers
-- docs: record live streamlined demo publication
-- feat(delivery): keep full regression separate from routine demo publishing
-- feat(delivery): publish tester demos in one background request
-- feat(studio): adopt shared panel under strict source contract
-- refactor(authoring): make shared ResourcePanel pass strict source quality
-- docs: steer from qualified authored foundation to public lifecycle reuse
-- feat(studio): adopt strict shared Resource source and retain full game proof
-- refactor(authoring): make shared Resource source adoptable under strict quality
-- docs: steer continuation from qualified Command and View owners
+- fix(discovery): preserve source leads under response budgets
+- feat(studio): adopt the shared world camera pose owner
+- refactor(camera): separate portable native orbit pose from viewport adapter
+- docs(plan): record camera compatibility and Q55 budget repair
+- feat(camera): expose reusable validated world-space orbit poses
+- docs(plan): define shared orbit adoption slice
+- docs(foundation): retain reusable rebuild experience requirements
+- docs: reconcile maintained toolchain propagation
+- docs(foundation): link collector adoption to exact consumer evidence
+- feat(studio): retain shared execution context beside runner outcomes
+- feat(build): capture bounded execution input diagnostics
+- docs: bound shared execution context capture before adoption
