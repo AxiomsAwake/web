@@ -2,10 +2,14 @@
 
 Development demo for internal testing. Visual quality, complete gameplay, device coverage and human acceptance remain in progress. Publishing this build is not stable-release approval.
 
-Source: e299ebdead1ab3d997bd98b47fc6a114da822cd4
+Source: 702aeba4846e150dd0d7bc0d515834b2c2fd3cc3
 
 ## Recent development changes
 
+- fix(discovery): weight uncommon subject terms without changing authority
+- feat(studio): show shared destination relations in both Command studies
+- feat(presentation): add bounded destination relation projection and drawing
+- fix(docs): refresh the generated topic entry points
 - fix(discovery): preserve source leads under response budgets
 - feat(studio): adopt the shared world camera pose owner
 - refactor(camera): separate portable native orbit pose from viewport adapter
@@ -14,7 +18,3 @@ Source: e299ebdead1ab3d997bd98b47fc6a114da822cd4
 - docs(plan): define shared orbit adoption slice
 - docs(foundation): retain reusable rebuild experience requirements
 - docs: reconcile maintained toolchain propagation
-- docs(foundation): link collector adoption to exact consumer evidence
-- feat(studio): retain shared execution context beside runner outcomes
-- feat(build): capture bounded execution input diagnostics
-- docs: bound shared execution context capture before adoption
