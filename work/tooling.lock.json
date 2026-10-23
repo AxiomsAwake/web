@@ -1,0 +1,27 @@
+{
+  "schema": "axioms-work-tooling/v1",
+  "source": {
+    "repository": "rmkn85/agentic-engineering",
+    "revision": "68fa8d19b0f1dcd06d2931ce857743ba8218e348"
+  },
+  "files": [
+    {
+      "sourcePath": "tools/project_work.py",
+      "sourceSha256": "185c80eeb0ef2b45ba274e54f950ea702f37c456c6400d23c744360b906109aa",
+      "installedPath": "tools/work.py",
+      "installedSha256": "185c80eeb0ef2b45ba274e54f950ea702f37c456c6400d23c744360b906109aa"
+    },
+    {
+      "sourcePath": "schemas/axioms-task-v1.schema.json",
+      "sourceSha256": "238c20d6e0edcdfa2f14b4ab9048d08041c4f2480f48bf35455cd6b4afb1d32e",
+      "installedPath": "work/schemas/axioms-task-v1.schema.json",
+      "installedSha256": "238c20d6e0edcdfa2f14b4ab9048d08041c4f2480f48bf35455cd6b4afb1d32e"
+    },
+    {
+      "sourcePath": "schemas/axioms-frontier-v1.schema.json",
+      "sourceSha256": "19121708f47fb78c9ae460cca1b8084e7fee4f2ff50f375161506146e17e3492",
+      "installedPath": "work/schemas/axioms-frontier-v1.schema.json",
+      "installedSha256": "19121708f47fb78c9ae460cca1b8084e7fee4f2ff50f375161506146e17e3492"
+    }
+  ]
+}

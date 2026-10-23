@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "axioms-task/v1",
+  "title": "Canonical repository task",
+  "type": "object",
+  "required": ["schema", "id", "title", "status", "outcome", "depends", "acceptance", "evidence", "current"],
+  "properties": {
+    "schema": {"const": "axioms-task/v1"},
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["planned", "in-progress", "blocked", "done", "cancelled"]},
+    "outcome": {"type": "string", "minLength": 1},
+    "depends": {"type": "array", "items": {"$ref": "#/$defs/reference"}},
+    "acceptance": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "current": {
+      "type": "object", "required": ["summary", "nextAction", "blockers"],
+      "properties": {
+        "summary": {"type": "string"}, "nextAction": {"type": "string"},
+        "blockers": {"type": "array", "items": {"type": ["string", "object"]}}
+      },
+      "additionalProperties": true
+    },
+    "completedAt": {"type": "string", "description": "Explicit completion date or ISO 8601 timestamp."},
+    "updatedAt": {"type": "string", "description": "Explicit update date or ISO 8601 timestamp."}
+  },
+  "$defs": {
+    "reference": {"type": "string", "pattern": "^([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+#)?[A-Za-z0-9][A-Za-z0-9._-]*$"}
+  },
+  "additionalProperties": true
+}

@@ -1,5 +1,7 @@
 # Public web distribution: agent contract
 
+Current work orientation: read [work/README.md](work/README.md) and generated [work/NOW.md](work/NOW.md), then the relevant canonical task and the product guidance below. Task records and frontier own execution state; product requirements, evidence and stronger validation remain with their existing sources.
+
 Work on main without force pushes. This is the only public publishing repository for selected Axioms Awake browser games and cross-project showcases. It is not a game-source monorepo. Read README.md and catalog/sites.json before editing.
 
 A producer owns only site/<registered-id>/** and releases/<registered-id>.json. Use the shared pinned action; never push a whole source checkout, replace all of site/, or run a producer-specific Pages deployment. Shared infrastructure and registry changes are maintainer work, not part of a game's publication payload.
