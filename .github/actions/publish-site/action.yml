@@ -128,28 +128,44 @@ runs:
         SITE_ID: ${{ inputs.site }}
         BROWSER_PYTHON: ${{ steps.browser.outputs.python }}
       run: '"$BROWSER_PYTHON" "$ACTION_ROOT/../../../tools/smoke.py" --site "$SITE_ID" --payload "$WORK/payload" --candidate "$WORK/candidate.json" --output "$WORK/evidence"'
-    - name: Retain private browser evidence
-      if: always() && steps.work.outputs.path != '' && steps.resolve.outputs.package_kind != 'release-asset'
-      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-      with:
-        name: web-smoke-${{ inputs.site }}-${{ github.run_attempt }}
-        path: ${{ steps.work.outputs.path }}/evidence/
-        if-no-files-found: ignore
-        retention-days: 7
-    - name: Retain release-asset smoke evidence before temporary cleanup
-      if: always() && steps.work.outputs.path != '' && steps.resolve.outputs.package_kind == 'release-asset'
+    - name: Retain bounded smoke evidence on the trusted runner
+      id: retention
+      if: always() && steps.work.outputs.path != '' && runner.environment == 'self-hosted'
+      continue-on-error: true
       shell: bash
       env:
         WORK: ${{ steps.work.outputs.path }}
         SITE_ID: ${{ inputs.site }}
         ACTION_ROOT: ${{ github.action_path }}
       run: |
+        set -euo pipefail
         if test -d "$WORK/evidence"; then
-          evidence_root="${CI_SHARED_EVIDENCE:-${RUNNER_TOOL_CACHE}/axioms-evidence}"
+          evidence_root="${CI_SHARED_EVIDENCE:-}"
+          if [[ -z "$evidence_root" ]]; then
+            : "${RUNNER_TOOL_CACHE:?Set CI_SHARED_EVIDENCE or RUNNER_TOOL_CACHE for bounded evidence retention}"
+            evidence_root="$RUNNER_TOOL_CACHE/axioms-evidence"
+          fi
           python3 "$ACTION_ROOT/runner_evidence.py" "$WORK/evidence" \
             --evidence-root "$evidence_root" --channel "publication-$SITE_ID"
           echo "Browser evidence retained for $SITE_ID; run $GITHUB_RUN_ID attempt ${GITHUB_RUN_ATTEMPT:-1}."
           if test -s "$WORK/evidence/report.json"; then cat "$WORK/evidence/report.json"; fi
+        else
+          echo "No browser evidence was produced; publication checks and outcomes remain in this run's logs."
+        fi
+    - name: Report browser evidence retention separately
+      if: always() && steps.work.outputs.path != ''
+      shell: bash
+      env:
+        RETENTION: ${{ steps.retention.outcome }}
+        RUNNER_ENVIRONMENT: ${{ runner.environment }}
+      run: |
+        if [[ "$RUNNER_ENVIRONMENT" == self-hosted && "$RETENTION" == success ]]; then
+          echo 'Bounded browser evidence was retained on the trusted runner.' >> "$GITHUB_STEP_SUMMARY"
+        elif [[ "$RUNNER_ENVIRONMENT" == self-hosted ]]; then
+          echo '::warning::Bounded runner evidence retention did not complete; inspect this run’s logs. Publication outcome is reported separately.'
+          echo 'Runner evidence retention did not complete; run logs remain available.' >> "$GITHUB_STEP_SUMMARY"
+        else
+          echo 'Hosted-runner evidence is available in this run’s logs only; no durable hosted artifact was uploaded.' >> "$GITHUB_STEP_SUMMARY"
         fi
     - name: Mint token restricted to the public destination
       id: app
