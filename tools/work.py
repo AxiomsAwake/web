@@ -338,7 +338,7 @@ def now_markdown(state, repo):
         lines.extend(['## Input issues', ''])
         lines.extend('- ' + clean(message) for message in repo['errors'] + repo['warnings'])
         lines.append('')
-    return '\n'.join(lines)
+    return '\n'.join(lines).rstrip('\n') + '\n'
 
 
 HTML = r'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -431,6 +431,8 @@ def main(argv=None):
         sub.add_argument('--workspace', type=Path, help='resolve cross-repository references in immediate Git projects')
         if command in ('list', 'show'):
             sub.add_argument('--json', action='store_true')
+        if command == 'build':
+            sub.add_argument('--check', action='store_true', help='read-only check that generated NOW.md is current')
         if command == 'list':
             sub.add_argument('--status', choices=STATUSES)
             sub.add_argument('--scope', choices=('queued', 'all'), default='queued', help='current frontier or all records')
@@ -464,10 +466,17 @@ def main(argv=None):
             return 1
         target = args.root / 'work/NOW.md'
         content = now_markdown(state, repo)
-        if not target.exists() or target.read_text() != content:
+        fresh = target.exists() and target.read_bytes() == content.encode('utf-8')
+        if args.check:
+            if not fresh:
+                print('work/NOW.md is stale or missing; run build', file=sys.stderr)
+                return 1
+            print('work/NOW.md current')
+            return 0
+        if not fresh:
             handle, temporary = tempfile.mkstemp(prefix='.NOW-', dir=str(target.parent))
             try:
-                with os.fdopen(handle, 'w') as output:
+                with os.fdopen(handle, 'w', encoding='utf-8', newline='\n') as output:
                     output.write(content)
                 os.replace(temporary, target)
             finally:

@@ -13,4 +13,3 @@ Mode: product; lifecycle: active.
 
 
 ## Parallel
-

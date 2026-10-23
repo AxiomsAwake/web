@@ -2,14 +2,14 @@
   "schema": "axioms-work-tooling/v1",
   "source": {
     "repository": "rmkn85/agentic-engineering",
-    "revision": "68fa8d19b0f1dcd06d2931ce857743ba8218e348"
+    "revision": "b16f99d5a0efc455c51d704ef91a0eb6b240e6f8"
   },
   "files": [
     {
       "sourcePath": "tools/project_work.py",
-      "sourceSha256": "185c80eeb0ef2b45ba274e54f950ea702f37c456c6400d23c744360b906109aa",
+      "sourceSha256": "60e2c25c1971c0e59eedab8461da70124148b1f85e6fd9e88edd3dc140affb4d",
       "installedPath": "tools/work.py",
-      "installedSha256": "185c80eeb0ef2b45ba274e54f950ea702f37c456c6400d23c744360b906109aa"
+      "installedSha256": "60e2c25c1971c0e59eedab8461da70124148b1f85e6fd9e88edd3dc140affb4d"
     },
     {
       "sourcePath": "schemas/axioms-task-v1.schema.json",
