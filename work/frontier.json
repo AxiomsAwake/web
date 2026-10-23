@@ -1,0 +1,17 @@
+{
+  "schema": "axioms-frontier/v1",
+  "repository": "AxiomsAwake/web",
+  "objective": "Publish only deliberately selected tested browser outputs from registered source repositories, retaining exact identity and isolated game folders in one assembled-site deployment. See README.md.",
+  "mode": "product",
+  "product": [],
+  "maintenance": [],
+  "parallel": [],
+  "references": [
+    "README.md"
+  ],
+  "extensions": {
+    "adoption": {
+      "queueState": "No current approved tasks recorded; requirements and known limits remain in the linked owning sources."
+    }
+  }
+}

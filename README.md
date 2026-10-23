@@ -1,5 +1,7 @@
 # Axioms Awake Gaming — public web distribution
 
+Current work: [shared backlog](work/README.md).
+
 One public publishing repository; independent game folders; one assembled-site deployment.
 
 **Catalogue:** https://axiomsawake.github.io/web/
