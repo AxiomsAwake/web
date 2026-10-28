@@ -19,6 +19,8 @@ ID = re.compile(r"[a-z][a-z0-9-]{0,47}\Z")
 SHA = re.compile(r"[a-f0-9]{40}\Z")
 HASHED = re.compile(r"assets/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+\.[a-f0-9]{8,64}\.[A-Za-z0-9]+\Z")
 RESERVED = {"__release.json"}
+# Maintainer-owned static information, never a producer or playable catalogue entry.
+INFORMATION = {"media-publisher": frozenset({"index.html", "privacy.html", "terms.html", "style.css"})}
 
 
 def require(condition: bool, message: str) -> None:
@@ -87,6 +89,7 @@ def registry(repo: Path) -> dict:
     require(isinstance(sites, dict) and bool(sites), "Empty registry")
     for key, entry in sites.items():
         require(bool(ID.fullmatch(key)), "Invalid site id")
+        require(key not in INFORMATION, "Site id collides with maintainer information")
         require(re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", entry.get("producer", "")) is not None, "Invalid producer")
         require(isinstance(entry.get("enabled"), bool), "enabled must be explicit")
         require(re.fullmatch(r"\.github/workflows/[A-Za-z0-9_-]+\.ya?ml", entry.get("workflow", "")) is not None, "Invalid source workflow")
@@ -225,12 +228,27 @@ def assemble(repo: Path, output: Path, commit: str) -> dict:
         require(not release_dir.is_symlink(), "Unsafe releases directory")
         for p in release_dir.iterdir():
             require(p.name.endswith('.json') and p.stem in sites and not p.is_symlink(), "Unregistered release")
+    information = repo / "information"
+    require(not output.resolve().is_relative_to(information.resolve()), "Cannot assemble inside information input")
+    selected_information = {}
+    require(not information.is_symlink(), "Unsafe information directory")
+    if information.exists():
+        require(information.is_dir() and not information.is_symlink(), "Unsafe information directory")
+        require({p.name for p in information.iterdir()} == set(INFORMATION), "Unexpected information folder")
+        for prefix, allowed in INFORMATION.items():
+            files = rows(information / prefix)
+            require({p.relative_to(information / prefix).as_posix() for p in (information / prefix).rglob("*")} == allowed,
+                    "Information files differ from explicit allowlist")
+            selected_information[prefix] = files
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
     deployment = {"schema": SCHEMA, "commit": commit, "sites": {}}
     cards = []
-    total = 0
+    total = sum(r["bytes"] for files in selected_information.values() for r in files)
+    require(total <= MAX_TOTAL, "Assembled site exceeds 900 MiB budget")
+    for prefix in selected_information:
+        shutil.copytree(information / prefix, output / prefix)
     for site_id, entry in sites.items():
         record = release_dir / f"{site_id}.json"
         if not record.exists():

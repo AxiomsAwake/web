@@ -139,6 +139,30 @@ Deliberately public JS/HTML/scripts, images, models, audio and downloadable arti
 
 Scope localStorage, IndexedDB names, caches and service workers by project. Subdirectories share an origin: these names avoid accidental cross-game interference, not hostile same-origin access. No catalogue-wide worker or blanket storage reset is introduced. Keep offline capabilities where games actually provide them; CDN-dependent output is not automatically offline.
 
+## Maintainer information pages
+
+`information/media-publisher/` owns the public information for the private local
+AxiomsAwake Media Publisher. The canonical assembler copies exactly `index.html`,
+`privacy.html`, `terms.html` and `style.css` to `/web/media-publisher/`. This fixed
+allowlist is infrastructure maintained here, separate from producer payloads,
+the game registry, catalogue cards and release counts. The prefix is reserved
+against registry collisions. Missing/extra files, unsafe paths and symlinks fail
+assembly; existing file/site limits apply and these bytes count toward the
+combined serving budget. The Pages fingerprint includes these selected bytes.
+Changes to this directory trigger the same serialized Pages deployment.
+
+The static pages explain the current local publisher; they expose no uploader,
+credentials, recordings or video identifiers. Content was checked against
+`GameDev/scripts/youtube/publisher.py` on 2026-10-28. Update the public explanation
+when that behavior changes. The intended OAuth Branding URLs are:
+
+- Homepage: https://axiomsawake.github.io/web/media-publisher/
+- Privacy: https://axiomsawake.github.io/web/media-publisher/privacy.html
+- Terms: https://axiomsawake.github.io/web/media-publisher/terms.html
+
+A commit or local assembly does not establish that these URLs are served. Verify
+the deployed HTML and its links before using them in Google OAuth Branding.
+
 ## Capacity and tests
 
 Current conservative guards: 90 MiB per file, 250 MiB per sub-site, 900 MiB combined current serving payload, and 5,000 files per sub-site. GitHub Pages currently limits the published site to 1 GB and has a soft 100 GB/month bandwidth allowance. Normal Git rejects files over 100 MiB; LFS pointers are not a Pages asset-serving solution. Monitor Git history growth separately from the current serving tree. Do not copy every historical build or native installer into this repository. If actual traffic/headers/commercial-hosting needs outgrow Pages, retain this producer contract and change the final serving adapter rather than multiplying public mirrors.

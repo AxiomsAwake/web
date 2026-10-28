@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>AxiomsAwake Media Publisher — Privacy Policy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><a class="brand" href="./">AxiomsAwake Media Publisher</a><nav aria-label="Information"><a href="./">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></header>
+<main id="main"><p class="eyebrow">AxiomsAwake · Local publishing tool</p><h1>Privacy Policy</h1>
+<p class="intro">This policy describes the private local AxiomsAwake Media Publisher and these public information pages.</p>
+<section aria-labelledby="access"><h2 id="access">Google and YouTube access</h2><p>The publisher requests the Google OAuth scope <code>https://www.googleapis.com/auth/youtube.force-ssl</code>. This scope grants broader YouTube account permissions than the publisher’s current commands use. The current commands verify the operator’s channel, read channel, video and playlist information, upload a deliberately selected local video and its metadata, update the selected video’s visibility and embedding setting, and create a playlist with the selected visibility or add the video to an existing owned playlist.</p><p>The operator selects the file, title, description, credits, privacy setting and playlist. The tool verifies the authorized channel against the selected AxiomsAwake channel before saving authorization. Uploaded media and metadata are sent to Google’s YouTube APIs. YouTube stores and makes that content available according to the selected visibility and its own policies.</p></section>
+<section aria-labelledby="storage"><h2 id="storage">Local storage and use</h2><p>Refresh credentials and signed resumable upload URLs are stored only in the local encrypted Secret Service credential store. Nonsecret publication journals are stored locally in the repository’s Git metadata directory. Journals record publication identity and progress, including file hashes, visibility, and video or playlist identifiers, so an interrupted upload can be resumed or reconciled.</p><p>The publisher uses Google APIs for authorization and YouTube operations. It does not sell Google user data, use it for advertising or profiling, or transfer it to other services. These public pages do not contain credentials, publication journals, recordings or private video identifiers.</p></section>
+<section aria-labelledby="control"><h2 id="control">Operator control and retention</h2><p>The operator can revoke the tool’s access through <a href="https://myaccount.google.com/permissions">Google Account permissions</a> and manage or delete uploaded videos and playlists in <a href="https://studio.youtube.com/">YouTube Studio</a>. Revoking access does not itself delete uploaded content or local journals. Local credentials and journals remain until the operator removes them using the local system’s controls. The publisher does not provide automatic data deletion.</p></section>
+<section aria-labelledby="website"><h2 id="website">This static website</h2><p>These information pages use no analytics, cookies, JavaScript or external fonts. GitHub Pages hosts them and may process normal delivery metadata, such as a visitor’s IP address and request information, under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>. Google and YouTube handle data under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p></section>
+<section aria-labelledby="contact"><h2 id="contact">Contact</h2><p>For questions about the tool or these pages, <a href="https://github.com/AxiomsAwake/web/issues">open an issue in AxiomsAwake/web</a>. Do not include credentials, authorization links or private media in a public issue.</p></section>
+</main>
+<footer><p>Published <time datetime="2026-10-28">28 October 2026</time>.</p><a href="../">Axioms Awake catalogue</a></footer>
+</body>
+</html>
