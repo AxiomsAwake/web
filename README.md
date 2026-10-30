@@ -29,7 +29,7 @@ The credential is restricted to this repository, but **GitHub does not grant Con
 | `the-keepers-suite` | `AxiomsAwake/TheKeepers` | `release.yml` (`Playable release`) | `TheKeepers-<tag>-suite-web.zip` GitHub Release asset, selected by `web-publish-suite.json` |
 | `living-worlds` | `AxiomsAwake/LivingWorlds` | Reserved, disabled | Requires a dedicated approved `public-web` package |
 
-The `cross-engine-comparison` and `engine-inspiration` sites use `AxiomsAwake/GameDev`, `.github/workflows/cross-engine-web.yml`, and the explicit source branch `work/cross-engine-suite-20261025`. Their selected manifests are `web-publish-cross-engine-comparison.json` and `web-publish-engine-inspiration.json`; their immutable Release packages are `cross-engine-comparison-<sha>.zip` and `engine-inspiration-<sha>.zip`. This preserves the research branch without merging it into GameDev main.
+The `cross-engine-comparison` and `engine-inspiration` sites use `AxiomsAwake/GameDev` and `.github/workflows/cross-engine-web.yml` on the default development source. Their selected manifests are `web-publish-cross-engine-comparison.json` and `web-publish-engine-inspiration.json`. Each static package is bound to its tested source release. Normal source updates and the maintained periodic refresh publish these viewers without running engines, rendering new movies or operating the private YouTube uploader. The detailed research handoff lives with the cross-engine exploration knowledge in GameDev.
 
 Only accepted active releases appear in the catalogue. A registry entry is not a claim of a live release. LivingWorlds' private concept handbook/source archive is deliberately not published.
 
