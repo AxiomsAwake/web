@@ -1,0 +1,42 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:e02ddcfb34570b8a10004380cdbbb26e4981257d213bf1ed28bb25141da4e99f",
+  "digest": "a0da5f5c3ff5a68bafef3f89d890a25a575c93648f256bf6cc40d574e536584a",
+  "files": [
+    {
+      "bytes": 5547,
+      "path": "app.js",
+      "sha256": "d70db774951361bd2e7afb363048eb8648a9a3d72cb6331340d7c27475a9fe02"
+    },
+    {
+      "bytes": 24853,
+      "path": "gallery-data.js",
+      "sha256": "e32286e64f60514a633d877304cd951dafe48a9dcaade2881211fcacf105d5df"
+    },
+    {
+      "bytes": 8043,
+      "path": "index.html",
+      "sha256": "02aa1dd0a8d22f774134a4af19efacff21b1f6f19dce7959742b7b22b27bd7ac"
+    }
+  ],
+  "package_kind": "release-asset",
+  "release_asset_id": 691744276,
+  "release_asset_name": "engine-inspiration-ef346a48fd92d8360d5be9bab6b31da01d2925c8.zip",
+  "release_asset_size": 38755,
+  "release_id": 428899398,
+  "release_tag": "cross-engine-web-ef346a48fd92d8360d5be9bab6b31da01d2925c8",
+  "retain_hashed_assets": false,
+  "retained": [],
+  "run_id": 41040265802,
+  "schema": 1,
+  "site": "engine-inspiration",
+  "smoke": {
+    "assert_selector": "#title",
+    "ready_selector": "#list",
+    "touch": true
+  },
+  "source": "AxiomsAwake/GameDev",
+  "source_sha": "ef346a48fd92d8360d5be9bab6b31da01d2925c8",
+  "suspended": false,
+  "watermark": "ef346a48fd92d8360d5be9bab6b31da01d2925c8"
+}
