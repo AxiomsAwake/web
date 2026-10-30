@@ -92,6 +92,28 @@
       "title": "Living Worlds",
       "kind": "Pre-production",
       "description": "Reserved for a deliberately approved public experience; private design archives are not published."
+    },
+    "cross-engine-comparison": {
+      "producer": "AxiomsAwake/GameDev",
+      "enabled": true,
+      "workflow": ".github/workflows/cross-engine-web.yml",
+      "source_branch": "work/cross-engine-suite-20261025",
+      "manifest_path": "web-publish-cross-engine-comparison.json",
+      "release_asset": "cross-engine-comparison-{sha}.zip",
+      "title": "Cross-engine comparison",
+      "kind": "Research showcase",
+      "description": "Compare selected engine examples and retained replication evidence."
+    },
+    "engine-inspiration": {
+      "producer": "AxiomsAwake/GameDev",
+      "enabled": true,
+      "workflow": ".github/workflows/cross-engine-web.yml",
+      "source_branch": "work/cross-engine-suite-20261025",
+      "manifest_path": "web-publish-engine-inspiration.json",
+      "release_asset": "engine-inspiration-{sha}.zip",
+      "title": "Engine inspiration",
+      "kind": "Research showcase",
+      "description": "Explore upstream scenes, useful capabilities and possible GameDev experiments."
     }
   }
 }

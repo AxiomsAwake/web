@@ -17,7 +17,7 @@ import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
-from contract import ID, SHA, MAX_SITE, MAX_TOTAL, assemble, decide, digest, install, read_json, registry, require, rows, safe_name, stage, validate_state, write_json
+from contract import ID, SHA, MAX_SITE, MAX_TOTAL, assemble, decide, digest, install, read_json, registry, require, rows, safe_name, source_branch, stage, validate_state, write_json
 
 TARGET = 'AxiomsAwake/web'
 BASE_URL = 'https://axiomsawake.github.io/web/'
@@ -83,13 +83,15 @@ def resolve(repo: Path, site_id: str, run_id: str, output: Path) -> dict:
     require(run_id.isdigit(), 'A numeric successful source workflow run ID is required')
     run = api(f'{source}/actions/runs/{run_id}')
     require(run.get('conclusion') == 'success' and run.get('status') == 'completed', 'Source workflow did not pass')
-    require(run.get('event') in ('push', 'workflow_dispatch') and run.get('head_branch') == 'main', 'Only trusted main builds may publish')
+    branch = source_branch(entry)
+    require(run.get('event') in ('push', 'workflow_dispatch') and run.get('head_branch') == branch,
+            'Only trusted registered-branch builds may publish')
     require(run['repository']['full_name'] == source and run['head_repository']['full_name'] == source, 'Foreign/fork build rejected')
     require(run.get('path', '').split('@')[0] == entry['workflow'], 'Unexpected source workflow')
     sha = run['head_sha']
     require(bool(SHA.fullmatch(sha)), 'Invalid tested SHA')
-    head = api(f'{source}/git/ref/heads/main')['object']['sha']
-    require(compare_source(source, sha, head) in ('ahead', 'identical'), 'Tested source is not on current main history')
+    head = api(f'{source}/git/ref/heads/{urllib.parse.quote(branch, safe="/")}')['object']['sha']
+    require(compare_source(source, sha, head) in ('ahead', 'identical'), 'Tested source is not on current registered branch history')
     manifest_path = entry.get('manifest_path', 'web-publish.json')
     config = json.loads(source_file(source, sha, manifest_path))
     require(config.get('site') == site_id and config.get('schema') == 1 and config.get('enabled') is True, 'Source has not approved this publication')

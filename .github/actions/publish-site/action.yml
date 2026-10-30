@@ -5,7 +5,7 @@ inputs:
     description: Registered site ID (also the owned folder)
     required: true
   source-run-id:
-    description: Exact successful main-branch build run
+    description: Exact successful build run on the registered source branch
     required: true
   token:
     description: Optional Contents-write token restricted to AxiomsAwake/web

@@ -55,6 +55,18 @@ def safe_name(name: str) -> str:
     return name
 
 
+def source_branch(entry: dict) -> str:
+    """A registry-selected literal branch, never a caller-supplied ref or pattern."""
+    branch = entry.get("source_branch", "main")
+    require(isinstance(branch, str) and 0 < len(branch) <= 255 and
+            re.fullmatch(r"[A-Za-z0-9_][A-Za-z0-9_./-]*", branch) is not None and
+            all(part and not part.startswith(".") and not part.endswith((".", ".lock"))
+                for part in branch.split("/")) and
+            ".." not in branch and branch != "HEAD" and not branch.startswith("refs/"),
+            "Invalid literal source branch")
+    return branch
+
+
 def rows(root: Path) -> list[dict]:
     require(root.is_dir() and not root.is_symlink(), "Payload must be a real directory")
     out = []
@@ -93,6 +105,7 @@ def registry(repo: Path) -> dict:
         require(re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", entry.get("producer", "")) is not None, "Invalid producer")
         require(isinstance(entry.get("enabled"), bool), "enabled must be explicit")
         require(re.fullmatch(r"\.github/workflows/[A-Za-z0-9_-]+\.ya?ml", entry.get("workflow", "")) is not None, "Invalid source workflow")
+        source_branch(entry)
         manifest_path = entry.get("manifest_path", "web-publish.json")
         safe_name(manifest_path)
         require(PurePosixPath(manifest_path).suffix.lower() == ".json", "Source manifest must be JSON")
