@@ -1,0 +1,42 @@
+{
+  "active": true,
+  "artifact_digest": "sha256:c99857ee00245182a750d2e33f8d4c39c4d0669b50e9d292c2cd4ee3ce2a65ea",
+  "digest": "232726e79acc7be12d9ffaf864844cd9aa0893ebd75a46f6fa4a050ab408272a",
+  "files": [
+    {
+      "bytes": 6910,
+      "path": "app.js",
+      "sha256": "01f8d73740a61a952b1e788b64a4344f69f833337225fd77188170c02b4fa45c"
+    },
+    {
+      "bytes": 25339,
+      "path": "gallery-data.js",
+      "sha256": "f3fc0c15897c7cfc90a4f7eff80c7651c24df8f626ac0c2eec3233dffa129bf4"
+    },
+    {
+      "bytes": 6153,
+      "path": "index.html",
+      "sha256": "d83d114434df70f5576f3de8977b7e240450cb00fd2ce043cfefb9805599ac49"
+    }
+  ],
+  "package_kind": "release-asset",
+  "release_asset_id": 691744272,
+  "release_asset_name": "cross-engine-comparison-ef346a48fd92d8360d5be9bab6b31da01d2925c8.zip",
+  "release_asset_size": 38714,
+  "release_id": 428899398,
+  "release_tag": "cross-engine-web-ef346a48fd92d8360d5be9bab6b31da01d2925c8",
+  "retain_hashed_assets": false,
+  "retained": [],
+  "run_id": 41040265802,
+  "schema": 1,
+  "site": "cross-engine-comparison",
+  "smoke": {
+    "assert_selector": ".card",
+    "ready_selector": "#cards",
+    "touch": true
+  },
+  "source": "AxiomsAwake/GameDev",
+  "source_sha": "ef346a48fd92d8360d5be9bab6b31da01d2925c8",
+  "suspended": false,
+  "watermark": "ef346a48fd92d8360d5be9bab6b31da01d2925c8"
+}
