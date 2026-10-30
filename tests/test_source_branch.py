@@ -109,7 +109,8 @@ class SourceBranchTests(unittest.TestCase):
         self.assertEqual(source_branch(sites['gamedev']), 'main')
         for site in ('cross-engine-comparison', 'engine-inspiration'):
             entry = sites[site]
-            self.assertEqual(source_branch(entry), BRANCH)
+            self.assertEqual(source_branch(entry), 'main')
+            self.assertNotIn('source_branch', entry)
             self.assertEqual(entry['producer'], 'AxiomsAwake/GameDev')
             self.assertEqual(entry['workflow'], '.github/workflows/cross-engine-web.yml')
             self.assertEqual(entry['release_asset'], site + '-{sha}.zip')
@@ -121,6 +122,11 @@ class SourceBranchTests(unittest.TestCase):
             with patch.dict('os.environ', {'GITHUB_REPOSITORY': 'AxiomsAwake/GameDev'}), \
                  patch('publish.api', side_effect=self.api), \
                  patch('publish.source_file', return_value=json.dumps(dict(config(), site='wrong-site')).encode()) as source:
+                self.run['head_branch'] = BRANCH
+                with self.assertRaisesRegex(ValueError, 'registered-branch'):
+                    resolve(self.root, site, '17', self.root / 'candidate.json')
+                source.assert_not_called()
+                self.run['head_branch'] = 'main'
                 with self.assertRaisesRegex(ValueError, 'has not approved'):
                     resolve(self.root, site, '17', self.root / 'candidate.json')
             source.assert_called_once_with('AxiomsAwake/GameDev', A, entry['manifest_path'])
