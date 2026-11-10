@@ -23,7 +23,7 @@ jobs:
   deploy:
     name: Assemble, deploy and verify current main · request ${{ github.sha }}
     runs-on: [self-hosted, romik-desktop, general]
-    timeout-minutes: 15
+    timeout-minutes: 30
     permissions:
       contents: read
       pages: write
@@ -72,6 +72,8 @@ jobs:
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
+          # GitHub's server-side file sync, not our upload, has stalled past the 10-minute default.
+          timeout: 1200000
       - name: Verify live deployment and sub-site identities
         if: steps.plan.outputs.deploy == 'true'
         id: live
