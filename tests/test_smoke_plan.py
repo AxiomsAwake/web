@@ -1,9 +1,11 @@
 import sys
+import json
+import tempfile
 from pathlib import Path
 import unittest
 from urllib.parse import urlsplit, parse_qs
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from smoke_plan import plan, console_is_error
+from smoke_plan import plan, console_is_error, staged_smoke_config, PLAYER_ENGINE_READY
 
 
 class SmokePlanTests(unittest.TestCase):
@@ -32,3 +34,45 @@ class SmokePlanTests(unittest.TestCase):
         self.assertTrue(console_is_error('error', 'Unhandled application error'))
         self.assertFalse(console_is_error('warning', 'software graphics'))
         self.assertFalse(console_is_error('error', 'WARNING: V-Sync mode is unavailable'))
+
+
+class PlayerStartupTests(unittest.TestCase):
+    def test_admitted_threaded_player_requires_positive_engine_marker(self):
+        with tempfile.TemporaryDirectory() as temp:
+            payload = Path(temp)
+            source = 'a' * 40
+            build = dict(schema='keepers-player-release-build/v1', target='web', mode='player-demo',
+                         selected={'id':'player'}, releaseSource=source, source_revision=source,
+                         webStartup='thread-capable')
+            (payload / 'build.json').write_text(json.dumps(build))
+            config = dict(ready_selector='#canvas', wait_hidden='#status', steps=[{'click':'#canvas'}], touch=True)
+            candidate = dict(site='the-keepers', source='AxiomsAwake/TheKeepers', source_sha=source,
+                             package_kind='release-asset')
+            result = staged_smoke_config('the-keepers', candidate, payload, config)
+            self.assertEqual(result, dict(config, ready_selector=PLAYER_ENGINE_READY))
+            self.assertEqual(config['ready_selector'], '#canvas')
+            # Legacy and other producers retain their existing readiness contract.
+            self.assertEqual(staged_smoke_config('the-keepers', candidate, None, config), config)
+            self.assertEqual(staged_smoke_config('another-site', candidate, payload, config), config)
+            del build['webStartup']; (payload / 'build.json').write_text(json.dumps(build))
+            self.assertEqual(staged_smoke_config('the-keepers', candidate, payload, config), config)
+            (payload / 'build.json').unlink()
+            self.assertEqual(staged_smoke_config('the-keepers', candidate, payload, config), config)
+
+    def test_unknown_or_unbound_threaded_startup_never_uses_premature_fallback(self):
+        with tempfile.TemporaryDirectory() as temp:
+            payload = Path(temp); source = 'a' * 40
+            build = dict(schema='keepers-player-release-build/v1', target='web', mode='player-demo',
+                         selected={'id':'player'}, releaseSource=source, source_revision=source,
+                         webStartup='thread-capable')
+            candidate = dict(site='the-keepers', source='AxiomsAwake/TheKeepers', source_sha=source,
+                             package_kind='release-asset')
+            config = dict(ready_selector='#canvas', wait_hidden='#status')
+            for patch in [dict(webStartup='unknown'), dict(releaseSource='b'*40), dict(source_revision='b'*40),
+                          dict(target='linux'), dict(schema='unknown')]:
+                with self.subTest(patch=patch), self.assertRaises(ValueError):
+                    (payload / 'build.json').write_text(json.dumps(dict(build, **patch)))
+                    staged_smoke_config('the-keepers', candidate, payload, config)
+            (payload / 'build.json').write_text(json.dumps(build))
+            with self.assertRaises(ValueError):
+                staged_smoke_config('the-keepers', dict(candidate, source='other/repo'), payload, config)

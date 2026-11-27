@@ -13,8 +13,8 @@ import threading
 import time
 from urllib.parse import urlparse
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
-from contract import ID, read_json, require
-from smoke_plan import plan
+from contract import ID, read_json, require, write_json
+from smoke_plan import plan, staged_smoke_config
 from console_diagnostics import ConsoleDiagnostics
 
 
@@ -142,7 +142,7 @@ def main():
     args = parser.parse_args()
     require(bool(ID.fullmatch(args.site)), 'Invalid site')
     candidate = read_json(args.candidate)
-    config = candidate.get('smoke', {})
+    config = staged_smoke_config(args.site, candidate, args.payload, candidate.get('smoke', {}))
     if args.url:
         print(json.dumps(check_routes(args.url, config, args.output)))
         return
@@ -154,7 +154,11 @@ def main():
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
         try:
-            print(json.dumps(check_routes(f'http://127.0.0.1:{server.server_port}/web/{args.site}/', config, args.output)))
+            result = check_routes(f'http://127.0.0.1:{server.server_port}/web/{args.site}/', config, args.output)
+            if config != candidate.get('smoke', {}):
+                # Preserve the actual strengthened, successfully verified plan for later checks.
+                write_json(args.candidate, dict(candidate, smoke=config))
+            print(json.dumps(result))
         finally:
             server.shutdown()
             server.server_close()

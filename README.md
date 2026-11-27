@@ -227,3 +227,22 @@ Checked 2026-09-09; configuration UI and plan entitlements may change.
 - Pages limits: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
 - Large files: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
 - Browser storage scope: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
+
+
+### Threaded Player startup smoke
+
+For an already admitted TheKeepers release-asset stage declaring the known
+`keepers-player-release-build/v1` thread-capable Player startup, smoke verification
+binds that declaration to the accepted producer/source and strengthens the legacy
+canvas selector. It waits for a visible canvas **and** the engine's inline
+`#status` `display: none` completion marker. The initial stylesheet's
+`visibility: hidden` is not completion: startup may still be activating its
+isolation worker and deliberately reloading the page. Normal clicks/taps,
+keyboard inputs, engine-error checks, assets and cached reload remain required.
+The verified stronger plan is retained only after the complete smoke succeeds.
+
+Legacy Godot packages without this startup declaration retain their existing
+selectors. Unknown/unbound declared threaded startup fails closed. This uses the
+existing verified source/stage contract, with no per-bootstrap SHA allowlist,
+extra package hashing or game-specific JavaScript/debug probe. Tooling changes
+alone do not select or publish a new site snapshot.
