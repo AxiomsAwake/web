@@ -43,7 +43,7 @@ jobs:
           RUNNER_ENVIRONMENT: ${{ runner.environment }}
         run: |
           set -euo pipefail
-          export PLAYWRIGHT_BROWSERS_PATH="$RUNNER_TOOL_CACHE/axioms-web/playwright"
+          export PLAYWRIGHT_BROWSERS_PATH="${CI_SHARED_CACHE:-$RUNNER_TOOL_CACHE/axioms-web}/playwright"
           echo "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH" >> "$GITHUB_ENV"
           python3 tools/browser_env.py --work "$RUNNER_TEMP/infra-python"
       - name: Verify browser-environment reuse
